@@ -36,7 +36,7 @@ export default function About() {
       <section className="bg-primary text-white py-16 md:py-24">
         <div className="container">
           <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-            About Coast to Coast
+            About Coast to Coast Trucking Boats
           </h1>
           <p className="text-xl opacity-90 max-w-3xl">
             Specialists in safe, professional oversized boat transport across Thailand's coasts
