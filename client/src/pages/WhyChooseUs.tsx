@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
       <section className="bg-primary text-white py-16 md:py-24">
         <div className="container">
           <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">Why Choose Us</h1>
-          <p className="text-xl opacity-90 max-w-3xl">Thailand's most trusted specialist in oversized boat transport</p>
+          <p className="text-xl opacity-90 max-w-3xl">Thailand's specialist in oversized boat transport</p>
         </div>
       </section>
 
@@ -71,23 +71,6 @@ export default function WhyChooseUs() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-primary/5">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl font-bold text-primary mb-4">By The Numbers</h2>
-            <p className="text-lg text-foreground/70">Our track record speaks for itself</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md border border-border text-center">
-                <p className="font-display text-4xl font-bold text-secondary mb-2">{stat.number}</p>
-                <p className="text-foreground/70 font-medium">{stat.label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
