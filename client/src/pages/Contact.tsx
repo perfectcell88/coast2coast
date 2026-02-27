@@ -64,8 +64,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-primary mb-1">Phone</h3>
-                    <a href="tel:+66XXXXXXXXX" className="text-foreground/70 hover:text-secondary transition-colors">
-                      +66 (0) XXX-XXXX
+                    <a href="tel:++66862697138" className="text-foreground/70 hover:text-secondary transition-colors">
+                      +66 86 269 7138
                     </a>
                   </div>
                 </div>
@@ -76,8 +76,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-primary mb-1">Email</h3>
-                    <a href="mailto:info@coasttocoast.co.th" className="text-foreground/70 hover:text-secondary transition-colors">
-                      info@coasttocoast.co.th
+                    <a href="mailto:brentmcinnes000@gmail.com" className="text-foreground/70 hover:text-secondary transition-colors">
+                      brentmcinnes000@gmail.com
                     </a>
                   </div>
                 </div>
@@ -86,11 +86,15 @@ export default function Contact() {
                   <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MessageCircle className="text-secondary" size={24} />
                   </div>
-                  <div>
-                    <h3 className="font-display font-bold text-primary mb-1">WhatsApp</h3>
-                    <a href="https://wa.me/66XXXXXXXXX" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-secondary transition-colors">
-                      Message us on WhatsApp
-                    </a>
+                <h3 className="font-display font-bold text-primary mb-1">WhatsApp</h3>
+<a
+  href="https://wa.me/66862697138"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-foreground/70 hover:text-secondary transition-colors"
+>
+  Message us on WhatsApp
+</a>
                   </div>
                 </div>
 
