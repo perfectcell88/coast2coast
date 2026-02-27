@@ -11,7 +11,7 @@ import { Anchor, Shield, Users, Clock, CheckCircle, ArrowRight } from "lucide-re
  */
 
 export default function Home() {
-  const heroImage = "https://private-us-east-1.manuscdn.com/sessionFile/YkwAmRvQLErSCeWY8dqaO8/sandbox/3HGU8ECKvYph2ojdYQzeZE-img-1_1772161841000_na1fn_aGVyby15YWNodC10cmFuc3BvcnQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWWt3QW1SdlFMRXJTQ2VXWThkcWFPOC9zYW5kYm94LzNIR1U4RUNLdllwaDJvamRZUXplWkUtaW1nLTFfMTc3MjE2MTg0MTAwMF9uYTFmbl9hR1Z5YnkxNVlXTm9kQzEwY21GdWMzQnZjblEucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=lkuUQvb2U1u888KzMSX~QEyc-0yYIIcFQ-nhqhSyJmPOq9-anNCorwH6uannb0-C647mZHVHvovSaBcdEC4yseK9edu5zNX7CTp8r-cYDE1v0laXsKSc8nO-~2xVO78B2~YFE-BU2EH7r4ewpVhOtf~Ox3VXTjK7LRp-odLTHcuD~omtVVobeyetLC552mvuBeyfqZLQ5Lpdme~xJ3BMzio5efpkb7sI8DrLKMd5l1XX-I~leUOVK~kEMxBCo4s-WDED7wQcXFyq4xlxq5gY9IbrT~URI-NYb1nnNTQ-iwTXs~3IgHqTAe6DVWdb33F7Yc8LgCoW5Fmpf48utci2Hg__";
+  const heroImage = "/heroboat.jpg";
 
   const whyChooseItems = [
     {
