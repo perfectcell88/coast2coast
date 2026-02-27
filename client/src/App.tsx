@@ -1,3 +1,4 @@
+import FloatingContact from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -42,6 +43,7 @@ function App() {
               <Router />
             </main>
             <Footer />
+            <FloatingContact />
           </div>
         </TooltipProvider>
       </ThemeProvider>
