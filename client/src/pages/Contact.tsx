@@ -71,32 +71,24 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-secondary" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-primary mb-1">Email</h3>
-                    <a href="mailto:brentmcinnes000@gmail.com" className="text-foreground/70 hover:text-secondary transition-colors">
-                      brentmcinnes000@gmail.com
-                    </a>
-                  </div>
-                </div>
+  <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+    <MessageCircle className="text-secondary" size={24} />
+  </div>
 
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="text-secondary" size={24} />
-                  </div>
-                <h3 className="font-display font-bold text-primary mb-1">WhatsApp</h3>
-<a
-  href="https://wa.me/66862697138"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-foreground/70 hover:text-secondary transition-colors"
->
-  Message us on WhatsApp
-</a>
-                  </div>
-                </div>
+  <div>
+    <h3 className="font-display font-bold text-primary mb-1">
+      WhatsApp
+    </h3>
+    <a
+      href="https://wa.me/66862697138"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-foreground/70 hover:text-secondary transition-colors"
+    >
+      Message us on WhatsApp
+    </a>
+  </div>
+</div>
 
                 <div className="flex gap-4">
                   <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
