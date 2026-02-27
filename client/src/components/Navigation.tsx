@@ -24,7 +24,7 @@ export default function Navigation() {
             <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-bold">⚓</span>
             </div>
-            <span className="hidden sm:inline">Coast to Coast</span>
+            <span className="hidden sm:inline">Coast to Coast Trucking Boats</span>
           </a>
         </Link>
 
