@@ -81,19 +81,19 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone size={16} className="flex-shrink-0 mt-0.5" />
-                <a href="tel:+66XXXXXXXXX" className="hover:text-secondary transition-colors">
-                  +66 (0) XXX-XXXX
+                <a href="tel:+66862697138" className="hover:text-secondary transition-colors">
+                  +66 86 269 7138
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail size={16} className="flex-shrink-0 mt-0.5" />
-                <a href="mailto:info@coasttocoast.co.th" className="hover:text-secondary transition-colors">
-                  info@coasttocoast.co.th
+                <a href="mailto:brentmcinnes000@gmail.com" className="hover:text-secondary transition-colors">
+                  brentmcinnes000@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MessageCircle size={16} className="flex-shrink-0 mt-0.5" />
-                <a href="https://wa.me/66XXXXXXXXX" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
+                <a href="https://wa.me/66862697138" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
                   WhatsApp
                 </a>
               </li>
