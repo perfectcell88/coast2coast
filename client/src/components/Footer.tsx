@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Anchor, Phone, Mail, MessageCircle, Facebook } from "lucide-react";
+import { Phone, Mail, MessageCircle, Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -24,13 +24,10 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{
-                  background: "linear-gradient(135deg, #0a8a8a 0%, #00c8c8 100%)",
-                  boxShadow: "0 0 20px rgba(0,200,200,0.3)",
-                }}
+                className="w-11 h-11 rounded-xl flex-shrink-0 overflow-hidden"
+                style={{ boxShadow: "0 0 20px rgba(0,200,200,0.3)" }}
               >
-                <Anchor className="text-white" size={20} />
+                <img src="/logo-mark.webp" alt="Coast to Coast Marine Transportation Thailand" className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="font-display font-bold text-base leading-tight text-white">Coast to Coast</p>
@@ -54,8 +51,7 @@ export default function Footer() {
                 color: "rgba(0,200,200,0.75)",
               }}
             >
-              <Anchor size={11} />
-              A subsidiary of Phuket Marine Oracle Co/Ltd
+              ⚓ A subsidiary of Phuket Marine Oracle Co/Ltd
             </div>
           </div>
 

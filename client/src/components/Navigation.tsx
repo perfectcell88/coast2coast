@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Anchor } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -63,17 +63,20 @@ export default function Navigation() {
         {/* Logo */}
         <Link href="/">
           <a className="flex items-center gap-3 group flex-shrink-0">
-            {/* Icon with marine glow */}
+            {/* Custom logo mark */}
             <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-105"
+              className="w-10 h-10 rounded-xl flex-shrink-0 overflow-hidden transition-all duration-300 group-hover:scale-105"
               style={{
-                background: "linear-gradient(135deg, #0a8a8a 0%, #00c8c8 100%)",
                 boxShadow: scrolled
                   ? "0 0 16px rgba(0,200,200,0.45), 0 2px 8px rgba(0,0,0,0.3)"
                   : "0 2px 8px rgba(0,0,0,0.25)",
               }}
             >
-              <Anchor className="text-white" size={19} strokeWidth={2} />
+              <img
+                src="/logo-mark.webp"
+                alt="Coast to Coast Marine Transportation Thailand"
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Wordmark */}
             <span className="hidden sm:block leading-none">
