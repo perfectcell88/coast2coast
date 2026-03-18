@@ -164,8 +164,8 @@ export default function Home() {
     },
     {
       icon: Clock,
-      title: "Coast to Coast in Under a Week",
-      description: "From Pattaya or Bangkok to Phuket in under 7 days, adding only approximately 50 engine hours to your vessel's log.",
+      title: "Door-to-Door in Under a Week",
+      description: "Crane out, overland, crane in — your vessel is back in the water at its destination within 7 days, with full port clearance handled for you.",
     },
   ];
 

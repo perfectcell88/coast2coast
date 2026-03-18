@@ -86,20 +86,53 @@ export default function About() {
     <div className="min-h-screen">
 
       {/* Hero */}
-      <section className="bg-primary text-white py-20 md:py-28">
-        <div className="container">
+      <section
+        className="relative text-white py-32 md:py-44 overflow-hidden"
+        style={{
+          backgroundImage: "url('/gallery/9.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 40%",
+        }}
+      >
+        {/* Cinematic overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(6,22,44,0.88) 0%, rgba(6,22,44,0.72) 50%, rgba(14,116,144,0.45) 100%)",
+          }}
+        />
+        {/* Subtle teal accent line at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-4">About Us</p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+            <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#2dd4bf" }}>About Us</p>
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
               Coast to Coast Marine<br />Transportation Thailand
             </h1>
-            <p className="text-xl opacity-80 max-w-3xl">
+            <p className="text-xl max-w-3xl leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
               Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co., Ltd.
             </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              {["Powerboats", "Keel Yachts", "Catamarans", "Both Directions"].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-4 py-1.5 rounded-full text-sm font-medium"
+                  style={{
+                    background: "rgba(14,116,144,0.35)",
+                    border: "1px solid rgba(45,212,191,0.4)",
+                    color: "#a5f3fc",
+                    backdropFilter: "blur(8px)",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
