@@ -229,7 +229,10 @@ export default function Home() {
         className="relative min-h-screen bg-cover bg-center flex items-center justify-center overflow-hidden"
         style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/88 via-primary/65 to-secondary/50" />
+        {/* Darkened overlay for strong text contrast */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(8,32,50,0.92) 0%, rgba(10,55,65,0.82) 50%, rgba(0,100,100,0.70) 100%)" }} />
+        {/* Subtle radial light bloom from centre */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,184,184,0.08) 0%, transparent 70%)" }} />
 
         <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-16 pb-40">
           <motion.div
@@ -238,24 +241,30 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
             <div className="flex items-center justify-center gap-3 mb-7">
-              <div className="h-px w-10 bg-secondary opacity-80" />
+              <div
+                className="h-px w-12"
+                style={{ background: "linear-gradient(90deg, transparent, #00c8c8)", boxShadow: "0 0 6px rgba(0,200,200,0.6)" }}
+              />
               <p
-                className="font-mono-accent text-xs md:text-sm tracking-[0.3em] uppercase font-bold"
+                className="font-mono-accent text-xs md:text-sm tracking-[0.28em] uppercase font-semibold"
                 style={{
-                  color: '#ffffff',
-                  textShadow: '0 1px 8px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)',
+                  color: '#e0f7f7',
+                  textShadow: '0 0 20px rgba(0,200,200,0.5), 0 1px 6px rgba(0,0,0,0.8)',
                   letterSpacing: '0.28em',
                 }}
               >
                 Coast to Coast Marine Transportation Thailand
               </p>
-              <div className="h-px w-10 bg-secondary opacity-80" />
+              <div
+                className="h-px w-12"
+                style={{ background: "linear-gradient(90deg, #00c8c8, transparent)", boxShadow: "0 0 6px rgba(0,200,200,0.6)" }}
+              />
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Thailand's Premier<br />
               <span className="text-secondary">Vessel Relocation</span> Specialists
             </h1>
-            <p className="text-xl md:text-2xl mb-10 opacity-85 font-light max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl mb-10 font-light max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               Gulf of Thailand to the Andaman Sea — Pattaya to Phuket — in under a week. Only 50 engine hours. Total peace of mind.
             </p>
             <div className="flex flex-col items-center gap-4 justify-center">
@@ -277,6 +286,18 @@ export default function Home() {
               </button>
             </div>
           </motion.div>
+        {/* Animated scroll chevron */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" })}
+        >
+          <span className="text-white/40 text-xs tracking-widest uppercase font-mono-accent" style={{ fontSize: "0.6rem", letterSpacing: "0.2em" }}>Scroll</span>
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L11 12L21 1" stroke="rgba(0,200,200,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </motion.div>
         </div>
 
       </section>
