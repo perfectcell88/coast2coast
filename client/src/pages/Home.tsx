@@ -30,6 +30,10 @@ const galleryImages = [
   { src: "/gallery/7.webp", alt: "Catamaran lifted by crane at night" },
   { src: "/gallery/9.webp", alt: "Catamaran on low-deck trailer on the road" },
   { src: "/gallery/10.webp", alt: "Dual crane setup ready for lift" },
+  { src: "/gallery/11.webp", alt: "Luxury powerboat secured on low-deck trailer for overland transport" },
+  { src: "/gallery/12.webp", alt: "Keel yacht on specialist low-loader — rear view showing hull profile" },
+  { src: "/gallery/13.webp", alt: "Sailing yacht oversize load transit on open highway" },
+  { src: "/gallery/14.webp", alt: "Keel yacht on low-deck trailer secured for overland relocation" },
 ];
 
 const fadeUp = {
