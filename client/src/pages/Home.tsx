@@ -187,9 +187,20 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
-            <p className="font-mono-accent text-xs tracking-[0.35em] uppercase text-secondary mb-5 opacity-90">
-              Coast to Coast Marine Transportation Thailand
-            </p>
+            <div className="flex items-center justify-center gap-3 mb-7">
+              <div className="h-px w-10 bg-secondary opacity-80" />
+              <p
+                className="font-mono-accent text-xs md:text-sm tracking-[0.3em] uppercase font-bold"
+                style={{
+                  color: '#ffffff',
+                  textShadow: '0 1px 8px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)',
+                  letterSpacing: '0.28em',
+                }}
+              >
+                Coast to Coast Marine Transportation Thailand
+              </p>
+              <div className="h-px w-10 bg-secondary opacity-80" />
+            </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Thailand's Premier<br />
               <span className="text-secondary">Vessel Relocation</span> Specialists
@@ -197,20 +208,20 @@ export default function Home() {
             <p className="text-xl md:text-2xl mb-10 opacity-85 font-light max-w-2xl mx-auto">
               Gulf of Thailand to the Andaman Sea — Pattaya to Phuket — in under a week. Only 50 engine hours. Total peace of mind.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col items-center gap-4 justify-center">
               <Link href="/contact">
                 <a>
-                  <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg font-semibold shadow-lg">
+                  <Button className="bg-secondary hover:bg-secondary/90 text-white px-10 py-6 text-lg font-semibold shadow-xl w-64 sm:w-72">
                     Request a Quote
                   </Button>
                 </a>
               </Link>
               <button
                 onClick={() => setVideoOpen(true)}
-                className="inline-flex items-center justify-center gap-3 border-2 border-white/60 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-md transition-all"
+                className="inline-flex items-center justify-center gap-3 border-2 border-white/50 text-white hover:bg-white/15 hover:border-white/80 px-10 py-4 text-base font-medium rounded-md transition-all w-64 sm:w-72"
               >
-                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
-                  <Play size={14} className="ml-0.5" />
+                <div className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                  <Play size={12} className="ml-0.5" />
                 </div>
                 Watch Our Process
               </button>
@@ -218,30 +229,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Stats bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="absolute bottom-0 left-0 right-0 bg-primary/80 backdrop-blur-sm border-t border-white/10"
-        >
-          <div className="container py-5">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-white text-center">
-              {[
-                { value: "350", unit: "Sea Miles", label: "Total Route" },
-                { value: "<7", unit: "Days", label: "Coast to Coast" },
-                { value: "50", unit: "Eng. Hours", label: "Added to Log" },
-                { value: "32T", unit: "Capacity", label: "Max Weight" },
-              ].map((s, i) => (
-                <div key={i} className="py-1">
-                  <span className="font-display text-2xl font-bold text-secondary">{s.value}</span>
-                  <span className="text-sm ml-1 opacity-80">{s.unit}</span>
-                  <p className="text-xs opacity-55 mt-0.5">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </section>
 
       {/* ── VIDEO MODAL ───────────────────────────────────────────── */}

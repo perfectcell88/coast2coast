@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Award, Users, Zap, Globe, Anchor, Building2 } from "lucide-react";
+import { Award, Users, Zap, Globe, Anchor, Building2, CheckCircle, Ship } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
@@ -50,12 +50,12 @@ export default function About() {
     {
       icon: Award,
       title: "Excellence",
-      description: "We maintain the highest standards in boat transport and maritime logistics — every vessel, every time.",
+      description: "We maintain the highest standards in vessel transport and maritime logistics — every vessel, every time, without exception.",
     },
     {
       icon: Users,
       title: "Expertise",
-      description: "Our team brings decades of combined experience in marine operations, crane logistics, and coastal navigation.",
+      description: "Our team brings deep experience in marine operations, crane logistics, overland transport, and coastal navigation across Thailand.",
     },
     {
       icon: Zap,
@@ -65,8 +65,21 @@ export default function About() {
     {
       icon: Globe,
       title: "Professionalism",
-      description: "Licensed captains, engineers, and loadmasters on every transport — your vessel is in expert hands throughout.",
+      description: "Licensed captains, engineers, and a dedicated Maritime Loadmaster on every transport — your vessel is in expert hands throughout.",
     },
+  ];
+
+  const capabilities = [
+    "Powerboats, Keel Yachts & Catamarans",
+    "Vessels up to 15m length, 5.5m beam, 5.5m height",
+    "Maximum vessel weight: 32 tonnes",
+    "100-ton crane at Ranong for safe water launch",
+    "Custom-fabricated transit cradle for every vessel",
+    "Maritime Loadmaster present on every job",
+    "Ticketed captains and engineers for sea legs",
+    "Title transfers and port clearance administration",
+    "Monthly moorings at Gulf or Andaman coast",
+    "Both directions — Gulf to Andaman and Andaman to Gulf",
   ];
 
   return (
@@ -85,54 +98,81 @@ export default function About() {
               Coast to Coast Marine<br />Transportation Thailand
             </h1>
             <p className="text-xl opacity-80 max-w-3xl">
-              Specialists in safe, professional oversized vessel transport across Thailand's coasts — a subsidiary of Phuket Marine Oracle Co/Ltd.
+              Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co/Ltd.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Company Overview */}
+      {/* Our Story */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <FadeSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div variants={fadeUp}>
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Who We Are</p>
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Story</p>
                 <h2 className="font-display text-4xl font-bold text-primary mb-6">
-                  Thailand's Premier Vessel Relocation Service
+                  Built Around a Better Way
                 </h2>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  Coast to Coast Marine Transportation Thailand transfers vessels between the Gulf of Thailand and the Andaman Sea in just a few days. Operating the Bangkok/Pattaya to Chumphon to Ranong corridor, we crane your vessel out of the water, secure it on our low-deck trailer with a custom-fabricated transit cradle, and transport it overland across the 80 km land bridge — before craning it back into the Andaman Sea at Ranong.
+                  The traditional route for moving a vessel between Thailand's Gulf and Andaman coasts meant navigating the South China Sea, threading the Malacca Straits, and enduring 1,700 miles of open ocean — a gruelling 12-plus-day passage adding over 500 engine hours to your vessel's log. For many owners, it simply wasn't worth the risk.
                 </p>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  We relocate vessels in both directions — east coast to west coast, and west coast to east coast. Our experienced delivery crew can complete the final voyage to your destination on the Andaman coast, or we hand over directly to your own crew.
+                  Coast to Coast Marine Transportation Thailand was founded on a straightforward insight: Thailand's geography offers a shortcut. The 80 km isthmus between Chumphon on the Gulf side and Ranong on the Andaman side means a vessel can be craned out of the water, transported overland, and relaunched — completing the coast-to-coast journey in under a week, adding only approximately 50 engine hours.
                 </p>
                 <p className="text-lg text-foreground/70 leading-relaxed">
-                  From initial consultation to final delivery, we provide end-to-end coordination. Our Maritime Loadmaster ensures your boat is handled correctly and well-secured throughout its journey, travelling with it from coast to coast in the rear pilot vehicle.
+                  We built the expertise, the equipment, and the professional team to make that shortcut a reliable, premium service. Today, boat owners and captains across Thailand trust us with their most valuable assets — and we treat every vessel accordingly.
                 </p>
               </motion.div>
 
+              <motion.div variants={fadeUp} className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                  <img
+                    src="/gallery/9.webp"
+                    alt="Catamaran being transported overland on a low-deck trailer in Thailand"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -left-5 bg-secondary text-white rounded-2xl p-5 shadow-xl">
+                  <p className="font-display text-3xl font-bold">80 km</p>
+                  <p className="text-sm opacity-80">Overland Land Bridge</p>
+                </div>
+              </motion.div>
+            </div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* Who We Are — Operations */}
+      <section className="py-20 md:py-28 bg-primary/5">
+        <div className="container">
+          <FadeSection>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
               <motion.div variants={fadeUp} className="space-y-6">
                 {/* Subsidiary badge */}
-                <div className="bg-primary/5 border border-primary/15 rounded-2xl p-6 flex gap-4 items-start">
+                <div className="bg-white border border-primary/15 rounded-2xl p-6 flex gap-4 items-start shadow-sm">
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Building2 className="text-primary" size={22} />
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-1">Part of a Larger Group</h3>
+                    <h3 className="font-display text-lg font-bold text-primary mb-1">Part of Phuket Marine Oracle Co/Ltd</h3>
                     <p className="text-foreground/65 text-sm leading-relaxed">
-                      Coast to Coast Marine Transportation Thailand is a subsidiary of <strong className="text-primary">Phuket Marine Oracle Co/Ltd</strong>, bringing the full resources, network, and expertise of an established Thai marine enterprise to every relocation.
+                      Coast to Coast Marine Transportation Thailand is a subsidiary of <strong className="text-primary">Phuket Marine Oracle Co/Ltd</strong> — an established Thai marine enterprise. This means you benefit from a wider professional network, institutional resources, and the credibility of a registered Thai company behind every job.
                     </p>
                   </div>
                 </div>
 
                 {/* Vessel types */}
-                <div className="bg-secondary/8 border border-secondary/20 rounded-2xl p-6 flex gap-4 items-start">
+                <div className="bg-white border border-secondary/20 rounded-2xl p-6 flex gap-4 items-start shadow-sm">
                   <div className="w-12 h-12 bg-secondary/15 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Anchor className="text-secondary" size={22} />
                   </div>
                   <div>
                     <h3 className="font-display text-lg font-bold text-primary mb-2">Vessels We Transport</h3>
+                    <p className="text-sm text-foreground/65 mb-3 leading-relaxed">
+                      We transport powerboats, keel yachts, and catamarans. Our custom-fabricated transit cradle is engineered specifically for your hull profile — not a one-size-fits-all solution.
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {["Powerboats", "Keel Yachts", "Catamarans"].map((v) => (
                         <span key={v} className="bg-secondary/15 text-secondary text-xs font-semibold px-3 py-1.5 rounded-full">
@@ -151,13 +191,71 @@ export default function About() {
                     { value: "80 km", unit: "Overland", label: "Land Bridge" },
                     { value: "100T", unit: "Crane", label: "At Ranong" },
                   ].map((s, i) => (
-                    <div key={i} className="bg-white border border-border rounded-xl p-4 text-center">
+                    <div key={i} className="bg-white border border-border rounded-xl p-4 text-center shadow-sm">
                       <p className="font-display text-2xl font-bold text-secondary">{s.value}</p>
                       <p className="text-xs font-semibold text-primary">{s.unit}</p>
                       <p className="text-xs text-foreground/50 mt-0.5">{s.label}</p>
                     </div>
                   ))}
                 </div>
+              </motion.div>
+
+              <motion.div variants={fadeUp}>
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">What We Do</p>
+                <h2 className="font-display text-4xl font-bold text-primary mb-6">
+                  Full-Service Vessel Relocation
+                </h2>
+                <p className="text-lg text-foreground/70 mb-6 leading-relaxed">
+                  We operate the Bangkok/Pattaya to Chumphon to Ranong corridor in both directions. Our team manages every aspect of the relocation — crane operations, overland transit, sea legs, and all associated administration — so you don't have to coordinate multiple contractors.
+                </p>
+                <ul className="space-y-3">
+                  {capabilities.map((cap, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle className="text-secondary flex-shrink-0 mt-0.5" size={17} />
+                      <span className="text-sm text-foreground/70 leading-relaxed">{cap}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* The Team */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container">
+          <FadeSection>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div variants={fadeUp} className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                  <img
+                    src="/gallery/2.webp"
+                    alt="Coast to Coast team preparing a vessel for transport"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -right-5 bg-primary text-white rounded-2xl p-5 shadow-xl">
+                  <Ship className="text-secondary mb-1" size={22} />
+                  <p className="font-display text-sm font-bold">Professional Team</p>
+                  <p className="text-xs opacity-60">Every job, every time</p>
+                </div>
+              </motion.div>
+
+              <motion.div variants={fadeUp}>
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our People</p>
+                <h2 className="font-display text-4xl font-bold text-primary mb-6">
+                  The Team Behind Every Transport
+                </h2>
+                <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
+                  Every Coast to Coast relocation is managed by a dedicated Maritime Loadmaster who oversees the crane lift, the securement of your vessel onto our custom transit cradle, the overland transit, and the re-launch at the other end. They travel with your vessel in the rear pilot vehicle for the entire journey.
+                </p>
+                <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
+                  For the sea legs — whether that's the Gulf approach to Chumphon or the Andaman delivery from Ranong to Phuket — we deploy fully licensed, ticketed marine captains and engineers. Your vessel is never in unqualified hands.
+                </p>
+                <p className="text-lg text-foreground/70 leading-relaxed">
+                  From initial consultation to final handover, you have one point of contact. We handle the logistics, the paperwork, the crane bookings, and the coordination — so you can focus on what matters.
+                </p>
               </motion.div>
             </div>
           </FadeSection>
@@ -168,17 +266,21 @@ export default function About() {
       <section className="py-20 md:py-28 bg-primary/5">
         <div className="container">
           <FadeSection>
+            <motion.div variants={fadeUp} className="text-center mb-12">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Purpose</p>
+              <h2 className="font-display text-4xl font-bold text-primary mb-4">Mission & Vision</h2>
+            </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-md border border-border">
+              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-sm border border-border">
                 <h3 className="font-display text-2xl font-bold text-primary mb-4">Our Mission</h3>
                 <p className="text-foreground/65 leading-relaxed">
                   To provide safe, reliable, and professional vessel transport services that exceed client expectations. We are committed to delivering your boat on time, in perfect condition, with transparent communication and expert handling throughout every journey — coast to coast.
                 </p>
               </motion.div>
-              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-md border border-border">
+              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-sm border border-border">
                 <h3 className="font-display text-2xl font-bold text-primary mb-4">Our Vision</h3>
                 <p className="text-foreground/65 leading-relaxed">
-                  To be Thailand's most trusted and innovative marine transport specialist, recognised for our unwavering commitment to safety, professionalism, and client satisfaction. We aim to set the industry standard for oversized vessel relocation across the Kingdom.
+                  To be Thailand's most trusted marine transport specialist, recognised for our unwavering commitment to safety, professionalism, and client satisfaction. We aim to set the industry standard for oversized vessel relocation across the Kingdom.
                 </p>
               </motion.div>
             </div>
@@ -226,7 +328,7 @@ export default function About() {
             <motion.div variants={fadeUp}>
               <h2 className="font-display text-4xl font-bold mb-6">Ready to Work With Us?</h2>
               <p className="text-xl opacity-75 mb-10 max-w-2xl mx-auto">
-                Contact our team to discuss your vessel transport needs and receive a professional quote
+                Contact our team to discuss your vessel transport needs and receive a professional quote.
               </p>
               <Link href="/contact">
                 <a>
