@@ -265,7 +265,7 @@ export default function Home() {
               <span className="text-secondary">Vessel Relocation</span> Specialists
             </h1>
             <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
-              From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, and Phuket in under a week, adding only ~50 engine hours to your log.
+              From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, and Phuket in under a week.
             </p>
             <div className="flex flex-col items-center gap-5 justify-center">
               <Link href="/contact">
