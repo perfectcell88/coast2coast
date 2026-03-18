@@ -278,11 +278,11 @@ export default function Home() {
       </AnimatePresence>
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28" style={{ background: "linear-gradient(180deg, #f8fafb 0%, #ffffff 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Advantage</p>
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00a8a8" }}>Our Advantage</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
                 Why Choose Coast to Coast?
               </h2>
@@ -297,10 +297,32 @@ export default function Home() {
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    className="bg-white p-7 rounded-xl shadow-sm hover:shadow-lg transition-all border border-border hover:-translate-y-1 duration-300 group"
+                    className="relative bg-white rounded-2xl p-7 group cursor-default overflow-hidden"
+                    style={{
+                      border: "1px solid rgba(0,168,168,0.12)",
+                      boxShadow: "0 2px 16px rgba(10,37,64,0.06), 0 1px 4px rgba(0,0,0,0.04)",
+                      transition: "box-shadow 0.3s ease, transform 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 40px rgba(0,168,168,0.18), 0 2px 12px rgba(0,0,0,0.08)";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 16px rgba(10,37,64,0.06), 0 1px 4px rgba(0,0,0,0.04)";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                    }}
                   >
-                    <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
-                      <Icon className="text-secondary" size={24} />
+                    {/* Top accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: "linear-gradient(90deg, transparent, #00c8c8, transparent)" }} />
+                    <div
+                      className="w-13 h-13 rounded-2xl flex items-center justify-center mb-5"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(0,168,168,0.12) 0%, rgba(0,200,200,0.18) 100%)",
+                        width: "52px", height: "52px",
+                      }}
+                    >
+                      <Icon style={{ color: "#0a8a8a" }} size={24} />
                     </div>
                     <h3 className="font-display text-lg font-bold text-primary mb-2">{item.title}</h3>
                     <p className="text-sm text-foreground/65 leading-relaxed">{item.description}</p>
@@ -322,7 +344,7 @@ export default function Home() {
       </section>
 
       {/* ── COMPARISON ────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-primary text-white overflow-hidden">
+      <section className="py-20 md:py-28 text-white overflow-hidden" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a2540 50%, #0d3050 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
@@ -337,7 +359,12 @@ export default function Home() {
               {/* Traditional */}
               <motion.div
                 variants={fadeUp}
-                className="bg-white/5 border border-white/15 rounded-2xl p-8 relative"
+                className="rounded-2xl p-8 relative"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  backdropFilter: "blur(8px)",
+                }}
               >
                 <div className="absolute top-5 right-5 bg-red-500/20 border border-red-400/30 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">
                   Traditional Route
@@ -366,10 +393,17 @@ export default function Home() {
               {/* Coast to Coast */}
               <motion.div
                 variants={fadeUp}
-                className="bg-secondary/20 border-2 border-secondary rounded-2xl p-8 relative shadow-xl"
+                className="rounded-2xl p-8 relative"
+                style={{
+                  background: "linear-gradient(135deg, rgba(0,168,168,0.18) 0%, rgba(0,200,200,0.08) 100%)",
+                  border: "2px solid rgba(0,200,200,0.55)",
+                  boxShadow: "0 0 40px rgba(0,200,200,0.18), 0 8px 32px rgba(0,0,0,0.3)",
+                  backdropFilter: "blur(8px)",
+                }}
               >
-                <div className="absolute top-5 right-5 bg-secondary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  Recommended
+                <div className="absolute top-5 right-5 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                  style={{ background: "linear-gradient(135deg, #0a8a8a, #00c8c8)", boxShadow: "0 0 16px rgba(0,200,200,0.5)" }}>
+                  ✦ Recommended
                 </div>
                 <TrendingDown className="text-secondary mb-5" size={32} />
                 <h3 className="font-display text-xl font-bold mb-1">Pattaya → Chumphon → Ranong → Phuket</h3>
@@ -395,7 +429,13 @@ export default function Home() {
 
             {/* Savings bar */}
             <motion.div variants={fadeUp} className="mt-10 max-w-5xl mx-auto">
-              <div className="bg-white/5 border border-white/15 rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="rounded-2xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(0,200,200,0.2)",
+                  backdropFilter: "blur(8px)",
+                  boxShadow: "inset 0 1px 0 rgba(0,200,200,0.15)",
+                }}>
                 {[
                   { icon: Gauge, value: "79% Less", label: "Sea Miles" },
                   { icon: Clock, value: "90% Fewer", label: "Engine Hours" },
@@ -417,32 +457,53 @@ export default function Home() {
       </section>
 
       {/* ── TECHNICAL SPECS ───────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28" style={{ background: "linear-gradient(180deg, #061e36 0%, #0a2540 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Load Capacity</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>Load Capacity</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
                 Technical Specifications
               </h2>
-              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
                 We transport Powerboats, Keel Yachts, and Catamarans. Our custom-fabricated transit cradle accommodates a wide range of vessel profiles.
               </p>
             </motion.div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
               {specItems.map((spec, i) => {
                 const Icon = spec.icon;
                 return (
                   <motion.div
                     key={i}
                     variants={fadeUp}
-                    className="bg-white border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 duration-300"
+                    className="rounded-2xl p-8 text-center relative overflow-hidden group"
+                    style={{
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(0,200,200,0.2)",
+                      backdropFilter: "blur(8px)",
+                      transition: "box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 0 32px rgba(0,200,200,0.25), 0 8px 24px rgba(0,0,0,0.3)";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,200,200,0.55)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,200,200,0.2)";
+                    }}
                   >
-                    <div className="w-12 h-12 bg-primary/8 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <Icon className="text-primary" size={22} />
+                    {/* Subtle radial glow */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                      style={{ background: "radial-gradient(circle at 50% 0%, rgba(0,200,200,0.12) 0%, transparent 70%)" }} />
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-4"
+                      style={{ background: "rgba(0,200,200,0.12)", border: "1px solid rgba(0,200,200,0.2)" }}>
+                      <Icon style={{ color: "#00c8c8" }} size={20} />
                     </div>
-                    <p className="font-display text-3xl font-bold text-secondary mb-1">{spec.value}</p>
-                    <p className="text-sm text-foreground/55 font-medium">{spec.label}</p>
+                    <p className="font-display text-4xl font-bold mb-1" style={{ color: "#00c8c8" }}>{spec.value}</p>
+                    <div className="w-8 h-px mx-auto my-2" style={{ background: "rgba(0,200,200,0.4)" }} />
+                    <p className="text-xs font-semibold tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.5)" }}>{spec.label}</p>
                   </motion.div>
                 );
               })}
@@ -450,9 +511,16 @@ export default function Home() {
             <motion.div variants={fadeUp} className="text-center mt-10">
               <Link href="/contact">
                 <a>
-                  <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 inline-flex items-center gap-2">
+                  <button
+                    className="text-white font-semibold px-8 py-3 rounded-xl inline-flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                    style={{
+                      background: "linear-gradient(135deg, #0a8a8a 0%, #00b8b8 100%)",
+                      boxShadow: "0 0 24px rgba(0,184,184,0.4), 0 4px 12px rgba(0,0,0,0.3)",
+                      border: "1px solid rgba(0,200,200,0.3)",
+                    }}
+                  >
                     Check if Your Vessel Qualifies <ArrowRight size={18} />
-                  </Button>
+                  </button>
                 </a>
               </Link>
             </motion.div>

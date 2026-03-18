@@ -74,16 +74,33 @@ export default function Contact() {
     <div className="min-h-screen">
 
       {/* Hero */}
-      <section className="bg-primary text-white py-20 md:py-28">
-        <div className="container">
+      <section
+        className="relative text-white py-24 md:py-36 overflow-hidden"
+        style={{
+          backgroundImage: "url('/gallery/9.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 40%",
+        }}
+      >
+        {/* Deep gradient overlay */}
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(135deg, rgba(6,30,54,0.93) 0%, rgba(10,37,64,0.82) 50%, rgba(0,168,168,0.3) 100%)"
+        }} />
+        {/* Subtle bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(248,250,251,0.15))" }} />
+        <div className="relative z-10 container">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-4">Get in Touch</p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl opacity-80 max-w-3xl">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-8" style={{ background: "rgba(0,200,200,0.7)" }} />
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase" style={{ color: "#00c8c8" }}>Get in Touch</p>
+            </div>
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}>Contact Us</h1>
+            <p className="text-xl max-w-3xl" style={{ color: "rgba(255,255,255,0.78)" }}>
               Get in touch with our team to discuss your vessel transport needs and receive a professional quote.
             </p>
           </motion.div>
