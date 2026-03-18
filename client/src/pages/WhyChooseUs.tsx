@@ -252,28 +252,6 @@ export default function WhyChooseUs() {
         </div>
       </section>
 
-      {/* Gallery strip */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container">
-          <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-12">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">See It In Action</p>
-              <h2 className="font-display text-4xl font-bold text-primary mb-4">Real Jobs. Real Results.</h2>
-              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
-                Every image below is from an actual Coast to Coast relocation — crane lifts, overland transits, and Andaman Sea launches.
-              </p>
-            </motion.div>
-            <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {["/gallery/7.webp", "/gallery/9.webp", "/gallery/4.webp", "/gallery/3.webp"].map((src, i) => (
-                <div key={i} className="rounded-xl overflow-hidden aspect-square shadow-sm hover:shadow-lg transition-shadow">
-                  <img src={src} alt={`Coast to Coast operation ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-                </div>
-              ))}
-            </motion.div>
-          </FadeSection>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-20 md:py-28 bg-primary/5">
         <div className="container text-center">
