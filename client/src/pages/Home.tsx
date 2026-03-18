@@ -234,7 +234,7 @@ export default function Home() {
         {/* Subtle radial light bloom from centre */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,184,184,0.08) 0%, transparent 70%)" }} />
 
-        <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-16 pb-40">
+        <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-32 md:pt-40 pb-40">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
