@@ -17,6 +17,7 @@ import {
   Ruler,
   Weight,
   AlertTriangle,
+  MapPin,
 } from "lucide-react";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -174,6 +175,51 @@ export default function Home() {
     { icon: Ruler, label: "Max Length", value: "15 m" },
     { icon: Weight, label: "Max Weight", value: "32 Tons" },
   ];
+
+  const routes = [
+    {
+      from: "Pattaya",
+      to: "Phuket",
+      time: "Under 7 Days",
+      engineHours: "~50 hrs",
+      seaMiles: "350",
+      overland: "80 km",
+      description: "Our flagship route — Gulf to Andaman in under a week.",
+      highlight: true,
+    },
+    {
+      from: "Phuket",
+      to: "Pattaya",
+      time: "Under 7 Days",
+      engineHours: "~50 hrs",
+      seaMiles: "350",
+      overland: "80 km",
+      description: "Andaman to Gulf — same professional service, reverse direction.",
+      highlight: false,
+    },
+    {
+      from: "Bangkok",
+      to: "Phuket",
+      time: "Under 7 Days",
+      engineHours: "~40 hrs",
+      seaMiles: "~280",
+      overland: "80 km",
+      description: "Bangkok-based vessels transported to the Andaman Sea with final delivery to Phuket.",
+      highlight: false,
+    },
+    {
+      from: "Phuket",
+      to: "Bangkok",
+      time: "Under 7 Days",
+      engineHours: "~40 hrs",
+      seaMiles: "~280",
+      overland: "80 km",
+      description: "Return route — Andaman to the Gulf of Thailand via the same land bridge.",
+      highlight: false,
+    },
+  ];
+
+  const [activeRoute, setActiveRoute] = useState(0);
 
   return (
     <div className="min-h-screen">
@@ -677,11 +723,18 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      {/* ── WAVE DIVIDER ──────────────────────────────────────────── */}
+      <div className="overflow-hidden leading-none" style={{ background: "#f0f4f8" }}>
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16" style={{ display: "block" }}>
+          <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
       {/* ── SERVICE AREAS PREVIEW ─────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <FadeSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               <motion.div variants={fadeUp}>
                 <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Route</p>
                 <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-6">
@@ -712,24 +765,67 @@ export default function Home() {
                   </a>
                 </Link>
               </motion.div>
-              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-md border border-border">
-                <div className="bg-primary/8 rounded-xl p-8 text-center">
-                  <Anchor className="text-primary mx-auto mb-4" size={48} />
-                  <h3 className="font-display text-2xl font-bold text-primary mb-2">Pattaya to Phuket</h3>
-                  <p className="text-foreground/60 mb-3">Standard route — professional handling</p>
-                  <p className="font-display text-4xl font-bold text-secondary mb-1">Under 7 Days</p>
-                  <p className="text-sm text-foreground/45">~50 engine hours added</p>
+
+              {/* Route carousel card */}
+              <motion.div variants={fadeUp}>
+                {/* Route tabs */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {routes.map((r, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveRoute(i)}
+                      className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                        activeRoute === i
+                          ? "bg-secondary text-white border-secondary shadow-md"
+                          : "bg-white text-primary border-border hover:border-secondary/60 hover:text-secondary"
+                      }`}
+                    >
+                      {r.from} → {r.to}
+                    </button>
+                  ))}
                 </div>
-                <div className="mt-6 grid grid-cols-2 gap-3 text-center text-sm">
-                  <div className="bg-primary/5 rounded-xl p-3">
-                    <p className="font-bold text-primary">Both Directions</p>
-                    <p className="text-foreground/50 text-xs mt-0.5">East ↔ West Coast</p>
-                  </div>
-                  <div className="bg-secondary/10 rounded-xl p-3">
-                    <p className="font-bold text-secondary">100-Ton Crane</p>
-                    <p className="text-foreground/50 text-xs mt-0.5">At Ranong</p>
-                  </div>
-                </div>
+
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeRoute}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.28 }}
+                    className="bg-white rounded-2xl shadow-md border border-border overflow-hidden"
+                  >
+                    <div className="bg-primary/8 rounded-t-2xl p-8 text-center">
+                      <div className="flex items-center justify-center gap-3 mb-4">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="text-secondary" size={18} />
+                          <span className="font-display font-bold text-primary text-lg">{routes[activeRoute].from}</span>
+                        </div>
+                        <ArrowRight className="text-secondary/60" size={20} />
+                        <div className="flex items-center gap-2">
+                          <Anchor className="text-secondary" size={18} />
+                          <span className="font-display font-bold text-primary text-lg">{routes[activeRoute].to}</span>
+                        </div>
+                      </div>
+                      <p className="text-foreground/55 text-sm mb-4">{routes[activeRoute].description}</p>
+                      <p className="font-display text-4xl font-bold text-secondary mb-1">{routes[activeRoute].time}</p>
+                      <p className="text-sm text-foreground/45">{routes[activeRoute].engineHours} engine hours added</p>
+                    </div>
+                    <div className="p-5 grid grid-cols-3 gap-3 text-center text-sm">
+                      <div className="bg-primary/5 rounded-xl p-3">
+                        <p className="font-bold text-primary text-base">{routes[activeRoute].seaMiles}</p>
+                        <p className="text-foreground/50 text-xs mt-0.5">Sea Miles</p>
+                      </div>
+                      <div className="bg-primary/5 rounded-xl p-3">
+                        <p className="font-bold text-primary text-base">{routes[activeRoute].overland}</p>
+                        <p className="text-foreground/50 text-xs mt-0.5">Overland</p>
+                      </div>
+                      <div className="bg-secondary/10 rounded-xl p-3">
+                        <p className="font-bold text-secondary text-base">100T</p>
+                        <p className="text-foreground/50 text-xs mt-0.5">Crane @ Ranong</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </motion.div>
             </div>
           </FadeSection>
@@ -737,11 +833,24 @@ export default function Home() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-primary text-white">
-        <div className="container text-center">
+      <section
+        className="py-24 md:py-32 text-white relative overflow-hidden"
+        style={{
+          backgroundImage: "url('/gallery/9.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,40,60,0.93) 0%, rgba(10,80,80,0.85) 100%)" }} />
+        <div className="container text-center relative z-10">
           <FadeSection>
             <motion.div variants={fadeUp}>
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-4">Get Started</p>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="h-px w-8 bg-secondary/60" />
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary">Get Started</p>
+                <div className="h-px w-8 bg-secondary/60" />
+              </div>
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
                 Ready to Transport Your Vessel?
               </h2>
@@ -751,16 +860,31 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
                   <a>
-                    <Button className="bg-secondary hover:bg-secondary/90 text-white px-10 py-6 text-lg font-semibold shadow-lg">
-                      Get Your Free Quote
-                    </Button>
+                    <button
+                      className="text-white font-semibold px-10 py-4 rounded-xl text-lg inline-flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                      style={{
+                        background: "linear-gradient(135deg, #0a8a8a 0%, #00b8b8 100%)",
+                        boxShadow: "0 0 28px rgba(0,184,184,0.45), 0 4px 16px rgba(0,0,0,0.3)",
+                        border: "1px solid rgba(0,200,200,0.35)",
+                      }}
+                    >
+                      Get Your Free Quote <ArrowRight size={18} />
+                    </button>
                   </a>
                 </Link>
                 <Link href="/services">
                   <a>
-                    <Button variant="outline" className="border-white/50 text-white hover:bg-white/10 px-10 py-6 text-lg font-semibold">
+                    <button
+                      className="font-semibold px-10 py-4 rounded-xl text-lg transition-all duration-300 hover:scale-105"
+                      style={{
+                        background: "rgba(255,255,255,0.08)",
+                        border: "1px solid rgba(255,255,255,0.3)",
+                        color: "rgba(255,255,255,0.9)",
+                        backdropFilter: "blur(8px)",
+                      }}
+                    >
                       Our Services
-                    </Button>
+                    </button>
                   </a>
                 </Link>
               </div>

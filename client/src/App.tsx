@@ -13,6 +13,7 @@ import WhyChooseUs from "./pages/WhyChooseUs";
 import Contact from "./pages/Contact";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function Router() {
@@ -44,6 +45,7 @@ function App() {
             </main>
             <Footer />
             <FloatingContact />
+            <ScrollToTop />
           </div>
         </TooltipProvider>
       </ThemeProvider>
