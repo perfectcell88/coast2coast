@@ -51,7 +51,7 @@ export default function Footer() {
                 color: "rgba(0,200,200,0.75)",
               }}
             >
-              ⚓ A subsidiary of Phuket Marine Oracle Co/Ltd
+              ⚓ A subsidiary of Phuket Marine Oracle Co., Ltd.
             </div>
           </div>
 
@@ -160,7 +160,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Coast to Coast Marine Transportation Thailand. All rights reserved.
           </p>
           <p className="text-xs" style={{ color: "rgba(0,200,200,0.4)" }}>
-            A subsidiary of Phuket Marine Oracle Co/Ltd
+            A subsidiary of Phuket Marine Oracle Co., Ltd.
           </p>
         </div>
       </div>

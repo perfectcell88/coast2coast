@@ -1,7 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +8,7 @@ export default function Navigation() {
   const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -17,9 +16,6 @@ export default function Navigation() {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
-
-  const isHome = location === "/";
-  const transparent = isHome && !scrolled;
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -32,44 +28,45 @@ export default function Navigation() {
 
   return (
     <nav
-      style={
-        !transparent
-          ? {
-              background: "rgba(10, 37, 64, 0.72)",
-              backdropFilter: "blur(18px) saturate(180%)",
-              WebkitBackdropFilter: "blur(18px) saturate(180%)",
-              borderBottom: "1px solid rgba(0, 168, 168, 0.18)",
-              boxShadow: "0 4px 32px rgba(0,0,0,0.28), 0 1px 0 rgba(0,168,168,0.12)",
-            }
-          : {}
-      }
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        transparent ? "bg-transparent border-transparent" : ""
-      }`}
+      style={{
+        background: scrolled
+          ? "rgba(6, 22, 44, 0.82)"
+          : "rgba(6, 22, 44, 0.45)",
+        backdropFilter: "blur(20px) saturate(180%)",
+        WebkitBackdropFilter: "blur(20px) saturate(180%)",
+        borderBottom: scrolled
+          ? "1px solid rgba(0, 168, 168, 0.22)"
+          : "1px solid rgba(255,255,255,0.08)",
+        boxShadow: scrolled
+          ? "0 8px 40px rgba(0,0,0,0.35), 0 1px 0 rgba(0,168,168,0.15)"
+          : "0 2px 20px rgba(0,0,0,0.15)",
+        transition: "all 0.4s ease",
+      }}
+      className="fixed top-0 left-0 right-0 z-50"
     >
-      {/* Subtle wave accent line at bottom when scrolled */}
-      {!transparent && (
-        <div
-          className="absolute bottom-0 left-0 right-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, rgba(0,168,168,0.6) 30%, rgba(0,200,200,0.9) 50%, rgba(0,168,168,0.6) 70%, transparent 100%)",
-          }}
-        />
-      )}
+      {/* Teal accent line at bottom — always visible, stronger on scroll */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{
+          background: scrolled
+            ? "linear-gradient(90deg, transparent 0%, rgba(0,168,168,0.5) 20%, rgba(0,200,200,0.95) 50%, rgba(0,168,168,0.5) 80%, transparent 100%)"
+            : "linear-gradient(90deg, transparent 0%, rgba(0,200,200,0.2) 30%, rgba(0,200,200,0.45) 50%, rgba(0,200,200,0.2) 70%, transparent 100%)",
+          transition: "all 0.4s ease",
+        }}
+      />
 
-      <div className="container flex items-center justify-between h-16 md:h-[72px]">
+      {/* Main nav bar — relative so we can absolutely centre the links */}
+      <div className="relative flex items-center h-16 md:h-[72px] px-6 max-w-[1400px] mx-auto">
 
-        {/* Logo */}
+        {/* Logo — left */}
         <Link href="/">
-          <a className="flex items-center gap-3 group flex-shrink-0">
-            {/* Custom logo mark */}
+          <a className="flex items-center gap-3 group flex-shrink-0 z-10">
             <div
               className="w-10 h-10 rounded-xl flex-shrink-0 overflow-hidden transition-all duration-300 group-hover:scale-105"
               style={{
                 boxShadow: scrolled
-                  ? "0 0 16px rgba(0,200,200,0.45), 0 2px 8px rgba(0,0,0,0.3)"
-                  : "0 2px 8px rgba(0,0,0,0.25)",
+                  ? "0 0 18px rgba(0,200,200,0.5), 0 2px 8px rgba(0,0,0,0.35)"
+                  : "0 2px 10px rgba(0,0,0,0.3)",
               }}
             >
               <img
@@ -78,17 +75,16 @@ export default function Navigation() {
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Wordmark */}
             <span className="hidden sm:block leading-none">
               <span
-                className="block font-display font-bold text-white text-[15px] tracking-tight"
+                className="block font-display font-bold text-white text-[15px]"
                 style={{ letterSpacing: "-0.01em" }}
               >
                 Coast to Coast
               </span>
               <span
-                className="block text-[9.5px] font-medium tracking-[0.22em] uppercase mt-0.5"
-                style={{ color: "rgba(0,200,200,0.75)" }}
+                className="block text-[9px] font-semibold tracking-[0.24em] uppercase mt-0.5"
+                style={{ color: "rgba(0,210,210,0.8)" }}
               >
                 Marine Transportation Thailand
               </span>
@@ -96,35 +92,38 @@ export default function Navigation() {
           </a>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-0.5">
+        {/* Desktop Nav Links — absolutely centred in the viewport */}
+        <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-0.5">
           {navItems.map((item) => {
             const active = location === item.href;
             return (
               <Link key={item.href} href={item.href}>
                 <a
-                  className="relative px-4 py-2 text-[13.5px] font-medium rounded-lg transition-all duration-200 group"
+                  className="relative px-4 py-2 text-[13.5px] font-medium rounded-lg transition-all duration-200 group whitespace-nowrap"
                   style={{
-                    color: active ? "#00c8c8" : "rgba(255,255,255,0.78)",
+                    color: active ? "#00d4d4" : "rgba(255,255,255,0.8)",
                   }}
                   onMouseEnter={(e) => {
                     if (!active) (e.currentTarget as HTMLElement).style.color = "#ffffff";
                   }}
                   onMouseLeave={(e) => {
-                    if (!active) (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.78)";
+                    if (!active) (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.8)";
                   }}
                 >
-                  {/* Hover background */}
+                  {/* Hover background pill */}
                   <span
                     className="absolute inset-0 rounded-lg transition-opacity duration-200 opacity-0 group-hover:opacity-100"
-                    style={{ background: "rgba(255,255,255,0.06)" }}
+                    style={{ background: "rgba(255,255,255,0.07)" }}
                   />
-                  {item.label}
+                  <span className="relative">{item.label}</span>
                   {/* Active indicator dot */}
                   {active && (
                     <span
                       className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
-                      style={{ background: "#00c8c8", boxShadow: "0 0 6px rgba(0,200,200,0.8)" }}
+                      style={{
+                        background: "#00d4d4",
+                        boxShadow: "0 0 8px rgba(0,212,212,0.9)",
+                      }}
                     />
                   )}
                 </a>
@@ -133,24 +132,24 @@ export default function Navigation() {
           })}
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden lg:flex items-center">
+        {/* CTA Button — right */}
+        <div className="hidden lg:flex items-center ml-auto z-10">
           <Link href="/contact">
             <a>
               <button
                 className="text-white text-[13px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                 style={{
                   background: "linear-gradient(135deg, #0a8a8a 0%, #00b8b8 100%)",
-                  boxShadow: "0 0 20px rgba(0,184,184,0.35), 0 2px 8px rgba(0,0,0,0.25)",
-                  border: "1px solid rgba(0,200,200,0.3)",
+                  boxShadow: "0 0 22px rgba(0,184,184,0.4), 0 2px 8px rgba(0,0,0,0.3)",
+                  border: "1px solid rgba(0,200,200,0.35)",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 0 28px rgba(0,200,200,0.55), 0 4px 12px rgba(0,0,0,0.3)";
+                    "0 0 32px rgba(0,200,200,0.6), 0 4px 14px rgba(0,0,0,0.35)";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 0 20px rgba(0,184,184,0.35), 0 2px 8px rgba(0,0,0,0.25)";
+                    "0 0 22px rgba(0,184,184,0.4), 0 2px 8px rgba(0,0,0,0.3)";
                 }}
               >
                 Get a Quote
@@ -161,7 +160,7 @@ export default function Navigation() {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+          className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors ml-auto"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -169,18 +168,18 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Dropdown */}
       {isOpen && (
         <div
-          className="lg:hidden shadow-2xl"
           style={{
-            background: "rgba(8, 28, 50, 0.96)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
+            background: "rgba(5, 18, 36, 0.97)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
             borderTop: "1px solid rgba(0,168,168,0.2)",
+            boxShadow: "0 16px 40px rgba(0,0,0,0.5)",
           }}
         >
-          <div className="container py-4 space-y-1">
+          <div className="px-6 py-4 space-y-1 max-w-[1400px] mx-auto">
             {navItems.map((item) => {
               const active = location === item.href;
               return (
@@ -188,7 +187,7 @@ export default function Navigation() {
                   <a
                     className="flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all"
                     style={{
-                      color: active ? "#00c8c8" : "rgba(255,255,255,0.8)",
+                      color: active ? "#00d4d4" : "rgba(255,255,255,0.82)",
                       background: active ? "rgba(0,200,200,0.1)" : "transparent",
                     }}
                     onClick={() => setIsOpen(false)}
@@ -196,7 +195,7 @@ export default function Navigation() {
                     {active && (
                       <span
                         className="w-1.5 h-1.5 rounded-full mr-2.5 flex-shrink-0"
-                        style={{ background: "#00c8c8", boxShadow: "0 0 6px rgba(0,200,200,0.8)" }}
+                        style={{ background: "#00d4d4", boxShadow: "0 0 6px rgba(0,212,212,0.9)" }}
                       />
                     )}
                     {item.label}
@@ -208,7 +207,7 @@ export default function Navigation() {
               <Link href="/contact">
                 <a onClick={() => setIsOpen(false)}>
                   <button
-                    className="w-full text-white font-semibold py-3 rounded-xl transition-all"
+                    className="w-full text-white font-semibold py-3 rounded-xl transition-all hover:opacity-90"
                     style={{
                       background: "linear-gradient(135deg, #0a8a8a 0%, #00b8b8 100%)",
                       boxShadow: "0 0 20px rgba(0,184,184,0.3)",

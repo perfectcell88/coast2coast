@@ -103,9 +103,9 @@ export default function WhyChooseUs() {
     },
     {
       icon: CheckCircle,
-      title: "Part of Phuket Marine Oracle Co/Ltd",
+      title: "Part of Phuket Marine Oracle Co., Ltd.",
       description:
-        "Coast to Coast Marine Transportation Thailand is a subsidiary of Phuket Marine Oracle Co/Ltd — an established Thai marine enterprise. You benefit from a wider network, deeper resources, and institutional expertise.",
+        "Coast to Coast Marine Transportation Thailand is a subsidiary of Phuket Marine Oracle Co., Ltd. — an established Thai marine enterprise. You benefit from a wider network, deeper resources, and institutional expertise.",
     },
     {
       icon: Waves,

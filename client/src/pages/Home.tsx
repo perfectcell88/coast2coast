@@ -240,15 +240,6 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
-            {/* Logo mark above tagline */}
-            <div className="flex justify-center mb-6">
-              <div
-                className="w-16 h-16 rounded-2xl overflow-hidden"
-                style={{ boxShadow: "0 0 30px rgba(0,200,200,0.35), 0 4px 16px rgba(0,0,0,0.4)" }}
-              >
-                <img src="/logo-mark.webp" alt="Coast to Coast Marine Transportation Thailand" className="w-full h-full object-cover" />
-              </div>
-            </div>
             <div className="flex items-center justify-center gap-3 mb-10">
               <div
                 className="h-px w-12"

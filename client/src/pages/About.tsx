@@ -98,7 +98,7 @@ export default function About() {
               Coast to Coast Marine<br />Transportation Thailand
             </h1>
             <p className="text-xl opacity-80 max-w-3xl">
-              Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co/Ltd.
+              Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co., Ltd.
             </p>
           </motion.div>
         </div>
@@ -156,9 +156,9 @@ export default function About() {
                     <Building2 className="text-primary" size={22} />
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-1">Part of Phuket Marine Oracle Co/Ltd</h3>
+                    <h3 className="font-display text-lg font-bold text-primary mb-1">Part of Phuket Marine Oracle Co., Ltd.</h3>
                     <p className="text-foreground/65 text-sm leading-relaxed">
-                      Coast to Coast Marine Transportation Thailand is a subsidiary of <strong className="text-primary">Phuket Marine Oracle Co/Ltd</strong> — an established Thai marine enterprise. This means you benefit from a wider professional network, institutional resources, and the credibility of a registered Thai company behind every job.
+                      Coast to Coast Marine Transportation Thailand is a subsidiary of <strong className="text-primary">Phuket Marine Oracle Co., Ltd.</strong> — an established Thai marine enterprise. This means you benefit from a wider professional network, institutional resources, and the credibility of a registered Thai company behind every job.
                     </p>
                   </div>
                 </div>
