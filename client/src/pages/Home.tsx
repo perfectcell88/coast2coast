@@ -240,7 +240,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
-            <div className="flex items-center justify-center gap-3 mb-7">
+            <div className="flex items-center justify-center gap-3 mb-10">
               <div
                 className="h-px w-12"
                 style={{ background: "linear-gradient(90deg, transparent, #00c8c8)", boxShadow: "0 0 6px rgba(0,200,200,0.6)" }}
@@ -260,14 +260,14 @@ export default function Home() {
                 style={{ background: "linear-gradient(90deg, #00c8c8, transparent)", boxShadow: "0 0 6px rgba(0,200,200,0.6)" }}
               />
             </div>
-            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
               Thailand's Premier<br />
               <span className="text-secondary">Vessel Relocation</span> Specialists
             </h1>
-            <p className="text-lg md:text-xl mb-10 font-light max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+            <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, and Phuket in under a week, adding only ~50 engine hours to your log.
             </p>
-            <div className="flex flex-col items-center gap-4 justify-center">
+            <div className="flex flex-col items-center gap-5 justify-center">
               <Link href="/contact">
                 <a>
                   <Button className="bg-secondary hover:bg-secondary/90 text-white px-10 py-6 text-lg font-semibold shadow-xl w-64 sm:w-72">
