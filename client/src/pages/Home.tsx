@@ -1,203 +1,712 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Anchor, Shield, Users, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import {
+  Anchor,
+  Shield,
+  Users,
+  Clock,
+  CheckCircle,
+  ArrowRight,
+  Play,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  ZoomIn,
+  TrendingDown,
+  Gauge,
+  Ruler,
+  Weight,
+  AlertTriangle,
+} from "lucide-react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-/**
- * Design Philosophy: Modern Maritime Minimalism
- * - Deep navy primary with teal accents
- * - Playfair Display for headlines (premium feel)
- * - Generous whitespace and asymmetric layouts
- * - Subtle wave dividers between sections
- */
+const galleryImages = [
+  { src: "/gallery/2.webp", alt: "Boat being prepared for transport at the dock" },
+  { src: "/gallery/3.webp", alt: "Catamaran being lowered into the Andaman Sea" },
+  { src: "/gallery/4.webp", alt: "Catamaran secured on low-deck trailer at night" },
+  { src: "/gallery/5.webp", alt: "Dual crane operation at the waterfront" },
+  { src: "/gallery/6.webp", alt: "Custom transit cradle on low-deck trailer" },
+  { src: "/gallery/7.webp", alt: "Catamaran lifted by crane at night" },
+  { src: "/gallery/9.webp", alt: "Catamaran on low-deck trailer on the road" },
+  { src: "/gallery/10.webp", alt: "Dual crane setup ready for lift" },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" as const } },
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+function useInView(ref: React.RefObject<Element | null>) {
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.12 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return inView;
+}
+
+function FadeSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const heroImage = "/heroboat.jpg";
 
+  const [videoOpen, setVideoOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const stopAuto = useCallback(() => {
+    if (autoRef.current) clearInterval(autoRef.current);
+  }, []);
+
+  const startAuto = useCallback(() => {
+    stopAuto();
+    autoRef.current = setInterval(() => {
+      setCurrent((c) => (c + 1) % galleryImages.length);
+    }, 4500);
+  }, [stopAuto]);
+
+  useEffect(() => {
+    startAuto();
+    return stopAuto;
+  }, [startAuto, stopAuto]);
+
+  const goPrev = () => {
+    stopAuto();
+    setCurrent((c) => (c - 1 + galleryImages.length) % galleryImages.length);
+    startAuto();
+  };
+
+  const goNext = () => {
+    stopAuto();
+    setCurrent((c) => (c + 1) % galleryImages.length);
+    startAuto();
+  };
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  useEffect(() => {
+    if (!lightboxOpen && !videoOpen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setLightboxOpen(false);
+        setVideoOpen(false);
+      }
+      if (lightboxOpen) {
+        if (e.key === "ArrowLeft") setLightboxIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length);
+        if (e.key === "ArrowRight") setLightboxIndex((i) => (i + 1) % galleryImages.length);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightboxOpen, videoOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = videoOpen || lightboxOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [videoOpen, lightboxOpen]);
+
   const whyChooseItems = [
     {
       icon: Users,
-      title: "Experienced Loadmasters",
-      description: "Professional team with years of expertise in boat transport",
+      title: "Expert Loadmasters",
+      description: "Our Maritime Loadmaster travels with your vessel from coast to coast, monitoring it from the rear pilot vehicle throughout the entire journey.",
     },
     {
       icon: Shield,
-      title: "Fully Ticketed Captains & Engineers",
-      description: "Licensed marine professionals ensuring safe transport",
+      title: "Ticketed Captains & Engineers",
+      description: "Fully licensed marine professionals handle every aspect of your vessel's relocation with the highest standards of safety.",
     },
     {
       icon: Anchor,
-      title: "Specialized Vessel Handling",
-      description: "Expert techniques for oversized boat transport",
+      title: "Custom Transit Cradles",
+      description: "Bespoke fabricated cradles engineered for your specific vessel, ensuring perfect support and zero movement during transport.",
     },
     {
       icon: Clock,
-      title: "Fast 4–5 Day Delivery",
-      description: "Reliable scheduling from Pattaya to Phuket",
+      title: "Coast to Coast in Under a Week",
+      description: "From Pattaya or Bangkok to Phuket in under 7 days, adding only approximately 50 engine hours to your vessel's log.",
     },
+  ];
+
+  const specItems = [
+    { icon: Ruler, label: "Max Height", value: "5.5 m" },
+    { icon: Ruler, label: "Max Width", value: "5.5 m" },
+    { icon: Ruler, label: "Max Length", value: "15 m" },
+    { icon: Weight, label: "Max Weight", value: "32 Tons" },
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+
+      {/* ── HERO ──────────────────────────────────────────────────── */}
       <section
-        className="relative h-screen bg-cover bg-center flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `url('${heroImage}')`,
-          backgroundAttachment: "fixed",
-        }}
+        className="relative min-h-screen bg-cover bg-center flex items-center justify-center overflow-hidden"
+        style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed" }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/88 via-primary/65 to-secondary/50" />
 
-        {/* Content */}
-        <div className="relative z-10 container text-center text-white max-w-3xl mx-auto px-4">
-          <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Thailand's Trusted Oversized Boat Transport Specialists
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-95 font-light">
-            Safe, Reliable Vessel Transport Between Pattaya & Phuket – 4–5 Day Delivery
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <a>
-                <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg font-semibold">
-                  Request a Quote
-                </Button>
-              </a>
-            </Link>
-            <Link href="/services">
-              <a>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold">
-                  Learn More
-                </Button>
-              </a>
-            </Link>
-          </div>
-        </div>
-
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-background">
-          <svg
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="w-full h-full"
+        <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-16 pb-40">
+          <motion.div
+            initial={{ opacity: 0, y: 48 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" as const }}
           >
-            <path
-              d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z"
-              fill="#F8F6F1"
-            />
-          </svg>
-        </div>
-      </section>
-
-      {/* Why Choose Us Preview */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
-              Why Choose Coast to Coast?
-            </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              We combine expertise, professionalism, and reliability to ensure your vessel arrives safely
+            <p className="font-mono-accent text-xs tracking-[0.35em] uppercase text-secondary mb-5 opacity-90">
+              Coast to Coast Marine Transportation Thailand
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-border"
-                >
-                  <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="text-secondary" size={24} />
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-primary mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-foreground/70">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/why-choose-us">
-              <a>
-                <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 inline-flex items-center gap-2">
-                  Explore Our Advantages
-                  <ArrowRight size={18} />
-                </Button>
-              </a>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Areas Preview */}
-      <section className="py-16 md:py-24 bg-primary/5">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-6">
-                Serving Thailand's Coasts
-              </h2>
-              <p className="text-lg text-foreground/70 mb-6">
-                We operate major routes connecting Thailand's premier maritime hubs, ensuring efficient transport between east and west coasts.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {["Pattaya", "Chumphon", "Ranong", "Phuket"].map((area) => (
-                  <li key={area} className="flex items-center gap-3">
-                    <CheckCircle className="text-secondary" size={20} />
-                    <span className="text-foreground font-medium">{area}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/service-areas">
+            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              Thailand's Premier<br />
+              <span className="text-secondary">Vessel Relocation</span> Specialists
+            </h1>
+            <p className="text-xl md:text-2xl mb-10 opacity-85 font-light max-w-2xl mx-auto">
+              Gulf of Thailand to the Andaman Sea — Pattaya to Phuket — in under a week. Only 50 engine hours. Total peace of mind.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
                 <a>
-                  <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3">
-                    View All Service Areas
+                  <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg font-semibold shadow-lg">
+                    Request a Quote
                   </Button>
                 </a>
               </Link>
+              <button
+                onClick={() => setVideoOpen(true)}
+                className="inline-flex items-center justify-center gap-3 border-2 border-white/60 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-md transition-all"
+              >
+                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                  <Play size={14} className="ml-0.5" />
+                </div>
+                Watch Our Process
+              </button>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-md border border-border">
-              <div className="bg-primary/10 rounded-lg p-8 text-center">
-                <Anchor className="text-primary mx-auto mb-4" size={48} />
-                <h3 className="font-display text-2xl font-bold text-primary mb-2">
-                  Pattaya to Phuket
-                </h3>
-                <p className="text-foreground/70 mb-4">
-                  Standard route with professional handling
-                </p>
-                <p className="font-display text-3xl font-bold text-secondary">
-                  4–5 Days
-                </p>
+          </motion.div>
+        </div>
+
+        {/* Stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="absolute bottom-0 left-0 right-0 bg-primary/80 backdrop-blur-sm border-t border-white/10"
+        >
+          <div className="container py-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-white text-center">
+              {[
+                { value: "350", unit: "Sea Miles", label: "Total Route" },
+                { value: "<7", unit: "Days", label: "Coast to Coast" },
+                { value: "50", unit: "Eng. Hours", label: "Added to Log" },
+                { value: "32T", unit: "Capacity", label: "Max Weight" },
+              ].map((s, i) => (
+                <div key={i} className="py-1">
+                  <span className="font-display text-2xl font-bold text-secondary">{s.value}</span>
+                  <span className="text-sm ml-1 opacity-80">{s.unit}</span>
+                  <p className="text-xs opacity-55 mt-0.5">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── VIDEO MODAL ───────────────────────────────────────────── */}
+      <AnimatePresence>
+        {videoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/92 flex items-center justify-center p-4"
+            onClick={() => setVideoOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.88, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.88, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-3xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setVideoOpen(false)}
+                className="absolute -top-12 right-0 text-white/80 hover:text-secondary transition-colors"
+                aria-label="Close video"
+              >
+                <X size={30} />
+              </button>
+              <div className="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-2xl">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/8_Vxj5agMEA?autoplay=1&rel=0&modestbranding=1"
+                  title="Coast to Coast Marine Transportation Thailand — Watch Our Process"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
+              <p className="text-white/50 text-sm text-center mt-3">
+                Coast to Coast Marine Transportation Thailand — Watch Our Process
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container">
+          <FadeSection>
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Advantage</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
+                Why Choose Coast to Coast?
+              </h2>
+              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
+                We combine maritime expertise, precision logistics, and professional care to ensure your vessel arrives safely — every time.
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {whyChooseItems.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    variants={fadeUp}
+                    className="bg-white p-7 rounded-xl shadow-sm hover:shadow-lg transition-all border border-border hover:-translate-y-1 duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
+                      <Icon className="text-secondary" size={24} />
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-primary mb-2">{item.title}</h3>
+                    <p className="text-sm text-foreground/65 leading-relaxed">{item.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+            <motion.div variants={fadeUp} className="text-center mt-12">
+              <Link href="/why-choose-us">
+                <a>
+                  <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 inline-flex items-center gap-2">
+                    Explore Our Advantages <ArrowRight size={18} />
+                  </Button>
+                </a>
+              </Link>
+            </motion.div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* ── COMPARISON ────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-primary text-white overflow-hidden">
+        <div className="container">
+          <FadeSection>
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Smart Choice</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">The Shortcut Comparison</h2>
+              <p className="text-lg opacity-70 max-w-2xl mx-auto">
+                The traditional route around the Malay Peninsula is gruelling, dangerous, and expensive. Our land-bridge solution changes everything.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Traditional */}
+              <motion.div
+                variants={fadeUp}
+                className="bg-white/5 border border-white/15 rounded-2xl p-8 relative"
+              >
+                <div className="absolute top-5 right-5 bg-red-500/20 border border-red-400/30 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">
+                  Traditional Route
+                </div>
+                <AlertTriangle className="text-red-400 mb-5" size={32} />
+                <h3 className="font-display text-xl font-bold mb-1">Pattaya → Singapore → Phuket</h3>
+                <p className="text-white/55 text-sm mb-6">Via the South China Sea & Malacca Straits</p>
+                <div className="space-y-3">
+                  {[
+                    { label: "Total Distance", value: "1,700 miles" },
+                    { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
+                    { label: "Engine Hours", value: "500+ hours" },
+                    { label: "Risk Level", value: "Very High" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
+                      <span className="text-white/60 text-sm">{item.label}</span>
+                      <span className="font-semibold text-red-300 text-sm">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-white/45 text-xs mt-5 leading-relaxed">
+                  Notorious South China Sea, katabatic squalls in Singapore, zero-visibility conditions, unlit vessels, endless fishing nets, dangerous ship convergence zones in the Malacca Straits — no place for the novice.
+                </p>
+              </motion.div>
+
+              {/* Coast to Coast */}
+              <motion.div
+                variants={fadeUp}
+                className="bg-secondary/20 border-2 border-secondary rounded-2xl p-8 relative shadow-xl"
+              >
+                <div className="absolute top-5 right-5 bg-secondary text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  Recommended
+                </div>
+                <TrendingDown className="text-secondary mb-5" size={32} />
+                <h3 className="font-display text-xl font-bold mb-1">Pattaya → Chumphon → Ranong → Phuket</h3>
+                <p className="text-white/55 text-sm mb-6">80 km overland land bridge — Coast to Coast</p>
+                <div className="space-y-3">
+                  {[
+                    { label: "Total Sea Miles", value: "350 miles" },
+                    { label: "Total Time", value: "Under 1 week" },
+                    { label: "Engine Hours", value: "~50 hours" },
+                    { label: "Risk Level", value: "Minimal" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
+                      <span className="text-white/60 text-sm">{item.label}</span>
+                      <span className="font-semibold text-secondary text-sm">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-white/65 text-xs mt-5 leading-relaxed">
+                  Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Simple. Safe. Professional.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Savings bar */}
+            <motion.div variants={fadeUp} className="mt-10 max-w-5xl mx-auto">
+              <div className="bg-white/5 border border-white/15 rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                {[
+                  { icon: Gauge, value: "79% Less", label: "Sea Miles" },
+                  { icon: Clock, value: "90% Fewer", label: "Engine Hours" },
+                  { icon: Shield, value: "Zero", label: "Open-Ocean Risk" },
+                ].map((s, i) => {
+                  const Icon = s.icon;
+                  return (
+                    <div key={i} className="flex flex-col items-center gap-2">
+                      <Icon className="text-secondary" size={26} />
+                      <span className="font-display text-3xl font-bold text-secondary">{s.value}</span>
+                      <span className="text-white/60 text-sm">{s.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* ── TECHNICAL SPECS ───────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container">
+          <FadeSection>
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Load Capacity</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
+                Technical Specifications
+              </h2>
+              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
+                We transport Powerboats, Keel Yachts, and Catamarans. Our custom-fabricated transit cradle accommodates a wide range of vessel profiles.
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {specItems.map((spec, i) => {
+                const Icon = spec.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="bg-white border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 duration-300"
+                  >
+                    <div className="w-12 h-12 bg-primary/8 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <Icon className="text-primary" size={22} />
+                    </div>
+                    <p className="font-display text-3xl font-bold text-secondary mb-1">{spec.value}</p>
+                    <p className="text-sm text-foreground/55 font-medium">{spec.label}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+            <motion.div variants={fadeUp} className="text-center mt-10">
+              <Link href="/contact">
+                <a>
+                  <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 inline-flex items-center gap-2">
+                    Check if Your Vessel Qualifies <ArrowRight size={18} />
+                  </Button>
+                </a>
+              </Link>
+            </motion.div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* ── RECENT RELOCATIONS GALLERY ────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-primary/5">
+        <div className="container">
+          <FadeSection>
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Work</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
+                Recent Relocations
+              </h2>
+              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
+                From crane lifts at midnight to smooth Andaman Sea launches — a glimpse into what we do.
+              </p>
+            </motion.div>
+          </FadeSection>
+
+          {/* Carousel */}
+          <div className="relative max-w-5xl mx-auto">
+            <div
+              className="relative overflow-hidden rounded-2xl shadow-xl cursor-pointer group"
+              style={{ aspectRatio: "16/9" }}
+              onClick={() => openLightbox(current)}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current}
+                  src={galleryImages[current].src}
+                  alt={galleryImages[current].alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/25 transition-all duration-300 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-sm rounded-full p-4">
+                  <ZoomIn className="text-white" size={28} />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/75 to-transparent p-6">
+                <p className="text-white text-sm font-medium">{galleryImages[current].alt}</p>
+                <p className="text-white/55 text-xs mt-0.5">Click to enlarge</p>
+              </div>
+            </div>
+
+            {/* Arrows */}
+            <button
+              onClick={goPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all hover:scale-110 z-10"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="text-primary" size={22} />
+            </button>
+            <button
+              onClick={goNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all hover:scale-110 z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight className="text-primary" size={22} />
+            </button>
+
+            {/* Thumbnail strip */}
+            <div className="flex gap-3 mt-4 overflow-x-auto pb-1">
+              {galleryImages.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => { stopAuto(); setCurrent(i); startAuto(); }}
+                  className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${
+                    i === current
+                      ? "border-secondary shadow-md scale-105"
+                      : "border-transparent opacity-55 hover:opacity-85"
+                  }`}
+                  aria-label={`View image ${i + 1}`}
+                >
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+
+            {/* Dot pagination */}
+            <div className="flex justify-center gap-2 mt-4">
+              {galleryImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => { stopAuto(); setCurrent(i); startAuto(); }}
+                  className={`rounded-full transition-all duration-300 ${
+                    i === current
+                      ? "w-6 h-2.5 bg-secondary"
+                      : "w-2.5 h-2.5 bg-primary/25 hover:bg-primary/50"
+                  }`}
+                  aria-label={`Go to image ${i + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-primary text-white">
+      {/* ── LIGHTBOX ──────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.88, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.88, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-5xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setLightboxOpen(false)}
+                className="absolute -top-12 right-0 text-white/80 hover:text-secondary transition-colors z-10"
+                aria-label="Close lightbox"
+              >
+                <X size={30} />
+              </button>
+              <img
+                src={galleryImages[lightboxIndex].src}
+                alt={galleryImages[lightboxIndex].alt}
+                className="w-full max-h-[80vh] object-contain rounded-xl"
+              />
+              <p className="text-white/65 text-sm text-center mt-3">{galleryImages[lightboxIndex].alt}</p>
+              <p className="text-white/35 text-xs text-center mt-1">{lightboxIndex + 1} / {galleryImages.length}</p>
+              <button
+                onClick={() => setLightboxIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/25 rounded-full p-3 transition-all"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="text-white" size={26} />
+              </button>
+              <button
+                onClick={() => setLightboxIndex((i) => (i + 1) % galleryImages.length)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/25 rounded-full p-3 transition-all"
+                aria-label="Next"
+              >
+                <ChevronRight className="text-white" size={26} />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── SERVICE AREAS PREVIEW ─────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container">
+          <FadeSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <motion.div variants={fadeUp}>
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Route</p>
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-6">
+                  Serving Thailand's Coasts
+                </h2>
+                <p className="text-lg text-foreground/65 mb-6">
+                  We operate the premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {[
+                    "Bangkok / Pattaya (Gulf of Thailand)",
+                    "Chumphon — Crane out & load",
+                    "80 km Overland Land Bridge",
+                    "Ranong — Crane into Andaman Sea",
+                    "Phuket & Andaman destinations",
+                  ].map((area) => (
+                    <li key={area} className="flex items-center gap-3">
+                      <CheckCircle className="text-secondary flex-shrink-0" size={20} />
+                      <span className="text-foreground font-medium">{area}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/service-areas">
+                  <a>
+                    <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3">
+                      View All Service Areas
+                    </Button>
+                  </a>
+                </Link>
+              </motion.div>
+              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-md border border-border">
+                <div className="bg-primary/8 rounded-xl p-8 text-center">
+                  <Anchor className="text-primary mx-auto mb-4" size={48} />
+                  <h3 className="font-display text-2xl font-bold text-primary mb-2">Pattaya to Phuket</h3>
+                  <p className="text-foreground/60 mb-3">Standard route — professional handling</p>
+                  <p className="font-display text-4xl font-bold text-secondary mb-1">Under 7 Days</p>
+                  <p className="text-sm text-foreground/45">~50 engine hours added</p>
+                </div>
+                <div className="mt-6 grid grid-cols-2 gap-3 text-center text-sm">
+                  <div className="bg-primary/5 rounded-xl p-3">
+                    <p className="font-bold text-primary">Both Directions</p>
+                    <p className="text-foreground/50 text-xs mt-0.5">East ↔ West Coast</p>
+                  </div>
+                  <div className="bg-secondary/10 rounded-xl p-3">
+                    <p className="font-bold text-secondary">100-Ton Crane</p>
+                    <p className="text-foreground/50 text-xs mt-0.5">At Ranong</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* ── CTA ───────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-primary text-white">
         <div className="container text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            Ready to Transport Your Vessel?
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Contact us today for a free quote and let our experts handle your boat transport safely and professionally.
-          </p>
-          <Link href="/contact">
-            <a>
-              <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg font-semibold">
-                Get Your Free Quote Now
-              </Button>
-            </a>
-          </Link>
+          <FadeSection>
+            <motion.div variants={fadeUp}>
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-4">Get Started</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+                Ready to Transport Your Vessel?
+              </h2>
+              <p className="text-xl mb-10 opacity-75 max-w-2xl mx-auto">
+                Contact our team today. Provide your vessel's dimensions — length, beam, height, and weight — and we'll have a quote underway promptly.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact">
+                  <a>
+                    <Button className="bg-secondary hover:bg-secondary/90 text-white px-10 py-6 text-lg font-semibold shadow-lg">
+                      Get Your Free Quote
+                    </Button>
+                  </a>
+                </Link>
+                <Link href="/services">
+                  <a>
+                    <Button variant="outline" className="border-white/50 text-white hover:bg-white/10 px-10 py-6 text-lg font-semibold">
+                      Our Services
+                    </Button>
+                  </a>
+                </Link>
+              </div>
+            </motion.div>
+          </FadeSection>
         </div>
       </section>
     </div>
