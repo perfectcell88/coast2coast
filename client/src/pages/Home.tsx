@@ -158,7 +158,7 @@ export default function Home() {
     {
       icon: Shield,
       title: "Ticketed Captains & Engineers",
-      description: "Our licensed and ticketed captains and engineers are available to handle the ocean legs of your relocation — so you don't have to sail your vessel yourself. Or hand over at Ranong if you prefer.",
+      description: "Our licensed and ticketed captains and engineers are available to handle the ocean legs of your relocation — so you don't have to sail your vessel yourself.",
     },
     {
       icon: Clock,
