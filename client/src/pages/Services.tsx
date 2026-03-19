@@ -85,11 +85,6 @@ export default function Services() {
       title: "Crane Operations",
       description: "Our 100-ton crane at Ranong handles even the largest vessels. Professional crane operations at both Chumphon and Ranong ensure safe, controlled lifts every time.",
     },
-    {
-      icon: CheckCircle,
-      title: "End-to-End Coordination",
-      description: "We handle all aspects and logistics of your relocation — from initial consultation and route planning to final handover. One point of contact, zero stress.",
-    },
   ];
 
   const additionalServices = [
@@ -180,10 +175,9 @@ export default function Services() {
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Core Services</p>
               <h2 className="font-display text-4xl font-bold text-primary mb-4">What We Offer</h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
-                Complete marine transport with professional expertise at every stage
+                Complete marine oversized load transportation company paying attention to detail coast to coast
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
