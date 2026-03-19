@@ -1,4 +1,5 @@
 import FloatingContact from "@/components/FloatingContact";
+import { useLenis } from "./hooks/useLenis";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -33,6 +34,7 @@ function Router() {
 }
 
 function App() {
+  useLenis();
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">

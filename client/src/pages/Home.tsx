@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThailandRouteMap from "@/components/ThailandRouteMap";
+import HeroParticles from "@/components/HeroParticles";
 
 const galleryImages = [
   { src: "/gallery/2.webp", alt: "Boat being prepared for transport at the dock" },
@@ -233,6 +235,8 @@ export default function Home() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(8,32,50,0.92) 0%, rgba(10,55,65,0.82) 50%, rgba(0,100,100,0.70) 100%)" }} />
         {/* Subtle radial light bloom from centre */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,184,184,0.08) 0%, transparent 70%)" }} />
+        {/* Subtle drifting particles — sea spray / light on water */}
+        <HeroParticles />
 
         <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-32 md:pt-40 pb-40">
           <motion.div
@@ -787,8 +791,13 @@ export default function Home() {
                 </Link>
               </motion.div>
 
-              {/* Route carousel card */}
+              {/* Route map + carousel card */}
               <motion.div variants={fadeUp}>
+                {/* Animated Thailand route map */}
+                <div className="mb-6">
+                  <ThailandRouteMap activeRoute={activeRoute} />
+                </div>
+
                 {/* Route tabs */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {routes.map((r, i) => (
