@@ -312,31 +312,33 @@ export default function Home() {
             <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, Chumphon, Ranong, and Phuket in under a week, via Thailand's 80 km land bridge.
             </p>
-            <div className="flex flex-col items-center gap-5 justify-center">
-              <Link href="/contact">
-                <a>
-                  <Button className="bg-secondary hover:bg-secondary/90 text-white px-10 py-6 text-lg font-semibold shadow-xl w-64 sm:w-72">
-                    Request a Quote
-                  </Button>
+            <div className="flex flex-col items-center gap-3 justify-center w-full max-w-xs mx-auto">
+              {/* Primary CTA */}
+              <Link href="/contact" className="w-full">
+                <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-base rounded-xl px-6 py-4 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0">
+                  <Anchor size={17} className="flex-shrink-0 opacity-90" />
+                  Request a Quote
                 </a>
               </Link>
+              {/* Secondary — Watch video */}
               <button
                 onClick={() => setVideoOpen(true)}
-                className="inline-flex items-center justify-center gap-3 border-2 border-white/50 text-white hover:bg-white/15 hover:border-white/80 px-10 py-4 text-base font-medium rounded-md transition-all w-64 sm:w-72"
+                className="flex items-center justify-center gap-3 w-full bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-base rounded-xl px-6 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
-                <div className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
-                  <Play size={12} className="ml-0.5" />
+                <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Play size={11} className="ml-0.5 text-white" />
                 </div>
                 Watch Our Process
               </button>
+              {/* Tertiary — Facebook */}
               <a
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 border-2 border-white/50 text-white hover:bg-white/15 hover:border-white/80 px-10 py-4 text-base font-medium rounded-md transition-all w-64 sm:w-72"
+                className="flex items-center justify-center gap-3 w-full bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-base rounded-xl px-6 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
-                <div className="w-7 h-7 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
                 </div>
