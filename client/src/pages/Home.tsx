@@ -269,8 +269,8 @@ export default function Home() {
           >
             <div className="flex items-center justify-center gap-3 mb-10">
               <div
-                className="h-px w-16"
-                style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,1))" }}
+                className="h-0.5 w-24"
+                style={{ background: "rgba(255,255,255,0.85)", borderRadius: "1px" }}
               />
               <p
                 className="font-mono-accent text-xs md:text-sm tracking-[0.28em] uppercase font-semibold"
@@ -283,8 +283,8 @@ export default function Home() {
                 Coast to Coast Marine Transportation Thailand
               </p>
               <div
-                className="h-px w-16"
-                style={{ background: "linear-gradient(90deg, rgba(255,255,255,1), transparent)" }}
+                className="h-0.5 w-24"
+                style={{ background: "rgba(255,255,255,0.85)", borderRadius: "1px" }}
               />
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
