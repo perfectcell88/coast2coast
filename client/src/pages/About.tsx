@@ -197,7 +197,7 @@ export default function About() {
                   <div>
                     <h3 className="font-display text-lg font-bold text-primary mb-1">Part of Phuket Marine Oracle Co., Ltd.</h3>
                     <p className="text-foreground/65 text-sm leading-relaxed">
-                      Coast to Coast Marine Transportation Thailand is a subsidiary of <strong className="text-primary">Phuket Marine Oracle Co., Ltd.</strong> — an established Thai marine enterprise. This means you benefit from a wider professional network, institutional resources, and the credibility of a registered Thai company behind every job.
+                      Phuket Marine Oracle Co., Ltd. was established in 2006 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.
                     </p>
                   </div>
                 </div>
