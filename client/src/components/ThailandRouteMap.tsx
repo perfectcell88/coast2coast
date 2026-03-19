@@ -84,6 +84,46 @@ const ROUTES_DATA = [
     destPin: "bangkok",
     direction: "reverse" as const,
   },
+  {
+    // 4: Chumphon → Phuket (short Gulf leg, land bridge, Andaman south)
+    label: "Chumphon → Phuket",
+    gulfSea: "M 120,238 C 120,238 120,238 120,238",
+    landBridge: LAND_BRIDGE,
+    andamanSea: "M 72,230 C 72,248 75,268 80,288 C 84,305 90,322 96,340 C 98,355 99,363 100,370",
+    originPin: "chumphon",
+    destPin: "phuket",
+    direction: "forward" as const,
+  },
+  {
+    // 5: Phuket → Chumphon (reverse of route 4)
+    label: "Phuket → Chumphon",
+    gulfSea: "M 120,238 C 120,238 120,238 120,238",
+    landBridge: "M 72,230 C 76,230 80,230 84,231 C 96,232 108,236 120,238",
+    andamanSea: "M 100,370 C 99,363 98,355 96,340 C 90,322 84,305 80,288 C 75,268 72,248 72,230",
+    originPin: "phuket",
+    destPin: "chumphon",
+    direction: "reverse" as const,
+  },
+  {
+    // 6: Ranong → Pattaya (short Andaman leg, land bridge, Gulf north)
+    label: "Ranong → Pattaya",
+    gulfSea: "M 120,238 C 121,236 122,234 128,215 C 135,190 140,168 146,140 C 150,110 151,98 152,88",
+    landBridge: "M 72,230 C 76,230 80,230 84,231 C 96,232 108,236 120,238",
+    andamanSea: "M 72,230 C 72,230 72,230 72,230",
+    originPin: "ranong",
+    destPin: "pattaya",
+    direction: "reverse" as const,
+  },
+  {
+    // 7: Pattaya → Ranong (Gulf south to land bridge, short Andaman leg)
+    label: "Pattaya → Ranong",
+    gulfSea: "M 152,88 C 150,110 146,140 140,168 C 135,190 128,215 122,234 C 121,236 120,237 120,238",
+    landBridge: LAND_BRIDGE,
+    andamanSea: "M 72,230 C 72,230 72,230 72,230",
+    originPin: "pattaya",
+    destPin: "ranong",
+    direction: "forward" as const,
+  },
 ];
 
 // ─── Pin definitions ─────────────────────────────────────────────────────────
