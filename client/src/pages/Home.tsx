@@ -288,7 +288,7 @@ export default function Home() {
             <div className="flex items-center justify-center gap-3 mb-10">
               <div
                 className="h-px w-12"
-                style={{ background: "linear-gradient(90deg, transparent, #00c8c8)", boxShadow: "0 0 6px rgba(0,200,200,0.6)" }}
+                style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.7))" }}
               />
               <p
                 className="font-mono-accent text-xs md:text-sm tracking-[0.28em] uppercase font-semibold"
@@ -302,7 +302,7 @@ export default function Home() {
               </p>
               <div
                 className="h-px w-12"
-                style={{ background: "linear-gradient(90deg, #00c8c8, transparent)", boxShadow: "0 0 6px rgba(0,200,200,0.6)" }}
+                style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.7), transparent)" }}
               />
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
