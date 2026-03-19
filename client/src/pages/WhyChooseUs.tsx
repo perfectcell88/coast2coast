@@ -4,7 +4,6 @@ import {
   Shield,
   Users,
   Anchor,
-  Clock,
   CheckCircle,
   Award,
   ArrowRight,
@@ -90,18 +89,6 @@ export default function WhyChooseUs() {
       description:
         "Every vessel is different. We fabricate a custom transit cradle engineered specifically for your hull profile — ensuring perfect support and zero movement during the overland journey.",
     },
-    {
-      icon: Clock,
-      title: "Under a Week, Coast to Coast",
-      description:
-        "Every route completes in under 7 days — compare that to 1,700 miles, 12+ days running 24 hours a day, and 500+ engine hours via the traditional route.",
-      routes: [
-        { label: "Pattaya ↔ Phuket", miles: "~350 mi", hrs: "~50 hrs" },
-        { label: "Bangkok ↔ Phuket",  miles: "~280 mi", hrs: "~40 hrs" },
-        { label: "Chumphon ↔ Phuket", miles: "~50 mi",  hrs: "~10 hrs" },
-        { label: "Ranong ↔ Pattaya",  miles: "~350 mi", hrs: "~50 hrs" },
-      ],
-    } as { icon: typeof Clock; title: string; description: string; routes?: { label: string; miles: string; hrs: string }[] },
     {
       icon: FileText,
       title: "End-to-End Administration",
@@ -220,7 +207,7 @@ export default function WhyChooseUs() {
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">What Sets Us Apart</p>
-              <h2 className="font-display text-4xl font-bold text-primary mb-4">Nine Reasons to Choose Us</h2>
+              <h2 className="font-display text-4xl font-bold text-primary mb-4">Eight Reasons to Choose Us</h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
                 From specialist equipment to licensed professionals — every aspect of our service is built around your vessel's safety.
               </p>
