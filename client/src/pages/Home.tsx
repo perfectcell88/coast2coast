@@ -162,7 +162,7 @@ export default function Home() {
     },
     {
       icon: Clock,
-      title: "Destination to Destination in Under a Week",
+      title: "Coast to Coast in Under a Week",
       description: "Crane out, overland, crane in — your vessel is back in the water at its destination within 7 days.",
     },
   ];

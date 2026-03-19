@@ -130,7 +130,7 @@ export default function Contact() {
                 <h2 className="font-display text-2xl font-bold text-primary mb-6">Contact Information</h2>
               </div>
 
-              {[
+                {[
                 {
                   icon: Phone,
                   title: "Phone",
@@ -139,7 +139,12 @@ export default function Contact() {
                 {
                   icon: MessageCircle,
                   title: "WhatsApp",
-                  content: <a href="https://wa.me/66862697138" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-secondary transition-colors">+66 86 269 7138</a>,
+                  content: <a href="https://wa.me/66862697138?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20vessel%20transport" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-secondary transition-colors">+66 86 269 7138</a>,
+                },
+                {
+                  icon: MessageCircle,
+                  title: "LINE",
+                  content: <p className="text-foreground/70">ID: 0862697138</p>,
                 },
                 {
                   icon: Mail,
@@ -154,24 +159,13 @@ export default function Contact() {
                 {
                   icon: Clock,
                   title: "Hours",
-                  content: (
-                    <div className="text-foreground/70 space-y-0.5">
-                      <p>Monday – Friday: 8:00 AM – 6:00 PM</p>
-                      <p>Saturday: 9:00 AM – 4:00 PM</p>
-                      <p>Sunday: By appointment</p>
-                    </div>
-                  ),
+                  content: <p className="text-foreground/70">7 days a week: 8:00 AM – 7:00 PM</p>,
                 },
                 {
                   icon: Facebook,
                   title: "Social Media",
                   content: (
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61588477663667&sk=about"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground/70 hover:text-secondary transition-colors"
-                    >
+                    <a href="https://www.facebook.com/profile.php?id=61588477663667&sk=about" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-secondary transition-colors">
                       Follow us on Facebook
                     </a>
                   ),
@@ -190,6 +184,21 @@ export default function Contact() {
                   </div>
                 );
               })}
+
+              {/* QR Codes */}
+              <div className="pt-4 border-t border-border">
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-4">Scan to Contact</p>
+                <div className="grid grid-cols-2 gap-4">
+                  <a href="https://wa.me/66862697138?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20vessel%20transport" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 p-3 rounded-xl border border-border hover:border-secondary/50 hover:shadow-sm transition-all bg-white">
+                    <img src="/qr-whatsapp.png" alt="WhatsApp QR Code" className="w-24 h-24 rounded-md" />
+                    <span className="text-xs font-semibold text-foreground/60">WhatsApp</span>
+                  </a>
+                  <div className="flex flex-col items-center gap-2 p-3 rounded-xl border border-border bg-white">
+                    <img src="/qr-line.png" alt="LINE QR Code" className="w-24 h-24 rounded-md" />
+                    <span className="text-xs font-semibold text-foreground/60">LINE</span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Quote Form */}
