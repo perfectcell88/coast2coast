@@ -157,7 +157,7 @@ export default function About() {
                   The traditional route for moving a vessel between Thailand's Gulf and Andaman coasts meant navigating the South China Sea, threading the Malacca Straits, and enduring 1,700 miles of open ocean — a gruelling 12-plus-day passage running 24 hours a day, adding 500+ engine hours to your vessel's log, and exposing it to some of the most hazardous waters in Asia. For many owners, it simply wasn't worth the risk.
                 </p>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  Coast to Coast Marine Transportation Thailand was founded on a straightforward insight: Thailand's geography offers a shortcut. The 80 km isthmus between Chumphon on the Gulf side and Ranong on the Andaman side means a vessel can be craned out of the water, transported overland, and relaunched — completing the coast-to-coast journey in under a week, adding only approximately 50 engine hours.
+                  Coast to Coast Marine Transportation Thailand was founded on a straightforward insight: Thailand's geography offers a shortcut. The 80 km isthmus between Chumphon on the Gulf side and Ranong on the Andaman side means a vessel can be craned out of the water, transported overland, and relaunched — completing the coast-to-coast journey in under a week, adding only 40–50 engine hours depending on your departure point.
                 </p>
                 <p className="text-lg text-foreground/70 leading-relaxed">
                   We built the expertise, the equipment, and the professional team to make that shortcut a reliable, premium service. Today, boat owners and captains across Thailand trust us with their most valuable assets — and we treat every vessel accordingly.
@@ -225,7 +225,7 @@ export default function About() {
                 {/* Key stats */}
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { value: "350", unit: "Sea Miles", label: "Total Route" },
+                    { value: "~350", unit: "Sea Miles", label: "Pattaya–Phuket" },
                     { value: "<7", unit: "Days", label: "Coast to Coast" },
                     { value: "80 km", unit: "Overland", label: "Land Bridge" },
                     { value: "100T", unit: "Crane", label: "At Ranong" },

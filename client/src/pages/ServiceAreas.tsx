@@ -110,7 +110,7 @@ export default function ServiceAreas() {
     },
     {
       from: "Bangkok",
-      to: "Ranong",
+      to: "Phuket",
       seaMiles: "~280",
       overland: "80 km",
       time: "Under 1 week",

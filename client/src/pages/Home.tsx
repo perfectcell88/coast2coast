@@ -481,7 +481,7 @@ export default function Home() {
                 <p className="text-white/55 text-sm mb-6">80 km overland land bridge — Coast to Coast</p>
                 <div className="space-y-3">
                   {[
-                    { label: "Total Sea Miles", value: "350 miles" },
+                    { label: "Sea Miles (Pattaya–Phuket)", value: "~350 miles" },
                     { label: "Total Time", value: "Under 1 week" },
                     { label: "Engine Hours", value: "~50 hours" },
                   ].map((item, i) => (

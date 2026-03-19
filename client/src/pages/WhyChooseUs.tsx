@@ -119,7 +119,7 @@ export default function WhyChooseUs() {
   const comparisons = [
     {
       label: "Sea Miles",
-      them: "1,700 miles",
+      them: "~1,700 miles",
       us: "~350 miles",
       saving: "79% less",
     },
