@@ -161,11 +161,6 @@ export default function Home() {
       description: "Fully licensed marine professionals handle every aspect of your vessel's relocation with the highest standards of safety.",
     },
     {
-      icon: Anchor,
-      title: "Custom Transit Cradles",
-      description: "Bespoke fabricated cradles engineered for your specific vessel, ensuring perfect support and zero movement during transport.",
-    },
-    {
       icon: Clock,
       title: "Door-to-Door in Under a Week",
       description: "Crane out, overland, crane in — your vessel is back in the water at its destination within 7 days, with full port clearance handled for you.",
