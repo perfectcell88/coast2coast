@@ -271,7 +271,7 @@ export default function Home() {
             <div className="flex items-center justify-center gap-3 mb-5">
               <div className="h-0.5 w-16" style={{ background: "rgba(255,255,255,0.85)", borderRadius: "1px" }} />
               <p
-                className="font-mono-accent text-xs md:text-sm tracking-[0.22em] uppercase font-bold"
+                className="font-mono-accent text-sm md:text-base tracking-[0.22em] uppercase font-bold"
                 style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 8px rgba(0,0,0,0.7)', letterSpacing: '0.22em' }}
               >
                 Coast to Coast Marine Transportation Thailand
