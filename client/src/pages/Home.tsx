@@ -23,6 +23,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThailandRouteMap from "@/components/ThailandRouteMap";
 import HeroParticles from "@/components/HeroParticles";
+import SEO from "@/components/SEO";
 
 const galleryImages = [
   { src: "/gallery/2.webp", alt: "Boat being prepared for transport at the dock" },
@@ -225,6 +226,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Coast to Coast Marine Transportation Thailand | Vessel Relocation Specialists"
+        description="Thailand's specialist in safe, professional vessel relocation between the Gulf of Thailand and the Andaman Sea. Powerboats, yachts and catamarans transported from Pattaya or Bangkok to Phuket in under 7 days."
+        path="/"
+      />
 
       {/* ── HERO ──────────────────────────────────────────────────── */}
       <section

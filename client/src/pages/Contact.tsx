@@ -5,6 +5,7 @@ import { Mail, Phone, MessageCircle, MapPin, Clock, Facebook } from "lucide-reac
 import { useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -72,6 +73,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Contact Us | Coast to Coast Marine Transportation Thailand"
+        description="Request a free quote for vessel relocation between Thailand's Gulf and Andaman coasts. Provide your vessel's length, beam, height and weight and we'll respond promptly."
+        path="/contact"
+      />
 
       {/* Hero */}
       <section

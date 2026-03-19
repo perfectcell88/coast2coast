@@ -1,5 +1,7 @@
 import FloatingContact from "@/components/FloatingContact";
 import { useLenis } from "./hooks/useLenis";
+import { HelmetProvider } from "react-helmet-async";
+import StructuredData from "./components/StructuredData";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -36,6 +38,7 @@ function Router() {
 function App() {
   useLenis();
   return (
+    <HelmetProvider>
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
@@ -51,7 +54,9 @@ function App() {
           </div>
         </TooltipProvider>
       </ThemeProvider>
+      <StructuredData />
     </ErrorBoundary>
+    </HelmetProvider>
   );
 }
 

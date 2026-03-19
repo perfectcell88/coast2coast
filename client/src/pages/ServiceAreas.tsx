@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { MapPin, Clock, Anchor, ArrowRight, Ship, Truck, Waves } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -121,6 +122,11 @@ export default function ServiceAreas() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Service Areas | Coast to Coast Marine Transportation Thailand"
+        description="We operate between Bangkok, Pattaya and Phuket — in both directions. The 80 km Kra Isthmus land bridge connects the Gulf of Thailand at Chumphon to the Andaman Sea at Ranong, cutting 1,700 miles of open-ocean sailing."
+        path="/service-areas"
+      />
 
       {/* Hero */}
       <section className="bg-primary text-white py-20 md:py-28">

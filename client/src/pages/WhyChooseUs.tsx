@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -144,6 +145,11 @@ export default function WhyChooseUs() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Why Choose Us | Coast to Coast Marine Transportation Thailand"
+        description="Expert maritime loadmasters, ticketed captains and engineers, custom-fabricated transit cradles, and a 100-tonne crane at Ranong. Discover why vessel owners trust Coast to Coast Marine Transportation Thailand."
+        path="/why-choose-us"
+      />
 
       {/* Hero */}
       <section className="bg-primary text-white py-20 md:py-28">

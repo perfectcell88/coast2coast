@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -135,6 +136,11 @@ export default function Services() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Services | Coast to Coast Marine Transportation Thailand"
+        description="Full-service vessel relocation between Thailand's Gulf and Andaman coasts. Crane operations, custom transit cradles, overland transport, sea delivery, port clearance and title transfer administration."
+        path="/services"
+      />
 
       {/* Hero */}
       <section className="bg-primary text-white py-20 md:py-28">

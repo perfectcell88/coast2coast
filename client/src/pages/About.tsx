@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Award, Users, Zap, Globe, Anchor, Building2, CheckCircle, Ship } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -84,6 +85,11 @@ export default function About() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="About Us | Coast to Coast Marine Transportation Thailand"
+        description="Learn about Coast to Coast Marine Transportation Thailand — a subsidiary of Phuket Marine Oracle Co., Ltd. Our team of licensed captains, engineers and maritime loadmasters has been safely relocating vessels between Thailand's Gulf and Andaman coasts."
+        path="/about"
+      />
 
       {/* Hero */}
       <section
