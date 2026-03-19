@@ -287,7 +287,7 @@ export default function About() {
                   The Team Behind Every Transport
                 </h2>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  Every Coast to Coast relocation is managed by a dedicated Maritime Loadmaster who oversees the crane lift, the securement of your vessel onto our custom transit cradle, the overland transit, and the re-launch at the other end. They travel with your vessel in the rear pilot vehicle for the entire journey.
+                  Our loadmaster is on site throughout the entire process, ensuring correct lifting points, weights & balances, securing & strong points, monitoring the overland journey from the rear pilot car — the entire team are in VHF radio contact for the duration of the trip.
                 </p>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
                   For the sea legs — whether that's the Gulf approach to Chumphon or the Andaman delivery from Ranong to Phuket — we can deploy fully licensed, ticketed marine captains and engineers on your behalf. If you prefer to handle those portions yourself, that option is available too. Either way, your vessel is never in unqualified hands.

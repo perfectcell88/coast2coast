@@ -153,7 +153,7 @@ export default function Home() {
     {
       icon: Users,
       title: "Expert Loadmasters",
-      description: "Our Maritime Loadmaster travels with your vessel from coast to coast, monitoring it from the rear pilot vehicle throughout the entire journey.",
+      description: "Our loadmaster is on site throughout the entire process, ensuring correct lifting points, weights & balances, securing & strong points, monitoring the overland journey from the rear pilot car — the entire team are in VHF radio contact for the duration of the trip.",
     },
     {
       icon: Shield,

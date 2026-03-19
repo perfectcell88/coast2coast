@@ -73,7 +73,7 @@ export default function Services() {
     {
       icon: Users,
       title: "Professional Loadmasters",
-      description: "Our Maritime Loadmaster oversees every lift, securement, and transit. They travel with your vessel in the rear pilot vehicle from coast to coast, monitoring it throughout.",
+      description: "Our loadmaster is on site throughout the entire process, ensuring correct lifting points, weights & balances, securing & strong points, monitoring the overland journey from the rear pilot car — the entire team are in VHF radio contact for the duration of the trip.",
     },
     {
       icon: Shield,
