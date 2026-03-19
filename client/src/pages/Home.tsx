@@ -394,7 +394,7 @@ export default function Home() {
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Smart Choice</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">The Shortcut Comparison</h2>
               <p className="text-lg opacity-70 max-w-2xl mx-auto">
-                The traditional route via Singapore is gruelling, dangerous, and expensive. Our land-bridge solution changes everything.
+                The traditional route via Singapore is hard on the boat and crew — very few ports for diesel & repairs, monsoon storms with lightning, and the busiest shipping convergence lanes in the world. Our land bridge solution changes everything.
               </p>
             </motion.div>
 
