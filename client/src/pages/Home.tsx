@@ -394,7 +394,7 @@ export default function Home() {
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Smart Choice</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">The Shortcut Comparison</h2>
               <p className="text-lg opacity-70 max-w-2xl mx-auto">
-                The traditional route via Singapore is hard on the boat and crew — very few ports for diesel & repairs, monsoon storms with lightning, and the busiest shipping convergence lanes in the world. Our land bridge solution changes everything.
+                The traditional route around the Malay Peninsula is gruelling, dangerous, and expensive. Our land-bridge solution changes everything.
               </p>
             </motion.div>
 
@@ -414,7 +414,7 @@ export default function Home() {
                 </div>
                 <AlertTriangle className="text-red-400 mb-5" size={32} />
                 <h3 className="font-display text-xl font-bold mb-1">Pattaya → Singapore → Phuket</h3>
-                <p className="text-white/85 text-sm mb-6">Via Singapore — hard on the boat and crew. Few ports for diesel & repairs, monsoon storms with lightning, and the world's busiest shipping convergence lanes.</p>
+                <p className="text-white/85 text-sm mb-6">Via the South China Sea & Malacca Straits</p>
                 <div className="space-y-3">
                   {[
                     { label: "Total Distance", value: "1,700 miles" },
@@ -428,7 +428,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-white/85 text-xs mt-5 leading-relaxed">
-                  At 6 knots, 24 hours a day, you're looking at 12 days minimum — if everything goes well. The East Malaysia coastline is a fuel and repair desert. The South China Sea is notorious for sudden, violent weather. Singapore sits in one of the world's highest lightning-strike zones, with katabatic squalls that create zero-visibility conditions in minutes. Then another 400 miles through the Malacca Straits — unlit vessels, endless fishing nets, intense Sumatran squalls, and some of the most dangerous ship convergence zones on earth. No place for the novice.
+                  Via Singapore is hard on the boat and crew — very few ports for diesel & repairs, monsoon storms with lightning, and the busiest shipping convergence lanes in the world. Our land bridge solution changes everything.
                 </p>
               </motion.div>
 
