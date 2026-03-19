@@ -158,11 +158,11 @@ export default function Home() {
     {
       icon: Shield,
       title: "Ticketed Captains & Engineers",
-      description: "Fully licensed marine professionals handle every aspect of your vessel's relocation with the highest standards of expertise.",
+      description: "Our licensed and ticketed captains and engineers are available to handle the ocean legs of your relocation — so you don't have to sail your vessel yourself.",
     },
     {
       icon: Clock,
-      title: "Door-to-Door in Under a Week",
+      title: "Destination to Destination in Under a Week",
       description: "Crane out, overland, crane in — your vessel is back in the water at its destination within 7 days.",
     },
   ];

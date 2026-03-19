@@ -85,7 +85,7 @@ const service = {
   "@type": "Service",
   "name": "Vessel Relocation — Gulf of Thailand to Andaman Sea",
   "description":
-    "Professional overland marine transport of powerboats, keel yachts and catamarans between Thailand's Gulf and Andaman coasts. Crane out at Chumphon, 80 km overland land bridge to Ranong, crane in to the Andaman Sea. Vessels up to 15 m length, 5.5 m beam, 32 tonnes. Under 7 days door to door.",
+    "Professional overland marine transport of powerboats, keel yachts and catamarans between Thailand's Gulf and Andaman coasts. Crane out at Chumphon, 80 km overland land bridge to Ranong, crane in to the Andaman Sea. Vessels up to 15 m length, 5.5 m beam, 32 tonnes. Under 7 days, destination to destination.",
   "provider": {
     "@type": "LocalBusiness",
     "@id": "https://coasttocoast-thailand.com/#business",
@@ -112,7 +112,7 @@ const faqPage = {
       "name": "How long does it take to transport a vessel from Pattaya to Phuket?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The full door-to-door journey from Pattaya to Phuket takes under 7 days, adding approximately 50 engine hours to your vessel's log — compared to 12+ days and 500+ engine hours via the traditional open-ocean route.",
+        "text": "The full destination to destination journey from Pattaya to Phuket takes under 7 days, adding approximately 50 engine hours to your vessel's log — compared to 12+ days and 500+ engine hours via the traditional open-ocean route.",
       },
     },
     {

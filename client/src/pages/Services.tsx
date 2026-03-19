@@ -8,7 +8,6 @@ import {
   Anchor,
   CheckCircle,
   FileText,
-  Ship,
   Compass,
   Home,
   Camera,
@@ -77,8 +76,8 @@ export default function Services() {
     },
     {
       icon: Shield,
-      title: "Ticketed Captains & Engineers",
-      description: "Fully licensed and ticketed marine captains and engineers available for the sea legs of your relocation, or to deliver your vessel to its final Andaman destination.",
+      title: "Licensed Delivery Crew",
+      description: "Our ticketed captains and engineers are available to handle the ocean legs of your relocation — sailing your vessel on the Gulf or Andaman sea portions, or completing the final delivery to your destination. Your choice: hand over at Ranong or destination to destination.",
     },
     {
       icon: Anchor,
@@ -98,11 +97,7 @@ export default function Services() {
       title: "Title Transfers & Port Clearances",
       description: "We manage the administrative side of vessel relocation, including title transfers and all required port clearance documentation.",
     },
-    {
-      icon: Ship,
-      title: "Experienced Delivery Crew",
-      description: "Our experienced delivery crew can complete the final sea voyage to your destination on the Andaman coast — or hand over directly to your own crew at Ranong.",
-    },
+
     {
       icon: Home,
       title: "Dockside & Monthly Moorings",
