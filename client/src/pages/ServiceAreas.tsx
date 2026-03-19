@@ -263,7 +263,7 @@ export default function ServiceAreas() {
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Routes We Operate</p>
               <h2 className="font-display text-4xl font-bold text-primary mb-4">Transport Routes</h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
-                All routes use the same 80 km Chumphon–Ranong land bridge. Sea legs can be completed by our licensed ticketed captains, or handled by your own crew — your choice.
+                All routes use the same 80 km Chumphon–Ranong land bridge. Sea miles can be completed by our licensed ticketed captains, or handled by your own crew — your choice.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

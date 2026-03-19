@@ -463,7 +463,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-white/65 text-xs mt-5 leading-relaxed">
-                  Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Sea legs handled by our licensed crew or your own. Simple. Safe. Professional.
+                  Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Sea miles handled by our licensed crew or your own. Simple. Safe. Professional.
                 </p>
               </motion.div>
             </div>
@@ -741,7 +741,7 @@ export default function Home() {
                   Serving Thailand's Coasts
                 </h2>
                 <p className="text-lg text-foreground/65 mb-6">
-                  We operate the premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions. Sea legs handled by our licensed crew, or your own.
+                  We operate the premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions. Sea miles handled by our licensed crew, or your own.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
