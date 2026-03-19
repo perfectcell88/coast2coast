@@ -129,7 +129,7 @@ export default function Services() {
   const processSteps = [
     { number: 1, title: "Consultation", description: "Discuss your vessel's specifications, dimensions, and desired timeline" },
     { number: 2, title: "Quotation", description: "We assess your vessel and provide a quote based on your specific requirements" },
-    { number: 3, title: "Preparation", description: "Cradle fabrication, crane booking, and route coordination" },
+    { number: 3, title: "Preparation", description: "Your vessel is brought to Chumphon, measured up, and a custom transit cradle is fabricated to fit your hull exactly" },
     { number: 4, title: "Crane Out", description: "Professional lift at Chumphon onto our low-deck trailer" },
     { number: 5, title: "Overland Transit", description: "80 km land bridge with Loadmaster escort in rear pilot vehicle" },
     { number: 6, title: "Launch & Handover", description: "100-ton crane launch at Ranong — hand over at Ranong or continue with our delivery crew to your final destination" },
