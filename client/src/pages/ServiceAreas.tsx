@@ -89,84 +89,44 @@ export default function ServiceAreas() {
 
   const routes = [
     {
-      from: "Pattaya",
-      to: "Phuket",
+      a: "Pattaya",
+      b: "Phuket",
       seaMiles: "~350",
       overland: "80 km",
       time: "Under 1 week",
       engineHours: "~50 hrs",
       highlight: true,
-      description: "Our flagship route. Gulf to Andaman in under a week — the smart alternative to 1,700 miles around the Malay Peninsula.",
+      description: "Our flagship route — the smart alternative to 1,700 miles around the Malay Peninsula. Gulf to Andaman or reverse, in under a week.",
     },
     {
-      from: "Phuket",
-      to: "Pattaya",
-      seaMiles: "~350",
-      overland: "80 km",
-      time: "Under 1 week",
-      engineHours: "~50 hrs",
-      highlight: false,
-      description: "We operate in both directions. Andaman to Gulf is just as straightforward — same professional service, same timeline.",
-    },
-    {
-      from: "Bangkok",
-      to: "Phuket",
+      a: "Bangkok",
+      b: "Phuket",
       seaMiles: "~280",
       overland: "80 km",
       time: "Under 1 week",
       engineHours: "~40 hrs",
       highlight: false,
-      description: "Bangkok-based vessels transported to Ranong for launch into the Andaman Sea, with final delivery to Phuket available.",
+      description: "Bangkok or Gulf-side vessels transported overland to the Andaman Sea, with final delivery to Phuket or any Andaman marina. Operates in both directions.",
     },
     {
-      from: "Phuket",
-      to: "Bangkok",
-      seaMiles: "~280",
-      overland: "80 km",
-      time: "Under 1 week",
-      engineHours: "~40 hrs",
-      highlight: false,
-      description: "Andaman to Gulf via the land bridge. Same professional service in reverse — craned out at Ranong, trucked overland, relaunched at Chumphon.",
-    },
-    {
-      from: "Chumphon",
-      to: "Phuket",
+      a: "Chumphon",
+      b: "Phuket",
       seaMiles: "~50",
       overland: "80 km",
       time: "Under 1 week",
       engineHours: "~10 hrs",
       highlight: false,
-      description: "Vessel already at Chumphon? We crane out, transport overland, and launch at Ranong for final delivery to Phuket or any Andaman destination.",
+      description: "Vessel already at Chumphon or Ranong? Minimal sea miles — just the overland crossing plus a short coastal leg. Operates in both directions.",
     },
     {
-      from: "Phuket",
-      to: "Chumphon",
-      seaMiles: "~50",
-      overland: "80 km",
-      time: "Under 1 week",
-      engineHours: "~10 hrs",
-      highlight: false,
-      description: "Andaman to Gulf with Chumphon as your destination. Craned out at Ranong, trucked overland, relaunched at Chumphon.",
-    },
-    {
-      from: "Ranong",
-      to: "Pattaya",
+      a: "Ranong",
+      b: "Pattaya",
       seaMiles: "~350",
       overland: "80 km",
       time: "Under 1 week",
       engineHours: "~50 hrs",
       highlight: false,
-      description: "Vessel at Ranong on the Andaman side? We crane out, transport overland to Chumphon, and deliver to Pattaya or any Gulf destination.",
-    },
-    {
-      from: "Pattaya",
-      to: "Ranong",
-      seaMiles: "~350",
-      overland: "80 km",
-      time: "Under 1 week",
-      engineHours: "~50 hrs",
-      highlight: false,
-      description: "Gulf to Andaman with Ranong as your destination. Craned out at Chumphon, trucked overland, relaunched at Ranong.",
+      description: "Andaman-side vessels craned out at Ranong, transported overland, and delivered to Pattaya or any Gulf destination. Operates in both directions.",
     },
   ];
 
@@ -306,25 +266,26 @@ export default function ServiceAreas() {
                 All routes use the same 80 km Chumphon–Ranong land bridge. Sea legs can be completed by our licensed ticketed captains, or handled by your own crew — your choice.
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {routes.map((route, index) => (
                 <motion.div
                   key={index}
                   variants={fadeUp}
-                  className="rounded-2xl border p-7 relative overflow-hidden transition-shadow hover:shadow-lg bg-white text-foreground border-border"
+                  className={`rounded-2xl border p-7 relative overflow-hidden transition-shadow hover:shadow-lg bg-white text-foreground ${
+                    route.highlight ? "border-secondary/40 shadow-md" : "border-border"
+                  }`}
                 >
-
-                  <div className="flex items-center gap-3 mb-5">
-                    <div>
-                      <p className="text-xs font-mono-accent tracking-widest uppercase mb-0.5 text-foreground/50">From</p>
-                      <p className="font-display text-xl font-bold text-primary">{route.from}</p>
-                    </div>
-                    <ArrowRight className="flex-shrink-0 text-secondary" size={20} />
-                    <div>
-                      <p className="text-xs font-mono-accent tracking-widest uppercase mb-0.5 text-foreground/50">To</p>
-                      <p className="font-display text-xl font-bold text-primary">{route.to}</p>
-                    </div>
+                  {route.highlight && (
+                    <span className="absolute top-4 right-4 text-[10px] font-mono-accent tracking-[0.2em] uppercase bg-secondary/10 text-secondary px-2.5 py-1 rounded-full">
+                      Flagship
+                    </span>
+                  )}
+                  <div className="flex items-center gap-3 mb-2">
+                    <p className="font-display text-xl font-bold text-primary">{route.a}</p>
+                    <span className="text-secondary font-bold text-lg">↔</span>
+                    <p className="font-display text-xl font-bold text-primary">{route.b}</p>
                   </div>
+                  <p className="text-[11px] font-mono-accent tracking-[0.15em] uppercase text-secondary/70 mb-4">Both directions</p>
                   <p className="text-sm leading-relaxed mb-5 text-foreground/60">{route.description}</p>
                   <div className="border-t pt-4 grid grid-cols-2 gap-3 border-border">
                     {[
