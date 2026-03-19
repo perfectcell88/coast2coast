@@ -404,7 +404,7 @@ export default function Home() {
 
 
       {/* ── COMPARISON ────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 text-white overflow-hidden" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a2540 50%, #0d3050 100%)" }}>
+      <section className="py-20 md:py-28 text-white overflow-hidden noise-texture" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a2540 50%, #0d3050 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
@@ -515,7 +515,7 @@ export default function Home() {
       </section>
 
       {/* ── TECHNICAL SPECS ───────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: "linear-gradient(180deg, #061e36 0%, #0a2540 100%)" }}>
+      <section className="py-20 md:py-28 noise-texture" style={{ background: "linear-gradient(180deg, #061e36 0%, #0a2540 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">

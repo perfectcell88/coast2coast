@@ -139,7 +139,7 @@ export default function ServiceAreas() {
       />
 
       {/* Hero */}
-      <section className="bg-primary text-white py-20 md:py-28">
+      <section className="bg-primary text-white py-20 md:py-28 noise-texture">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
