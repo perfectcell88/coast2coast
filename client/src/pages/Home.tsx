@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import {
   Anchor,
   Shield,
-  Users,
   Clock,
   CheckCircle,
   ArrowRight,
@@ -149,23 +148,6 @@ export default function Home() {
     return () => { document.body.style.overflow = ""; };
   }, [videoOpen, lightboxOpen]);
 
-  const whyChooseItems = [
-    {
-      icon: Users,
-      title: "Expert Loadmasters",
-      description: "Our loadmaster is on site throughout the entire process, ensuring correct lifting points, weights & balances, securing & strong points, monitoring the overland journey from the rear pilot car — the entire team are in VHF radio contact for the duration of the trip.",
-    },
-    {
-      icon: Shield,
-      title: "Ticketed Captains & Engineers",
-      description: "Our licensed and ticketed captains and engineers are available to handle the ocean legs of your relocation — so you don't have to sail your vessel yourself.",
-    },
-    {
-      icon: Clock,
-      title: "Coast to Coast in Under a Week",
-      description: "Crane out, overland, crane in — your vessel is back in the water at its destination within 7 days.",
-    },
-  ];
 
   const specItems = [
     { icon: Ruler, label: "Max Height", value: "5.5 m" },
@@ -403,71 +385,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: "linear-gradient(180deg, #f8fafb 0%, #ffffff 100%)" }}>
-        <div className="container">
-          <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00a8a8" }}>Our Advantage</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
-                Choose Us
-              </h2>
-              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
-                We combine maritime expertise, precision logistics, and professional care to ensure your vessel arrives safely — every time.
-              </p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {whyChooseItems.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    variants={fadeUp}
-                    className="relative bg-white rounded-2xl p-7 group cursor-default overflow-hidden"
-                    style={{
-                      border: "1px solid rgba(0,168,168,0.12)",
-                      boxShadow: "0 2px 16px rgba(10,37,64,0.06), 0 1px 4px rgba(0,0,0,0.04)",
-                      transition: "box-shadow 0.3s ease, transform 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 40px rgba(0,168,168,0.18), 0 2px 12px rgba(0,0,0,0.08)";
-                      (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 16px rgba(10,37,64,0.06), 0 1px 4px rgba(0,0,0,0.04)";
-                      (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                    }}
-                  >
-                    {/* Top accent line */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ background: "linear-gradient(90deg, transparent, #00c8c8, transparent)" }} />
-                    <div
-                      className="w-13 h-13 rounded-2xl flex items-center justify-center mb-5"
-                      style={{
-                        background: "linear-gradient(135deg, rgba(0,168,168,0.12) 0%, rgba(0,200,200,0.18) 100%)",
-                        width: "52px", height: "52px",
-                      }}
-                    >
-                      <Icon style={{ color: "#0a8a8a" }} size={24} />
-                    </div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-2">{item.title}</h3>
-                    <p className="text-sm text-foreground/65 leading-relaxed">{item.description}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
-            <motion.div variants={fadeUp} className="text-center mt-12">
-              <Link href="/why-choose-us">
-                <a>
-                  <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 inline-flex items-center gap-2">
-                    Explore Our Advantages <ArrowRight size={18} />
-                  </Button>
-                </a>
-              </Link>
-            </motion.div>
-          </FadeSection>
-        </div>
-      </section>
 
       {/* ── COMPARISON ────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 text-white overflow-hidden" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a2540 50%, #0d3050 100%)" }}>
