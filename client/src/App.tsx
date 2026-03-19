@@ -11,8 +11,6 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import ServiceAreas from "./pages/ServiceAreas";
-import WhyChooseUs from "./pages/WhyChooseUs";
 import Contact from "./pages/Contact";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -25,8 +23,6 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/about"} component={About} />
       <Route path={"/services"} component={Services} />
-      <Route path={"/service-areas"} component={ServiceAreas} />
-      <Route path={"/why-choose-us"} component={WhyChooseUs} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

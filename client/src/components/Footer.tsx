@@ -51,7 +51,7 @@ export default function Footer() {
                 color: "rgba(0,200,200,0.75)",
               }}
             >
-              ⚓ A subsidiary of Phuket Marine Oracle Co., Ltd.
+              ⚓ Part of Phuket Marine Oracle Co., Ltd. — Est. 2005
             </div>
           </div>
 
@@ -68,8 +68,6 @@ export default function Footer() {
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
                 { label: "Services", href: "/services" },
-                { label: "Why Choose Us", href: "/why-choose-us" },
-                { label: "Service Areas", href: "/service-areas" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.href}>
@@ -159,7 +157,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Coast to Coast Marine Transportation Thailand. All rights reserved.
           </p>
           <p className="text-xs" style={{ color: "rgba(0,200,200,0.4)" }}>
-            A subsidiary of Phuket Marine Oracle Co., Ltd.
+Part of Phuket Marine Oracle Co., Ltd. — Est. 2005
           </p>
         </div>
       </div>
