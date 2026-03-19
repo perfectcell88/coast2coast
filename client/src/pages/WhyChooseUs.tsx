@@ -280,7 +280,7 @@ export default function WhyChooseUs() {
         <div className="container text-center">
           <FadeSection>
             <motion.div variants={fadeUp}>
-              <h2 className="font-display text-4xl font-bold text-primary mb-6">Ready to Experience the Difference?</h2>
+              <h2 className="font-display text-4xl font-bold text-primary mb-6">Coast to Coast Marine Transportation</h2>
               <p className="text-lg text-foreground/65 mb-10 max-w-2xl mx-auto">
                 Contact our team today to discuss your requirements — we'll take it from there.
               </p>
