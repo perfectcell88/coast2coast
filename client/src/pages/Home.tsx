@@ -289,7 +289,7 @@ export default function Home() {
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
               Thailand's Premier<br />
-              <span style={{ color: "#2dd4bf" }}>Vessel Relocation</span> Specialists
+              <span style={{ color: "#F5F0E8" }}>Vessel Relocation</span> Specialists
             </h1>
             <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, Chumphon, Ranong, and Phuket in under a week, via Thailand's 80 km land bridge.
