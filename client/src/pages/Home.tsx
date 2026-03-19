@@ -591,7 +591,7 @@ export default function Home() {
                       border: "1px solid rgba(0,200,200,0.3)",
                     }}
                   >
-                    Check if Your Vessel Qualifies <ArrowRight size={18} />
+                    Contact Us <ArrowRight size={18} />
                   </button>
                 </a>
               </Link>
