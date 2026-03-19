@@ -254,10 +254,8 @@ export default function Home() {
         className="relative min-h-screen bg-cover bg-center flex items-center justify-center overflow-hidden"
         style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed" }}
       >
-        {/* Darkened overlay for strong text contrast */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(8,32,50,0.72) 0%, rgba(10,55,65,0.62) 50%, rgba(0,100,100,0.50) 100%)" }} />
-        {/* Subtle radial light bloom from centre */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,184,184,0.08) 0%, transparent 70%)" }} />
+        {/* Darkened overlay — neutral dark, no colour tint, preserves photo warmth */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.55) 100%)" }} />
         {/* Subtle drifting particles — sea spray / light on water */}
         <HeroParticles />
 
