@@ -414,7 +414,7 @@ export default function Home() {
                 </div>
                 <AlertTriangle className="text-red-400 mb-5" size={32} />
                 <h3 className="font-display text-xl font-bold mb-1">Pattaya → Singapore → Phuket</h3>
-                <p className="text-white/55 text-sm mb-6">Via the South China Sea & Malacca Straits</p>
+                <p className="text-white/55 text-sm mb-6">Via Singapore — hard on the boat and crew. Few ports for diesel & repairs, monsoon storms with lightning, and the world's busiest shipping convergence lanes.</p>
                 <div className="space-y-3">
                   {[
                     { label: "Total Distance", value: "1,700 miles" },
