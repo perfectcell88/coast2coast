@@ -215,6 +215,46 @@ export default function Home() {
       description: "Return route — Andaman to the Gulf of Thailand via the same land bridge.",
       highlight: false,
     },
+    {
+      from: "Chumphon",
+      to: "Phuket",
+      time: "Under 7 Days",
+      engineHours: "~10 hrs",
+      seaMiles: "~50",
+      overland: "80 km",
+      description: "Vessel already at Chumphon? We crane out, transport overland, and launch at Ranong for delivery to Phuket or any Andaman destination.",
+      highlight: false,
+    },
+    {
+      from: "Phuket",
+      to: "Chumphon",
+      time: "Under 7 Days",
+      engineHours: "~10 hrs",
+      seaMiles: "~50",
+      overland: "80 km",
+      description: "Andaman to Gulf with Chumphon as your destination. Craned out at Ranong, trucked overland, relaunched at Chumphon.",
+      highlight: false,
+    },
+    {
+      from: "Ranong",
+      to: "Pattaya",
+      time: "Under 7 Days",
+      engineHours: "~50 hrs",
+      seaMiles: "~350",
+      overland: "80 km",
+      description: "Vessel at Ranong? We crane out, transport overland to Chumphon, and deliver to Pattaya or any Gulf destination.",
+      highlight: false,
+    },
+    {
+      from: "Pattaya",
+      to: "Ranong",
+      time: "Under 7 Days",
+      engineHours: "~50 hrs",
+      seaMiles: "~350",
+      overland: "80 km",
+      description: "Gulf to Andaman with Ranong as your destination. Craned out at Chumphon, trucked overland, relaunched at Ranong.",
+      highlight: false,
+    },
   ];
 
   const [activeRoute, setActiveRoute] = useState(0);
@@ -270,7 +310,7 @@ export default function Home() {
               <span className="text-secondary">Vessel Relocation</span> Specialists
             </h1>
             <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
-              From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, and Phuket in under a week, via Thailand's 80 km land bridge.
+              From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, Chumphon, Ranong, and Phuket in under a week, via Thailand's 80 km land bridge.
             </p>
             <div className="flex flex-col items-center gap-5 justify-center">
               <Link href="/contact">
