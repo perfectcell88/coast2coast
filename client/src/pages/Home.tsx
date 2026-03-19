@@ -62,7 +62,7 @@ function useInView(ref: React.RefObject<Element | null>) {
           obs.disconnect();
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.05 }
     );
     obs.observe(el);
     return () => obs.disconnect();

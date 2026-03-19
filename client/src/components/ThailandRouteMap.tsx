@@ -167,7 +167,7 @@ export default function ThailandRouteMap({ activeRoute }: { activeRoute: number 
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
-      { threshold: 0.2 }
+      { threshold: 0.05 }
     );
     obs.observe(el);
     return () => obs.disconnect();
