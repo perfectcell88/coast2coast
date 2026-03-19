@@ -300,16 +300,9 @@ export default function Home() {
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
-            {/* Three buttons in a horizontal row */}
+            {/* Three buttons in a horizontal row — Watch | Request a Quote (centre) | Facebook */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto mb-5">
-              {/* Primary CTA */}
-              <Link href="/contact" className="w-full sm:w-auto">
-                <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-5 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
-                  <Anchor size={16} className="flex-shrink-0 opacity-90" />
-                  Request a Quote
-                </a>
-              </Link>
-              {/* Watch video */}
+              {/* Watch video — left */}
               <button
                 onClick={() => setVideoOpen(true)}
                 className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-sm md:text-base rounded-xl px-5 py-3.5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
@@ -319,7 +312,14 @@ export default function Home() {
                 </div>
                 Watch Our Process
               </button>
-              {/* Facebook */}
+              {/* Request a Quote — centre / primary */}
+              <Link href="/contact" className="w-full sm:w-auto">
+                <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-6 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
+                  <Anchor size={16} className="flex-shrink-0 opacity-90" />
+                  Request a Quote
+                </a>
+              </Link>
+              {/* Facebook — right */}
               <a
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
