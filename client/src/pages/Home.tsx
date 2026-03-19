@@ -356,7 +356,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="text-center mb-14">
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00a8a8" }}>Our Advantage</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
-                Why Choose Coast to Coast?
+                Choose Coast to Coast
               </h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
                 We combine maritime expertise, precision logistics, and professional care to ensure your vessel arrives safely — every time.
