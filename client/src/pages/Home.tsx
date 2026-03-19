@@ -252,10 +252,12 @@ export default function Home() {
       {/* ── HERO ──────────────────────────────────────────────────── */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed", backgroundSize: "115%", backgroundPosition: "center 40%" }}
+        style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed", backgroundSize: "cover", backgroundPosition: "center 40%" }}
       >
         {/* Darkened overlay — neutral dark, no colour tint, preserves photo warmth */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.55) 100%)" }} />
+        {/* Navbar shadow — dark drop fading to transparent, adds depth and grounds the nav */}
+        <div className="absolute inset-x-0 top-0 pointer-events-none" style={{ height: "140px", background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.0) 100%)" }} />
         {/* Subtle drifting particles — sea spray / light on water */}
         <HeroParticles />
 
