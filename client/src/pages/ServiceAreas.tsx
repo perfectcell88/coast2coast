@@ -54,8 +54,8 @@ export default function ServiceAreas() {
       coast: "Gulf of Thailand",
       role: "East Coast Departure Hub",
       icon: Waves,
-      description: "Our primary Gulf-side embarkation point. Vessels are craned out, inspected, and secured onto our custom transit cradle here before the overland journey begins.",
-      details: ["Crane-out operations", "Custom cradle fitting & securement", "Pre-transport vessel inspection", "Customs documentation coordination"],
+      description: "Our primary Gulf-side embarkation point. Vessels are collected here and sailed or delivered to Chumphon for crane-out. Pre-transport inspection and documentation are completed before the journey begins.",
+      details: ["Vessel collection & delivery to Chumphon", "Pre-transport vessel inspection", "Documentation coordination", "Licensed crew available for Gulf sea leg"],
       image: "/gallery/2.webp",
     },
     {
@@ -63,8 +63,8 @@ export default function ServiceAreas() {
       coast: "Gulf of Thailand",
       role: "Gulf-Side Crane Point",
       icon: Anchor,
-      description: "The crane-out point on the Gulf side of the 80 km land bridge. Our team manages all lifting operations here with precision and care.",
-      details: ["Professional crane operations", "Vessel securement to trailer", "Loadmaster briefing & checks", "Overland transit preparation"],
+      description: "The crane-out point on the Gulf side of the 80 km land bridge. Our team manages all lifting operations here — pre-transport inspection, cradle fitting, and securement — before the overland journey begins.",
+      details: ["Professional crane operations", "Custom cradle fitting & securement", "Pre-transport vessel inspection", "Overland transit preparation"],
       image: "/gallery/5.webp",
     },
     {
@@ -73,7 +73,7 @@ export default function ServiceAreas() {
       role: "Andaman-Side Launch Point",
       icon: Ship,
       description: "The western end of the land bridge. Our 100-ton crane at Ranong handles even the largest catamarans, lowering them gently into the Andaman Sea.",
-      details: ["100-ton crane operations", "Controlled water launch", "Post-transit inspection", "Crew handover or delivery"],
+      details: ["100-ton crane operations", "Controlled water launch", "Post-transit inspection", "Hand over at Ranong or continue to destination"],
       image: "/gallery/3.webp",
     },
     {
@@ -253,7 +253,7 @@ export default function ServiceAreas() {
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Routes We Operate</p>
               <h2 className="font-display text-4xl font-bold text-primary mb-4">Transport Routes</h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
-                All routes use the same 80 km Chumphon–Ranong land bridge. Sea legs are completed by our ticketed captains or handed to your own crew.
+                All routes use the same 80 km Chumphon–Ranong land bridge. Sea legs can be completed by our licensed ticketed captains, or handled by your own crew — your choice.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

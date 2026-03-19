@@ -96,7 +96,7 @@ export default function Services() {
     {
       icon: FileText,
       title: "Title Transfers & Documentation",
-      description: "We coordinate the administrative side of your vessel relocation, including title transfers and required customs documentation, through our licensed agent.",
+      description: "We coordinate the administrative side of your vessel relocation, including title transfers and required customs documentation — handled through our licensed agent. You don't need to source your own.",
     },
 
     {
@@ -132,7 +132,7 @@ export default function Services() {
     { number: 3, title: "Preparation", description: "Cradle fabrication, crane booking, and route coordination" },
     { number: 4, title: "Crane Out", description: "Professional lift at Chumphon onto our low-deck trailer" },
     { number: 5, title: "Overland Transit", description: "80 km land bridge with Loadmaster escort in rear pilot vehicle" },
-    { number: 6, title: "Launch & Handover", description: "100-ton crane launch at Ranong — delivered to your crew or ours" },
+    { number: 6, title: "Launch & Handover", description: "100-ton crane launch at Ranong — hand over at Ranong or continue with our delivery crew to your final destination" },
   ];
 
   return (

@@ -158,7 +158,7 @@ export default function Home() {
     {
       icon: Shield,
       title: "Ticketed Captains & Engineers",
-      description: "Our licensed and ticketed captains and engineers are available to handle the ocean legs of your relocation — so you don't have to sail your vessel yourself.",
+      description: "Our licensed and ticketed captains and engineers are available to handle the ocean legs of your relocation — so you don't have to sail your vessel yourself. Or hand over at Ranong if you prefer.",
     },
     {
       icon: Clock,
@@ -270,7 +270,7 @@ export default function Home() {
               <span className="text-secondary">Vessel Relocation</span> Specialists
             </h1>
             <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
-              From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, and Phuket in under a week.
+              From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, and Phuket in under a week, via Thailand's 80 km land bridge.
             </p>
             <div className="flex flex-col items-center gap-5 justify-center">
               <Link href="/contact">
@@ -457,8 +457,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <p className="text-white/45 text-xs mt-5 leading-relaxed">
-                  Notorious South China Sea, katabatic squalls in Singapore, zero-visibility conditions, unlit vessels, endless fishing nets, dangerous ship convergence zones in the Malacca Straits — no place for the novice.
+                <p className="text-white/55 text-xs mt-5 leading-relaxed">
+                  At 6 knots, 24 hours a day, you're looking at 12 days minimum — if everything goes well. The East Malaysia coastline is a fuel and repair desert. The South China Sea is notorious for sudden, violent weather. Singapore sits in one of the world's highest lightning-strike zones, with katabatic squalls that create zero-visibility conditions in minutes. Then another 400 miles through the Malacca Straits — unlit vessels, endless fishing nets, intense Sumatran squalls, and some of the most dangerous ship convergence zones on earth. No place for the novice.
                 </p>
               </motion.div>
 
@@ -485,7 +485,7 @@ export default function Home() {
                     { label: "Total Sea Miles", value: "350 miles" },
                     { label: "Total Time", value: "Under 1 week" },
                     { label: "Engine Hours", value: "~50 hours" },
-                    { label: "Risk Level", value: "Minimal" },
+                    { label: "Risk Level", value: "Greatly Reduced" },
                   ].map((item, i) => (
                     <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
                       <span className="text-white/60 text-sm">{item.label}</span>
@@ -494,7 +494,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-white/65 text-xs mt-5 leading-relaxed">
-                  Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Simple. Safe. Professional.
+                  Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Sea legs handled by our licensed crew or your own. Simple. Safe. Professional.
                 </p>
               </motion.div>
             </div>
@@ -511,7 +511,7 @@ export default function Home() {
                 {[
                   { icon: Gauge, value: "79% Less", label: "Sea Miles" },
                   { icon: Clock, value: "90% Fewer", label: "Engine Hours" },
-                  { icon: Shield, value: "Zero", label: "Open-Ocean Risk" },
+                  { icon: Shield, value: "<1 Week", label: "vs 12+ Days" },
                 ].map((s, i) => {
                   const Icon = s.icon;
                   return (
@@ -767,7 +767,7 @@ export default function Home() {
                   Serving Thailand's Coasts
                 </h2>
                 <p className="text-lg text-foreground/65 mb-6">
-                  We operate the premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.
+                  We operate the premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions. Sea legs handled by our licensed crew, or your own.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
@@ -839,7 +839,7 @@ export default function Home() {
                       </div>
                       <p className="text-foreground/55 text-sm mb-4">{routes[activeRoute].description}</p>
                       <p className="font-display text-4xl font-bold text-secondary mb-1">{routes[activeRoute].time}</p>
-                      <p className="text-sm text-foreground/45">{routes[activeRoute].engineHours} engine hours added</p>
+                      <p className="text-sm text-foreground/45">{routes[activeRoute].engineHours} engine hours</p>
                     </div>
                     <div className="p-5 grid grid-cols-3 gap-3 text-center text-sm">
                       <div className="bg-primary/5 rounded-xl p-3">

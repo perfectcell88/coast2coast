@@ -78,7 +78,7 @@ export default function About() {
     "Custom-fabricated transit cradle for every vessel",
     "Maritime Loadmaster present on every job",
     "Ticketed captains and engineers for sea legs",
-    "Title transfers and customs documentation coordination",
+    "Title transfers & customs documentation (via licensed agent)",
     "Monthly moorings at Gulf or Andaman coast",
     "Both directions — Gulf to Andaman and Andaman to Gulf",
   ];
@@ -154,7 +154,7 @@ export default function About() {
                   Built Around a Better Way
                 </h2>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  The traditional route for moving a vessel between Thailand's Gulf and Andaman coasts meant navigating the South China Sea, threading the Malacca Straits, and enduring 1,700 miles of open ocean — a gruelling 12-plus-day passage adding over 500 engine hours to your vessel's log. For many owners, it simply wasn't worth the risk.
+                  The traditional route for moving a vessel between Thailand's Gulf and Andaman coasts meant navigating the South China Sea, threading the Malacca Straits, and enduring 1,700 miles of open ocean — a gruelling 12-plus-day passage running 24 hours a day, adding 500+ engine hours to your vessel's log, and exposing it to some of the most hazardous waters in Asia. For many owners, it simply wasn't worth the risk.
                 </p>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
                   Coast to Coast Marine Transportation Thailand was founded on a straightforward insight: Thailand's geography offers a shortcut. The 80 km isthmus between Chumphon on the Gulf side and Ranong on the Andaman side means a vessel can be craned out of the water, transported overland, and relaunched — completing the coast-to-coast journey in under a week, adding only approximately 50 engine hours.
@@ -245,7 +245,7 @@ export default function About() {
                   Full-Service Vessel Relocation
                 </h2>
                 <p className="text-lg text-foreground/70 mb-6 leading-relaxed">
-                  We operate the Bangkok/Pattaya to Chumphon to Ranong corridor in both directions. Our team manages every aspect of the relocation — crane operations, overland transit, sea legs, and all associated administration — so you don't have to coordinate multiple contractors.
+                  We operate the Bangkok/Pattaya to Chumphon to Ranong corridor in both directions. Our team manages every aspect of the relocation — crane operations, overland transit, and all associated administration. For the sea legs, you can deploy our licensed crew or handle those portions yourself. Either way, you have one point of contact throughout.
                 </p>
                 <ul className="space-y-3">
                   {capabilities.map((cap, i) => (
@@ -290,7 +290,7 @@ export default function About() {
                   Every Coast to Coast relocation is managed by a dedicated Maritime Loadmaster who oversees the crane lift, the securement of your vessel onto our custom transit cradle, the overland transit, and the re-launch at the other end. They travel with your vessel in the rear pilot vehicle for the entire journey.
                 </p>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  For the sea legs — whether that's the Gulf approach to Chumphon or the Andaman delivery from Ranong to Phuket — we deploy fully licensed, ticketed marine captains and engineers. Your vessel is never in unqualified hands.
+                  For the sea legs — whether that's the Gulf approach to Chumphon or the Andaman delivery from Ranong to Phuket — we can deploy fully licensed, ticketed marine captains and engineers on your behalf. If you prefer to handle those portions yourself, that option is available too. Either way, your vessel is never in unqualified hands.
                 </p>
                 <p className="text-lg text-foreground/70 leading-relaxed">
                   From initial consultation to final handover, you have one point of contact. We handle the logistics, the paperwork, the crane bookings, and the coordination — so you can focus on what matters.

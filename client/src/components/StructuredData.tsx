@@ -73,10 +73,11 @@ const localBusiness = {
       "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
     ],
     "opens": "08:00",
-    "closes": "18:00",
+    "closes": "19:00",
   },
   "sameAs": [
     "https://www.youtube.com/shorts/8_Vxj5agMEA",
+    "https://www.facebook.com/profile.php?id=61588477663667",
   ],
 };
 

@@ -94,13 +94,13 @@ export default function WhyChooseUs() {
       icon: Clock,
       title: "Under a Week, Coast to Coast",
       description:
-        "Pattaya to Phuket in under 7 days, adding only approximately 50 engine hours to your vessel's log. Compare that to 1,700 miles and 12+ days around the Malay Peninsula.",
+        "Pattaya to Phuket in under 7 days, adding only approximately 50 engine hours to your vessel's log. Compare that to 1,700 miles, 12+ days running 24 hours a day, and 500+ engine hours via the traditional route.",
     },
     {
       icon: FileText,
       title: "End-to-End Administration",
       description:
-        "Title transfers and customs documentation — we coordinate the administrative side of your relocation through our licensed agent. One point of contact from first enquiry to final handover.",
+        "Title transfers and customs documentation are coordinated through our licensed agent — you don't need to source your own. One point of contact from first enquiry to final handover.",
     },
     {
       icon: CheckCircle,
@@ -138,8 +138,8 @@ export default function WhyChooseUs() {
     {
       label: "Open-Ocean Risk",
       them: "Very High",
-      us: "Minimal",
-      saving: "Near zero",
+      us: "Greatly Reduced",
+      saving: "Far lower",
     },
   ];
 
@@ -248,7 +248,7 @@ export default function WhyChooseUs() {
             <motion.div variants={fadeUp} className="max-w-3xl mx-auto text-center">
               <div className="text-secondary text-6xl font-display leading-none mb-6 opacity-60">"</div>
               <p className="text-xl md:text-2xl font-light leading-relaxed mb-8 opacity-90">
-                We built this service because we saw how gruelling the traditional route was — the South China Sea, the Malacca Straits, the risks. There had to be a better way. The land bridge is that better way.
+                We built this service because we saw how gruelling the traditional route was — 1,700 miles of open ocean, the South China Sea, Singapore's lightning and katabatic squalls, the chaos of the Malacca Straits. There had to be a better way. The land bridge is that better way.
               </p>
               <p className="font-mono-accent text-xs tracking-widest text-secondary uppercase">
                 Coast to Coast Marine Transportation Thailand
