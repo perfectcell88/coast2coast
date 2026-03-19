@@ -100,7 +100,7 @@ export default function WhyChooseUs() {
       icon: FileText,
       title: "End-to-End Administration",
       description:
-        "Title transfers and customs documentation are coordinated through our licensed agent — you don't need to source your own. One point of contact from first enquiry to final handover.",
+        "If needed, we can organise title transfers and port clearances through our licensed agent — you don't need to source your own. One point of contact from first enquiry to final handover.",
     },
     {
       icon: CheckCircle,

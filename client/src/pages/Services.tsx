@@ -95,8 +95,8 @@ export default function Services() {
   const additionalServices = [
     {
       icon: FileText,
-      title: "Title Transfers & Documentation",
-      description: "We coordinate the administrative side of your vessel relocation, including title transfers and required customs documentation — handled through our licensed agent. You don't need to source your own.",
+      title: "Title Transfers & Port Clearances",
+      description: "If needed, we can organise title transfers and port clearances through our licensed agent — so you don't have to source your own.",
     },
 
     {
@@ -139,7 +139,7 @@ export default function Services() {
     <div className="min-h-screen">
       <SEO
         title="Services | Coast to Coast Marine Transportation Thailand"
-        description="Full-service vessel relocation between Thailand's Gulf and Andaman coasts. Crane operations, custom transit cradles, overland transport, sea delivery, and title transfer administration."
+        description="Full-service vessel relocation between Thailand's Gulf and Andaman coasts. Crane operations, custom transit cradles, overland transport, sea delivery, and port clearance assistance if needed."
         path="/services"
       />
 

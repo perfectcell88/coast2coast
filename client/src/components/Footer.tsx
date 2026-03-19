@@ -105,7 +105,7 @@ export default function Footer() {
                 "Overland Vessel Transport",
                 "Crane Operations",
                 "Licensed Delivery Crew",
-                "Title Transfers & Documentation",
+                "Title Transfers & Port Clearances",
                 "Monthly Moorings",
               ].map((s) => (
                 <li key={s} className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>

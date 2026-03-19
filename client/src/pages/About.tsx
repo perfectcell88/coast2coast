@@ -78,7 +78,7 @@ export default function About() {
     "Custom-fabricated transit cradle for every vessel",
     "Maritime Loadmaster present on every job",
     "Ticketed captains and engineers for sea legs",
-    "Title transfers & customs documentation (via licensed agent)",
+    "Title transfers & port clearances (organised if needed, via licensed agent)",
     "Monthly moorings at Gulf or Andaman coast",
     "Both directions — Gulf to Andaman and Andaman to Gulf",
   ];
