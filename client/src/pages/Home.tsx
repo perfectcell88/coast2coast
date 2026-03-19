@@ -449,7 +449,6 @@ export default function Home() {
                     { label: "Total Distance", value: "1,700 miles" },
                     { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
                     { label: "Engine Hours", value: "500+ hours" },
-                    { label: "Risk Level", value: "Very High" },
                   ].map((item, i) => (
                     <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
                       <span className="text-white/60 text-sm">{item.label}</span>
@@ -485,7 +484,6 @@ export default function Home() {
                     { label: "Total Sea Miles", value: "350 miles" },
                     { label: "Total Time", value: "Under 1 week" },
                     { label: "Engine Hours", value: "~50 hours" },
-                    { label: "Risk Level", value: "Greatly Reduced" },
                   ].map((item, i) => (
                     <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
                       <span className="text-white/60 text-sm">{item.label}</span>
