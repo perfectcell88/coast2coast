@@ -261,9 +261,9 @@ export default function Services() {
         <div className="container text-center">
           <FadeSection>
             <motion.div variants={fadeUp}>
-              <h2 className="font-display text-4xl font-bold mb-6">Ready to Transport?</h2>
+              <h2 className="font-display text-4xl font-bold mb-6">Ready to Do It the Easy Way Round?</h2>
               <p className="text-xl opacity-75 mb-10 max-w-2xl mx-auto">
-                Contact us today. Provide your vessel's length, beam, height, and weight and we'll get your quote underway.
+                Skip the 1,700-mile slog. Get your vessel coast to coast in under a week — contact us to get started.
               </p>
               <Link href="/contact">
                 <a>
