@@ -290,7 +290,7 @@ export default function About() {
                   Our loadmaster is on site throughout the entire process, ensuring correct lifting points, weights & balances, securing & strong points, monitoring the overland journey from the rear pilot car — the entire team are in VHF radio contact for the duration of the trip.
                 </p>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  For the sea legs — whether that's the Gulf approach to Chumphon or the Andaman delivery from Ranong to Phuket — we can deploy fully licensed, ticketed marine captains and engineers on your behalf. If you prefer to handle those portions yourself, that option is available too. Either way, your vessel is never in unqualified hands.
+                  For the ocean miles — whether that's the Gulf run to Chumphon or the Andaman delivery from Ranong to Phuket — we can set you up with professional ticketed captains & crew. If you have the time and prefer to sail these ocean miles yourself, we will amend the quote for your contribution.
                 </p>
                 <p className="text-lg text-foreground/70 leading-relaxed">
                   From initial consultation to final handover, you have one point of contact. We handle the logistics, the paperwork, the crane bookings, and the coordination — so you can focus on what matters.
