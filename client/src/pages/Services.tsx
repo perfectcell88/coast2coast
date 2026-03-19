@@ -117,7 +117,7 @@ export default function Services() {
     {
       icon: Anchor,
       title: "Custom Transit Cradle Fabrication",
-      description: "Every vessel is different. We fabricate custom transit cradles tailored to your hull profile, ensuring perfect support and zero movement during overland transport.",
+      description: "Our team of professional fabricators will design and create a cradle on site to suit the style and profile of your vessel.",
     },
     {
       icon: ClipboardCheck,
