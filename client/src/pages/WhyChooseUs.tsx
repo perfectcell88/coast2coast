@@ -206,8 +206,8 @@ export default function WhyChooseUs() {
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">What Sets Us Apart</p>
-              <h2 className="font-display text-4xl font-bold text-primary mb-4">Eight Reasons to Choose Us</h2>
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Advantage</p>
+              <h2 className="font-display text-4xl font-bold text-primary mb-4">What Sets Us Apart</h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
                 From specialist equipment to licensed professionals — every aspect of our service is built around your vessel's safety.
               </p>
