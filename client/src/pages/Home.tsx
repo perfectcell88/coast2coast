@@ -291,11 +291,16 @@ export default function Home() {
               Thailand's Premier<br />
               <span style={{ color: "#F5F0E8" }}>Vessel Relocation</span> Specialists
             </h1>
-            <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+            <p className="text-lg md:text-xl mb-6 font-light max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, Chumphon, Ranong, and Phuket in under a week, via Thailand's 80 km land bridge.
             </p>
-            <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-relaxed" style={{ color: "#F5F0E8", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
-              Complete marine oversized load transportation company paying attention to detail coast to coast.
+            <div className="flex items-center gap-4 max-w-xs mx-auto mb-6">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(45,212,191,0.6))" }} />
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(45,212,191,0.8)" }} />
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(45,212,191,0.6), transparent)" }} />
+            </div>
+            <p className="text-sm md:text-base mb-12 font-light max-w-md mx-auto tracking-wide" style={{ color: "#F5F0E8", fontStyle: "italic", textShadow: "0 1px 6px rgba(0,0,0,0.5)", opacity: 0.9 }}>
+              Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
             <div className="flex flex-col items-center gap-3 justify-center w-full max-w-xs mx-auto">
               {/* Primary CTA */}
