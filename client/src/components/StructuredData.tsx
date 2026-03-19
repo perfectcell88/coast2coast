@@ -76,7 +76,7 @@ const localBusiness = {
     "closes": "19:00",
   },
   "sameAs": [
-    "https://www.youtube.com/shorts/8_Vxj5agMEA",
+    "https://www.youtube.com/watch?v=-fFqBzxCv34",
     "https://www.facebook.com/profile.php?id=61588477663667",
   ],
 };
