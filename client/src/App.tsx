@@ -5,7 +5,7 @@ import StructuredData from "./components/StructuredData";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -15,19 +15,31 @@ import Contact from "./pages/Contact";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { AnimatePresence, motion } from "framer-motion";
 
 
 function Router() {
+  const [location] = useLocation();
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/about"} component={About} />
-      <Route path={"/services"} component={Services} />
-      <Route path={"/contact"} component={Contact} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+      >
+        <Switch>
+          <Route path={"/"} component={Home} />
+          <Route path={"/about"} component={About} />
+          <Route path={"/services"} component={Services} />
+          <Route path={"/contact"} component={Contact} />
+          <Route path={"/404"} component={NotFound} />
+          {/* Final fallback route */}
+          <Route component={NotFound} />
+        </Switch>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

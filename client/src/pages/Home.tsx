@@ -282,7 +282,17 @@ export default function Home() {
             {/* Main heading */}
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Thailand's Premier<br />
-              <span style={{ color: "#F5F0E8" }}>Vessel Relocation</span> Specialists
+              <span
+                style={{
+                  color: "#F5F0E8",
+                  backgroundImage: "linear-gradient(90deg, #F5F0E8 0%, #ffffff 40%, #e8d5b0 60%, #F5F0E8 100%)",
+                  backgroundSize: "200% auto",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  animation: "shimmer 4s linear infinite",
+                }}
+              >Vessel Relocation</span> Specialists
             </h1>
 
             {/* Uncle's description */}
