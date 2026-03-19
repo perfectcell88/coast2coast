@@ -289,10 +289,13 @@ export default function Home() {
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
               Thailand's Premier<br />
-              <span className="text-secondary">Vessel Relocation</span> Specialists
+              <span style={{ color: "#2dd4bf" }}>Vessel Relocation</span> Specialists
             </h1>
             <p className="text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-loose" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               From the Gulf of Thailand to the Andaman Sea — and back. We transport your vessel between Bangkok, Pattaya, Chumphon, Ranong, and Phuket in under a week, via Thailand's 80 km land bridge.
+            </p>
+            <p className="text-base md:text-lg mb-12 font-light max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.70)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+              Complete marine oversized load transportation company paying attention to detail coast to coast.
             </p>
             <div className="flex flex-col items-center gap-3 justify-center w-full max-w-xs mx-auto">
               {/* Primary CTA */}
