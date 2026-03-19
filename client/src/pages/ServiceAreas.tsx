@@ -116,7 +116,17 @@ export default function ServiceAreas() {
       time: "Under 1 week",
       engineHours: "~40 hrs",
       highlight: false,
-      description: "Bangkok-based vessels can be transported directly to Ranong for launch into the Andaman Sea, with final delivery to Phuket available.",
+      description: "Bangkok-based vessels transported to Ranong for launch into the Andaman Sea, with final delivery to Phuket available.",
+    },
+    {
+      from: "Phuket",
+      to: "Bangkok",
+      seaMiles: "~280",
+      overland: "80 km",
+      time: "Under 1 week",
+      engineHours: "~40 hrs",
+      highlight: false,
+      description: "Andaman to Gulf via the land bridge. Same professional service in reverse — craned out at Ranong, trucked overland, relaunched at Chumphon.",
     },
   ];
 

@@ -78,7 +78,7 @@ export default function Services() {
     {
       icon: Shield,
       title: "Licensed Delivery Crew",
-      description: "Our ticketed captains and engineers are available to handle the ocean legs of your relocation — sailing your vessel on the Gulf or Andaman sea portions, or completing the final delivery to your destination. Your choice: hand over at Ranong or destination to destination.",
+      description: "Our professional delivery crews can handle both sides of the ocean miles — or your crew can take care of the sea miles for you. Either way, we've got it covered.",
     },
     {
       icon: Anchor,
@@ -102,7 +102,7 @@ export default function Services() {
     {
       icon: Home,
       title: "Dockside & Monthly Moorings",
-      description: "Daily and monthly mooring options available at either end of the route — Gulf of Thailand or Andaman Sea. Secure, supervised berths for your vessel.",
+      description: "Daily and monthly mooring options available at either end of the route — Gulf of Thailand or Andaman Sea.",
     },
     {
       icon: Compass,
