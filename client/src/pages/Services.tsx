@@ -107,7 +107,7 @@ export default function Services() {
     {
       icon: Compass,
       title: "Maritime Logistics Consulting",
-      description: "Not sure which route or timing is right for you? Our team provides expert advice on the best approach for your specific vessel and destination.",
+      description: "Contact us with your questions about our procedures or to discuss the customisation of your requirements.",
     },
     {
       icon: Camera,
