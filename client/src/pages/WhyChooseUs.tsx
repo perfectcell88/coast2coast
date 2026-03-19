@@ -94,8 +94,14 @@ export default function WhyChooseUs() {
       icon: Clock,
       title: "Under a Week, Coast to Coast",
       description:
-        "Pattaya to Phuket in under 7 days, adding only approximately 50 engine hours to your vessel's log. Compare that to 1,700 miles, 12+ days running 24 hours a day, and 500+ engine hours via the traditional route.",
-    },
+        "Every route completes in under 7 days — compare that to 1,700 miles, 12+ days running 24 hours a day, and 500+ engine hours via the traditional route.",
+      routes: [
+        { label: "Pattaya ↔ Phuket", miles: "~350 mi", hrs: "~50 hrs" },
+        { label: "Bangkok ↔ Phuket",  miles: "~280 mi", hrs: "~40 hrs" },
+        { label: "Chumphon ↔ Phuket", miles: "~50 mi",  hrs: "~10 hrs" },
+        { label: "Ranong ↔ Pattaya",  miles: "~350 mi", hrs: "~50 hrs" },
+      ],
+    } as { icon: typeof Clock; title: string; description: string; routes?: { label: string; miles: string; hrs: string }[] },
     {
       icon: FileText,
       title: "End-to-End Administration",
@@ -233,6 +239,17 @@ export default function WhyChooseUs() {
                     </div>
                     <h3 className="font-display text-lg font-bold text-primary mb-3">{adv.title}</h3>
                     <p className="text-foreground/65 text-sm leading-relaxed">{adv.description}</p>
+                    {(adv as any).routes && (
+                      <div className="mt-4 border-t border-border pt-3 space-y-1.5">
+                        {(adv as any).routes.map((r: { label: string; miles: string; hrs: string }, ri: number) => (
+                          <div key={ri} className="flex items-center justify-between text-xs">
+                            <span className="text-foreground/70 font-medium">{r.label}</span>
+                            <span className="text-secondary font-bold">{r.miles}</span>
+                            <span className="text-primary/60">{r.hrs}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}
