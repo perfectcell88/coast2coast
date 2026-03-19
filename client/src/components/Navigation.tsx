@@ -28,17 +28,17 @@ export default function Navigation() {
     <nav
       style={{
         background: scrolled
-          ? "rgba(6, 22, 44, 0.82)"
-          : "rgba(6, 22, 44, 0.45)",
-        backdropFilter: "blur(20px) saturate(180%)",
-        WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          ? "rgba(4, 16, 32, 0.75)"
+          : "rgba(4, 16, 32, 0.15)",
+        backdropFilter: scrolled ? "blur(28px) saturate(200%) brightness(0.9)" : "blur(8px) saturate(120%)",
+        WebkitBackdropFilter: scrolled ? "blur(28px) saturate(200%) brightness(0.9)" : "blur(8px) saturate(120%)",
         borderBottom: scrolled
-          ? "1px solid rgba(0, 168, 168, 0.22)"
-          : "1px solid rgba(255,255,255,0.08)",
+          ? "1px solid rgba(0, 168, 168, 0.28)"
+          : "1px solid rgba(255,255,255,0.06)",
         boxShadow: scrolled
-          ? "0 8px 40px rgba(0,0,0,0.35), 0 1px 0 rgba(0,168,168,0.15)"
-          : "0 2px 20px rgba(0,0,0,0.15)",
-        transition: "all 0.4s ease",
+          ? "0 8px 48px rgba(0,0,0,0.45), 0 1px 0 rgba(0,168,168,0.18)"
+          : "none",
+        transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
       className="fixed top-0 left-0 right-0 z-50"
     >
