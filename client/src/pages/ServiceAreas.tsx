@@ -55,7 +55,7 @@ export default function ServiceAreas() {
       role: "East Coast Departure Hub",
       icon: Waves,
       description: "Our primary Gulf-side embarkation point. Vessels are craned out, inspected, and secured onto our custom transit cradle here before the overland journey begins.",
-      details: ["Crane-out operations", "Custom cradle fitting & securement", "Pre-transport vessel inspection", "Documentation & port clearance"],
+      details: ["Crane-out operations", "Custom cradle fitting & securement", "Pre-transport vessel inspection", "Customs documentation coordination"],
       image: "/gallery/2.webp",
     },
     {

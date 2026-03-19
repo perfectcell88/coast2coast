@@ -11,6 +11,7 @@ import {
   Compass,
   Home,
   Camera,
+  ClipboardCheck,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
@@ -94,8 +95,8 @@ export default function Services() {
   const additionalServices = [
     {
       icon: FileText,
-      title: "Title Transfers & Port Clearances",
-      description: "We manage the administrative side of vessel relocation, including title transfers and all required port clearance documentation.",
+      title: "Title Transfers & Documentation",
+      description: "We coordinate the administrative side of your vessel relocation, including title transfers and required customs documentation, through our licensed agent.",
     },
 
     {
@@ -118,6 +119,11 @@ export default function Services() {
       title: "Custom Transit Cradle Fabrication",
       description: "Every vessel is different. We fabricate custom transit cradles tailored to your hull profile, ensuring perfect support and zero movement during overland transport.",
     },
+    {
+      icon: ClipboardCheck,
+      title: "Pre-Transport Vessel Inspection",
+      description: "A thorough condition report is completed before every lift — documenting your vessel's state prior to transport so both parties have a clear, agreed record.",
+    },
   ];
 
   const processSteps = [
@@ -133,7 +139,7 @@ export default function Services() {
     <div className="min-h-screen">
       <SEO
         title="Services | Coast to Coast Marine Transportation Thailand"
-        description="Full-service vessel relocation between Thailand's Gulf and Andaman coasts. Crane operations, custom transit cradles, overland transport, sea delivery, port clearance and title transfer administration."
+        description="Full-service vessel relocation between Thailand's Gulf and Andaman coasts. Crane operations, custom transit cradles, overland transport, sea delivery, and title transfer administration."
         path="/services"
       />
 
