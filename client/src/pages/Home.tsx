@@ -158,7 +158,7 @@ export default function Home() {
     {
       icon: Shield,
       title: "Ticketed Captains & Engineers",
-      description: "If time is short or you don't have crew, our offshore yacht masters, captains and engineers are available for both sides of the ocean passages of the relocation.",
+      description: "Our licensed and ticketed captains and engineers are available to handle the ocean legs of your relocation — so you don't have to sail your vessel yourself.",
     },
     {
       icon: Clock,

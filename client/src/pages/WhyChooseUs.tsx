@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
       icon: Award,
       title: "Ticketed Captains & Engineers",
       description:
-        "Every sea leg is handled by fully licensed, ticketed marine captains and engineers. Your vessel is never in the hands of unqualified personnel — from the Gulf to the Andaman Sea.",
+        "If time is short or you don't have crew our offshore yacht masters captain & engineers are available for both sides of the ocean passages of the relocation.",
     },
     {
       icon: Anchor,
