@@ -122,7 +122,7 @@ export default function About() {
                   <div>
                     <h3 className="font-display text-lg font-bold text-primary mb-1">Part of Phuket Marine Oracle Co., Ltd.</h3>
                     <p className="text-foreground/65 text-sm leading-relaxed">
-                      Phuket Marine Oracle Co., Ltd. was established in 2006 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.
+                      Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.
                     </p>
                   </div>
                 </div>

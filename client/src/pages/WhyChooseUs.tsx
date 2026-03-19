@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
       icon: CheckCircle,
       title: "Part of Phuket Marine Oracle Co., Ltd.",
       description:
-        "Phuket Marine Oracle Co., Ltd. was established in 2006 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.",
+        "Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.",
     },
     {
       icon: Waves,
