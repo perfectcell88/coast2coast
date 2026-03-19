@@ -251,8 +251,8 @@ export default function Home() {
 
       {/* ── HERO ──────────────────────────────────────────────────── */}
       <section
-        className="relative min-h-screen bg-cover bg-center flex items-center justify-center overflow-hidden"
-        style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed" }}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed", backgroundSize: "115%", backgroundPosition: "center 40%" }}
       >
         {/* Darkened overlay — neutral dark, no colour tint, preserves photo warmth */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.55) 100%)" }} />
