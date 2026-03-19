@@ -414,7 +414,7 @@ export default function Home() {
                 </div>
                 <AlertTriangle className="text-red-400 mb-5" size={32} />
                 <h3 className="font-display text-xl font-bold mb-1">Pattaya → Singapore → Phuket</h3>
-                <p className="text-white/55 text-sm mb-6">Via Singapore — hard on the boat and crew. Few ports for diesel & repairs, monsoon storms with lightning, and the world's busiest shipping convergence lanes.</p>
+                <p className="text-white/85 text-sm mb-6">Via Singapore — hard on the boat and crew. Few ports for diesel & repairs, monsoon storms with lightning, and the world's busiest shipping convergence lanes.</p>
                 <div className="space-y-3">
                   {[
                     { label: "Total Distance", value: "1,700 miles" },
@@ -422,12 +422,12 @@ export default function Home() {
                     { label: "Engine Hours", value: "500+ hours" },
                   ].map((item, i) => (
                     <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
-                      <span className="text-white/60 text-sm">{item.label}</span>
+                      <span className="text-white/85 text-sm">{item.label}</span>
                       <span className="font-semibold text-red-300 text-sm">{item.value}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-white/55 text-xs mt-5 leading-relaxed">
+                <p className="text-white/85 text-xs mt-5 leading-relaxed">
                   At 6 knots, 24 hours a day, you're looking at 12 days minimum — if everything goes well. The East Malaysia coastline is a fuel and repair desert. The South China Sea is notorious for sudden, violent weather. Singapore sits in one of the world's highest lightning-strike zones, with katabatic squalls that create zero-visibility conditions in minutes. Then another 400 miles through the Malacca Straits — unlit vessels, endless fishing nets, intense Sumatran squalls, and some of the most dangerous ship convergence zones on earth. No place for the novice.
                 </p>
               </motion.div>
