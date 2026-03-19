@@ -111,8 +111,8 @@ export default function Services() {
     },
     {
       icon: Camera,
-      title: "Documentation & Media",
-      description: "We provide professional photos and videos of your vessel's transport process — a full record of every stage from crane-out to launch.",
+      title: "Photos & Videos",
+      description: "For interest and promotional purposes, photos and videos will be created throughout the procedure — from crane-out to launch.",
     },
     {
       icon: Anchor,
