@@ -271,8 +271,8 @@ export default function Home() {
             <div className="flex items-center justify-center gap-3 mb-5">
               <div className="h-0.5 w-16" style={{ background: "rgba(255,255,255,0.85)", borderRadius: "1px" }} />
               <p
-                className="font-mono-accent text-sm md:text-base tracking-[0.22em] uppercase font-bold"
-                style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 8px rgba(0,0,0,0.7)', letterSpacing: '0.22em' }}
+                className="font-mono-accent text-base md:text-lg tracking-[0.2em] uppercase font-black"
+                style={{ color: 'rgba(255,255,255,1)', textShadow: '0 2px 12px rgba(0,0,0,0.8)', letterSpacing: '0.2em' }}
               >
                 Coast to Coast Marine Transportation Thailand
               </p>
@@ -280,7 +280,7 @@ export default function Home() {
             </div>
 
             {/* Main heading */}
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
               Thailand's Premier<br />
               <span
                 style={{
