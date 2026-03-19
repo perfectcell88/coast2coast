@@ -371,7 +371,7 @@ export default function Home() {
               <div className="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-2xl">
                 <iframe
                   className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/-fFqBzxCv34?autoplay=1&rel=0&modestbranding=1"
+                  src="https://www.youtube.com/embed/daaGM_qr1L4?autoplay=1&rel=0&modestbranding=1"
                   title="Coast to Coast Marine Transportation Thailand — Watch Our Process"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -757,13 +757,6 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/service-areas">
-                  <a>
-                    <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3">
-                      View All Service Areas
-                    </Button>
-                  </a>
-                </Link>
               </motion.div>
 
               {/* Route map + carousel card */}

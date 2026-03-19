@@ -327,38 +327,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container">
-          <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">What Drives Us</p>
-              <h2 className="font-display text-4xl font-bold text-primary mb-4">Our Core Values</h2>
-              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
-                These principles guide every decision and action we take
-              </p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => {
-                const Icon = value.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    variants={fadeUp}
-                    className="bg-white p-7 rounded-xl shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
-                      <Icon className="text-secondary" size={24} />
-                    </div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-2">{value.title}</h3>
-                    <p className="text-sm text-foreground/65 leading-relaxed">{value.description}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </FadeSection>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-20 md:py-28 bg-primary text-white">
