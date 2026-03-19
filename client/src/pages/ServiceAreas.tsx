@@ -261,30 +261,22 @@ export default function ServiceAreas() {
                 <motion.div
                   key={index}
                   variants={fadeUp}
-                  className={`rounded-2xl border p-7 relative overflow-hidden transition-shadow hover:shadow-lg ${
-                    route.highlight
-                      ? "bg-primary text-white border-primary shadow-md"
-                      : "bg-white text-foreground border-border"
-                  }`}
+                  className="rounded-2xl border p-7 relative overflow-hidden transition-shadow hover:shadow-lg bg-white text-foreground border-border"
                 >
-                  {route.highlight && (
-                    <div className="absolute top-4 right-4">
-                      <span className="bg-secondary text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
-                    </div>
-                  )}
+
                   <div className="flex items-center gap-3 mb-5">
                     <div>
-                      <p className={`text-xs font-mono-accent tracking-widest uppercase mb-0.5 ${route.highlight ? "text-secondary/80" : "text-foreground/50"}`}>From</p>
-                      <p className={`font-display text-xl font-bold ${route.highlight ? "text-white" : "text-primary"}`}>{route.from}</p>
+                      <p className="text-xs font-mono-accent tracking-widest uppercase mb-0.5 text-foreground/50">From</p>
+                      <p className="font-display text-xl font-bold text-primary">{route.from}</p>
                     </div>
-                    <ArrowRight className={`flex-shrink-0 ${route.highlight ? "text-secondary" : "text-secondary"}`} size={20} />
+                    <ArrowRight className="flex-shrink-0 text-secondary" size={20} />
                     <div>
-                      <p className={`text-xs font-mono-accent tracking-widest uppercase mb-0.5 ${route.highlight ? "text-secondary/80" : "text-foreground/50"}`}>To</p>
-                      <p className={`font-display text-xl font-bold ${route.highlight ? "text-white" : "text-primary"}`}>{route.to}</p>
+                      <p className="text-xs font-mono-accent tracking-widest uppercase mb-0.5 text-foreground/50">To</p>
+                      <p className="font-display text-xl font-bold text-primary">{route.to}</p>
                     </div>
                   </div>
-                  <p className={`text-sm leading-relaxed mb-5 ${route.highlight ? "text-white/70" : "text-foreground/60"}`}>{route.description}</p>
-                  <div className={`border-t pt-4 grid grid-cols-2 gap-3 ${route.highlight ? "border-white/15" : "border-border"}`}>
+                  <p className="text-sm leading-relaxed mb-5 text-foreground/60">{route.description}</p>
+                  <div className="border-t pt-4 grid grid-cols-2 gap-3 border-border">
                     {[
                       { icon: Clock, label: "Total Time", value: route.time },
                       { icon: Truck, label: "Overland", value: route.overland },
@@ -294,10 +286,10 @@ export default function ServiceAreas() {
                       const StatIcon = stat.icon;
                       return (
                         <div key={i} className="flex items-start gap-2">
-                          <StatIcon size={14} className={`mt-0.5 flex-shrink-0 ${route.highlight ? "text-secondary" : "text-secondary"}`} />
+                          <StatIcon size={14} className="mt-0.5 flex-shrink-0 text-secondary" />
                           <div>
-                            <p className={`text-xs ${route.highlight ? "text-white/50" : "text-foreground/45"}`}>{stat.label}</p>
-                            <p className={`text-sm font-semibold ${route.highlight ? "text-white" : "text-primary"}`}>{stat.value}</p>
+                            <p className="text-xs text-foreground/45">{stat.label}</p>
+                            <p className="text-sm font-semibold text-primary">{stat.value}</p>
                           </div>
                         </div>
                       );

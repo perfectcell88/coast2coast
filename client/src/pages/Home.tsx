@@ -158,12 +158,12 @@ export default function Home() {
     {
       icon: Shield,
       title: "Ticketed Captains & Engineers",
-      description: "Fully licensed marine professionals handle every aspect of your vessel's relocation with the highest standards of safety.",
+      description: "Fully licensed marine professionals handle every aspect of your vessel's relocation with the highest standards of expertise.",
     },
     {
       icon: Clock,
       title: "Door-to-Door in Under a Week",
-      description: "Crane out, overland, crane in — your vessel is back in the water at its destination within 7 days, with full port clearance handled for you.",
+      description: "Crane out, overland, crane in — your vessel is back in the water at its destination within 7 days.",
     },
   ];
 
@@ -362,7 +362,7 @@ export default function Home() {
                 We combine maritime expertise, precision logistics, and professional care to ensure your vessel arrives safely — every time.
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {whyChooseItems.map((item, index) => {
                 const Icon = item.icon;
                 return (

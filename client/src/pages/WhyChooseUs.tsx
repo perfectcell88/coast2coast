@@ -88,7 +88,7 @@ export default function WhyChooseUs() {
       icon: Shield,
       title: "Custom-Fabricated Transit Cradles",
       description:
-        "Every vessel is different. We fabricate a bespoke transit cradle engineered specifically for your hull profile — ensuring perfect support and zero movement during the overland journey.",
+        "Every vessel is different. We fabricate a custom transit cradle engineered specifically for your hull profile — ensuring perfect support and zero movement during the overland journey.",
     },
     {
       icon: Clock,
@@ -100,7 +100,7 @@ export default function WhyChooseUs() {
       icon: FileText,
       title: "End-to-End Administration",
       description:
-        "Title transfers, port clearances, customs documentation — we handle the paperwork so you don't have to. One point of contact from first enquiry to final handover.",
+        "Title transfers and customs documentation — we coordinate the administrative side of your relocation through our licensed agent. One point of contact from first enquiry to final handover.",
     },
     {
       icon: CheckCircle,
