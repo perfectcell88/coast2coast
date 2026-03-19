@@ -144,16 +144,31 @@ export default function Services() {
       />
 
       {/* Hero */}
-      <section className="bg-primary text-white py-20 md:py-28">
-        <div className="container">
+      <section
+        className="relative text-white py-32 md:py-44 overflow-hidden"
+        style={{
+          backgroundImage: "url('/gallery/4.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center 40%",
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(6,22,44,0.88) 0%, rgba(6,22,44,0.72) 50%, rgba(14,116,144,0.45) 100%)",
+          }}
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-4">What We Offer</p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl opacity-80 max-w-3xl">
+            <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#2dd4bf" }}>What We Offer</p>
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>Our Services</h1>
+            <p className="text-xl max-w-3xl leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
               Comprehensive vessel relocation and marine logistics solutions — from crane to cradle to coast.
             </p>
           </motion.div>
@@ -237,18 +252,26 @@ export default function Services() {
                 A streamlined, professionally managed approach from first contact to final delivery
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="max-w-2xl mx-auto">
               {processSteps.map((step, index) => (
                 <motion.div
                   key={index}
                   variants={fadeUp}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-border text-center hover:shadow-md transition-shadow"
+                  className="relative flex gap-6 pb-10 last:pb-0"
                 >
-                  <div className="w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center font-display font-bold text-lg mx-auto mb-4 shadow-sm">
+                  {/* Vertical connector line */}
+                  {index < processSteps.length - 1 && (
+                    <div className="absolute left-6 top-12 bottom-0 w-[2px] bg-gradient-to-b from-secondary/40 to-secondary/10" />
+                  )}
+                  {/* Step circle */}
+                  <div className="flex-shrink-0 w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center font-display font-bold text-lg shadow-md z-10">
                     {step.number}
                   </div>
-                  <h3 className="font-display font-bold text-primary mb-2">{step.title}</h3>
-                  <p className="text-sm text-foreground/60 leading-relaxed">{step.description}</p>
+                  {/* Content */}
+                  <div className="bg-white border border-border rounded-xl p-5 flex-1 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 className="font-display font-bold text-primary mb-1.5">{step.title}</h3>
+                    <p className="text-sm text-foreground/60 leading-relaxed">{step.description}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>

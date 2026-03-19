@@ -198,7 +198,7 @@ export default function WhyChooseUs() {
                 </thead>
                 <tbody>
                   {comparisons.map((row, i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-primary/3"}>
+                    <tr key={i} className={`transition-colors duration-150 cursor-default ${i % 2 === 0 ? "bg-white hover:bg-secondary/5" : "bg-primary/3 hover:bg-secondary/8"}`}>
                       <td className="px-6 py-4 font-semibold text-primary text-sm">{row.label}</td>
                       <td className="px-6 py-4 text-center text-foreground/50 text-sm line-through">{row.them}</td>
                       <td className="px-6 py-4 text-center font-bold text-primary text-sm">{row.us}</td>
@@ -282,7 +282,7 @@ export default function WhyChooseUs() {
             <motion.div variants={fadeUp}>
               <h2 className="font-display text-4xl font-bold text-primary mb-6">Ready to Experience the Difference?</h2>
               <p className="text-lg text-foreground/65 mb-10 max-w-2xl mx-auto">
-                Contact our team today. Provide your vessel's dimensions and we'll have a professional quote ready promptly.
+                Contact our team today to discuss your requirements — we'll take it from there.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">

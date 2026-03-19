@@ -338,7 +338,6 @@ export default function Home() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" })}
         >
-          <span className="text-white/40 text-xs tracking-widest uppercase font-mono-accent" style={{ fontSize: "0.6rem", letterSpacing: "0.2em" }}>Scroll</span>
           <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L11 12L21 1" stroke="rgba(0,200,200,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -700,7 +699,9 @@ export default function Home() {
             </button>
 
             {/* Thumbnail strip */}
-            <div className="flex gap-3 mt-4 overflow-x-auto pb-1">
+            <div className="relative mt-4">
+            <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
+            {/* Right fade gradient to signal scrollability */}
               {galleryImages.map((img, i) => (
                 <button
                   key={i}
@@ -715,6 +716,9 @@ export default function Home() {
                   <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
                 </button>
               ))}
+            </div>
+            {/* Right fade to signal more thumbnails */}
+            <div className="absolute right-0 top-0 bottom-1 w-12 pointer-events-none" style={{ background: "linear-gradient(to right, transparent, rgba(243,246,248,0.95))" }} />
             </div>
 
             {/* Dot pagination */}
@@ -837,20 +841,30 @@ export default function Home() {
                   <ThailandRouteMap activeRoute={activeRoute} />
                 </div>
 
-                {/* Route tabs */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {routes.map((r, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveRoute(i)}
-                      className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
-                        activeRoute === i
-                          ? "bg-secondary text-white border-secondary shadow-md"
-                          : "bg-white text-primary border-border hover:border-secondary/60 hover:text-secondary"
-                      }`}
-                    >
-                      {r.from} → {r.to}
-                    </button>
+                {/* Route tabs — grouped by direction */}
+                <div className="mb-5 space-y-2.5">
+                  {[
+                    { label: "Gulf → Andaman", indices: [0, 2, 4, 7] },
+                    { label: "Andaman → Gulf", indices: [1, 3, 5, 6] },
+                  ].map((group) => (
+                    <div key={group.label}>
+                      <p className="text-[10px] font-mono-accent tracking-[0.2em] uppercase text-foreground/40 mb-1.5">{group.label}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {group.indices.map((i) => (
+                          <button
+                            key={i}
+                            onClick={() => setActiveRoute(i)}
+                            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${
+                              activeRoute === i
+                                ? "bg-secondary text-white border-secondary shadow-md"
+                                : "bg-white text-primary border-border hover:border-secondary/60 hover:text-secondary"
+                            }`}
+                          >
+                            {routes[i].from} → {routes[i].to}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
 
@@ -924,7 +938,7 @@ export default function Home() {
                 Ready to Transport Your Vessel?
               </h2>
               <p className="text-xl mb-10 opacity-75 max-w-2xl mx-auto">
-                Contact our team today. Provide your vessel's dimensions — length, beam, height, and weight — and we'll have a quote underway promptly.
+                Contact our team today to discuss your requirements and get started.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">

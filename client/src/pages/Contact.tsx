@@ -189,13 +189,13 @@ export default function Contact() {
               <div className="pt-4 border-t border-border">
                 <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-4">Scan to Contact</p>
                 <div className="grid grid-cols-2 gap-4">
-                  <a href="https://wa.me/66862697138?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20vessel%20transport" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 p-3 rounded-xl border border-border hover:border-secondary/50 hover:shadow-sm transition-all bg-white">
-                    <img src="/qr-whatsapp.png" alt="WhatsApp QR Code" className="w-24 h-24 rounded-md" />
-                    <span className="text-xs font-semibold text-foreground/60">WhatsApp</span>
+                  <a href="https://wa.me/66862697138?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20vessel%20transport" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 p-4 rounded-2xl border-2 border-border hover:border-secondary/60 hover:shadow-md transition-all bg-white shadow-sm group">
+                    <img src="/qr-whatsapp.png" alt="WhatsApp QR Code" className="w-24 h-24 rounded-lg group-hover:scale-105 transition-transform duration-200" />
+                    <span className="text-xs font-bold text-foreground/70 tracking-wide">WhatsApp</span>
                   </a>
-                  <div className="flex flex-col items-center gap-2 p-3 rounded-xl border border-border bg-white">
-                    <img src="/qr-line.png" alt="LINE QR Code" className="w-24 h-24 rounded-md" />
-                    <span className="text-xs font-semibold text-foreground/60">LINE</span>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-2xl border-2 border-border bg-white shadow-sm">
+                    <img src="/qr-line.png" alt="LINE QR Code" className="w-24 h-24 rounded-lg" />
+                    <span className="text-xs font-bold text-foreground/70 tracking-wide">LINE</span>
                   </div>
                 </div>
               </div>

@@ -269,7 +269,7 @@ export default function About() {
               <motion.div variants={fadeUp} className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="/gallery/2.webp"
+                    src="/gallery/7.webp"
                     alt="Coast to Coast team preparing a vessel for transport"
                     className="w-full h-full object-cover"
                   />
