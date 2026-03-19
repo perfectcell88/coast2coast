@@ -504,7 +504,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="text-center mb-14">
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>Load Capacity</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                Technical Specifications
+                Our Max Dimensions Are
               </h2>
               <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
                 We transport Powerboats, Keel Yachts, and Catamarans. Our custom-fabricated transit cradle accommodates a wide range of vessel profiles.
