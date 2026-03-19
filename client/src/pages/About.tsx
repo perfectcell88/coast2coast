@@ -59,9 +59,9 @@ export default function About() {
       <section
         className="relative text-white py-32 md:py-44 overflow-hidden"
         style={{
-          backgroundImage: "url('/gallery/9.webp')",
+          backgroundImage: "url('/gallery/4.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center 40%",
+          backgroundPosition: "center 50%",
         }}
       >
         {/* Cinematic overlay */}
