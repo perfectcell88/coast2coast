@@ -155,10 +155,18 @@ export default function About() {
                     { value: "80 km", unit: "Overland", label: "Land Bridge" },
                     { value: "100T", unit: "Crane", label: "At Ranong" },
                   ].map((s, i) => (
-                    <div key={i} className="bg-white border border-border rounded-xl p-4 text-center shadow-sm">
-                      <p className="font-display text-2xl font-bold text-secondary">{s.value}</p>
-                      <p className="text-xs font-semibold text-primary">{s.unit}</p>
-                      <p className="text-xs text-foreground/50 mt-0.5">{s.label}</p>
+                    <div
+                      key={i}
+                      className="rounded-xl p-5 text-center"
+                      style={{
+                        background: "linear-gradient(135deg, #041828 0%, #083248 100%)",
+                        border: "1px solid rgba(0,200,200,0.2)",
+                        boxShadow: "0 4px 20px rgba(0,0,0,0.12), inset 0 1px 0 rgba(0,200,200,0.08)",
+                      }}
+                    >
+                      <p className="font-display text-2xl font-bold" style={{ color: "#00c8c8" }}>{s.value}</p>
+                      <p className="text-xs font-semibold mt-0.5" style={{ color: "rgba(255,255,255,0.85)" }}>{s.unit}</p>
+                      <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{s.label}</p>
                     </div>
                   ))}
                 </div>

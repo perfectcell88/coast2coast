@@ -114,13 +114,13 @@ export default function Navigation() {
                     style={{ background: "rgba(255,255,255,0.07)" }}
                   />
                   <span className="relative">{item.label}</span>
-                  {/* Active indicator dot */}
+                  {/* Active indicator — teal underline bar */}
                   {active && (
                     <span
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                      className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full"
                       style={{
-                        background: "#00d4d4",
-                        boxShadow: "0 0 8px rgba(0,212,212,0.9)",
+                        background: "linear-gradient(90deg, rgba(0,212,212,0.5), #00d4d4, rgba(0,212,212,0.5))",
+                        boxShadow: "0 0 8px rgba(0,212,212,0.7)",
                       }}
                     />
                   )}

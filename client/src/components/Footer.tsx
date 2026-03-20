@@ -12,12 +12,13 @@ export default function Footer() {
       {/* Teal accent top border */}
       <div
         style={{
-          height: "2px",
-          background: "linear-gradient(90deg, transparent 0%, rgba(0,168,168,0.5) 20%, rgba(0,200,200,0.9) 50%, rgba(0,168,168,0.5) 80%, transparent 100%)",
+          height: "3px",
+          background: "linear-gradient(90deg, transparent 0%, rgba(0,168,168,0.4) 15%, rgba(0,210,210,1) 50%, rgba(0,168,168,0.4) 85%, transparent 100%)",
+          boxShadow: "0 0 24px rgba(0,200,200,0.35), 0 0 8px rgba(0,200,200,0.2)",
         }}
       />
 
-      <div className="container py-16">
+      <div className="container py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand */}

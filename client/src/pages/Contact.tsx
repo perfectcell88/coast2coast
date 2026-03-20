@@ -52,10 +52,12 @@ export default function Contact() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative text-white overflow-hidden" style={{ minHeight: "380px", display: "flex", alignItems: "flex-end" }}>
+      <section className="relative text-white overflow-hidden" style={{ minHeight: "520px", display: "flex", alignItems: "flex-end" }}>
         <div className="absolute inset-0" style={{ backgroundImage: "url('/gallery/3.webp')", backgroundSize: "cover", backgroundPosition: "center 35%" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(4,24,40,0.4) 0%, rgba(4,24,40,0.65) 50%, rgba(4,24,40,0.97) 100%)" }} />
-        <div className="relative z-10 container pb-14 pt-36">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(4,24,40,0.35) 0%, rgba(4,24,40,0.6) 50%, rgba(4,24,40,0.98) 100%)" }} />
+        {/* Teal accent line at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
+        <div className="relative z-10 container pb-16 pt-44">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8" style={{ background: "#00c8c8" }} />

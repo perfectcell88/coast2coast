@@ -87,6 +87,16 @@ function FadeSection({ children, className = "" }: { children: React.ReactNode; 
 
 export default function Home() {
   const heroImage = "/heroboat.jpg";
+  const [heroLoaded, setHeroLoaded] = useState(false);
+
+  // Preload hero image and fade in when ready
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroImage;
+    img.onload = () => setHeroLoaded(true);
+    // Fallback in case already cached
+    if (img.complete) setHeroLoaded(true);
+  }, [heroImage]);
 
   const [videoOpen, setVideoOpen] = useState(false);
   const [current, setCurrent] = useState(0);
@@ -247,14 +257,18 @@ export default function Home() {
         title="Coast to Coast Marine Transportation Thailand | Vessel Relocation Specialists"
         description="Thailand's specialist in safe, professional vessel relocation between the Gulf of Thailand and the Andaman Sea. Powerboats, yachts and catamarans transported from Pattaya or Bangkok to Phuket in under 7 days."
         path="/"
-      />
-
-      {/* ── HERO ──────────────────────────────────────────────────── */}
+      />      {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ backgroundImage: `url('${heroImage}')`, backgroundAttachment: "fixed", backgroundSize: "cover", backgroundPosition: "center 40%" }}
-      >
-        {/* Darkened overlay — neutral dark, no colour tint, preserves photo warmth */}
+        style={{
+          backgroundImage: `url('${heroImage}')`,
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          backgroundPosition: "center 40%",
+          opacity: heroLoaded ? 1 : 0,
+          transition: "opacity 0.9s ease",
+        }}
+      >       {/* Darkened overlay — neutral dark, no colour tint, preserves photo warmth */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.55) 100%)" }} />
         {/* Navbar shadow — dark drop fading to transparent, adds depth and grounds the nav */}
         <div className="absolute inset-x-0 top-0 pointer-events-none" style={{ height: "140px", background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.0) 100%)" }} />
