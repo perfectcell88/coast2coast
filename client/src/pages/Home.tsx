@@ -420,7 +420,7 @@ export default function Home() {
           <p
             className="mb-8 leading-relaxed"
             style={{
-              fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
+              fontSize: "clamp(1.1rem, 1.6vw, 1.5rem)",
               fontWeight: 400,
               color: "rgba(255,255,255,0.92)",
               textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
