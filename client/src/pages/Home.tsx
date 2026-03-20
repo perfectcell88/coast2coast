@@ -276,7 +276,7 @@ export default function Home() {
         {/* Subtle drifting particles */}
         <HeroParticles />
 
-        <div className="relative z-10 w-full text-center text-white px-4 pt-24 md:pt-28 pb-32">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-16 md:pt-20 pb-32">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
@@ -284,7 +284,7 @@ export default function Home() {
           >
 
             {/* ── TOP INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-5">
+            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-4">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
               {/* Ornament: dot · diamond · dot — no connector lines */}
               <div className="flex items-center gap-2.5">
@@ -329,7 +329,7 @@ export default function Home() {
             </div>
 
             {/* ── BOTTOM INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-7">
+            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-10">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
               <div className="flex items-center gap-2.5">
                 <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
@@ -343,7 +343,7 @@ export default function Home() {
 
             {/* ── SUBTITLE ── */}
             <p
-              className="font-display font-semibold text-center mx-auto mb-7"
+              className="font-display font-semibold text-center mx-auto mb-8"
               style={{
                 fontSize: "clamp(1.25rem, 2.5vw, 2.1rem)",
                 color: "#F5F0E8",
@@ -357,7 +357,7 @@ export default function Home() {
 
             {/* ── DESCRIPTION — above buttons, readable ── */}
             <p
-              className="font-light text-center mx-auto mb-10 leading-relaxed"
+              className="font-light text-center mx-auto mb-11 leading-relaxed"
               style={{
                 fontSize: "clamp(1.05rem, 1.75vw, 1.4rem)",
                 color: "rgba(255,255,255,0.92)",
@@ -369,7 +369,7 @@ export default function Home() {
             </p>
 
             {/* ── PRIMARY BUTTONS ── */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-9">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-8">
               <Link href="/contact" className="w-full sm:w-auto">
                 <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-8 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
                   <Anchor size={15} className="flex-shrink-0 opacity-90" />
@@ -393,7 +393,7 @@ export default function Home() {
 
             {/* ── TAGLINE — italic, slightly larger ── */}
             <p
-              className="text-center mx-auto mb-10"
+              className="text-center mx-auto mb-12"
               style={{
                 fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)",
                 fontStyle: "italic",
@@ -406,12 +406,12 @@ export default function Home() {
               Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
 
-            {/* ── WATCH OUR PROCESS — bottom of hero, same width as button row ── */}
-            <div className="flex justify-center w-full max-w-lg mx-auto">
+            {/* ── WATCH OUR PROCESS — centred, comfortable fixed width ── */}
+            <div className="flex justify-center w-full">
               <button
                 onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-3 w-full bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white/85 hover:text-white font-medium rounded-xl px-8 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-                style={{ fontSize: "clamp(0.82rem, 1.1vw, 0.95rem)", letterSpacing: "0.18em" }}
+                className="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white/85 hover:text-white font-medium rounded-full px-12 py-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
+                style={{ fontSize: "clamp(0.82rem, 1.1vw, 0.95rem)", letterSpacing: "0.18em", minWidth: "260px" }}
               >
                 <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
                   <Play size={9} className="ml-0.5" />
