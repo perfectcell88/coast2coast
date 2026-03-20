@@ -268,90 +268,99 @@ export default function Home() {
           opacity: heroLoaded ? 1 : 0,
           transition: "opacity 0.9s ease",
         }}
-      >       {/* Darkened overlay — neutral dark, no colour tint, preserves photo warmth */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.55) 100%)" }} />
-        {/* Navbar shadow — dark drop fading to transparent, adds depth and grounds the nav */}
+      >
+        {/* Base darkening overlay */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.42) 55%, rgba(0,0,0,0.60) 100%)" }} />
+        {/* Sun suppression — radial dark patch over the upper-left sun area to push it back */}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 55% 45% at 28% 38%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.0) 100%)" }} />
+        {/* Navbar shadow */}
         <div className="absolute inset-x-0 top-0 pointer-events-none" style={{ height: "140px", background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.0) 100%)" }} />
-        {/* Subtle drifting particles — sea spray / light on water */}
+        {/* Subtle drifting particles */}
         <HeroParticles />
 
-        <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-28 md:pt-36 pb-24">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-28 md:pt-36 pb-32">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
-            {/* Eyebrow — commanding brand stamp */}
-            <div className="flex flex-col items-center gap-4 mb-10">
-              <div className="flex items-center justify-center gap-5 w-full max-w-4xl">
-                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 12px rgba(0,200,200,0.9), 0 0 24px rgba(0,200,200,0.4)" }} />
-                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
-              </div>
-              <p
-                className="font-mono-accent uppercase font-black text-center px-4"
+            {/* ── BUSINESS NAME — large, full width, letter-spaced ── */}
+            <div className="mb-3">
+              <h1
+                className="font-display font-bold uppercase w-full text-center"
                 style={{
-                  fontSize: "clamp(0.9rem, 2.2vw, 1.3rem)",
-                  color: 'rgba(255,255,255,0.97)',
-                  textShadow: '0 0 40px rgba(0,200,200,0.5), 0 2px 16px rgba(0,0,0,0.95)',
-                  letterSpacing: '0.32em',
+                  fontSize: "clamp(2rem, 5.5vw, 5.2rem)",
+                  letterSpacing: "0.18em",
+                  color: "#ffffff",
+                  textShadow: "0 0 60px rgba(0,200,200,0.35), 0 2px 20px rgba(0,0,0,0.9)",
+                  lineHeight: 1.1,
                 }}
               >
-                Coast to Coast Marine Transportation Thailand
-              </p>
-              <div className="flex items-center justify-center gap-5 w-full max-w-4xl">
-                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 12px rgba(0,200,200,0.9), 0 0 24px rgba(0,200,200,0.4)" }} />
-                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
-              </div>
+                Coast to Coast
+              </h1>
+              <h1
+                className="font-display font-bold uppercase w-full text-center"
+                style={{
+                  fontSize: "clamp(1rem, 2.4vw, 2.1rem)",
+                  letterSpacing: "0.38em",
+                  color: "rgba(0,200,200,0.95)",
+                  textShadow: "0 0 30px rgba(0,200,200,0.5), 0 2px 12px rgba(0,0,0,0.9)",
+                  lineHeight: 1.4,
+                }}
+              >
+                Marine Transportation Thailand
+              </h1>
             </div>
 
-            {/* Main heading */}
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              Thailand's Premier<br />
-              <span
-                style={{
-                  color: "#F5F0E8",
-                  backgroundImage: "linear-gradient(90deg, #F5F0E8 0%, #ffffff 40%, #e8d5b0 60%, #F5F0E8 100%)",
-                  backgroundSize: "200% auto",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  animation: "shimmer 4s linear infinite",
-                }}
-              >Vessel Relocation</span> Specialists
-            </h1>
+            {/* Teal divider line */}
+            <div className="flex items-center justify-center gap-5 w-full max-w-3xl mx-auto mb-6">
+              <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
+              <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 10px rgba(0,200,200,0.9)" }} />
+              <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
+            </div>
 
-            {/* Uncle's description */}
-            <p className="text-base md:text-lg mb-10 font-light max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.88)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+            {/* Subtitle */}
+            <p
+              className="font-display font-semibold text-center mx-auto mb-6"
+              style={{
+                fontSize: "clamp(1.1rem, 2.2vw, 1.9rem)",
+                color: "#F5F0E8",
+                letterSpacing: "0.04em",
+                textShadow: "0 2px 16px rgba(0,0,0,0.8)",
+                maxWidth: "700px",
+              }}
+            >
+              Thailand's Premier Vessel Relocation Specialists
+            </p>
+
+            {/* Description text — above buttons, readable size */}
+            <p
+              className="font-light text-center mx-auto mb-10 leading-relaxed"
+              style={{
+                fontSize: "clamp(0.95rem, 1.5vw, 1.25rem)",
+                color: "rgba(255,255,255,0.85)",
+                textShadow: "0 1px 8px rgba(0,0,0,0.6)",
+                maxWidth: "600px",
+              }}
+            >
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
-            {/* Three buttons in a horizontal row — Watch | Request a Quote (centre) | Facebook */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-2xl mx-auto mb-8">
-              {/* Watch video — left */}
-              <button
-                onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-sm md:text-base rounded-xl px-5 py-3.5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
-              >
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <Play size={10} className="ml-0.5 text-white" />
-                </div>
-                Watch Our Process
-              </button>
-              {/* Request a Quote — centre / primary */}
+            {/* Primary action buttons — Request a Quote + Facebook */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-xl mx-auto mb-10">
+              {/* Request a Quote — primary */}
               <Link href="/contact" className="w-full sm:w-auto">
-                <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-6 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
+                <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-8 py-4 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
                   <Anchor size={16} className="flex-shrink-0 opacity-90" />
                   Request a Quote
                 </a>
               </Link>
-              {/* Facebook — right */}
+              {/* Facebook */}
               <a
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-sm md:text-base rounded-xl px-5 py-3.5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-sm md:text-base rounded-xl px-6 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
               >
                 <div className="w-5 h-5 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -362,15 +371,24 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Tagline below buttons */}
-            <div className="flex items-center gap-4 max-w-xs mx-auto mb-3">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(45,212,191,0.6))" }} />
-              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(45,212,191,0.8)" }} />
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(45,212,191,0.6), transparent)" }} />
-            </div>
-            <p className="text-sm font-light max-w-md mx-auto tracking-wide" style={{ color: "#F5F0E8", fontStyle: "italic", textShadow: "0 1px 6px rgba(0,0,0,0.5)", opacity: 0.85 }}>
+            {/* Tagline */}
+            <p className="text-sm font-light max-w-md mx-auto tracking-wide mb-10" style={{ color: "#F5F0E8", fontStyle: "italic", textShadow: "0 1px 6px rgba(0,0,0,0.5)", opacity: 0.8 }}>
               Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
+
+            {/* Watch Our Process — bottom of hero */}
+            <div className="flex justify-center">
+              <button
+                onClick={() => setVideoOpen(true)}
+                className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-sm rounded-xl px-6 py-3 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+              >
+                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Play size={10} className="ml-0.5 text-white" />
+                </div>
+                Watch Our Process
+              </button>
+            </div>
+
           </motion.div>
         {/* Animated scroll chevron */}
         <motion.div
