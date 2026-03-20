@@ -329,7 +329,7 @@ export default function Home() {
             </div>
 
             {/* ── BOTTOM INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-10">
+            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-20">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
               <div className="flex items-center gap-2.5">
                 <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
