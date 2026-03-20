@@ -338,7 +338,7 @@ export default function Home() {
         >
           {/* Subtitle */}
           <p
-            className="mb-3"
+            className="mb-3 text-center"
             style={{
               fontSize: "clamp(1.5rem, 2.4vw, 2rem)",
               color: "rgba(255,255,255,1)",
