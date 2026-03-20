@@ -269,10 +269,8 @@ export default function Home() {
           transition: "opacity 0.9s ease",
         }}
       >
-        {/* Base darkening overlay */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.42) 55%, rgba(0,0,0,0.60) 100%)" }} />
-        {/* Sun suppression — radial dark patch over the upper-left sun area to push it back */}
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 55% 45% at 28% 38%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.0) 100%)" }} />
+        {/* Base darkening overlay — lightened since image is now AI-graded */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.18) 55%, rgba(0,0,0,0.38) 100%)" }} />
         {/* Navbar shadow */}
         <div className="absolute inset-x-0 top-0 pointer-events-none" style={{ height: "140px", background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.0) 100%)" }} />
         {/* Subtle drifting particles */}
