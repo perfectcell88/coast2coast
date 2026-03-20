@@ -279,7 +279,7 @@ export default function Home() {
         {/* ── HERO: TOP BLOCK — title + insignia pinned to upper sky ── */}
         <motion.div
           className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center text-center text-white px-4"
-          style={{ paddingTop: "clamp(5rem, 10vh, 8rem)" }}
+          style={{ paddingTop: "clamp(7rem, 13vh, 11rem)" }}
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" as const }}
