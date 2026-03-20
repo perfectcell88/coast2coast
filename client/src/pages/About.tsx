@@ -162,7 +162,7 @@ export default function About() {
                 className="text-xl leading-relaxed mb-5 mx-auto"
                 style={{ color: "rgba(255,255,255,0.75)", maxWidth: "720px" }}
               >
-                Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.
+                Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. A deeply experienced team with a long track record in the marine industry in Thailand.
               </p>
               <p
                 className="text-base leading-relaxed mx-auto"
