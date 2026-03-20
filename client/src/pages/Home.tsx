@@ -285,26 +285,31 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
 
-            {/* ── TOP INSIGNIA LINE ── */}
-            <div className="flex items-center justify-center gap-4 w-full max-w-2xl mx-auto mb-5">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.9))" }} />
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
-                <div className="w-2.5 h-2.5 rotate-45 border border-teal-400" style={{ borderColor: "rgba(0,200,200,0.8)" }} />
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
-              </div>
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.9), transparent)" }} />
+            {/* ── TOP INSIGNIA ── */}
+            <div className="flex items-center justify-center gap-5 w-full max-w-xl mx-auto mb-5">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
+              {/* SVG refined ornament — dot · line · diamond · line · dot */}
+              <svg width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="3" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
+                <line x1="7" y1="6" x2="19" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
+                <rect x="22" y="1.5" width="8" height="8" rx="0" transform="rotate(45 26 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.2" style={{ filter: "drop-shadow(0 0 5px rgba(0,200,200,0.8))" }} />
+                <line x1="33" y1="6" x2="45" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
+                <circle cx="49" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
+              </svg>
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
-            {/* ── BUSINESS NAME — large, full width ── */}
-            <div className="mb-2">
+            {/* ── BUSINESS NAME — large, full width with ambient glow ── */}
+            <div className="relative mb-2">
+              {/* Subtle teal ambient glow behind the title */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,200,200,0.10) 0%, transparent 70%)", filter: "blur(18px)" }} />
               <h1
-                className="font-display font-bold uppercase w-full text-center"
+                className="relative font-display font-bold uppercase w-full text-center"
                 style={{
                   fontSize: "clamp(2.4rem, 6.5vw, 6.2rem)",
                   letterSpacing: "0.22em",
                   color: "#ffffff",
-                  textShadow: "0 0 80px rgba(0,200,200,0.25), 0 2px 24px rgba(0,0,0,0.95)",
+                  textShadow: "0 0 100px rgba(0,200,200,0.18), 0 2px 24px rgba(0,0,0,0.95)",
                   lineHeight: 1.05,
                 }}
               >
@@ -325,15 +330,17 @@ export default function Home() {
               </p>
             </div>
 
-            {/* ── BOTTOM INSIGNIA LINE ── */}
-            <div className="flex items-center justify-center gap-4 w-full max-w-2xl mx-auto mb-7">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.9))" }} />
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
-                <div className="w-2.5 h-2.5 rotate-45 border border-teal-400" style={{ borderColor: "rgba(0,200,200,0.8)" }} />
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
-              </div>
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.9), transparent)" }} />
+            {/* ── BOTTOM INSIGNIA ── */}
+            <div className="flex items-center justify-center gap-5 w-full max-w-xl mx-auto mb-7">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
+              <svg width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="3" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
+                <line x1="7" y1="6" x2="19" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
+                <rect x="22" y="1.5" width="8" height="8" rx="0" transform="rotate(45 26 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.2" style={{ filter: "drop-shadow(0 0 5px rgba(0,200,200,0.8))" }} />
+                <line x1="33" y1="6" x2="45" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
+                <circle cx="49" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
+              </svg>
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
             {/* ── SUBTITLE ── */}
@@ -342,7 +349,7 @@ export default function Home() {
               style={{
                 fontSize: "clamp(1.15rem, 2.3vw, 2rem)",
                 color: "#F5F0E8",
-                letterSpacing: "0.03em",
+                letterSpacing: "0.06em",
                 textShadow: "0 2px 18px rgba(0,0,0,0.85)",
                 maxWidth: "680px",
               }}
@@ -354,17 +361,17 @@ export default function Home() {
             <p
               className="font-light text-center mx-auto mb-9 leading-relaxed"
               style={{
-                fontSize: "clamp(0.9rem, 1.4vw, 1.18rem)",
-                color: "rgba(255,255,255,0.82)",
+                fontSize: "clamp(1rem, 1.6vw, 1.3rem)",
+                color: "rgba(255,255,255,0.85)",
                 textShadow: "0 1px 8px rgba(0,0,0,0.7)",
-                maxWidth: "560px",
+                maxWidth: "580px",
               }}
             >
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
             {/* ── PRIMARY BUTTONS ── */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-7">
               <Link href="/contact" className="w-full sm:w-auto">
                 <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-8 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
                   <Anchor size={15} className="flex-shrink-0 opacity-90" />
@@ -386,22 +393,32 @@ export default function Home() {
               </a>
             </div>
 
-            {/* ── TAGLINE ── */}
-            <p className="text-xs font-light max-w-sm mx-auto tracking-widest mb-9 uppercase" style={{ color: "rgba(245,240,232,0.6)", textShadow: "0 1px 6px rgba(0,0,0,0.5)", letterSpacing: "0.2em" }}>
-              Complete marine oversized load transportation — coast to coast
+            {/* ── TAGLINE — italic, slightly larger ── */}
+            <p
+              className="text-center mx-auto mb-9"
+              style={{
+                fontSize: "clamp(0.82rem, 1.1vw, 1.0rem)",
+                fontStyle: "italic",
+                color: "rgba(245,240,232,0.65)",
+                textShadow: "0 1px 6px rgba(0,0,0,0.5)",
+                letterSpacing: "0.06em",
+                maxWidth: "420px",
+              }}
+            >
+              Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
 
-            {/* ── WATCH OUR PROCESS — bottom of hero ── */}
+            {/* ── WATCH OUR PROCESS — bottom of hero, more visible ── */}
             <div className="flex justify-center">
               <button
                 onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-2.5 bg-white/8 hover:bg-white/15 border border-white/25 hover:border-teal-400/60 text-white/80 hover:text-white font-medium text-xs tracking-widest uppercase rounded-full px-7 py-2.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-                style={{ letterSpacing: "0.15em" }}
+                className="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white/85 hover:text-white font-medium rounded-full px-8 py-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
+                style={{ fontSize: "clamp(0.75rem, 1vw, 0.88rem)", letterSpacing: "0.18em" }}
               >
-                <div className="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0">
-                  <Play size={8} className="ml-0.5" />
+                <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
+                  <Play size={9} className="ml-0.5" />
                 </div>
-                Watch Our Process
+                <span className="uppercase tracking-widest">Watch Our Process</span>
               </button>
             </div>
 
