@@ -245,32 +245,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 md:py-28 bg-primary/5">
-        <div className="container">
-          <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-12">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Purpose</p>
-              <h2 className="font-display text-4xl font-bold text-primary mb-4">Mission & Vision</h2>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-sm border border-border">
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Our Mission</h3>
-                <p className="text-foreground/65 leading-relaxed">
-                  To provide safe, reliable, and professional vessel transport services that exceed client expectations. We are committed to delivering your boat on time, in perfect condition, with transparent communication and expert handling throughout every journey — coast to coast.
-                </p>
-              </motion.div>
-              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-sm border border-border">
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Our Vision</h3>
-                <p className="text-foreground/65 leading-relaxed">
-                  To be Thailand's most trusted marine transport specialist, recognised for our unwavering commitment to safety, professionalism, and client satisfaction. We aim to set the industry standard for oversized vessel relocation across the Kingdom.
-                </p>
-              </motion.div>
-            </div>
-          </FadeSection>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-20 md:py-28 bg-primary text-white">
         <div className="container text-center">
