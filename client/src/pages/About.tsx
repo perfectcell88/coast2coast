@@ -122,16 +122,16 @@ export default function About() {
         <div className="container relative z-10">
           <FadeSection>
             <motion.div variants={fadeUp} className="max-w-5xl mx-auto text-center">
-              {/* Icon */}
+              {/* Logo mark */}
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-8"
+                className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 overflow-hidden"
                 style={{
-                  background: "rgba(0,200,200,0.10)",
-                  border: "1px solid rgba(0,200,200,0.28)",
+                  background: "rgba(0,200,200,0.08)",
+                  border: "1px solid rgba(0,200,200,0.22)",
                   boxShadow: "0 0 40px rgba(0,200,200,0.12)",
                 }}
               >
-                <Anchor size={28} style={{ color: "#00c8c8" }} />
+                <img src="/logo-mark.webp" alt="Coast to Coast Marine Transportation Thailand" className="w-14 h-14 object-contain" />
               </div>
 
               {/* Est. label */}
