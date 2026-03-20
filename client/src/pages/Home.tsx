@@ -277,7 +277,7 @@ export default function Home() {
         <HeroParticles />
 
         {/* ── CENTRED HERO CONTENT — text in upper sky area, clear of truck/boat ── */}
-        <div className="relative z-10 w-full text-center text-white px-4 pt-10 md:pt-14 pb-28">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-6 md:pt-8 pb-28">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
@@ -356,14 +356,17 @@ export default function Home() {
               Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
 
-            {/* ── ALL THREE BUTTONS — same row ── */}
+            {/* ── ALL THREE BUTTONS — same row: Watch Our Process | Follow Us on Facebook | Request a Quote ── */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto">
-              <Link href="/contact">
-                <a className="flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm rounded-xl px-7 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
-                  <Anchor size={14} className="flex-shrink-0 opacity-90" />
-                  Request a Quote
-                </a>
-              </Link>
+              <button
+                onClick={() => setVideoOpen(true)}
+                className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white font-medium text-sm rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+              >
+                <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
+                  <Play size={9} className="ml-0.5" />
+                </div>
+                <span className="uppercase tracking-widest" style={{ fontSize: "0.8rem", letterSpacing: "0.16em" }}>Watch Our Process</span>
+              </button>
               <a
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
@@ -377,15 +380,12 @@ export default function Home() {
                 </div>
                 Follow Us on Facebook
               </a>
-              <button
-                onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white font-medium text-sm rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
-              >
-                <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
-                  <Play size={9} className="ml-0.5" />
-                </div>
-                <span className="uppercase tracking-widest" style={{ fontSize: "0.8rem", letterSpacing: "0.16em" }}>Watch Our Process</span>
-              </button>
+              <Link href="/contact">
+                <a className="flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm rounded-xl px-7 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
+                  <Anchor size={14} className="flex-shrink-0 opacity-90" />
+                  Request a Quote
+                </a>
+              </Link>
             </div>
 
           </motion.div>
