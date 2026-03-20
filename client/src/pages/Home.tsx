@@ -259,7 +259,7 @@ export default function Home() {
         path="/"
       />      {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section
-        className="relative min-h-screen flex items-start justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url('${heroImage}')`,
           backgroundAttachment: "fixed",
@@ -277,7 +277,7 @@ export default function Home() {
         <HeroParticles />
 
         {/* ── CENTRED HERO CONTENT — text in upper sky area, clear of truck/boat ── */}
-        <div className="relative z-10 w-full text-center text-white px-4 pt-24 md:pt-28 pb-28">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-0 pb-0" style={{ marginTop: '-14vh' }}>
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
