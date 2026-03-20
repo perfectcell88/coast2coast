@@ -304,7 +304,7 @@ export default function Home() {
               <h1
                 className="relative font-display font-bold uppercase w-full text-center"
                 style={{
-                  fontSize: "clamp(2.4rem, 6.5vw, 6.2rem)",
+                  fontSize: "clamp(3rem, 8.5vw, 8rem)",
                   letterSpacing: "0.22em",
                   color: "#ffffff",
                   textShadow: "0 0 100px rgba(0,200,200,0.18), 0 2px 24px rgba(0,0,0,0.95)",
@@ -318,8 +318,8 @@ export default function Home() {
               <p
                 className="font-mono-accent uppercase font-bold w-full text-center"
                 style={{
-                  fontSize: "clamp(0.7rem, 1.8vw, 1.35rem)",
-                  letterSpacing: "0.45em",
+                  fontSize: "clamp(0.85rem, 2.2vw, 1.7rem)",
+                  letterSpacing: "0.42em",
                   color: "rgba(0,200,200,0.95)",
                   textShadow: "0 0 30px rgba(0,200,200,0.6), 0 2px 12px rgba(0,0,0,0.9)",
                 }}
