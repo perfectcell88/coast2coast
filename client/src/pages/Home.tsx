@@ -277,7 +277,7 @@ export default function Home() {
         <HeroParticles />
 
         {/* ── CENTRED HERO CONTENT — text in upper sky area, clear of truck/boat ── */}
-        <div className="relative z-10 w-full text-center text-white px-4 pt-4 md:pt-5 pb-28">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-8 md:pt-10 pb-28">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
@@ -329,7 +329,7 @@ export default function Home() {
             </div>
 
             {/* ── BOTTOM INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-10">
+            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-8">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
               <div className="flex items-center gap-2.5">
                 <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
@@ -341,19 +341,33 @@ export default function Home() {
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
-            {/* ── BODY TEXT — glass text effect, no box ── */}
+            {/* ── SUBTITLE ── */}
+            <p
+              className="text-center mx-auto mb-4"
+              style={{
+                fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)",
+                color: "rgba(255,255,255,0.97)",
+                textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.9)",
+                fontWeight: 600,
+                letterSpacing: "0.01em",
+                maxWidth: "680px",
+              }}
+            >
+              Thailand's Premier Vessel Relocation Specialists
+            </p>
+
+            {/* ── DESCRIPTION ── */}
             <p
               className="text-center mx-auto mb-8 leading-relaxed"
               style={{
-                fontSize: "clamp(1rem, 1.55vw, 1.2rem)",
-                color: "rgba(255,255,255,1)",
-                textShadow: "0 0 20px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.7)",
-                maxWidth: "640px",
-                fontWeight: 500,
+                fontSize: "clamp(0.95rem, 1.4vw, 1.1rem)",
+                color: "rgba(255,255,255,0.93)",
+                textShadow: "0 2px 18px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,0.85)",
+                maxWidth: "600px",
               }}
             >
-              Thailand's Premier Vessel Relocation Specialists.<br />
-              Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.<br />
+              We transport vessels from the Gulf of Thailand to the Andaman Sea,
+              trucking boats overland for 80 km and relaunching them on the west coast.
               Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
 
