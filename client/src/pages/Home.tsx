@@ -258,8 +258,74 @@ export default function Home() {
         description="Thailand's specialist in safe, professional vessel relocation between the Gulf of Thailand and the Andaman Sea. Powerboats, yachts and catamarans transported from Pattaya or Bangkok to Phuket in under 7 days."
         path="/"
       />      {/* ── HERO ──────────────────────────────────────────────────────── */}
+      {/* ── MOBILE HERO (hidden on md+) ── */}
+      <div
+        className="md:hidden flex flex-col"
+        style={{ opacity: heroLoaded ? 1 : 0, transition: "opacity 0.9s ease" }}
+      >
+        {/* Image block — completely clean, no text */}
+        <div
+          className="relative w-full"
+          style={{
+            height: "56vw",
+            minHeight: "220px",
+            maxHeight: "420px",
+            backgroundImage: `url('${heroImage}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center 55%",
+          }}
+        >
+          {/* Navbar gradient */}
+          <div className="absolute inset-x-0 top-0" style={{ height: "80px", background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%)" }} />
+        </div>
+        {/* Content block below image */}
+        <div className="bg-[#0d1b2a] px-6 py-8 flex flex-col items-center text-center text-white">
+          <h1 className="font-display font-bold uppercase mb-2" style={{ fontSize: "clamp(2rem, 10vw, 3rem)", letterSpacing: "0.18em", lineHeight: 1.05, textShadow: "0 2px 12px rgba(0,0,0,0.8)" }}>Coast to Coast</h1>
+          <p className="font-mono-accent uppercase font-bold mb-4" style={{ fontSize: "clamp(0.6rem, 3.2vw, 0.85rem)", letterSpacing: "0.38em", color: "rgba(0,200,200,0.95)" }}>Marine Transportation Thailand</p>
+          <div className="flex items-center gap-3 w-full max-w-xs mx-auto mb-6">
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.6))" }} />
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)" }} />
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.6), transparent)" }} />
+          </div>
+          <p className="font-bold mb-3" style={{ fontSize: "clamp(1.1rem, 5vw, 1.4rem)", lineHeight: 1.25 }}>Thailand's Premier Vessel<br />Relocation Specialists</p>
+          <p className="mb-8 leading-relaxed" style={{ fontSize: "clamp(0.85rem, 3.8vw, 1rem)", color: "rgba(255,255,255,0.85)" }}>
+            We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast. Complete marine oversized load transportation company — paying attention to detail, coast to coast.
+          </p>
+          <div className="flex flex-col items-stretch gap-3 w-full max-w-sm">
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="flex items-center justify-center gap-3 w-full bg-white/10 border border-white/30 text-white font-semibold rounded-xl px-6 py-4"
+              style={{ fontSize: "0.95rem", letterSpacing: "0.06em" }}
+            >
+              <div className="w-6 h-6 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0"><Play size={11} className="ml-0.5" /></div>
+              <span className="uppercase tracking-widest">Watch Our Process</span>
+            </button>
+            <Link href="/contact">
+              <a className="flex items-center justify-center gap-3 w-full bg-secondary text-white font-semibold rounded-xl px-6 py-4 shadow-xl shadow-secondary/40"
+                style={{ fontSize: "0.95rem", letterSpacing: "0.06em" }}
+              >
+                <Anchor size={16} className="flex-shrink-0 opacity-90" />
+                <span className="uppercase tracking-widest">Request a Quote</span>
+              </a>
+            </Link>
+            <a
+              href="https://www.facebook.com/profile.php?id=61588477663667"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full bg-white/10 border border-white/30 text-white font-semibold rounded-xl px-6 py-4"
+              style={{ fontSize: "0.95rem", letterSpacing: "0.06em" }}
+            >
+              <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </div>
+              <span className="uppercase tracking-widest">Follow Us on Facebook</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ── DESKTOP HERO (hidden on mobile) ── */}
       <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="hidden md:flex relative min-h-screen items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url('${heroImage}')`,
           backgroundAttachment: "fixed",
@@ -269,14 +335,14 @@ export default function Home() {
           transition: "opacity 0.9s ease",
         }}
       >
-        {/* Base darkening overlay — lightened since image is now AI-graded */}
+        {/* Base darkening overlay */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.18) 55%, rgba(0,0,0,0.38) 100%)" }} />
         {/* Navbar shadow */}
         <div className="absolute inset-x-0 top-0 pointer-events-none" style={{ height: "140px", background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.0) 100%)" }} />
         {/* Subtle drifting particles */}
         <HeroParticles />
 
-        {/* ── HERO: TOP BLOCK — title + insignia pinned to upper sky ── */}
+        {/* ── TOP BLOCK — title + insignia ── */}
         <motion.div
           className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center text-center text-white px-4"
           style={{ paddingTop: "clamp(8rem, 14.5vh, 12rem)" }}
@@ -284,7 +350,6 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" as const }}
         >
-          {/* Main title */}
           <div className="relative mb-2">
             <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,200,200,0.10) 0%, transparent 70%)", filter: "blur(18px)" }} />
             <h1
@@ -300,7 +365,6 @@ export default function Home() {
               Coast to Coast
             </h1>
           </div>
-          {/* Subtitle line — centred */}
           <div className="w-full mb-3">
             <p
               className="font-mono-accent uppercase font-bold text-center"
@@ -314,7 +378,6 @@ export default function Home() {
               Marine Transportation Thailand
             </p>
           </div>
-          {/* Bottom insignia */}
           <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto">
             <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
             <div className="flex items-center gap-2.5">
@@ -328,7 +391,7 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* ── HERO: BOTTOM-LEFT BLOCK — subtitle + description + buttons ── */}
+        {/* ── BOTTOM-LEFT BLOCK — subtitle + description + buttons ── */}
         <motion.div
           className="absolute left-0 z-10 flex flex-col items-start text-left text-white"
           style={{
@@ -341,7 +404,6 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" as const }}
         >
-          {/* Subtitle */}
           <p
             className="mb-5 text-center w-full"
             style={{
@@ -355,7 +417,6 @@ export default function Home() {
           >
             Thailand's Premier Vessel<br />Relocation Specialists
           </p>
-          {/* Description */}
           <p
             className="mb-8 leading-relaxed"
             style={{
@@ -369,9 +430,7 @@ export default function Home() {
             trucking boats overland for 80 km and relaunching them on the west coast.
             Complete marine oversized load transportation company — paying attention to detail, coast to coast.
           </p>
-          {/* Buttons */}
           <div className="flex flex-col items-stretch gap-3" style={{ width: "100%" }}>
-            {/* Shared button style: full-width, same height, same font */}
             <button
               onClick={() => setVideoOpen(true)}
               className="flex items-center justify-center gap-3 w-full bg-white/12 hover:bg-white/20 border border-white/35 hover:border-teal-400/80 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
