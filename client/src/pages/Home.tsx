@@ -424,27 +424,44 @@ export default function Home() {
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Serving Thailand's Coasts</h2>
               <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-              {/* Left: key stops — glassmorphism card */}
-              <motion.div variants={fadeUp}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+              {/* Left: key stops + quick stats — fills full column height */}
+              <motion.div variants={fadeUp} className="flex flex-col gap-5">
+                {/* Key stops card */}
                 <div className="rounded-2xl p-8" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,200,200,0.2)", backdropFilter: "blur(12px)", boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)" }}>
                   <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>Key Stops</p>
-                  <h3 className="font-display text-2xl font-bold text-white mb-5">Gulf to Andaman — and Back</h3>
-                  <p className="text-lg mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>Sea miles handled by our licensed crew, or your own.</p>
-                  <ul className="space-y-3 mb-8">
+                  <h3 className="font-display text-2xl font-bold text-white mb-4">Gulf to Andaman — and Back</h3>
+                  <p className="text-sm mb-5" style={{ color: "rgba(255,255,255,0.55)" }}>Sea miles handled by our licensed crew, or your own.</p>
+                  <ul className="space-y-3">
                     {[
-                      "Bangkok / Pattaya (Gulf of Thailand)",
-                      "Chumphon — Crane out & load",
-                      "80 km Overland Land Bridge",
-                      "Ranong — Crane into Andaman Sea",
-                      "Phuket & Andaman destinations",
-                    ].map((area) => (
-                      <li key={area} className="flex items-center gap-3">
-                        <CheckCircle style={{ color: "#00c8c8", flexShrink: 0 }} size={20} />
-                        <span className="font-medium" style={{ color: "rgba(255,255,255,0.85)" }}>{area}</span>
+                      { stop: "Bangkok / Pattaya", sub: "Gulf of Thailand departure" },
+                      { stop: "Chumphon", sub: "Crane out & load onto trailer" },
+                      { stop: "80 km Overland", sub: "Secure transit on custom cradle" },
+                      { stop: "Ranong", sub: "100-ton crane into Andaman Sea" },
+                      { stop: "Phuket & Andaman", sub: "Final delivery to destination" },
+                    ].map((item) => (
+                      <li key={item.stop} className="flex items-start gap-3">
+                        <CheckCircle style={{ color: "#00c8c8", flexShrink: 0, marginTop: "2px" }} size={18} />
+                        <div>
+                          <span className="font-semibold text-white text-sm">{item.stop}</span>
+                          <span className="text-xs block mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>{item.sub}</span>
+                        </div>
                       </li>
                     ))}
                   </ul>
+                </div>
+                {/* Quick facts strip */}
+                <div className="rounded-2xl p-6 grid grid-cols-3 gap-4 text-center" style={{ background: "rgba(0,200,200,0.07)", border: "1px solid rgba(0,200,200,0.2)", backdropFilter: "blur(8px)" }}>
+                  {[
+                    { value: "80 km", label: "Overland Bridge" },
+                    { value: "100T", label: "Crane at Ranong" },
+                    { value: "<7 Days", label: "Gulf to Andaman" },
+                  ].map((f, i) => (
+                    <div key={i}>
+                      <p className="font-display text-xl font-bold" style={{ color: "#00c8c8" }}>{f.value}</p>
+                      <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>{f.label}</p>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
 
