@@ -105,92 +105,88 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── PHUKET MARINE ORACLE — premium standalone section ── */}
-      <section className="py-24 md:py-32" style={{ background: "linear-gradient(160deg, #f8fbff 0%, #eef6fb 100%)" }}>
-        <div className="container">
-          <FadeSection>
-            <motion.div variants={fadeUp} className="max-w-4xl mx-auto">
-              {/* Section label */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, rgba(0,150,150,0.4))" }} />
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase" style={{ color: "#0e7490" }}>Our Heritage</p>
-                <div className="h-px flex-1" style={{ background: "linear-gradient(90deg, rgba(0,150,150,0.4), transparent)" }} />
-              </div>
+      {/* ── PHUKET MARINE ORACLE — full-width cinematic section ── */}
+      <section
+        className="relative py-28 md:py-36 overflow-hidden"
+        style={{
+          background: "linear-gradient(160deg, #041828 0%, #062840 55%, #083858 100%)",
+        }}
+      >
+        {/* Subtle teal glow top */}
+        <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.35), transparent)" }} />
+        {/* Subtle teal glow bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.35), transparent)" }} />
+        {/* Background radial glow */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,200,200,0.05) 0%, transparent 70%)" }} />
 
-              {/* Premium card */}
+        <div className="container relative z-10">
+          <FadeSection>
+            <motion.div variants={fadeUp} className="max-w-5xl mx-auto text-center">
+              {/* Icon */}
               <div
-                className="rounded-3xl overflow-hidden shadow-xl"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-8"
                 style={{
-                  background: "linear-gradient(135deg, #041828 0%, #062840 60%, #083858 100%)",
-                  border: "1px solid rgba(0,200,200,0.18)",
-                  boxShadow: "0 24px 64px rgba(4,24,40,0.18), 0 1px 0 rgba(0,200,200,0.12) inset",
+                  background: "rgba(0,200,200,0.10)",
+                  border: "1px solid rgba(0,200,200,0.28)",
+                  boxShadow: "0 0 40px rgba(0,200,200,0.12)",
                 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-0">
-                  {/* Left — icon + title */}
-                  <div className="flex flex-col justify-center items-center text-center p-10 md:p-14">
-                    <div
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
-                      style={{
-                        background: "rgba(0,200,200,0.12)",
-                        border: "1px solid rgba(0,200,200,0.3)",
-                        boxShadow: "0 0 32px rgba(0,200,200,0.15)",
-                      }}
-                    >
-                      <Anchor size={34} style={{ color: "#00c8c8" }} />
-                    </div>
-                    <p
-                      className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3"
-                      style={{ color: "rgba(0,200,200,0.7)" }}
-                    >
-                      Est. 2005
-                    </p>
-                    <h2
-                      className="font-display text-2xl md:text-3xl font-bold leading-tight"
-                      style={{ color: "#ffffff" }}
-                    >
-                      Part of Phuket Marine Oracle Co., Ltd.
-                    </h2>
-                    <div
-                      className="mt-5 h-px w-16 mx-auto"
-                      style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.6), transparent)" }}
-                    />
-                  </div>
+                <Anchor size={28} style={{ color: "#00c8c8" }} />
+              </div>
 
-                  {/* Divider */}
-                  <div className="hidden md:block" style={{ background: "rgba(0,200,200,0.12)" }} />
+              {/* Est. label */}
+              <p
+                className="font-mono-accent text-xs tracking-[0.35em] uppercase mb-5"
+                style={{ color: "rgba(0,200,200,0.65)" }}
+              >
+                Est. 2005
+              </p>
 
-                  {/* Right — description */}
-                  <div className="flex flex-col justify-center p-10 md:p-14">
-                    <p
-                      className="text-lg leading-relaxed mb-5"
-                      style={{ color: "rgba(255,255,255,0.78)" }}
-                    >
-                      Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.
-                    </p>
-                    <p
-                      className="text-base leading-relaxed"
-                      style={{ color: "rgba(255,255,255,0.55)" }}
-                    >
-                      That depth of institutional knowledge underpins every vessel relocation we undertake — from crane selection and transit cradle fabrication to port clearance coordination and final handover.
-                    </p>
-                    <div className="mt-8 flex flex-wrap gap-3">
-                      {["20 Years Experience", "Marine Industry Specialists", "Thailand-Based"].map((badge) => (
-                        <span
-                          key={badge}
-                          className="text-xs font-semibold px-4 py-2 rounded-full"
-                          style={{
-                            background: "rgba(0,200,200,0.10)",
-                            border: "1px solid rgba(0,200,200,0.25)",
-                            color: "rgba(0,200,200,0.85)",
-                          }}
-                        >
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              {/* Title */}
+              <h2
+                className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight"
+                style={{ color: "#ffffff" }}
+              >
+                Part of Phuket Marine Oracle Co., Ltd.
+              </h2>
+
+              {/* Teal rule */}
+              <div className="flex items-center justify-center gap-3 mb-10">
+                <div className="h-px w-20" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.6))" }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,0.8)", boxShadow: "0 0 6px rgba(0,200,200,0.8)" }} />
+                <div className="h-px w-20" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.6), transparent)" }} />
+              </div>
+
+              {/* Body copy */}
+              <p
+                className="text-xl leading-relaxed mb-5 mx-auto"
+                style={{ color: "rgba(255,255,255,0.75)", maxWidth: "720px" }}
+              >
+                Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.
+              </p>
+              <p
+                className="text-base leading-relaxed mx-auto"
+                style={{ color: "rgba(255,255,255,0.48)", maxWidth: "620px" }}
+              >
+                That depth of institutional knowledge underpins every vessel relocation we undertake — from crane selection and transit cradle fabrication to port clearance coordination and final handover.
+              </p>
+
+              {/* Badges */}
+              <div className="mt-10 flex flex-wrap justify-center gap-3">
+                {["20 Years Experience", "Marine Industry Specialists", "Thailand-Based"].map((badge) => (
+                  <span
+                    key={badge}
+                    className="text-xs font-semibold px-5 py-2.5 rounded-full"
+                    style={{
+                      background: "rgba(0,200,200,0.08)",
+                      border: "1px solid rgba(0,200,200,0.22)",
+                      color: "rgba(0,200,200,0.8)",
+                      letterSpacing: "0.04em",
+                    }}
+                  >
+                    {badge}
+                  </span>
+                ))}
               </div>
             </motion.div>
           </FadeSection>
