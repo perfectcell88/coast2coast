@@ -300,12 +300,12 @@ export default function Home() {
               Coast to Coast
             </h1>
           </div>
-          {/* Subtitle line */}
-          <div className="mb-3">
+          {/* Subtitle line — left-aligned, sits in the open space left of the boat */}
+          <div className="w-full mb-3" style={{ paddingLeft: "clamp(1.5rem, 5vw, 6rem)" }}>
             <p
-              className="font-mono-accent uppercase font-bold w-full text-center"
+              className="font-mono-accent uppercase font-bold text-left"
               style={{
-                fontSize: "clamp(0.75rem, 1.9vw, 1.5rem)",
+                fontSize: "clamp(0.7rem, 1.6vw, 1.3rem)",
                 letterSpacing: "0.42em",
                 color: "rgba(0,210,210,0.95)",
                 textShadow: "0 0 30px rgba(0,200,200,0.6), 0 2px 12px rgba(0,0,0,0.9)",
