@@ -307,8 +307,8 @@ export default function Home() {
               style={{
                 fontSize: "clamp(0.7rem, 1.6vw, 1.3rem)",
                 letterSpacing: "0.42em",
-                color: "rgba(0,210,210,0.95)",
-                textShadow: "0 0 30px rgba(0,200,200,0.6), 0 2px 12px rgba(0,0,0,0.9)",
+                color: "rgba(255,255,255,0.95)",
+                textShadow: "0 0 30px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.9)",
               }}
             >
               Marine Transportation Thailand
