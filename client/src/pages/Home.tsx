@@ -335,7 +335,7 @@ export default function Home() {
             bottom: 0,
             paddingBottom: "clamp(1.5rem, 3vh, 3rem)",
             paddingLeft: "clamp(2rem, 6vw, 7rem)",
-            maxWidth: "min(48%, 560px)",
+            maxWidth: "clamp(280px, 38vw, 520px)",
           }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -345,7 +345,7 @@ export default function Home() {
           <p
             className="mb-5 text-center w-full"
             style={{
-              fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
+              fontSize: "clamp(1.4rem, 2.4vw, 2.2rem)",
               color: "rgba(255,255,255,1)",
               textShadow: "0 0 40px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1)",
               fontWeight: 700,
@@ -359,7 +359,7 @@ export default function Home() {
           <p
             className="mb-8 leading-relaxed"
             style={{
-              fontSize: "clamp(1.05rem, 1.6vw, 1.25rem)",
+              fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)",
               color: "rgba(255,255,255,0.92)",
               textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
             }}
