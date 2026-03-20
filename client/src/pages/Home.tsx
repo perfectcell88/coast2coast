@@ -22,6 +22,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThailandRouteMap from "@/components/ThailandRouteMap";
 import HeroParticles from "@/components/HeroParticles";
+import SunRays from "@/components/SunRays";
 import SEO from "@/components/SEO";
 
 const galleryImages = [
@@ -258,6 +259,8 @@ export default function Home() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.55) 100%)" }} />
         {/* Navbar shadow — dark drop fading to transparent, adds depth and grounds the nav */}
         <div className="absolute inset-x-0 top-0 pointer-events-none" style={{ height: "140px", background: "linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.0) 100%)" }} />
+        {/* Animated sun rays — realistic shimmer overlay */}
+        <SunRays />
         {/* Subtle drifting particles — sea spray / light on water */}
         <HeroParticles />
 
