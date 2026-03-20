@@ -173,7 +173,7 @@ export default function About() {
 
               {/* Badges */}
               <div className="mt-10 flex flex-wrap justify-center gap-3">
-                {["20 Years Experience", "Marine Industry Specialists", "Thailand-Based"].map((badge) => (
+                {["Marine Industry Specialists", "Thailand-Based"].map((badge) => (
                   <span
                     key={badge}
                     className="text-xs font-semibold px-5 py-2.5 rounded-full"
