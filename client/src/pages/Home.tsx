@@ -259,7 +259,7 @@ export default function Home() {
         path="/"
       />      {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-start justify-center overflow-hidden"
         style={{
           backgroundImage: `url('${heroImage}')`,
           backgroundAttachment: "fixed",
@@ -277,7 +277,7 @@ export default function Home() {
         <HeroParticles />
 
         {/* ── CENTRED HERO CONTENT — text in upper sky area, clear of truck/boat ── */}
-        <div className="relative z-10 w-full text-center text-white px-4 pt-8 md:pt-10 pb-28">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-24 md:pt-28 pb-28">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
@@ -373,6 +373,7 @@ export default function Home() {
 
             {/* ── ALL THREE BUTTONS — same row: Watch Our Process | Follow Us on Facebook | Request a Quote ── */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto">
+              {/* 1: Watch Our Process */}
               <button
                 onClick={() => setVideoOpen(true)}
                 className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white font-medium text-sm rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
@@ -382,6 +383,14 @@ export default function Home() {
                 </div>
                 <span className="uppercase tracking-widest" style={{ fontSize: "0.8rem", letterSpacing: "0.16em" }}>Watch Our Process</span>
               </button>
+              {/* 2: Request a Quote — centre/primary */}
+              <Link href="/contact">
+                <a className="flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm rounded-xl px-7 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
+                  <Anchor size={14} className="flex-shrink-0 opacity-90" />
+                  Request a Quote
+                </a>
+              </Link>
+              {/* 3: Follow Us on Facebook — far right */}
               <a
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
@@ -395,12 +404,6 @@ export default function Home() {
                 </div>
                 Follow Us on Facebook
               </a>
-              <Link href="/contact">
-                <a className="flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm rounded-xl px-7 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
-                  <Anchor size={14} className="flex-shrink-0 opacity-90" />
-                  Request a Quote
-                </a>
-              </Link>
             </div>{/* end buttons row */}
 
           </motion.div>
