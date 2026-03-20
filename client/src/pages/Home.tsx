@@ -328,13 +328,13 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* ── HERO: BOTTOM-LEFT TEXT BLOCK — subtitle + description ── */}
+        {/* ── HERO: BOTTOM-LEFT BLOCK — subtitle + description + buttons ── */}
         <motion.div
           className="absolute left-0 z-10 flex flex-col items-start text-left text-white"
           style={{
-            bottom: "clamp(9rem, 18vh, 14rem)",
+            bottom: "clamp(3rem, 6vh, 5rem)",
             paddingLeft: "clamp(2rem, 6vw, 7rem)",
-            maxWidth: "min(50%, 580px)",
+            maxWidth: "min(52%, 620px)",
           }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -342,24 +342,24 @@ export default function Home() {
         >
           {/* Subtitle */}
           <p
-            className="mb-4 text-center w-full"
+            className="mb-5 text-center w-full"
             style={{
-              fontSize: "clamp(1.5rem, 2.4vw, 2rem)",
+              fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
               color: "rgba(255,255,255,1)",
               textShadow: "0 0 40px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1)",
               fontWeight: 700,
-              letterSpacing: "0.03em",
-              lineHeight: 1.25,
+              letterSpacing: "0.02em",
+              lineHeight: 1.2,
             }}
           >
             Thailand's Premier Vessel<br />Relocation Specialists
           </p>
           {/* Description */}
           <p
-            className="leading-relaxed"
+            className="mb-8 leading-relaxed"
             style={{
-              fontSize: "clamp(0.95rem, 1.4vw, 1.1rem)",
-              color: "rgba(255,255,255,0.90)",
+              fontSize: "clamp(1.05rem, 1.6vw, 1.25rem)",
+              color: "rgba(255,255,255,0.92)",
               textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
             }}
           >
@@ -367,31 +367,23 @@ export default function Home() {
             trucking boats overland for 80 km and relaunching them on the west coast.
             Complete marine oversized load transportation company — paying attention to detail, coast to coast.
           </p>
-        </motion.div>
-
-        {/* ── HERO: BOTTOM BUTTONS — pinned to very bottom of hero ── */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 z-10 flex flex-row items-center justify-center gap-4 px-4"
-          style={{ paddingBottom: "clamp(2rem, 4vh, 3.5rem)" }}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: "easeOut" as const }}
-        >
+          {/* Buttons */}
+          <div className="flex flex-row flex-wrap items-center gap-4">
             <button
               onClick={() => setVideoOpen(true)}
               className="flex items-center justify-center gap-3 bg-white/12 hover:bg-white/20 border border-white/35 hover:border-teal-400/80 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
-              style={{ fontSize: "clamp(0.85rem, 1.1vw, 1rem)", letterSpacing: "0.1em" }}
+              style={{ fontSize: "1rem", letterSpacing: "0.08em" }}
             >
               <div className="w-6 h-6 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
-                <Play size={10} className="ml-0.5" />
+                <Play size={11} className="ml-0.5" />
               </div>
               <span className="uppercase tracking-widest">Watch Our Process</span>
             </button>
             <Link href="/contact">
               <a className="flex items-center justify-center gap-3 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl px-9 py-4 shadow-xl shadow-secondary/40 transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
-                style={{ fontSize: "clamp(0.85rem, 1.1vw, 1rem)" }}
+                style={{ fontSize: "1rem" }}
               >
-                <Anchor size={16} className="flex-shrink-0 opacity-90" />
+                <Anchor size={17} className="flex-shrink-0 opacity-90" />
                 Request a Quote
               </a>
             </Link>
@@ -400,7 +392,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-white/12 hover:bg-white/20 border border-white/35 hover:border-white/60 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
-              style={{ fontSize: "clamp(0.85rem, 1.1vw, 1rem)" }}
+              style={{ fontSize: "1rem" }}
             >
               <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -409,6 +401,7 @@ export default function Home() {
               </div>
               Follow Us on Facebook
             </a>
+          </div>
         </motion.div>
         {/* Animated scroll chevron */}
         <motion.div
