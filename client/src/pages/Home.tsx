@@ -343,7 +343,7 @@ export default function Home() {
         {/* ── HERO: BOTTOM BLOCK — subtitle + description + buttons pinned to lower portion ── */}
         <motion.div
           className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center text-center text-white px-4"
-          style={{ paddingBottom: "clamp(14rem, 28vh, 22rem)" }}
+          style={{ paddingBottom: "clamp(20rem, 38vh, 30rem)" }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" as const }}
