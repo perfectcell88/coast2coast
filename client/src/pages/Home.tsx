@@ -276,7 +276,7 @@ export default function Home() {
         {/* Subtle drifting particles */}
         <HeroParticles />
 
-        <div className="relative z-10 w-full text-center text-white px-4 pt-16 md:pt-20 pb-32">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-10 md:pt-14 pb-32">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
