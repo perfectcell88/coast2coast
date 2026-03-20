@@ -268,27 +268,27 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
             {/* Eyebrow — commanding brand stamp */}
-            <div className="flex flex-col items-center gap-3 mb-10">
-              <div className="flex items-center justify-center gap-4 w-full max-w-3xl">
-                <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.7))" }} />
-                <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,0.9)", boxShadow: "0 0 8px rgba(0,200,200,0.8)" }} />
-                <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.7), transparent)" }} />
+            <div className="flex flex-col items-center gap-4 mb-10">
+              <div className="flex items-center justify-center gap-5 w-full max-w-4xl">
+                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 12px rgba(0,200,200,0.9), 0 0 24px rgba(0,200,200,0.4)" }} />
+                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
               </div>
               <p
-                className="font-mono-accent tracking-[0.25em] uppercase font-black text-center"
+                className="font-mono-accent uppercase font-black text-center px-4"
                 style={{
-                  fontSize: "clamp(0.75rem, 2vw, 1.05rem)",
-                  color: 'rgba(255,255,255,0.95)',
-                  textShadow: '0 0 30px rgba(0,200,200,0.4), 0 2px 12px rgba(0,0,0,0.9)',
-                  letterSpacing: '0.28em',
+                  fontSize: "clamp(0.9rem, 2.2vw, 1.3rem)",
+                  color: 'rgba(255,255,255,0.97)',
+                  textShadow: '0 0 40px rgba(0,200,200,0.5), 0 2px 16px rgba(0,0,0,0.95)',
+                  letterSpacing: '0.32em',
                 }}
               >
                 Coast to Coast Marine Transportation Thailand
               </p>
-              <div className="flex items-center justify-center gap-4 w-full max-w-3xl">
-                <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.7))" }} />
-                <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,0.9)", boxShadow: "0 0 8px rgba(0,200,200,0.8)" }} />
-                <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.7), transparent)" }} />
+              <div className="flex items-center justify-center gap-5 w-full max-w-4xl">
+                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 12px rgba(0,200,200,0.9), 0 0 24px rgba(0,200,200,0.4)" }} />
+                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
               </div>
             </div>
 
