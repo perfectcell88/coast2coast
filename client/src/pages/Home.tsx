@@ -261,14 +261,14 @@ export default function Home() {
         {/* Subtle drifting particles — sea spray / light on water */}
         <HeroParticles />
 
-        <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-24 md:pt-28 pb-20">
+        <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-28 md:pt-36 pb-24">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
             {/* Eyebrow — company name, larger and more prominent */}
-            <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="flex items-center justify-center gap-3 mb-8">
               <div className="h-0.5 w-16" style={{ background: "rgba(255,255,255,0.85)", borderRadius: "1px" }} />
               <p
                 className="font-mono-accent text-base md:text-lg tracking-[0.2em] uppercase font-black"
@@ -280,7 +280,7 @@ export default function Home() {
             </div>
 
             {/* Main heading */}
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
               Thailand's Premier<br />
               <span
                 style={{
@@ -296,12 +296,12 @@ export default function Home() {
             </h1>
 
             {/* Uncle's description */}
-            <p className="text-base md:text-lg mb-8 font-light max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.88)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+            <p className="text-base md:text-lg mb-10 font-light max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.88)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
             {/* Three buttons in a horizontal row — Watch | Request a Quote (centre) | Facebook */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto mb-5">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-2xl mx-auto mb-8">
               {/* Watch video — left */}
               <button
                 onClick={() => setVideoOpen(true)}
@@ -336,7 +336,7 @@ export default function Home() {
             </div>
 
             {/* Tagline below buttons */}
-            <div className="flex items-center gap-4 max-w-xs mx-auto mb-2">
+            <div className="flex items-center gap-4 max-w-xs mx-auto mb-3">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(45,212,191,0.6))" }} />
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(45,212,191,0.8)" }} />
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(45,212,191,0.6), transparent)" }} />
