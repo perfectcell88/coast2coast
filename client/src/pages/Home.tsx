@@ -369,7 +369,7 @@ export default function Home() {
             Complete marine oversized load transportation company — paying attention to detail, coast to coast.
           </p>
           {/* Buttons */}
-          <div className="flex flex-row flex-wrap items-center gap-4">
+          <div className="flex flex-col items-start gap-3 w-full">
             <button
               onClick={() => setVideoOpen(true)}
               className="flex items-center justify-center gap-3 bg-white/12 hover:bg-white/20 border border-white/35 hover:border-teal-400/80 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
