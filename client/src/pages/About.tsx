@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Anchor, Building2, CheckCircle, Ship } from "lucide-react";
+import { Anchor, Ship } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import SEO from "@/components/SEO";
@@ -55,7 +55,7 @@ export default function About() {
         path="/about"
       />
 
-      {/* Hero */}
+      {/* ── HERO ── */}
       <section
         className="relative text-white py-32 md:py-44 overflow-hidden"
         style={{
@@ -64,7 +64,6 @@ export default function About() {
           backgroundPosition: "center 50%",
         }}
       >
-        {/* Cinematic overlay */}
         <div
           className="absolute inset-0"
           style={{
@@ -72,7 +71,6 @@ export default function About() {
               "linear-gradient(135deg, rgba(6,22,44,0.88) 0%, rgba(6,22,44,0.72) 50%, rgba(14,116,144,0.45) 100%)",
           }}
         />
-        {/* Subtle teal accent line at bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
         <div className="container relative z-10">
           <motion.div
@@ -107,105 +105,99 @@ export default function About() {
         </div>
       </section>
 
-      {/* Who We Are — Operations */}
-      <section className="py-20 md:py-28 bg-primary/5">
+      {/* ── PHUKET MARINE ORACLE — premium standalone section ── */}
+      <section className="py-24 md:py-32" style={{ background: "linear-gradient(160deg, #f8fbff 0%, #eef6fb 100%)" }}>
         <div className="container">
           <FadeSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+            <motion.div variants={fadeUp} className="max-w-4xl mx-auto">
+              {/* Section label */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, rgba(0,150,150,0.4))" }} />
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase" style={{ color: "#0e7490" }}>Our Heritage</p>
+                <div className="h-px flex-1" style={{ background: "linear-gradient(90deg, rgba(0,150,150,0.4), transparent)" }} />
+              </div>
 
-              <motion.div variants={fadeUp} className="flex flex-col gap-6">
-                {/* Subsidiary badge */}
-                <div className="bg-white border border-primary/15 rounded-2xl p-6 flex gap-4 items-start shadow-sm">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Building2 className="text-primary" size={22} />
+              {/* Premium card */}
+              <div
+                className="rounded-3xl overflow-hidden shadow-xl"
+                style={{
+                  background: "linear-gradient(135deg, #041828 0%, #062840 60%, #083858 100%)",
+                  border: "1px solid rgba(0,200,200,0.18)",
+                  boxShadow: "0 24px 64px rgba(4,24,40,0.18), 0 1px 0 rgba(0,200,200,0.12) inset",
+                }}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_2px_1fr] gap-0">
+                  {/* Left — icon + title */}
+                  <div className="flex flex-col justify-center items-center text-center p-10 md:p-14">
+                    <div
+                      className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+                      style={{
+                        background: "rgba(0,200,200,0.12)",
+                        border: "1px solid rgba(0,200,200,0.3)",
+                        boxShadow: "0 0 32px rgba(0,200,200,0.15)",
+                      }}
+                    >
+                      <Anchor size={34} style={{ color: "#00c8c8" }} />
+                    </div>
+                    <p
+                      className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3"
+                      style={{ color: "rgba(0,200,200,0.7)" }}
+                    >
+                      Est. 2005
+                    </p>
+                    <h2
+                      className="font-display text-2xl md:text-3xl font-bold leading-tight"
+                      style={{ color: "#ffffff" }}
+                    >
+                      Part of Phuket Marine Oracle Co., Ltd.
+                    </h2>
+                    <div
+                      className="mt-5 h-px w-16 mx-auto"
+                      style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.6), transparent)" }}
+                    />
                   </div>
-                  <div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-1">Part of Phuket Marine Oracle Co., Ltd.</h3>
-                    <p className="text-foreground/65 text-sm leading-relaxed">
+
+                  {/* Divider */}
+                  <div className="hidden md:block" style={{ background: "rgba(0,200,200,0.12)" }} />
+
+                  {/* Right — description */}
+                  <div className="flex flex-col justify-center p-10 md:p-14">
+                    <p
+                      className="text-lg leading-relaxed mb-5"
+                      style={{ color: "rgba(255,255,255,0.78)" }}
+                    >
                       Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. Get on the inside track and take advantage of 20 years of experience in the marine industry in Thailand.
                     </p>
-                  </div>
-                </div>
-
-                {/* Vessel types */}
-                <div className="bg-white border border-secondary/20 rounded-2xl p-6 flex gap-4 items-start shadow-sm">
-                  <div className="w-12 h-12 bg-secondary/15 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Anchor className="text-secondary" size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-2">Vessels We Transport</h3>
-                    <p className="text-sm text-foreground/65 mb-3 leading-relaxed">
-                      We transport powerboats, keel yachts, and catamarans. Our custom-fabricated transit cradle is engineered specifically for your hull profile — not a one-size-fits-all solution.
+                    <p
+                      className="text-base leading-relaxed"
+                      style={{ color: "rgba(255,255,255,0.55)" }}
+                    >
+                      That depth of institutional knowledge underpins every vessel relocation we undertake — from crane selection and transit cradle fabrication to port clearance coordination and final handover.
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {["Powerboats", "Keel Yachts", "Catamarans"].map((v) => (
-                        <span key={v} className="bg-secondary/15 text-secondary text-xs font-semibold px-3 py-1.5 rounded-full">
-                          {v}
+                    <div className="mt-8 flex flex-wrap gap-3">
+                      {["20 Years Experience", "Marine Industry Specialists", "Thailand-Based"].map((badge) => (
+                        <span
+                          key={badge}
+                          className="text-xs font-semibold px-4 py-2 rounded-full"
+                          style={{
+                            background: "rgba(0,200,200,0.10)",
+                            border: "1px solid rgba(0,200,200,0.25)",
+                            color: "rgba(0,200,200,0.85)",
+                          }}
+                        >
+                          {badge}
                         </span>
                       ))}
                     </div>
                   </div>
                 </div>
-
-                {/* Key stats */}
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { value: "~350", unit: "Sea Miles", label: "Pattaya–Phuket" },
-                    { value: "<7", unit: "Days", label: "Coast to Coast" },
-                    { value: "80 km", unit: "Overland", label: "Land Bridge" },
-                    { value: "100T", unit: "Crane", label: "At Ranong" },
-                  ].map((s, i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl p-5 text-center"
-                      style={{
-                        background: "linear-gradient(135deg, #041828 0%, #083248 100%)",
-                        border: "1px solid rgba(0,200,200,0.2)",
-                        boxShadow: "0 4px 20px rgba(0,0,0,0.12), inset 0 1px 0 rgba(0,200,200,0.08)",
-                      }}
-                    >
-                      <p className="font-display text-2xl font-bold" style={{ color: "#00c8c8" }}>{s.value}</p>
-                      <p className="text-xs font-semibold mt-0.5" style={{ color: "rgba(255,255,255,0.85)" }}>{s.unit}</p>
-                      <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{s.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div variants={fadeUp}>
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">What We Do</p>
-                <h2 className="font-display text-4xl font-bold text-primary mb-6">
-                  Professional Vessel Relocation
-                </h2>
-                <p className="text-lg text-foreground/70 mb-6 leading-relaxed">
-                  We operate the Bangkok/Pattaya to Chumphon to Ranong corridor in both directions. Our team manages every aspect of the relocation — crane operations, overland transit, and all associated administration.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    "Powerboats, Keel Yachts & Catamarans",
-                    "Vessels up to 15m length, 5.5m beam, 5.5m height",
-                    "Maximum vessel weight: 32 tonnes",
-                    "100-ton crane at Ranong for safe water launch",
-                    "Custom-fabricated transit cradle for every vessel",
-                    "Maritime Loadmaster present on every job",
-                    "Ticketed captains and engineers for sea legs",
-                    "Title transfers & port clearances (organised if needed, via licensed agent)",
-                    "Monthly moorings at Gulf or Andaman coast",
-                    "Both directions — Gulf to Andaman and Andaman to Gulf",
-                  ].map((cap, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle className="text-secondary flex-shrink-0 mt-0.5" size={17} />
-                      <span className="text-sm text-foreground/70 leading-relaxed">{cap}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </FadeSection>
         </div>
       </section>
 
-      {/* The Team */}
+      {/* ── THE TEAM ── */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <FadeSection>
@@ -245,7 +237,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section className="py-20 md:py-28 bg-primary text-white">
         <div className="container text-center">
           <FadeSection>
