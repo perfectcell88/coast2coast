@@ -340,7 +340,7 @@ export default function Home() {
           <p
             className="mb-3"
             style={{
-              fontSize: "clamp(1.25rem, 2vw, 1.65rem)",
+              fontSize: "clamp(1.5rem, 2.4vw, 2rem)",
               color: "rgba(255,255,255,1)",
               textShadow: "0 0 40px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,0.6), -2px -2px 0 rgba(0,0,0,0.6)",
               fontWeight: 700,
@@ -354,7 +354,7 @@ export default function Home() {
           <p
             className="mb-7 leading-relaxed"
             style={{
-              fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)",
+              fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
               color: "rgba(255,255,255,0.92)",
               textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
               maxWidth: "100%",
