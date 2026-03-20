@@ -348,22 +348,13 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" as const }}
         >
-          {/* Frosted dark backdrop for legibility */}
-          <div
-            className="absolute inset-x-0 bottom-0 pointer-events-none"
-            style={{
-              top: "-2rem",
-              background: "linear-gradient(0deg, rgba(4,20,36,0.72) 0%, rgba(4,20,36,0.55) 60%, transparent 100%)",
-              backdropFilter: "blur(2px)",
-            }}
-          />
           {/* Subtitle */}
           <p
-            className="relative text-center mx-auto mb-3"
+            className="text-center mx-auto mb-3"
             style={{
               fontSize: "clamp(1.25rem, 2vw, 1.65rem)",
               color: "rgba(255,255,255,1)",
-              textShadow: "0 2px 24px rgba(0,0,0,0.98), 0 1px 8px rgba(0,0,0,0.95)",
+              textShadow: "0 0 40px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,0.6), -2px -2px 0 rgba(0,0,0,0.6)",
               fontWeight: 700,
               letterSpacing: "0.04em",
               maxWidth: "780px",
@@ -373,11 +364,11 @@ export default function Home() {
           </p>
           {/* Description */}
           <p
-            className="relative text-center mx-auto mb-7 leading-relaxed"
+            className="text-center mx-auto mb-7 leading-relaxed"
             style={{
               fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
-              color: "rgba(255,255,255,0.93)",
-              textShadow: "0 2px 20px rgba(0,0,0,0.98), 0 1px 6px rgba(0,0,0,0.9)",
+              color: "rgba(255,255,255,0.95)",
+              textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
               maxWidth: "640px",
             }}
           >
