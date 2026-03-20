@@ -583,79 +583,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* ── ROW 3: Two uniform cards side by side ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Left: Key Stops */}
-              <motion.div variants={fadeUp}>
-                <div className="rounded-2xl p-8 h-full" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,200,200,0.2)", backdropFilter: "blur(12px)", boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)" }}>
-                  <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>Key Stops</p>
-                  <h3 className="font-display text-2xl font-bold text-white mb-4">Gulf to Andaman — and Back</h3>
-                  <ul className="space-y-3">
-                    {[
-                      { stop: "Bangkok / Pattaya", sub: "Gulf of Thailand departure" },
-                      { stop: "Chumphon", sub: "Crane out & load onto trailer" },
-                      { stop: "80 km Overland", sub: "Secure transit on custom cradle" },
-                      { stop: "Ranong", sub: "100-ton crane into Andaman Sea" },
-                      { stop: "Phuket & Andaman", sub: "Final delivery to destination" },
-                    ].map((item) => (
-                      <li key={item.stop} className="flex items-start gap-3">
-                        <CheckCircle style={{ color: "#00c8c8", flexShrink: 0, marginTop: "2px" }} size={18} />
-                        <div>
-                          <span className="font-semibold text-white text-sm">{item.stop}</span>
-                          <span className="text-xs block mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>{item.sub}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
 
-              {/* Right: Active Route Stats */}
-              <motion.div variants={fadeUp}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeRoute}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.28 }}
-                    className="rounded-2xl overflow-hidden h-full"
-                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(0,200,200,0.25)", backdropFilter: "blur(12px)", boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)" }}
-                  >
-                    <div className="p-8 text-center" style={{ borderBottom: "1px solid rgba(0,200,200,0.15)" }}>
-                      <div className="flex items-center justify-center gap-3 mb-4">
-                        <div className="flex items-center gap-2">
-                          <MapPin style={{ color: "#00c8c8" }} size={18} />
-                          <span className="font-display font-bold text-white text-lg">{routes[activeRoute].from}</span>
-                        </div>
-                        <ArrowRight style={{ color: "rgba(0,200,200,0.6)" }} size={20} />
-                        <div className="flex items-center gap-2">
-                          <Anchor style={{ color: "#00c8c8" }} size={18} />
-                          <span className="font-display font-bold text-white text-lg">{routes[activeRoute].to}</span>
-                        </div>
-                      </div>
-                      <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>{routes[activeRoute].description}</p>
-                      <p className="font-display text-4xl font-bold mb-1" style={{ color: "#00c8c8" }}>{routes[activeRoute].time}</p>
-                      <p className="text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>{routes[activeRoute].engineHours} engine hours</p>
-                    </div>
-                    <div className="p-5 grid grid-cols-3 gap-3 text-center text-sm">
-                      <div className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.05)" }}>
-                        <p className="font-bold text-white text-base">{routes[activeRoute].seaMiles}</p>
-                        <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Sea Miles</p>
-                      </div>
-                      <div className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.05)" }}>
-                        <p className="font-bold text-white text-base">{routes[activeRoute].overland}</p>
-                        <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Overland</p>
-                      </div>
-                      <div className="rounded-xl p-3" style={{ background: "rgba(0,200,200,0.1)", border: "1px solid rgba(0,200,200,0.2)" }}>
-                        <p className="font-bold text-base" style={{ color: "#00c8c8" }}>100T</p>
-                        <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Crane @ Ranong</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </motion.div>
-            </div>
           </FadeSection>
         </div>
       </section>
