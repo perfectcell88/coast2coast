@@ -630,11 +630,11 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
               {/* Traditional */}
               <motion.div
                 variants={fadeUp}
-                className="rounded-2xl p-8 relative"
+                className="rounded-2xl p-8 relative flex flex-col"
                 style={{
                   background: "linear-gradient(145deg, #1a1010 0%, #2a1515 50%, #1e1212 100%)",
                   border: "1px solid rgba(180,60,60,0.3)",
@@ -667,7 +667,7 @@ export default function Home() {
               {/* Coast to Coast */}
               <motion.div
                 variants={fadeUp}
-                className="rounded-2xl p-8 relative"
+                className="rounded-2xl p-8 relative flex flex-col"
                 style={{
                   background: "linear-gradient(145deg, #041e2e 0%, #062838 50%, #041e2e 100%)",
                   border: "2px solid rgba(180,145,60,0.55)",

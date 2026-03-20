@@ -193,7 +193,7 @@ export default function Services() {
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    className="bg-white p-8 rounded-xl shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+                    className="bg-white p-8 rounded-xl shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"
                   >
                     <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                       <Icon className="text-secondary" size={26} />
@@ -226,7 +226,7 @@ export default function Services() {
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    className="bg-white p-7 rounded-xl shadow-sm border border-border hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
+                    className="bg-white p-7 rounded-xl shadow-sm border border-border hover:shadow-md hover:-translate-y-1 transition-all duration-300 group flex flex-col"
                   >
                     <div className="w-12 h-12 bg-primary/8 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
                       <Icon className="text-primary" size={22} />

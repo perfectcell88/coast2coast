@@ -111,9 +111,9 @@ export default function About() {
       <section className="py-20 md:py-28 bg-primary/5">
         <div className="container">
           <FadeSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
 
-              <motion.div variants={fadeUp} className="space-y-6">
+              <motion.div variants={fadeUp} className="flex flex-col gap-6">
                 {/* Subsidiary badge */}
                 <div className="bg-white border border-primary/15 rounded-2xl p-6 flex gap-4 items-start shadow-sm">
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">

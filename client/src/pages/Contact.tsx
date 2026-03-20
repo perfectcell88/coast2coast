@@ -74,10 +74,10 @@ export default function Contact() {
       {/* ── MAIN CONTENT ── */}
       <section className="pb-24 pt-10">
         <div className="container max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
 
             {/* ── LEFT COLUMN ── */}
-            <motion.div className="lg:col-span-2 space-y-6"
+            <motion.div className="lg:col-span-2 flex flex-col gap-6"
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
 
               {/* ── QR CODES — HERO ELEMENT ── */}
@@ -133,7 +133,7 @@ export default function Contact() {
               </div>
 
               {/* ── CONTACT DETAILS ── */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
                 <div className="px-7 py-5" style={{ background: "linear-gradient(135deg, #041828 0%, #083248 100%)" }}>
                   <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-1" style={{ color: "#00c8c8" }}>Reach Us Directly</p>
                   <h2 className="font-display text-xl font-bold text-white">Contact Information</h2>
@@ -174,9 +174,9 @@ export default function Contact() {
             </motion.div>
 
             {/* ── RIGHT: QUOTE FORM ── */}
-            <motion.div className="lg:col-span-3"
+            <motion.div className="lg:col-span-3 flex flex-col"
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
 
                 {/* Form header */}
                 <div className="px-10 py-8" style={{ background: "linear-gradient(135deg, #041828 0%, #083248 100%)", borderBottom: "3px solid #0a8a8a" }}>
