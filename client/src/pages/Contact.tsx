@@ -115,15 +115,15 @@ export default function Contact() {
 
       {/* Contact Section */}
       <section className="py-20 md:py-28 bg-background">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="container max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
 
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="space-y-6"
+              className="space-y-6 lg:col-span-2"
             >
               <div>
                 <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Reach Us</p>
@@ -206,9 +206,9 @@ export default function Contact() {
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="lg:col-span-2"
+              className="lg:col-span-3"
             >
-              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-border">
+              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-border/60" style={{ boxShadow: "0 8px 40px rgba(6,22,44,0.08), 0 2px 8px rgba(6,22,44,0.04)" }}>
                 <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2">How can we help?</p>
                 <h2 className="font-display text-3xl font-bold text-primary mb-8">Request a Quote</h2>
 
@@ -325,9 +325,9 @@ export default function Contact() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-secondary hover:bg-secondary/90 text-white py-4 h-14 text-base font-semibold rounded-xl shadow-md transition-all hover:shadow-lg"
+                    className="w-full bg-secondary hover:bg-secondary/90 text-white py-4 h-14 text-base font-semibold rounded-xl shadow-md transition-all hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
                   >
-                    Send
+                    Send Enquiry
                   </Button>
 
                   <p className="text-xs text-foreground/40 text-center">

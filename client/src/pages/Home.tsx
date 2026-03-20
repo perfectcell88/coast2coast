@@ -748,18 +748,21 @@ export default function Home() {
       </div>
 
       {/* ── SERVICE AREAS PREVIEW ─────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container">
           <FadeSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Route</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Serving Thailand's Coasts</h2>
+              <p className="text-lg text-foreground/60 max-w-2xl mx-auto">The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
               <motion.div variants={fadeUp}>
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Route</p>
-                <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-6">
-                  Serving Thailand's Coasts
-                </h2>
-                <p className="text-lg text-foreground/65 mb-6">
-                  We operate the premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions. Sea miles handled by our licensed crew, or your own.
-                </p>
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Key Stops</p>
+                <h3 className="font-display text-2xl font-bold text-primary mb-5">
+                  Gulf to Andaman — and Back
+                </h3>
+                <p className="text-lg text-foreground/65 mb-6">Sea miles handled by our licensed crew, or your own.</p>
                 <ul className="space-y-3 mb-8">
                   {[
                     "Bangkok / Pattaya (Gulf of Thailand)",
@@ -784,22 +787,25 @@ export default function Home() {
                 </div>
 
                 {/* Route tabs — grouped by direction */}
-                <div className="mb-5 space-y-2.5">
+                <div className="mb-6 space-y-4">
                   {[
                     { label: "Gulf → Andaman", indices: [0, 2, 4, 7] },
                     { label: "Andaman → Gulf", indices: [1, 3, 5, 6] },
                   ].map((group) => (
                     <div key={group.label}>
-                      <p className="text-[10px] font-mono-accent tracking-[0.2em] uppercase text-foreground/40 mb-1.5">{group.label}</p>
+                      <div className="flex items-center gap-3 mb-2.5">
+                        <p className="text-[10px] font-mono-accent tracking-[0.25em] uppercase text-foreground/50 font-bold">{group.label}</p>
+                        <div className="flex-1 h-px bg-border" />
+                      </div>
                       <div className="flex flex-wrap gap-2">
                         {group.indices.map((i) => (
                           <button
                             key={i}
                             onClick={() => setActiveRoute(i)}
-                            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${
+                            className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border ${
                               activeRoute === i
-                                ? "bg-secondary text-white border-secondary shadow-md"
-                                : "bg-white text-primary border-border hover:border-secondary/60 hover:text-secondary"
+                                ? "bg-secondary text-white border-secondary shadow-md scale-105"
+                                : "bg-white text-primary/70 border-border hover:border-secondary/50 hover:text-secondary hover:shadow-sm"
                             }`}
                           >
                             {routes[i].from} → {routes[i].to}

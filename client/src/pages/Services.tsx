@@ -85,6 +85,11 @@ export default function Services() {
       title: "Crane Operations",
       description: "Our 100-ton crane at Ranong handles even the largest vessels. Professional crane operations at both Chumphon and Ranong ensure safe, controlled lifts every time.",
     },
+    {
+      icon: FileText,
+      title: "Port Clearance Assistance",
+      description: "We coordinate port clearance through our licensed agents at both ends of the route — so you don't have to navigate Thai maritime bureaucracy alone. Agent fees apply.",
+    },
   ];
 
   const additionalServices = [
@@ -142,7 +147,7 @@ export default function Services() {
       <section
         className="relative text-white py-32 md:py-44 overflow-hidden"
         style={{
-          backgroundImage: "url('/gallery/4.webp')",
+          backgroundImage: "url('/gallery/5.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 40%",
         }}
