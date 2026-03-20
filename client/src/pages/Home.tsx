@@ -275,21 +275,21 @@ export default function Home() {
         {/* Subtle drifting particles — sea spray / light on water */}
         <HeroParticles />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-8 md:px-14 pt-24 md:pt-32 pb-20 text-white">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-8 md:px-14 pt-28 md:pt-36 pb-24 text-white text-center">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
             {/* Eyebrow — commanding brand stamp */}
-            <div className="flex flex-col items-start gap-3 mb-8">
-              <div className="flex items-center justify-start gap-5 w-full max-w-2xl">
-                <div className="w-16 h-[1.5px]" style={{ background: "rgba(0,200,200,0.85)" }} />
+            <div className="flex flex-col items-center gap-3 mb-10">
+              <div className="flex items-center justify-center gap-5 w-full max-w-2xl mx-auto">
+                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
                 <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 10px rgba(0,200,200,0.9)" }} />
                 <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
               </div>
               <p
-                className="font-mono-accent uppercase font-black text-left"
+                className="font-mono-accent uppercase font-black text-center"
                 style={{
                   fontSize: "clamp(0.75rem, 1.6vw, 1.05rem)",
                   color: 'rgba(255,255,255,0.97)',
@@ -299,15 +299,15 @@ export default function Home() {
               >
                 Coast to Coast Marine Transportation Thailand
               </p>
-              <div className="flex items-center justify-start gap-5 w-full max-w-2xl">
-                <div className="w-16 h-[1.5px]" style={{ background: "rgba(0,200,200,0.85)" }} />
+              <div className="flex items-center justify-center gap-5 w-full max-w-2xl mx-auto">
+                <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
                 <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 10px rgba(0,200,200,0.9)" }} />
                 <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
               </div>
             </div>
 
             {/* Main heading */}
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style={{ lineHeight: '1.06', letterSpacing: '-0.01em' }}>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style={{ lineHeight: '1.06', letterSpacing: '-0.02em' }}>
               Thailand's Premier<br />
               <span
                 style={{
@@ -323,12 +323,12 @@ export default function Home() {
             </h1>
 
             {/* Uncle's description */}
-            <p className="text-sm md:text-base mb-8 font-light max-w-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.88)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+            <p className="text-base md:text-lg mb-10 font-light max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.88)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
             {/* Three buttons in a horizontal row — Watch | Request a Quote (centre) | Facebook */}
-            <div className="flex flex-col sm:flex-row items-start justify-start gap-3 w-full max-w-xl mb-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto mb-8">
               {/* Watch video — left */}
               <button
                 onClick={() => setVideoOpen(true)}
@@ -363,12 +363,12 @@ export default function Home() {
             </div>
 
             {/* Tagline below buttons */}
-            <div className="flex items-center gap-4 max-w-xs mb-3">
-              <div className="w-8 h-px" style={{ background: "rgba(45,212,191,0.6)" }} />
+            <div className="flex items-center justify-center gap-4 max-w-sm mx-auto mb-3">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(45,212,191,0.6))" }} />
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(45,212,191,0.8)" }} />
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(45,212,191,0.6), transparent)" }} />
             </div>
-            <p className="text-sm font-light max-w-md tracking-wide" style={{ color: "#F5F0E8", fontStyle: "italic", textShadow: "0 1px 6px rgba(0,0,0,0.5)", opacity: 0.85 }}>
+            <p className="text-sm font-light max-w-md mx-auto tracking-wide" style={{ color: "#F5F0E8", fontStyle: "italic", textShadow: "0 1px 6px rgba(0,0,0,0.5)", opacity: 0.85 }}>
               Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
           </motion.div>
