@@ -286,16 +286,16 @@ export default function Home() {
           >
 
             {/* ── TOP INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-5 w-full max-w-xl mx-auto mb-5">
+            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-5">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
-              {/* SVG refined ornament — dot · line · diamond · line · dot */}
-              <svg width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="3" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
-                <line x1="7" y1="6" x2="19" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
-                <rect x="22" y="1.5" width="8" height="8" rx="0" transform="rotate(45 26 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.2" style={{ filter: "drop-shadow(0 0 5px rgba(0,200,200,0.8))" }} />
-                <line x1="33" y1="6" x2="45" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
-                <circle cx="49" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
-              </svg>
+              {/* Ornament: dot · diamond · dot — no connector lines */}
+              <div className="flex items-center gap-2.5">
+                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                  <rect x="1.5" y="1.5" width="9" height="9" transform="rotate(45 6 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.3" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.85))" }} />
+                </svg>
+                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+              </div>
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
@@ -331,15 +331,15 @@ export default function Home() {
             </div>
 
             {/* ── BOTTOM INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-5 w-full max-w-xl mx-auto mb-7">
+            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-7">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
-              <svg width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="3" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
-                <line x1="7" y1="6" x2="19" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
-                <rect x="22" y="1.5" width="8" height="8" rx="0" transform="rotate(45 26 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.2" style={{ filter: "drop-shadow(0 0 5px rgba(0,200,200,0.8))" }} />
-                <line x1="33" y1="6" x2="45" y2="6" stroke="rgba(0,200,200,0.5)" strokeWidth="0.75"/>
-                <circle cx="49" cy="6" r="2" fill="rgba(0,200,200,0.9)" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.9))" }} />
-              </svg>
+              <div className="flex items-center gap-2.5">
+                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                  <rect x="1.5" y="1.5" width="9" height="9" transform="rotate(45 6 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.3" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.85))" }} />
+                </svg>
+                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+              </div>
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
