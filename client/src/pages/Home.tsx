@@ -524,7 +524,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── COMPARISON ────────────────────────────────────────────── */
+      {/* ── COMPARISON ────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 text-white overflow-hidden noise-texture" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a2540 50%, #0d3050 100%)" }}>
         <div className="container">
           <FadeSection>
