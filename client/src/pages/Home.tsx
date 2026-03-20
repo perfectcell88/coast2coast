@@ -278,89 +278,104 @@ export default function Home() {
         {/* Subtle drifting particles */}
         <HeroParticles />
 
-        <div className="relative z-10 w-full text-center text-white px-4 pt-28 md:pt-36 pb-32">
+        <div className="relative z-10 w-full text-center text-white px-4 pt-24 md:pt-32 pb-32">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
-            {/* ── BUSINESS NAME — large, full width, letter-spaced ── */}
-            <div className="mb-3">
+
+            {/* ── TOP INSIGNIA LINE ── */}
+            <div className="flex items-center justify-center gap-4 w-full max-w-2xl mx-auto mb-5">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.9))" }} />
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
+                <div className="w-2.5 h-2.5 rotate-45 border border-teal-400" style={{ borderColor: "rgba(0,200,200,0.8)" }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
+              </div>
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.9), transparent)" }} />
+            </div>
+
+            {/* ── BUSINESS NAME — large, full width ── */}
+            <div className="mb-2">
               <h1
                 className="font-display font-bold uppercase w-full text-center"
                 style={{
-                  fontSize: "clamp(2rem, 5.5vw, 5.2rem)",
-                  letterSpacing: "0.18em",
+                  fontSize: "clamp(2.4rem, 6.5vw, 6.2rem)",
+                  letterSpacing: "0.22em",
                   color: "#ffffff",
-                  textShadow: "0 0 60px rgba(0,200,200,0.35), 0 2px 20px rgba(0,0,0,0.9)",
-                  lineHeight: 1.1,
+                  textShadow: "0 0 80px rgba(0,200,200,0.25), 0 2px 24px rgba(0,0,0,0.95)",
+                  lineHeight: 1.05,
                 }}
               >
                 Coast to Coast
               </h1>
-              <h1
-                className="font-display font-bold uppercase w-full text-center"
+            </div>
+            <div className="mb-5">
+              <p
+                className="font-mono-accent uppercase font-bold w-full text-center"
                 style={{
-                  fontSize: "clamp(1rem, 2.4vw, 2.1rem)",
-                  letterSpacing: "0.38em",
+                  fontSize: "clamp(0.7rem, 1.8vw, 1.35rem)",
+                  letterSpacing: "0.45em",
                   color: "rgba(0,200,200,0.95)",
-                  textShadow: "0 0 30px rgba(0,200,200,0.5), 0 2px 12px rgba(0,0,0,0.9)",
-                  lineHeight: 1.4,
+                  textShadow: "0 0 30px rgba(0,200,200,0.6), 0 2px 12px rgba(0,0,0,0.9)",
                 }}
               >
                 Marine Transportation Thailand
-              </h1>
+              </p>
             </div>
 
-            {/* Teal divider line */}
-            <div className="flex items-center justify-center gap-5 w-full max-w-3xl mx-auto mb-6">
-              <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
-              <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 10px rgba(0,200,200,0.9)" }} />
-              <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
+            {/* ── BOTTOM INSIGNIA LINE ── */}
+            <div className="flex items-center justify-center gap-4 w-full max-w-2xl mx-auto mb-7">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.9))" }} />
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
+                <div className="w-2.5 h-2.5 rotate-45 border border-teal-400" style={{ borderColor: "rgba(0,200,200,0.8)" }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 8px rgba(0,200,200,1), 0 0 20px rgba(0,200,200,0.5)" }} />
+              </div>
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.9), transparent)" }} />
             </div>
 
-            {/* Subtitle */}
+            {/* ── SUBTITLE ── */}
             <p
-              className="font-display font-semibold text-center mx-auto mb-6"
+              className="font-display font-semibold text-center mx-auto mb-5"
               style={{
-                fontSize: "clamp(1.1rem, 2.2vw, 1.9rem)",
+                fontSize: "clamp(1.15rem, 2.3vw, 2rem)",
                 color: "#F5F0E8",
-                letterSpacing: "0.04em",
-                textShadow: "0 2px 16px rgba(0,0,0,0.8)",
-                maxWidth: "700px",
+                letterSpacing: "0.03em",
+                textShadow: "0 2px 18px rgba(0,0,0,0.85)",
+                maxWidth: "680px",
               }}
             >
               Thailand's Premier Vessel Relocation Specialists
             </p>
 
-            {/* Description text — above buttons, readable size */}
+            {/* ── DESCRIPTION — above buttons, readable ── */}
             <p
-              className="font-light text-center mx-auto mb-10 leading-relaxed"
+              className="font-light text-center mx-auto mb-9 leading-relaxed"
               style={{
-                fontSize: "clamp(0.95rem, 1.5vw, 1.25rem)",
-                color: "rgba(255,255,255,0.85)",
-                textShadow: "0 1px 8px rgba(0,0,0,0.6)",
-                maxWidth: "600px",
+                fontSize: "clamp(0.9rem, 1.4vw, 1.18rem)",
+                color: "rgba(255,255,255,0.82)",
+                textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+                maxWidth: "560px",
               }}
             >
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
-            {/* Primary action buttons — Request a Quote + Facebook */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-xl mx-auto mb-10">
-              {/* Request a Quote — primary */}
+            {/* ── PRIMARY BUTTONS ── */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-6">
               <Link href="/contact" className="w-full sm:w-auto">
-                <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-8 py-4 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
-                  <Anchor size={16} className="flex-shrink-0 opacity-90" />
+                <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-8 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
+                  <Anchor size={15} className="flex-shrink-0 opacity-90" />
                   Request a Quote
                 </a>
               </Link>
-              {/* Facebook */}
               <a
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-sm md:text-base rounded-xl px-6 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/55 text-white font-medium text-sm md:text-base rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
               >
                 <div className="w-5 h-5 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -371,19 +386,20 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Tagline */}
-            <p className="text-sm font-light max-w-md mx-auto tracking-wide mb-10" style={{ color: "#F5F0E8", fontStyle: "italic", textShadow: "0 1px 6px rgba(0,0,0,0.5)", opacity: 0.8 }}>
-              Complete marine oversized load transportation company — paying attention to detail, coast to coast.
+            {/* ── TAGLINE ── */}
+            <p className="text-xs font-light max-w-sm mx-auto tracking-widest mb-9 uppercase" style={{ color: "rgba(245,240,232,0.6)", textShadow: "0 1px 6px rgba(0,0,0,0.5)", letterSpacing: "0.2em" }}>
+              Complete marine oversized load transportation — coast to coast
             </p>
 
-            {/* Watch Our Process — bottom of hero */}
+            {/* ── WATCH OUR PROCESS — bottom of hero ── */}
             <div className="flex justify-center">
               <button
                 onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/60 text-white font-medium text-sm rounded-xl px-6 py-3 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+                className="flex items-center justify-center gap-2.5 bg-white/8 hover:bg-white/15 border border-white/25 hover:border-teal-400/60 text-white/80 hover:text-white font-medium text-xs tracking-widest uppercase rounded-full px-7 py-2.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
+                style={{ letterSpacing: "0.15em" }}
               >
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <Play size={10} className="ml-0.5 text-white" />
+                <div className="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0">
+                  <Play size={8} className="ml-0.5" />
                 </div>
                 Watch Our Process
               </button>
