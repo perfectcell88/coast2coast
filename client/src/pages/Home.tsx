@@ -404,9 +404,19 @@ export default function Home() {
 
 
       {/* ── ROUTE / MAP ───────────────────────────────────────────── */}
-      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a3050 40%, #063a4a 70%, #061e36 100%)" }}>
-        {/* Subtle radial glow behind map */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,200,200,0.08) 0%, transparent 70%)" }} />
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #041828 0%, #072840 40%, #053848 70%, #041828 100%)" }}>
+        {/* Nautical chart grid overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `
+            linear-gradient(rgba(0,180,180,0.055) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,180,180,0.055) 1px, transparent 1px)
+          `,
+          backgroundSize: "48px 48px",
+        }} />
+        {/* Compass rose radial glow centred on map area */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 55% at 72% 52%, rgba(0,200,200,0.1) 0%, rgba(0,120,160,0.06) 40%, transparent 70%)" }} />
+        {/* Subtle wave shimmer at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,180,180,0.07), transparent)" }} />
         <div className="container relative z-10">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
@@ -524,8 +534,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── COMPARISON ────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 text-white overflow-hidden noise-texture" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a2540 50%, #0d3050 100%)" }}>
+       {/* ── COMPARISON ──────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 text-white overflow-hidden" style={{ background: "linear-gradient(180deg, #0d1f30 0%, #0f2535 50%, #0d1f30 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
@@ -542,31 +552,31 @@ export default function Home() {
                 variants={fadeUp}
                 className="rounded-2xl p-8 relative"
                 style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  backdropFilter: "blur(8px)",
+                  background: "linear-gradient(145deg, #1a1010 0%, #2a1515 50%, #1e1212 100%)",
+                  border: "1px solid rgba(180,60,60,0.3)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                <div className="absolute top-5 right-5 bg-red-500/20 border border-red-400/30 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">
+                <div className="absolute top-5 right-5 text-xs font-bold px-3 py-1 rounded-full" style={{ background: "rgba(180,60,60,0.25)", border: "1px solid rgba(200,80,80,0.4)", color: "#f87171" }}>
                   Traditional Route
                 </div>
-                <AlertTriangle className="text-red-400 mb-5" size={32} />
-                <h3 className="font-display text-xl font-bold mb-1">Pattaya → Singapore → Phuket</h3>
-                <p className="text-white/85 text-sm mb-6">Via the South China Sea & Malacca Straits</p>
+                <AlertTriangle size={32} className="mb-5" style={{ color: "#f87171" }} />
+                <h3 className="font-display text-xl font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h3>
+                <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea &amp; Malacca Straits</p>
                 <div className="space-y-3">
                   {[
                     { label: "Total Distance", value: "1,700 miles" },
                     { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
                     { label: "Engine Hours", value: "500+ hours" },
                   ].map((item, i) => (
-                    <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
-                      <span className="text-white/85 text-sm">{item.label}</span>
-                      <span className="font-semibold text-red-300 text-sm">{item.value}</span>
+                    <div key={i} className="flex justify-between items-center pb-3" style={{ borderBottom: "1px solid rgba(180,60,60,0.2)" }}>
+                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>{item.label}</span>
+                      <span className="font-bold text-sm" style={{ color: "#fca5a5" }}>{item.value}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-white/85 text-xs mt-5 leading-relaxed">
-                  Via Singapore is hard on the boat and crew — very few ports for diesel & repairs, monsoon storms with lightning, and the busiest shipping convergence lanes in the world. Our land bridge solution changes everything.
+                <p className="text-xs mt-5 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  Via Singapore is hard on the boat and crew — very few ports for diesel &amp; repairs, monsoon storms with lightning, and the busiest shipping convergence lanes in the world. Our land bridge solution changes everything.
                 </p>
               </motion.div>
 
@@ -575,45 +585,43 @@ export default function Home() {
                 variants={fadeUp}
                 className="rounded-2xl p-8 relative"
                 style={{
-                  background: "linear-gradient(135deg, rgba(0,168,168,0.18) 0%, rgba(0,200,200,0.08) 100%)",
-                  border: "2px solid rgba(0,200,200,0.55)",
-                  boxShadow: "0 0 40px rgba(0,200,200,0.18), 0 8px 32px rgba(0,0,0,0.3)",
-                  backdropFilter: "blur(8px)",
+                  background: "linear-gradient(145deg, #041e2e 0%, #062838 50%, #041e2e 100%)",
+                  border: "2px solid rgba(180,145,60,0.55)",
+                  boxShadow: "0 0 40px rgba(0,200,200,0.12), 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(200,170,80,0.15)",
                 }}
               >
-                <div className="absolute top-5 right-5 text-white text-xs font-semibold px-3 py-1 rounded-full"
-                  style={{ background: "linear-gradient(135deg, #0a8a8a, #00c8c8)", boxShadow: "0 0 16px rgba(0,200,200,0.5)" }}>
-                  ✦ Recommended
+                <div className="absolute top-5 right-5 text-xs font-bold px-3 py-1 rounded-full"
+                  style={{ background: "linear-gradient(135deg, #a07828, #d4a840)", color: "#fff", boxShadow: "0 0 16px rgba(180,145,60,0.4)" }}>
+                  ✶ Recommended
                 </div>
-                <TrendingDown className="text-secondary mb-5" size={32} />
-                <h3 className="font-display text-xl font-bold mb-1">Pattaya → Chumphon → Ranong → Phuket</h3>
-                <p className="text-white/55 text-sm mb-6">80 km overland land bridge — Coast to Coast</p>
+                <TrendingDown size={32} className="mb-5" style={{ color: "#00c8c8" }} />
+                <h3 className="font-display text-xl font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h3>
+                <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
                 <div className="space-y-3">
                   {[
                     { label: "Sea Miles (Pattaya–Phuket)", value: "~350 miles" },
                     { label: "Total Time", value: "Under 1 week" },
                     { label: "Engine Hours", value: "~50 hours" },
                   ].map((item, i) => (
-                    <div key={i} className="flex justify-between items-center border-b border-white/10 pb-3">
-                      <span className="text-white/60 text-sm">{item.label}</span>
-                      <span className="font-semibold text-secondary text-sm">{item.value}</span>
+                    <div key={i} className="flex justify-between items-center pb-3" style={{ borderBottom: "1px solid rgba(180,145,60,0.2)" }}>
+                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.label}</span>
+                      <span className="font-bold text-sm" style={{ color: "#00c8c8" }}>{item.value}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-white/65 text-xs mt-5 leading-relaxed">
+                <p className="text-xs mt-5 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                   Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Sea miles handled by our licensed crew or your own. Simple. Safe. Professional.
                 </p>
               </motion.div>
             </div>
 
-            {/* Savings bar */}
+            {/* Savings bar — light cream break */}
             <motion.div variants={fadeUp} className="mt-10 max-w-5xl mx-auto">
-              <div className="rounded-2xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
+              <div className="rounded-2xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
                 style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(0,200,200,0.2)",
-                  backdropFilter: "blur(8px)",
-                  boxShadow: "inset 0 1px 0 rgba(0,200,200,0.15)",
+                  background: "linear-gradient(135deg, #f5f0e8 0%, #faf7f2 50%, #f0ede6 100%)",
+                  border: "1px solid rgba(180,145,60,0.25)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.8)",
                 }}>
                 {[
                   { icon: Gauge, value: "79% Less", label: "Sea Miles" },
@@ -623,9 +631,9 @@ export default function Home() {
                   const Icon = s.icon;
                   return (
                     <div key={i} className="flex flex-col items-center gap-2">
-                      <Icon className="text-secondary" size={26} />
-                      <span className="font-display text-3xl font-bold text-secondary">{s.value}</span>
-                      <span className="text-white/60 text-sm">{s.label}</span>
+                      <Icon size={26} style={{ color: "#0a7a7a" }} />
+                      <span className="font-display text-3xl font-bold" style={{ color: "#061e36" }}>{s.value}</span>
+                      <span className="text-sm font-medium" style={{ color: "#4a6070" }}>{s.label}</span>
                     </div>
                   );
                 })}
@@ -635,16 +643,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TECHNICAL SPECS ───────────────────────────────────────── */}
-      <section className="py-20 md:py-28 noise-texture" style={{ background: "linear-gradient(180deg, #061e36 0%, #0a2540 100%)" }}>
+      {/* ── TECHNICAL SPECS ─────────────────────────────────────────── */}
+      <section className="py-20 md:py-28" style={{ background: "linear-gradient(180deg, #f5f7f9 0%, #eef1f4 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>Load Capacity</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#0a8a8a" }}>Load Capacity</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4" style={{ color: "#061e36" }}>
                 Our Max Dimensions Are
               </h2>
-              <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: "#4a6070" }}>
                 We transport Powerboats, Keel Yachts, and Catamarans. Our custom-fabricated transit cradle accommodates a wide range of vessel profiles.
               </p>
             </motion.div>
@@ -655,34 +663,30 @@ export default function Home() {
                   <motion.div
                     key={i}
                     variants={fadeUp}
-                    className="rounded-2xl p-8 text-center relative overflow-hidden group"
+                    className="rounded-2xl p-8 text-center relative overflow-hidden group bg-white"
                     style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(0,200,200,0.2)",
-                      backdropFilter: "blur(8px)",
+                      border: "1px solid rgba(0,168,168,0.18)",
+                      boxShadow: "0 2px 12px rgba(6,30,54,0.07)",
                       transition: "box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.boxShadow = "0 0 32px rgba(0,200,200,0.25), 0 8px 24px rgba(0,0,0,0.3)";
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,168,168,0.18), 0 2px 12px rgba(6,30,54,0.08)";
                       (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,200,200,0.55)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,168,168,0.45)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(6,30,54,0.07)";
                       (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,200,200,0.2)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,168,168,0.18)";
                     }}
                   >
-                    {/* Subtle radial glow */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                      style={{ background: "radial-gradient(circle at 50% 0%, rgba(0,200,200,0.12) 0%, transparent 70%)" }} />
                     <div className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-4"
-                      style={{ background: "rgba(0,200,200,0.12)", border: "1px solid rgba(0,200,200,0.2)" }}>
-                      <Icon style={{ color: "#00c8c8" }} size={20} />
+                      style={{ background: "rgba(0,168,168,0.1)", border: "1px solid rgba(0,168,168,0.2)" }}>
+                      <Icon style={{ color: "#0a8a8a" }} size={20} />
                     </div>
-                    <p className="font-display text-4xl font-bold mb-1" style={{ color: "#00c8c8" }}>{spec.value}</p>
-                    <div className="w-8 h-px mx-auto my-2" style={{ background: "rgba(0,200,200,0.4)" }} />
-                    <p className="text-xs font-semibold tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.5)" }}>{spec.label}</p>
+                    <p className="font-display text-4xl font-bold mb-1" style={{ color: "#061e36" }}>{spec.value}</p>
+                    <div className="w-8 h-px mx-auto my-2" style={{ background: "rgba(0,168,168,0.35)" }} />
+                    <p className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#4a6070" }}>{spec.label}</p>
                   </motion.div>
                 );
               })}
