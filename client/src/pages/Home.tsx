@@ -348,28 +348,37 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" as const }}
         >
+          {/* Frosted dark backdrop for legibility */}
+          <div
+            className="absolute inset-x-0 bottom-0 pointer-events-none"
+            style={{
+              top: "-2rem",
+              background: "linear-gradient(0deg, rgba(4,20,36,0.72) 0%, rgba(4,20,36,0.55) 60%, transparent 100%)",
+              backdropFilter: "blur(2px)",
+            }}
+          />
           {/* Subtitle */}
           <p
-            className="text-center mx-auto mb-3"
+            className="relative text-center mx-auto mb-3"
             style={{
-              fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)",
-              color: "rgba(255,255,255,0.97)",
-              textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.9)",
-              fontWeight: 600,
-              letterSpacing: "0.01em",
-              maxWidth: "680px",
+              fontSize: "clamp(1.25rem, 2vw, 1.65rem)",
+              color: "rgba(255,255,255,1)",
+              textShadow: "0 2px 24px rgba(0,0,0,0.98), 0 1px 8px rgba(0,0,0,0.95)",
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              maxWidth: "780px",
             }}
           >
             Thailand's Premier Vessel Relocation Specialists
           </p>
           {/* Description */}
           <p
-            className="text-center mx-auto mb-7 leading-relaxed"
+            className="relative text-center mx-auto mb-7 leading-relaxed"
             style={{
-              fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)",
-              color: "rgba(255,255,255,0.88)",
-              textShadow: "0 2px 18px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,0.85)",
-              maxWidth: "580px",
+              fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
+              color: "rgba(255,255,255,0.93)",
+              textShadow: "0 2px 20px rgba(0,0,0,0.98), 0 1px 6px rgba(0,0,0,0.9)",
+              maxWidth: "640px",
             }}
           >
             We transport vessels from the Gulf of Thailand to the Andaman Sea,
