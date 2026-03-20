@@ -341,23 +341,37 @@ export default function Home() {
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
-            {/* ── BODY TEXT — all same white colour and size, centred ── */}
-            <p
-              className="text-center mx-auto mb-12 leading-loose"
+            {/* ── FROSTED GLASS PANEL — body text + buttons ── */}
+            <div
+              className="relative mx-auto rounded-2xl px-8 py-7 mb-0"
               style={{
-                fontSize: "clamp(1rem, 1.6vw, 1.25rem)",
-                color: "rgba(255,255,255,0.93)",
-                textShadow: "0 2px 16px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,0.8)",
-                maxWidth: "620px",
+                maxWidth: "680px",
+                background: "rgba(0,0,0,0.28)",
+                backdropFilter: "blur(14px)",
+                WebkitBackdropFilter: "blur(14px)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08)",
               }}
             >
-              Thailand's Premier Vessel Relocation Specialists.<br />
-              Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.<br />
-              Complete marine oversized load transportation company — paying attention to detail, coast to coast.
-            </p>
+              {/* Subtle teal top accent line */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 rounded-full" style={{ width: "60%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.5), transparent)" }} />
 
-            {/* ── ALL THREE BUTTONS — same row: Watch Our Process | Follow Us on Facebook | Request a Quote ── */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto">
+              {/* ── BODY TEXT ── */}
+              <p
+                className="text-center mx-auto mb-7 leading-relaxed"
+                style={{
+                  fontSize: "clamp(0.95rem, 1.5vw, 1.15rem)",
+                  color: "rgba(255,255,255,0.95)",
+                  textShadow: "0 1px 6px rgba(0,0,0,0.6)",
+                }}
+              >
+                Thailand's Premier Vessel Relocation Specialists.<br />
+                Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.<br />
+                Complete marine oversized load transportation company — paying attention to detail, coast to coast.
+              </p>
+
+              {/* ── ALL THREE BUTTONS — same row: Watch Our Process | Follow Us on Facebook | Request a Quote ── */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
               <button
                 onClick={() => setVideoOpen(true)}
                 className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white font-medium text-sm rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
@@ -386,7 +400,8 @@ export default function Home() {
                   Request a Quote
                 </a>
               </Link>
-            </div>
+              </div>{/* end buttons row */}
+            </div>{/* end frosted glass panel */}
 
           </motion.div>
         </div>
