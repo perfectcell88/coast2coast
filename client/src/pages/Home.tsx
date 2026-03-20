@@ -343,13 +343,13 @@ export default function Home() {
 
             {/* ── SUBTITLE ── */}
             <p
-              className="font-display font-semibold text-center mx-auto mb-5"
+              className="font-display font-semibold text-center mx-auto mb-7"
               style={{
-                fontSize: "clamp(1.15rem, 2.3vw, 2rem)",
+                fontSize: "clamp(1.25rem, 2.5vw, 2.1rem)",
                 color: "#F5F0E8",
                 letterSpacing: "0.06em",
-                textShadow: "0 2px 18px rgba(0,0,0,0.85)",
-                maxWidth: "680px",
+                textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.8)",
+                maxWidth: "700px",
               }}
             >
               Thailand's Premier Vessel Relocation Specialists
@@ -357,19 +357,19 @@ export default function Home() {
 
             {/* ── DESCRIPTION — above buttons, readable ── */}
             <p
-              className="font-light text-center mx-auto mb-9 leading-relaxed"
+              className="font-light text-center mx-auto mb-10 leading-relaxed"
               style={{
-                fontSize: "clamp(1rem, 1.6vw, 1.3rem)",
-                color: "rgba(255,255,255,0.85)",
-                textShadow: "0 1px 8px rgba(0,0,0,0.7)",
-                maxWidth: "580px",
+                fontSize: "clamp(1.05rem, 1.75vw, 1.4rem)",
+                color: "rgba(255,255,255,0.92)",
+                textShadow: "0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)",
+                maxWidth: "600px",
               }}
             >
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
             {/* ── PRIMARY BUTTONS ── */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-7">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-9">
               <Link href="/contact" className="w-full sm:w-auto">
                 <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-8 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
                   <Anchor size={15} className="flex-shrink-0 opacity-90" />
@@ -393,25 +393,25 @@ export default function Home() {
 
             {/* ── TAGLINE — italic, slightly larger ── */}
             <p
-              className="text-center mx-auto mb-9"
+              className="text-center mx-auto mb-10"
               style={{
-                fontSize: "clamp(0.82rem, 1.1vw, 1.0rem)",
+                fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)",
                 fontStyle: "italic",
-                color: "rgba(245,240,232,0.65)",
-                textShadow: "0 1px 6px rgba(0,0,0,0.5)",
+                color: "rgba(245,240,232,0.80)",
+                textShadow: "0 2px 10px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)",
                 letterSpacing: "0.06em",
-                maxWidth: "420px",
+                maxWidth: "460px",
               }}
             >
               Complete marine oversized load transportation company — paying attention to detail, coast to coast.
             </p>
 
-            {/* ── WATCH OUR PROCESS — bottom of hero, more visible ── */}
-            <div className="flex justify-center">
+            {/* ── WATCH OUR PROCESS — bottom of hero, same width as button row ── */}
+            <div className="flex justify-center w-full max-w-lg mx-auto">
               <button
                 onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white/85 hover:text-white font-medium rounded-full px-8 py-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-                style={{ fontSize: "clamp(0.75rem, 1vw, 0.88rem)", letterSpacing: "0.18em" }}
+                className="flex items-center justify-center gap-3 w-full bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white/85 hover:text-white font-medium rounded-xl px-8 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
+                style={{ fontSize: "clamp(0.82rem, 1.1vw, 0.95rem)", letterSpacing: "0.18em" }}
               >
                 <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
                   <Play size={9} className="ml-0.5" />
