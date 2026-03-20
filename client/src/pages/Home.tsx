@@ -276,154 +276,129 @@ export default function Home() {
         {/* Subtle drifting particles */}
         <HeroParticles />
 
-        <div className="relative z-10 w-full text-center text-white px-4 pt-10 md:pt-14 pb-32">
+        {/* ── LEFT-ALIGNED HERO CONTENT — text sits in sky area, clear of truck/boat ── */}
+        <div className="relative z-10 w-full h-full min-h-screen flex flex-col justify-between px-6 md:px-14 lg:px-20 pt-24 md:pt-28 pb-10">
           <motion.div
-            initial={{ opacity: 0, y: 48 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
+            className="max-w-2xl"
           >
-
-            {/* ── TOP INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-4">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
-              {/* Ornament: dot · diamond · dot — no connector lines */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+            {/* ── TOP INSIGNIA — left aligned ── */}
+            <div className="flex items-center gap-3 mb-5" style={{ maxWidth: "420px" }}>
+              <div className="flex items-center gap-2.5 flex-shrink-0">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="1.5" y="1.5" width="9" height="9" transform="rotate(45 6 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.3" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.85))" }} />
                 </svg>
-                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
               </div>
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
-            {/* ── BUSINESS NAME — large, full width with ambient glow ── */}
-            <div className="relative mb-2">
-              {/* Subtle teal ambient glow behind the title */}
-              <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,200,200,0.10) 0%, transparent 70%)", filter: "blur(18px)" }} />
+            {/* ── BUSINESS NAME ── */}
+            <div className="relative mb-3">
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 30% 50%, rgba(0,200,200,0.10) 0%, transparent 70%)", filter: "blur(18px)" }} />
               <h1
-                className="relative font-display font-bold uppercase w-full text-center"
+                className="relative font-display font-bold uppercase text-left"
                 style={{
-                  fontSize: "clamp(3rem, 8.5vw, 8rem)",
-                  letterSpacing: "0.22em",
+                  fontSize: "clamp(2.8rem, 7.5vw, 7.5rem)",
+                  letterSpacing: "0.20em",
                   color: "#ffffff",
-                  textShadow: "0 0 100px rgba(0,200,200,0.18), 0 2px 24px rgba(0,0,0,0.95)",
-                  lineHeight: 1.05,
+                  textShadow: "0 0 80px rgba(0,200,200,0.15), 0 2px 20px rgba(0,0,0,0.95)",
+                  lineHeight: 1.0,
                 }}
               >
                 Coast to Coast
               </h1>
             </div>
+
+            {/* ── MARINE TRANSPORTATION THAILAND ── */}
             <div className="mb-5">
               <p
-                className="font-mono-accent uppercase font-bold w-full text-center"
+                className="font-mono-accent uppercase font-bold text-left"
                 style={{
-                  fontSize: "clamp(0.85rem, 2.2vw, 1.7rem)",
-                  letterSpacing: "0.42em",
-                  color: "rgba(0,200,200,0.95)",
-                  textShadow: "0 0 30px rgba(0,200,200,0.6), 0 2px 12px rgba(0,0,0,0.9)",
+                  fontSize: "clamp(0.75rem, 1.9vw, 1.5rem)",
+                  letterSpacing: "0.40em",
+                  color: "rgba(0,210,210,0.95)",
+                  textShadow: "0 0 28px rgba(0,200,200,0.55), 0 2px 10px rgba(0,0,0,0.9)",
                 }}
               >
                 Marine Transportation Thailand
               </p>
             </div>
 
-            {/* ── BOTTOM INSIGNIA ── */}
-            <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto mb-20">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
-              <div className="flex items-center gap-2.5">
-                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+            {/* ── BOTTOM INSIGNIA — left aligned ── */}
+            <div className="flex items-center gap-3 mb-8" style={{ maxWidth: "420px" }}>
+              <div className="flex items-center gap-2.5 flex-shrink-0">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="1.5" y="1.5" width="9" height="9" transform="rotate(45 6 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.3" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.85))" }} />
                 </svg>
-                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
               </div>
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
             </div>
 
-            {/* ── SUBTITLE ── */}
-            <p
-              className="font-display font-semibold text-center mx-auto mb-8"
-              style={{
-                fontSize: "clamp(1.25rem, 2.5vw, 2.1rem)",
-                color: "#F5F0E8",
-                letterSpacing: "0.06em",
-                textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.8)",
-                maxWidth: "700px",
-              }}
-            >
-              Thailand's Premier Vessel Relocation Specialists
-            </p>
-
-            {/* ── DESCRIPTION — above buttons, readable ── */}
-            <p
-              className="font-light text-center mx-auto mb-11 leading-relaxed"
-              style={{
-                fontSize: "clamp(1.05rem, 1.75vw, 1.4rem)",
-                color: "rgba(255,255,255,0.92)",
-                textShadow: "0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)",
-                maxWidth: "600px",
-              }}
-            >
-              We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
-            </p>
-
-            {/* ── PRIMARY BUTTONS ── */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto mb-8">
-              <Link href="/contact" className="w-full sm:w-auto">
-                <a className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm md:text-base rounded-xl px-8 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
-                  <Anchor size={15} className="flex-shrink-0 opacity-90" />
-                  Request a Quote
-                </a>
-              </Link>
-              <a
-                href="https://www.facebook.com/profile.php?id=61588477663667"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/55 text-white font-medium text-sm md:text-base rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+            {/* ── ALL BODY TEXT — same colour, same size, left aligned ── */}
+            <div className="flex flex-col gap-2 mb-8" style={{ maxWidth: "560px" }}>
+              <p
+                className="text-left leading-relaxed"
+                style={{
+                  fontSize: "clamp(0.95rem, 1.5vw, 1.2rem)",
+                  color: "rgba(255,255,255,0.93)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
+                  lineHeight: 1.75,
+                }}
               >
-                <div className="w-5 h-5 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </div>
-                Follow Us on Facebook
-              </a>
-            </div>
-
-            {/* ── TAGLINE — italic, slightly larger ── */}
-            <p
-              className="text-center mx-auto mb-12"
-              style={{
-                fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)",
-                fontStyle: "italic",
-                color: "rgba(245,240,232,0.80)",
-                textShadow: "0 2px 10px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)",
-                letterSpacing: "0.06em",
-                maxWidth: "460px",
-              }}
-            >
-              Complete marine oversized load transportation company — paying attention to detail, coast to coast.
-            </p>
-
-            {/* ── WATCH OUR PROCESS — centred, comfortable fixed width ── */}
-            <div className="flex justify-center w-full">
-              <button
-                onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white/85 hover:text-white font-medium rounded-full px-12 py-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-                style={{ fontSize: "clamp(0.82rem, 1.1vw, 0.95rem)", letterSpacing: "0.18em", minWidth: "260px" }}
-              >
-                <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
-                  <Play size={9} className="ml-0.5" />
-                </div>
-                <span className="uppercase tracking-widest">Watch Our Process</span>
-              </button>
+                Thailand's Premier Vessel Relocation Specialists.<br />
+                Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.<br />
+                Complete marine oversized load transportation company — paying attention to detail, coast to coast.
+              </p>
             </div>
 
           </motion.div>
+
+          {/* ── ALL THREE BUTTONS — same row at the bottom ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" as const }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-4"
+          >
+            <Link href="/contact">
+              <a className="flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-white font-semibold text-sm rounded-xl px-7 py-3.5 shadow-lg shadow-secondary/30 transition-all duration-200 hover:shadow-secondary/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
+                <Anchor size={14} className="flex-shrink-0 opacity-90" />
+                Request a Quote
+              </a>
+            </Link>
+            <a
+              href="https://www.facebook.com/profile.php?id=61588477663667"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-white/55 text-white font-medium text-sm rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+            >
+              <div className="w-5 h-5 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              Follow Us on Facebook
+            </a>
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white font-medium text-sm rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+            >
+              <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
+                <Play size={9} className="ml-0.5" />
+              </div>
+              <span className="uppercase tracking-widest" style={{ fontSize: "0.8rem", letterSpacing: "0.16em" }}>Watch Our Process</span>
+            </button>
+          </motion.div>
+        </div>
         {/* Animated scroll chevron */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer z-20"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" })}
@@ -432,7 +407,6 @@ export default function Home() {
             <path d="M1 1L11 12L21 1" stroke="rgba(0,200,200,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </motion.div>
-        </div>
 
       </section>
 
