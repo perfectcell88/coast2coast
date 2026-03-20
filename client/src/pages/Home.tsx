@@ -280,7 +280,7 @@ export default function Home() {
             </div>
 
             {/* Main heading */}
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               Thailand's Premier<br />
               <span
                 style={{
@@ -296,7 +296,7 @@ export default function Home() {
             </h1>
 
             {/* Uncle's description */}
-            <p className="text-base md:text-lg mb-6 font-light max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.88)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+            <p className="text-base md:text-lg mb-8 font-light max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.88)", textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
               We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast.
             </p>
 
@@ -403,7 +403,128 @@ export default function Home() {
       </AnimatePresence>
 
 
-      {/* ── COMPARISON ────────────────────────────────────────────── */}
+      {/* ── ROUTE / MAP ───────────────────────────────────────────── */}
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a3050 40%, #063a4a 70%, #061e36 100%)" }}>
+        {/* Subtle radial glow behind map */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,200,200,0.08) 0%, transparent 70%)" }} />
+        <div className="container relative z-10">
+          <FadeSection>
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>The Route</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Serving Thailand's Coasts</h2>
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+              {/* Left: key stops — glassmorphism card */}
+              <motion.div variants={fadeUp}>
+                <div className="rounded-2xl p-8" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,200,200,0.2)", backdropFilter: "blur(12px)", boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)" }}>
+                  <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>Key Stops</p>
+                  <h3 className="font-display text-2xl font-bold text-white mb-5">Gulf to Andaman — and Back</h3>
+                  <p className="text-lg mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>Sea miles handled by our licensed crew, or your own.</p>
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Bangkok / Pattaya (Gulf of Thailand)",
+                      "Chumphon — Crane out & load",
+                      "80 km Overland Land Bridge",
+                      "Ranong — Crane into Andaman Sea",
+                      "Phuket & Andaman destinations",
+                    ].map((area) => (
+                      <li key={area} className="flex items-center gap-3">
+                        <CheckCircle style={{ color: "#00c8c8", flexShrink: 0 }} size={20} />
+                        <span className="font-medium" style={{ color: "rgba(255,255,255,0.85)" }}>{area}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+
+              {/* Right: map + route selector + stats — glassmorphism */}
+              <motion.div variants={fadeUp}>
+                {/* Map in glass card */}
+                <div className="mb-6 rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", padding: "16px" }}>
+                  <ThailandRouteMap activeRoute={activeRoute} />
+                </div>
+
+                {/* Route tabs */}
+                <div className="mb-6 space-y-4">
+                  {[
+                    { label: "Gulf → Andaman", indices: [0, 2, 4, 7] },
+                    { label: "Andaman → Gulf", indices: [1, 3, 5, 6] },
+                  ].map((group) => (
+                    <div key={group.label}>
+                      <div className="flex items-center gap-3 mb-2.5">
+                        <p className="text-[10px] font-mono-accent tracking-[0.25em] uppercase font-bold" style={{ color: "rgba(0,200,200,0.7)" }}>{group.label}</p>
+                        <div className="flex-1 h-px" style={{ background: "rgba(0,200,200,0.2)" }} />
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {group.indices.map((i) => (
+                          <button
+                            key={i}
+                            onClick={() => setActiveRoute(i)}
+                            className="px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200"
+                            style={activeRoute === i
+                              ? { background: "linear-gradient(135deg, #0a8a8a, #00c8c8)", color: "white", border: "1px solid rgba(0,200,200,0.5)", boxShadow: "0 0 16px rgba(0,200,200,0.35)", transform: "scale(1.05)" }
+                              : { background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }
+                            }
+                          >
+                            {routes[i].from} → {routes[i].to}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Route stats — glass card */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeRoute}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.28 }}
+                    className="rounded-2xl overflow-hidden"
+                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(0,200,200,0.25)", backdropFilter: "blur(12px)", boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)" }}
+                  >
+                    <div className="p-8 text-center" style={{ borderBottom: "1px solid rgba(0,200,200,0.15)" }}>
+                      <div className="flex items-center justify-center gap-3 mb-4">
+                        <div className="flex items-center gap-2">
+                          <MapPin style={{ color: "#00c8c8" }} size={18} />
+                          <span className="font-display font-bold text-white text-lg">{routes[activeRoute].from}</span>
+                        </div>
+                        <ArrowRight style={{ color: "rgba(0,200,200,0.6)" }} size={20} />
+                        <div className="flex items-center gap-2">
+                          <Anchor style={{ color: "#00c8c8" }} size={18} />
+                          <span className="font-display font-bold text-white text-lg">{routes[activeRoute].to}</span>
+                        </div>
+                      </div>
+                      <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>{routes[activeRoute].description}</p>
+                      <p className="font-display text-4xl font-bold mb-1" style={{ color: "#00c8c8" }}>{routes[activeRoute].time}</p>
+                      <p className="text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>{routes[activeRoute].engineHours} engine hours</p>
+                    </div>
+                    <div className="p-5 grid grid-cols-3 gap-3 text-center text-sm">
+                      <div className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.05)" }}>
+                        <p className="font-bold text-white text-base">{routes[activeRoute].seaMiles}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Sea Miles</p>
+                      </div>
+                      <div className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.05)" }}>
+                        <p className="font-bold text-white text-base">{routes[activeRoute].overland}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Overland</p>
+                      </div>
+                      <div className="rounded-xl p-3" style={{ background: "rgba(0,200,200,0.1)", border: "1px solid rgba(0,200,200,0.2)" }}>
+                        <p className="font-bold text-base" style={{ color: "#00c8c8" }}>100T</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Crane @ Ranong</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </motion.div>
+            </div>
+          </FadeSection>
+        </div>
+      </section>
+
+      {/* ── COMPARISON ────────────────────────────────────────────── */
       <section className="py-20 md:py-28 text-white overflow-hidden noise-texture" style={{ background: "linear-gradient(160deg, #061e36 0%, #0a2540 50%, #0d3050 100%)" }}>
         <div className="container">
           <FadeSection>
@@ -740,128 +861,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* ── WAVE DIVIDER ──────────────────────────────────────────── */}
-      <div className="overflow-hidden leading-none" style={{ background: "#f0f4f8" }}>
-        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16" style={{ display: "block" }}>
-          <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff" />
-        </svg>
-      </div>
 
-      {/* ── SERVICE AREAS PREVIEW ─────────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-background">
-        <div className="container">
-          <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Route</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Serving Thailand's Coasts</h2>
-              <p className="text-lg text-foreground/60 max-w-2xl mx-auto">The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-              <motion.div variants={fadeUp}>
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Key Stops</p>
-                <h3 className="font-display text-2xl font-bold text-primary mb-5">
-                  Gulf to Andaman — and Back
-                </h3>
-                <p className="text-lg text-foreground/65 mb-6">Sea miles handled by our licensed crew, or your own.</p>
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Bangkok / Pattaya (Gulf of Thailand)",
-                    "Chumphon — Crane out & load",
-                    "80 km Overland Land Bridge",
-                    "Ranong — Crane into Andaman Sea",
-                    "Phuket & Andaman destinations",
-                  ].map((area) => (
-                    <li key={area} className="flex items-center gap-3">
-                      <CheckCircle className="text-secondary flex-shrink-0" size={20} />
-                      <span className="text-foreground font-medium">{area}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              {/* Route map + carousel card */}
-              <motion.div variants={fadeUp}>
-                {/* Animated Thailand route map */}
-                <div className="mb-6">
-                  <ThailandRouteMap activeRoute={activeRoute} />
-                </div>
-
-                {/* Route tabs — grouped by direction */}
-                <div className="mb-6 space-y-4">
-                  {[
-                    { label: "Gulf → Andaman", indices: [0, 2, 4, 7] },
-                    { label: "Andaman → Gulf", indices: [1, 3, 5, 6] },
-                  ].map((group) => (
-                    <div key={group.label}>
-                      <div className="flex items-center gap-3 mb-2.5">
-                        <p className="text-[10px] font-mono-accent tracking-[0.25em] uppercase text-foreground/50 font-bold">{group.label}</p>
-                        <div className="flex-1 h-px bg-border" />
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {group.indices.map((i) => (
-                          <button
-                            key={i}
-                            onClick={() => setActiveRoute(i)}
-                            className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border ${
-                              activeRoute === i
-                                ? "bg-secondary text-white border-secondary shadow-md scale-105"
-                                : "bg-white text-primary/70 border-border hover:border-secondary/50 hover:text-secondary hover:shadow-sm"
-                            }`}
-                          >
-                            {routes[i].from} → {routes[i].to}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeRoute}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.28 }}
-                    className="bg-white rounded-2xl shadow-md border border-border overflow-hidden"
-                  >
-                    <div className="bg-primary/8 rounded-t-2xl p-8 text-center">
-                      <div className="flex items-center justify-center gap-3 mb-4">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="text-secondary" size={18} />
-                          <span className="font-display font-bold text-primary text-lg">{routes[activeRoute].from}</span>
-                        </div>
-                        <ArrowRight className="text-secondary/60" size={20} />
-                        <div className="flex items-center gap-2">
-                          <Anchor className="text-secondary" size={18} />
-                          <span className="font-display font-bold text-primary text-lg">{routes[activeRoute].to}</span>
-                        </div>
-                      </div>
-                      <p className="text-foreground/55 text-sm mb-4">{routes[activeRoute].description}</p>
-                      <p className="font-display text-4xl font-bold text-secondary mb-1">{routes[activeRoute].time}</p>
-                      <p className="text-sm text-foreground/45">{routes[activeRoute].engineHours} engine hours</p>
-                    </div>
-                    <div className="p-5 grid grid-cols-3 gap-3 text-center text-sm">
-                      <div className="bg-primary/5 rounded-xl p-3">
-                        <p className="font-bold text-primary text-base">{routes[activeRoute].seaMiles}</p>
-                        <p className="text-foreground/50 text-xs mt-0.5">Sea Miles</p>
-                      </div>
-                      <div className="bg-primary/5 rounded-xl p-3">
-                        <p className="font-bold text-primary text-base">{routes[activeRoute].overland}</p>
-                        <p className="text-foreground/50 text-xs mt-0.5">Overland</p>
-                      </div>
-                      <div className="bg-secondary/10 rounded-xl p-3">
-                        <p className="font-bold text-secondary text-base">100T</p>
-                        <p className="text-foreground/50 text-xs mt-0.5">Crane @ Ranong</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </motion.div>
-            </div>
-          </FadeSection>
-        </div>
-      </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
       <section

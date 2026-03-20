@@ -83,7 +83,7 @@ export default function Contact() {
       <section
         className="relative text-white py-24 md:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/gallery/9.webp')",
+          backgroundImage: "url('/gallery/3.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 40%",
         }}
