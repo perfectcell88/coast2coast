@@ -369,11 +369,12 @@ export default function Home() {
             Complete marine oversized load transportation company — paying attention to detail, coast to coast.
           </p>
           {/* Buttons */}
-          <div className="flex flex-col items-start gap-3 w-full">
+          <div className="flex flex-col items-stretch gap-3" style={{ width: "100%" }}>
+            {/* Shared button style: full-width, same height, same font */}
             <button
               onClick={() => setVideoOpen(true)}
-              className="flex items-center justify-center gap-3 bg-white/12 hover:bg-white/20 border border-white/35 hover:border-teal-400/80 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
-              style={{ fontSize: "1rem", letterSpacing: "0.08em" }}
+              className="flex items-center justify-center gap-3 w-full bg-white/12 hover:bg-white/20 border border-white/35 hover:border-teal-400/80 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
+              style={{ fontSize: "1rem", letterSpacing: "0.06em" }}
             >
               <div className="w-6 h-6 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
                 <Play size={11} className="ml-0.5" />
@@ -381,26 +382,26 @@ export default function Home() {
               <span className="uppercase tracking-widest">Watch Our Process</span>
             </button>
             <Link href="/contact">
-              <a className="flex items-center justify-center gap-3 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl px-9 py-4 shadow-xl shadow-secondary/40 transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
-                style={{ fontSize: "1rem" }}
+              <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-8 py-4 shadow-xl shadow-secondary/40 transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
+                style={{ fontSize: "1rem", letterSpacing: "0.06em" }}
               >
-                <Anchor size={17} className="flex-shrink-0 opacity-90" />
-                Request a Quote
+                <Anchor size={16} className="flex-shrink-0 opacity-90" />
+                <span className="uppercase tracking-widest">Request a Quote</span>
               </a>
             </Link>
             <a
               href="https://www.facebook.com/profile.php?id=61588477663667"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-white/12 hover:bg-white/20 border border-white/35 hover:border-white/60 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
-              style={{ fontSize: "1rem" }}
+              className="flex items-center justify-center gap-3 w-full bg-white/12 hover:bg-white/20 border border-white/35 hover:border-white/60 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+              style={{ fontSize: "1rem", letterSpacing: "0.06em" }}
             >
               <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </div>
-              Follow Us on Facebook
+              <span className="uppercase tracking-widest">Follow Us on Facebook</span>
             </a>
           </div>
         </motion.div>
