@@ -332,9 +332,10 @@ export default function Home() {
         <motion.div
           className="absolute left-0 z-10 flex flex-col items-start text-left text-white"
           style={{
-            bottom: "clamp(3rem, 6vh, 5rem)",
+            bottom: 0,
+            paddingBottom: "clamp(1.5rem, 3vh, 3rem)",
             paddingLeft: "clamp(2rem, 6vw, 7rem)",
-            maxWidth: "min(52%, 620px)",
+            maxWidth: "min(48%, 560px)",
           }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
