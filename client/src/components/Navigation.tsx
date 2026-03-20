@@ -54,13 +54,13 @@ export default function Navigation() {
       />
 
       {/* Main nav bar — relative so we can absolutely centre the links */}
-      <div className="relative flex items-center h-14 md:h-16 px-6 max-w-[1400px] mx-auto">
+      <div className="relative flex items-center h-16 md:h-[72px] px-6 max-w-[1400px] mx-auto">
 
         {/* Logo — left */}
         <Link href="/">
           <a className="flex items-center gap-3 group flex-shrink-0 z-10">
             <div
-              className="w-9 h-9 rounded-xl flex-shrink-0 overflow-hidden transition-all duration-300 group-hover:scale-105"
+              className="w-10 h-10 rounded-xl flex-shrink-0 overflow-hidden transition-all duration-300 group-hover:scale-105"
               style={{
                 boxShadow: scrolled
                   ? "0 0 18px rgba(0,200,200,0.5), 0 2px 8px rgba(0,0,0,0.35)"
@@ -75,13 +75,13 @@ export default function Navigation() {
             </div>
             <span className="hidden sm:block leading-none">
               <span
-                className="block font-display font-bold text-white text-[14px]"
+                className="block font-display font-bold text-white text-[15px]"
                 style={{ letterSpacing: "-0.01em" }}
               >
                 Coast to Coast
               </span>
               <span
-                className="block text-[8.5px] font-semibold tracking-[0.24em] uppercase mt-0.5"
+                className="block text-[9px] font-semibold tracking-[0.24em] uppercase mt-0.5"
                 style={{ color: "rgba(0,210,210,0.8)" }}
               >
                 Marine Transportation Thailand

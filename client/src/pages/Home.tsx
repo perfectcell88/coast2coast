@@ -275,23 +275,23 @@ export default function Home() {
         {/* Subtle drifting particles — sea spray / light on water */}
         <HeroParticles />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-8 md:px-14 pt-28 md:pt-36 pb-24 text-white text-center">
+        <div className="relative z-10 container text-center text-white max-w-4xl mx-auto px-4 pt-28 md:pt-36 pb-24">
           <motion.div
             initial={{ opacity: 0, y: 48 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const }}
           >
             {/* Eyebrow — commanding brand stamp */}
-            <div className="flex flex-col items-center gap-3 mb-10">
-              <div className="flex items-center justify-center gap-5 w-full max-w-2xl mx-auto">
+            <div className="flex flex-col items-center gap-4 mb-10">
+              <div className="flex items-center justify-center gap-5 w-full max-w-4xl">
                 <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
-                <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 10px rgba(0,200,200,0.9)" }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 12px rgba(0,200,200,0.9), 0 0 24px rgba(0,200,200,0.4)" }} />
                 <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
               </div>
               <p
-                className="font-mono-accent uppercase font-black text-center"
+                className="font-mono-accent uppercase font-black text-center px-4"
                 style={{
-                  fontSize: "clamp(0.75rem, 1.6vw, 1.05rem)",
+                  fontSize: "clamp(0.9rem, 2.2vw, 1.3rem)",
                   color: 'rgba(255,255,255,0.97)',
                   textShadow: '0 0 40px rgba(0,200,200,0.5), 0 2px 16px rgba(0,0,0,0.95)',
                   letterSpacing: '0.32em',
@@ -299,15 +299,15 @@ export default function Home() {
               >
                 Coast to Coast Marine Transportation Thailand
               </p>
-              <div className="flex items-center justify-center gap-5 w-full max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-5 w-full max-w-4xl">
                 <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.85))" }} />
-                <div className="w-2 h-2 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 10px rgba(0,200,200,0.9)" }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 12px rgba(0,200,200,0.9), 0 0 24px rgba(0,200,200,0.4)" }} />
                 <div className="flex-1 h-[1.5px]" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.85), transparent)" }} />
               </div>
             </div>
 
             {/* Main heading */}
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style={{ lineHeight: '1.06', letterSpacing: '-0.02em' }}>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
               Thailand's Premier<br />
               <span
                 style={{
@@ -328,7 +328,7 @@ export default function Home() {
             </p>
 
             {/* Three buttons in a horizontal row — Watch | Request a Quote (centre) | Facebook */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-2xl mx-auto mb-8">
               {/* Watch video — left */}
               <button
                 onClick={() => setVideoOpen(true)}
@@ -363,7 +363,7 @@ export default function Home() {
             </div>
 
             {/* Tagline below buttons */}
-            <div className="flex items-center justify-center gap-4 max-w-sm mx-auto mb-3">
+            <div className="flex items-center gap-4 max-w-xs mx-auto mb-3">
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(45,212,191,0.6))" }} />
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(45,212,191,0.8)" }} />
               <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(45,212,191,0.6), transparent)" }} />
@@ -431,7 +431,7 @@ export default function Home() {
 
 
       {/* ── ROUTE / MAP ───────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #041828 0%, #072840 40%, #053848 70%, #041828 100%)" }}>
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #041828 0%, #072840 40%, #053848 70%, #041828 100%)" }}>
         {/* Nautical chart grid overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: `
@@ -446,10 +446,10 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,180,180,0.07), transparent)" }} />
         <div className="container relative z-10">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>The Route</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">Serving Thailand's Coasts</h2>
-              <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>The Route</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Serving Thailand's Coasts</h2>
+              <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
             </motion.div>
             {/* ── ROW 1: Full-width map ── */}
             <motion.div variants={fadeUp} className="mb-6">
@@ -570,13 +570,13 @@ export default function Home() {
       </section>
 
        {/* ── COMPARISON ──────────────────────────────────────────── */}
-      <section className="py-16 md:py-22 text-white overflow-hidden" style={{ background: "linear-gradient(180deg, #0d1f30 0%, #0f2535 50%, #0d1f30 100%)" }}>
+      <section className="py-20 md:py-28 text-white overflow-hidden" style={{ background: "linear-gradient(180deg, #0d1f30 0%, #0f2535 50%, #0d1f30 100%)" }}>
         <div className="container">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2">The Smart Choice</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">The Shortcut Comparison</h2>
-              <p className="text-base opacity-70 max-w-2xl mx-auto">
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">The Smart Choice</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">The Shortcut Comparison</h2>
+              <p className="text-lg opacity-70 max-w-2xl mx-auto">
                 The traditional route around the Malay Peninsula is gruelling, dangerous, and expensive. Our land-bridge solution changes everything.
               </p>
             </motion.div>
@@ -585,7 +585,7 @@ export default function Home() {
               {/* Traditional */}
               <motion.div
                 variants={fadeUp}
-                className="rounded-2xl p-6 relative"
+                className="rounded-2xl p-8 relative"
                 style={{
                   background: "linear-gradient(145deg, #1a1010 0%, #2a1515 50%, #1e1212 100%)",
                   border: "1px solid rgba(180,60,60,0.3)",
@@ -618,7 +618,7 @@ export default function Home() {
               {/* Coast to Coast */}
               <motion.div
                 variants={fadeUp}
-                className="rounded-2xl p-6 relative"
+                className="rounded-2xl p-8 relative"
                 style={{
                   background: "linear-gradient(145deg, #041e2e 0%, #062838 50%, #041e2e 100%)",
                   border: "2px solid rgba(180,145,60,0.55)",
@@ -679,12 +679,12 @@ export default function Home() {
       </section>
 
       {/* ── TECHNICAL SPECS ─────────────────────────────────────────── */}
-      <section className="py-16 md:py-22" style={{ background: "linear-gradient(180deg, #f5f7f9 0%, #eef1f4 100%)" }}>
+      <section className="py-20 md:py-28" style={{ background: "linear-gradient(180deg, #f5f7f9 0%, #eef1f4 100%)" }}>
         <div className="container">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#0a8a8a" }}>Load Capacity</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-3" style={{ color: "#061e36" }}>
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#0a8a8a" }}>Load Capacity</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4" style={{ color: "#061e36" }}>
                 Our Max Dimensions Are
               </h2>
               <p className="text-lg max-w-2xl mx-auto" style={{ color: "#4a6070" }}>
@@ -698,7 +698,7 @@ export default function Home() {
                   <motion.div
                     key={i}
                     variants={fadeUp}
-                    className="rounded-2xl p-6 text-center relative overflow-hidden group bg-white"
+                    className="rounded-2xl p-8 text-center relative overflow-hidden group bg-white"
                     style={{
                       border: "1px solid rgba(0,168,168,0.18)",
                       boxShadow: "0 2px 12px rgba(6,30,54,0.07)",
@@ -719,7 +719,7 @@ export default function Home() {
                       style={{ background: "rgba(0,168,168,0.1)", border: "1px solid rgba(0,168,168,0.2)" }}>
                       <Icon style={{ color: "#0a8a8a" }} size={20} />
                     </div>
-                    <p className="font-display text-3xl font-bold mb-1" style={{ color: "#061e36" }}>{spec.value}</p>
+                    <p className="font-display text-4xl font-bold mb-1" style={{ color: "#061e36" }}>{spec.value}</p>
                     <div className="w-8 h-px mx-auto my-2" style={{ background: "rgba(0,168,168,0.35)" }} />
                     <p className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#4a6070" }}>{spec.label}</p>
                   </motion.div>
@@ -747,12 +747,12 @@ export default function Home() {
       </section>
 
       {/* ── RECENT RELOCATIONS GALLERY ────────────────────────────── */}
-      <section className="py-16 md:py-22 bg-primary/5">
+      <section className="py-20 md:py-28 bg-primary/5">
         <div className="container">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2">Our Work</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Work</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
                 Recent Relocations
               </h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
@@ -904,7 +904,7 @@ export default function Home() {
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
       <section
-        className="py-16 md:py-24 text-white relative overflow-hidden"
+        className="py-24 md:py-32 text-white relative overflow-hidden"
         style={{
           backgroundImage: "url('/gallery/9.webp')",
           backgroundSize: "cover",
@@ -921,24 +921,24 @@ export default function Home() {
                 <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary">Get Started</p>
                 <div className="h-px w-8 bg-secondary/60" />
               </div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
                 Ready to Transport Your Vessel?
               </h2>
-              <p className="text-base mb-8 opacity-75 max-w-2xl mx-auto">
+              <p className="text-xl mb-10 opacity-75 max-w-2xl mx-auto">
                 Contact our team today to discuss your requirements and get started.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
                   <a>
                     <button
-                      className="text-white font-semibold px-8 py-3.5 rounded-xl text-base inline-flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                      className="text-white font-semibold px-10 py-4 rounded-xl text-lg inline-flex items-center gap-2 transition-all duration-300 hover:scale-105"
                       style={{
                         background: "linear-gradient(135deg, #0a8a8a 0%, #00b8b8 100%)",
                         boxShadow: "0 0 28px rgba(0,184,184,0.45), 0 4px 16px rgba(0,0,0,0.3)",
                         border: "1px solid rgba(0,200,200,0.35)",
                       }}
                     >
-                      Get Your Free Quote <ArrowRight size={16} />
+                      Get Your Free Quote <ArrowRight size={18} />
                     </button>
                   </a>
                 </Link>

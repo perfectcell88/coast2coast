@@ -57,9 +57,8 @@ export default function About() {
 
       {/* Hero */}
       <section
-        className="relative text-white flex items-center overflow-hidden"
+        className="relative text-white py-32 md:py-44 overflow-hidden"
         style={{
-          minHeight: "56vh",
           backgroundImage: "url('/gallery/4.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 50%",
@@ -70,25 +69,25 @@ export default function About() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(6,22,44,0.78) 0%, rgba(6,22,44,0.58) 50%, rgba(6,22,44,0.82) 100%)",
+              "linear-gradient(135deg, rgba(6,22,44,0.88) 0%, rgba(6,22,44,0.72) 50%, rgba(14,116,144,0.45) 100%)",
           }}
         />
         {/* Subtle teal accent line at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.7), transparent)" }} />
-        <div className="container relative z-10 text-center py-24 md:py-32">
+        <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-mono-accent text-xs tracking-[0.35em] uppercase mb-4" style={{ color: "rgba(0,200,200,0.9)" }}>About Us</p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5" style={{ lineHeight: '1.06', letterSpacing: '-0.01em', textShadow: "0 2px 40px rgba(0,0,0,0.6)" }}>
+            <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#2dd4bf" }}>About Us</p>
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
               Coast to Coast Marine<br />Transportation Thailand
             </h1>
-            <p className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
+            <p className="text-xl max-w-3xl leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
               Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co., Ltd.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4 justify-center">
+            <div className="mt-10 flex flex-wrap gap-4">
               {["Powerboats", "Keel Yachts", "Catamarans", "Both Directions"].map((tag) => (
                 <span
                   key={tag}
@@ -109,7 +108,7 @@ export default function About() {
       </section>
 
       {/* Who We Are — Operations */}
-      <section className="py-14 md:py-20 bg-primary/5">
+      <section className="py-20 md:py-28 bg-primary/5">
         <div className="container">
           <FadeSection>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -207,7 +206,7 @@ export default function About() {
       </section>
 
       {/* The Team */}
-      <section className="py-14 md:py-20 bg-background">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <FadeSection>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -247,22 +246,22 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-14 md:py-20 bg-primary/5">
+      <section className="py-20 md:py-28 bg-primary/5">
         <div className="container">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2">Our Purpose</p>
-              <h2 className="font-display text-3xl font-bold text-primary mb-3">Mission & Vision</h2>
+            <motion.div variants={fadeUp} className="text-center mb-12">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Our Purpose</p>
+              <h2 className="font-display text-4xl font-bold text-primary mb-4">Mission & Vision</h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div variants={fadeUp} className="bg-white p-6 rounded-2xl shadow-sm border border-border">
-                <h3 className="font-display text-xl font-bold text-primary mb-3">Our Mission</h3>
+              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-sm border border-border">
+                <h3 className="font-display text-2xl font-bold text-primary mb-4">Our Mission</h3>
                 <p className="text-foreground/65 leading-relaxed">
                   To provide safe, reliable, and professional vessel transport services that exceed client expectations. We are committed to delivering your boat on time, in perfect condition, with transparent communication and expert handling throughout every journey — coast to coast.
                 </p>
               </motion.div>
-              <motion.div variants={fadeUp} className="bg-white p-6 rounded-2xl shadow-sm border border-border">
-                <h3 className="font-display text-xl font-bold text-primary mb-3">Our Vision</h3>
+              <motion.div variants={fadeUp} className="bg-white p-8 rounded-2xl shadow-sm border border-border">
+                <h3 className="font-display text-2xl font-bold text-primary mb-4">Our Vision</h3>
                 <p className="text-foreground/65 leading-relaxed">
                   To be Thailand's most trusted marine transport specialist, recognised for our unwavering commitment to safety, professionalism, and client satisfaction. We aim to set the industry standard for oversized vessel relocation across the Kingdom.
                 </p>
@@ -273,11 +272,11 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 md:py-20 bg-primary text-white">
+      <section className="py-20 md:py-28 bg-primary text-white">
         <div className="container text-center">
           <FadeSection>
             <motion.div variants={fadeUp}>
-              <h2 className="font-display text-3xl font-bold mb-4">Ready to Work With Us?</h2>
+              <h2 className="font-display text-4xl font-bold mb-6">Ready to Work With Us?</h2>
               <p className="text-xl opacity-75 mb-10 max-w-2xl mx-auto">
                 Contact our team to discuss your vessel transport needs and receive a professional quote.
               </p>

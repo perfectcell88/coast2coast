@@ -52,19 +52,19 @@ export default function Contact() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative text-white overflow-hidden" style={{ minHeight: "400px", display: "flex", alignItems: "flex-end" }}>
+      <section className="relative text-white overflow-hidden" style={{ minHeight: "520px", display: "flex", alignItems: "flex-end" }}>
         <div className="absolute inset-0" style={{ backgroundImage: "url('/gallery/3.webp')", backgroundSize: "cover", backgroundPosition: "center 35%" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(4,24,40,0.35) 0%, rgba(4,24,40,0.6) 50%, rgba(4,24,40,0.98) 100%)" }} />
         {/* Teal accent line at bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
-        <div className="relative z-10 container pb-12 pt-36">
+        <div className="relative z-10 container pb-16 pt-44">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8" style={{ background: "#00c8c8" }} />
               <p className="font-mono-accent text-xs tracking-[0.35em] uppercase" style={{ color: "#00c8c8" }}>Get in Touch</p>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-2">Contact Us</h1>
-            <p className="text-base max-w-xl" style={{ color: "rgba(255,255,255,0.6)" }}>
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-3">Contact Us</h1>
+            <p className="text-lg max-w-xl" style={{ color: "rgba(255,255,255,0.6)" }}>
               Ready to move your vessel? Tell us about your boat and we'll get back to you promptly.
             </p>
           </motion.div>
@@ -72,7 +72,7 @@ export default function Contact() {
       </section>
 
       {/* ── MAIN CONTENT ── */}
-      <section className="pb-16 pt-8">
+      <section className="pb-24 pt-10">
         <div className="container max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
 
@@ -87,48 +87,46 @@ export default function Contact() {
                   <h2 className="font-display text-xl font-bold text-white">Scan to Contact Us</h2>
                   <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.45)" }}>Open WhatsApp or LINE directly on your phone</p>
                 </div>
-                <div className="p-6 flex flex-col gap-5">
-                  {/* WhatsApp QR — full width, large */}
+                <div className="p-6 grid grid-cols-2 gap-4">
+                  {/* WhatsApp QR */}
                   <a
                     href="https://wa.me/66862697138?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20vessel%20transport"
                     target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-6 p-5 rounded-2xl transition-all duration-200 group"
+                    className="flex flex-col items-center gap-4 p-5 rounded-2xl transition-all duration-200 group"
                     style={{ border: "2px solid #e5e7eb", background: "#fafafa" }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#25d366"; (e.currentTarget as HTMLElement).style.background = "#f0fff4"; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e7eb"; (e.currentTarget as HTMLElement).style.background = "#fafafa"; }}
                   >
-                    <div className="flex-shrink-0" style={{ width: "110px", height: "110px" }}>
+                    <div className="w-full" style={{ maxWidth: "180px", margin: "0 auto" }}>
                       <img src="/qr-whatsapp.png" alt="WhatsApp QR Code"
-                        className="w-full h-full rounded-xl object-contain group-hover:scale-[1.02] transition-transform duration-200"
+                        className="w-full aspect-square rounded-xl object-contain group-hover:scale-[1.03] transition-transform duration-200"
                         style={{ display: "block" }} />
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-3.5 h-3.5 rounded-full" style={{ background: "#25d366" }} />
-                        <p className="text-base font-bold" style={{ color: "#1a2535" }}>WhatsApp</p>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                        <div className="w-3 h-3 rounded-full" style={{ background: "#25d366" }} />
+                        <p className="text-sm font-bold" style={{ color: "#1a2535" }}>WhatsApp</p>
                       </div>
-                      <p className="text-sm mb-3" style={{ color: "#6b7280" }}>Scan to open chat instantly</p>
-                      <p className="text-xs font-medium" style={{ color: "#0a8a8a" }}>+66 86 269 7138</p>
+                      <p className="text-xs" style={{ color: "#9ca3af" }}>Tap to open chat</p>
                     </div>
                   </a>
 
-                  {/* LINE QR — full width, large */}
+                  {/* LINE QR */}
                   <div
-                    className="flex items-center gap-6 p-5 rounded-2xl"
+                    className="flex flex-col items-center gap-4 p-5 rounded-2xl"
                     style={{ border: "2px solid #e5e7eb", background: "#fafafa" }}
                   >
-                    <div className="flex-shrink-0" style={{ width: "110px", height: "110px" }}>
+                    <div className="w-full" style={{ maxWidth: "180px", margin: "0 auto" }}>
                       <img src="/qr-line.png" alt="LINE QR Code"
-                        className="w-full h-full rounded-xl object-contain"
+                        className="w-full aspect-square rounded-xl object-contain"
                         style={{ display: "block" }} />
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-3.5 h-3.5 rounded-full" style={{ background: "#06c755" }} />
-                        <p className="text-base font-bold" style={{ color: "#1a2535" }}>LINE</p>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                        <div className="w-3 h-3 rounded-full" style={{ background: "#06c755" }} />
+                        <p className="text-sm font-bold" style={{ color: "#1a2535" }}>LINE</p>
                       </div>
-                      <p className="text-sm mb-3" style={{ color: "#6b7280" }}>Scan to message on LINE</p>
-                      <p className="text-xs font-medium" style={{ color: "#0a8a8a" }}>ID: 0862697138</p>
+                      <p className="text-xs" style={{ color: "#9ca3af" }}>ID: 0862697138</p>
                     </div>
                   </div>
                 </div>
@@ -181,13 +179,13 @@ export default function Contact() {
               <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
 
                 {/* Form header */}
-                <div className="px-8 py-6" style={{ background: "linear-gradient(135deg, #041828 0%, #083248 100%)", borderBottom: "3px solid #0a8a8a" }}>
+                <div className="px-10 py-8" style={{ background: "linear-gradient(135deg, #041828 0%, #083248 100%)", borderBottom: "3px solid #0a8a8a" }}>
                   <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>Free Quote</p>
-                  <h2 className="font-display text-2xl font-bold text-white mb-1">Request a Quote</h2>
+                  <h2 className="font-display text-3xl font-bold text-white mb-1">Request a Quote</h2>
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>Fill in your vessel details and we'll respond within 24 hours.</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="px-8 py-8 space-y-6">
+                <form onSubmit={handleSubmit} className="px-10 py-10 space-y-7">
 
                   {/* Section: Your Details */}
                   <div>

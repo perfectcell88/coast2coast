@@ -18,20 +18,20 @@ export default function Footer() {
         }}
       />
 
-      <div className="container py-14">
+      <div className="container py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div
-                className="w-10 h-10 rounded-xl flex-shrink-0 overflow-hidden"
+                className="w-11 h-11 rounded-xl flex-shrink-0 overflow-hidden"
                 style={{ boxShadow: "0 0 20px rgba(0,200,200,0.3)" }}
               >
                 <img src="/logo-mark.webp" alt="Coast to Coast Marine Transportation Thailand" className="w-full h-full object-cover" />
               </div>
               <div>
-                <p className="font-display font-bold text-sm leading-tight text-white">Coast to Coast</p>
+                <p className="font-display font-bold text-base leading-tight text-white">Coast to Coast</p>
                 <p
                   className="text-[10px] leading-tight tracking-widest uppercase mt-0.5"
                   style={{ color: "rgba(0,200,200,0.65)" }}
@@ -153,7 +153,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="container py-4 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="container py-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
             &copy; {new Date().getFullYear()} Coast to Coast Marine Transportation Thailand. All rights reserved.
           </p>

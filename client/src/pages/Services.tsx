@@ -145,9 +145,8 @@ export default function Services() {
 
       {/* Hero */}
       <section
-        className="relative text-white flex items-center overflow-hidden"
+        className="relative text-white py-32 md:py-44 overflow-hidden"
         style={{
-          minHeight: "56vh",
           backgroundImage: "url('/gallery/5.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 40%",
@@ -157,33 +156,33 @@ export default function Services() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(6,22,44,0.75) 0%, rgba(6,22,44,0.55) 50%, rgba(6,22,44,0.80) 100%)",
+              "linear-gradient(135deg, rgba(6,22,44,0.88) 0%, rgba(6,22,44,0.72) 50%, rgba(14,116,144,0.45) 100%)",
           }}
         />
-        <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.7), transparent)" }} />
-        <div className="container relative z-10 text-center py-24 md:py-32">
+        <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-mono-accent text-xs tracking-[0.35em] uppercase mb-4" style={{ color: "rgba(0,200,200,0.9)" }}>What We Offer</p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5" style={{ lineHeight: '1.06', letterSpacing: '-0.01em', textShadow: "0 2px 40px rgba(0,0,0,0.6)" }}>Our Services</h1>
-            <p className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
-              Comprehensive vessel relocation and marine logistics solutions —<br className="hidden md:block" /> from crane to cradle to coast.
+            <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#2dd4bf" }}>What We Offer</p>
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>Our Services</h1>
+            <p className="text-xl max-w-3xl leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
+              Comprehensive vessel relocation and marine logistics solutions — from crane to cradle to coast.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Core Services */}
-      <section className="py-14 md:py-20 bg-background">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2">Core Services</p>
-              <h2 className="font-display text-3xl font-bold text-primary mb-3">What We Offer</h2>
-              <p className="text-base text-foreground/65 max-w-2xl mx-auto">
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Core Services</p>
+              <h2 className="font-display text-4xl font-bold text-primary mb-4">What We Offer</h2>
+              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
                 Complete marine transport with professional expertise at every stage
               </p>
             </motion.div>
@@ -194,9 +193,9 @@ export default function Services() {
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    className="bg-white p-6 rounded-xl shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+                    className="bg-white p-8 rounded-xl shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
                   >
-                    <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors">
+                    <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                       <Icon className="text-secondary" size={26} />
                     </div>
                     <h3 className="font-display text-lg font-bold text-primary mb-3">{service.title}</h3>
@@ -210,13 +209,13 @@ export default function Services() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-14 md:py-20 bg-primary/5">
+      <section className="py-20 md:py-28 bg-primary/5">
         <div className="container">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2">Related Services</p>
-              <h2 className="font-display text-3xl font-bold text-primary mb-3">Additional Services</h2>
-              <p className="text-base text-foreground/65 max-w-2xl mx-auto">
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Related Services</p>
+              <h2 className="font-display text-4xl font-bold text-primary mb-4">Additional Services</h2>
+              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
                 Beyond the transport itself, we offer a full suite of marine support services
               </p>
             </motion.div>
@@ -243,13 +242,13 @@ export default function Services() {
       </section>
 
       {/* Process */}
-      <section className="py-14 md:py-20 bg-background">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-10">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2">How It Works</p>
-              <h2 className="font-display text-3xl font-bold text-primary mb-3">The Transport Process</h2>
-              <p className="text-base text-foreground/65 max-w-2xl mx-auto">
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">How It Works</p>
+              <h2 className="font-display text-4xl font-bold text-primary mb-4">The Transport Process</h2>
+              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
                 A streamlined, professionally managed approach from first contact to final delivery
               </p>
             </motion.div>
