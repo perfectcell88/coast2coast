@@ -287,9 +287,9 @@ export default function Home() {
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(0,200,200,1)" }} />
             <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.6), transparent)" }} />
           </div>
-          <p className="font-bold mb-3" style={{ fontSize: "clamp(1.1rem, 5vw, 1.4rem)", lineHeight: 1.25 }}>Thailand's Premier Vessel<br />Relocation Specialists</p>
+          <p className="font-bold mb-3" style={{ fontSize: "clamp(1.1rem, 5vw, 1.4rem)", lineHeight: 1.25 }}>Thailand's Premier Vessel<br />Relocation Specialist</p>
           <p className="mb-8 leading-relaxed" style={{ fontSize: "clamp(0.85rem, 3.8vw, 1rem)", color: "rgba(255,255,255,0.85)" }}>
-            We transport vessels from the Gulf of Thailand to the Andaman Sea, trucking boats overland for 80 km and relaunching them on the west coast. Complete marine oversized load transportation company — paying attention to detail, coast to coast.
+            Transporting vessels from the Gulf of Thailand overland to the Andaman Sea. Complete marine oversized transportation company — paying attention to detail, coast to coast.
           </p>
           <div className="flex flex-col items-stretch gap-3 w-full max-w-sm">
             <button
@@ -415,7 +415,7 @@ export default function Home() {
               lineHeight: 1.25,
             }}
           >
-            Thailand's Premier Vessel<br />Relocation Specialists
+            Thailand's Premier Vessel<br />Relocation Specialist
           </p>
           <p
             className="mb-8 leading-relaxed"
@@ -426,9 +426,8 @@ export default function Home() {
               textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
             }}
           >
-            We transport vessels from the Gulf of Thailand to the Andaman Sea,
-            trucking boats overland for 80 km and relaunching them on the west coast.
-            Complete marine oversized load transportation company — paying attention to detail, coast to coast.
+            Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.
+            Complete marine oversized transportation company — paying attention to detail, coast to coast.
           </p>
           <div className="flex flex-col items-stretch gap-3" style={{ width: "100%" }}>
             <button
