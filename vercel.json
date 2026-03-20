@@ -1,11 +1,5 @@
 {
-  "buildCommand": "cd client && npm run build",
-  "outputDirectory": "dist/public",
-  "installCommand": "npm install --legacy-peer-deps",
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
