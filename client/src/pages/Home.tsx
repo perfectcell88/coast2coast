@@ -300,10 +300,10 @@ export default function Home() {
               Coast to Coast
             </h1>
           </div>
-          {/* Subtitle line — left-aligned, sits in the open space left of the boat */}
-          <div className="w-full mb-3" style={{ paddingLeft: "clamp(1.5rem, 5vw, 6rem)" }}>
+          {/* Subtitle line — centred */}
+          <div className="w-full mb-3">
             <p
-              className="font-mono-accent uppercase font-bold text-left"
+              className="font-mono-accent uppercase font-bold text-center"
               style={{
                 fontSize: "clamp(0.7rem, 1.6vw, 1.3rem)",
                 letterSpacing: "0.42em",
@@ -328,36 +328,36 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* ── HERO: BOTTOM BLOCK — subtitle + description + buttons pinned to lower portion ── */}
+        {/* ── HERO: BOTTOM BLOCK — subtitle + description + buttons pinned to bottom-left ── */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center text-center text-white px-4"
-          style={{ paddingBottom: "clamp(20rem, 38vh, 30rem)" }}
+          className="absolute bottom-0 left-0 z-10 flex flex-col items-start text-left text-white"
+          style={{ paddingBottom: "clamp(4rem, 8vh, 7rem)", paddingLeft: "clamp(2rem, 6vw, 7rem)", maxWidth: "min(52%, 640px)" }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" as const }}
         >
           {/* Subtitle */}
           <p
-            className="text-center mx-auto mb-3"
+            className="mb-3"
             style={{
               fontSize: "clamp(1.25rem, 2vw, 1.65rem)",
               color: "rgba(255,255,255,1)",
               textShadow: "0 0 40px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,0.6), -2px -2px 0 rgba(0,0,0,0.6)",
               fontWeight: 700,
               letterSpacing: "0.04em",
-              maxWidth: "780px",
+              maxWidth: "100%",
             }}
           >
             Thailand's Premier Vessel Relocation Specialists
           </p>
           {/* Description */}
           <p
-            className="text-center mx-auto mb-7 leading-relaxed"
+            className="mb-7 leading-relaxed"
             style={{
-              fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
-              color: "rgba(255,255,255,0.95)",
+              fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)",
+              color: "rgba(255,255,255,0.92)",
               textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
-              maxWidth: "640px",
+              maxWidth: "100%",
             }}
           >
             We transport vessels from the Gulf of Thailand to the Andaman Sea,
@@ -365,7 +365,7 @@ export default function Home() {
             Complete marine oversized load transportation company — paying attention to detail, coast to coast.
           </p>
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
             <button
               onClick={() => setVideoOpen(true)}
               className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/18 border border-white/30 hover:border-teal-400/70 text-white font-medium text-sm rounded-xl px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
