@@ -348,7 +348,7 @@ export default function Home() {
               maxWidth: "100%",
             }}
           >
-            Thailand's Premier Vessel Relocation Specialists
+            Thailand's Premier Vessel<br />Relocation Specialists
           </p>
           {/* Description */}
           <p
