@@ -420,11 +420,12 @@ export default function Home() {
             <p
               className="text-center w-full"
               style={{
-                fontFamily: "'Inter', system-ui, sans-serif",
+                fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(1.3rem, 1.8vw, 1.75rem)",
                 color: "rgba(255,255,255,1)",
                 fontWeight: 700,
-                letterSpacing: "-0.01em",
+                fontStyle: "normal",
+                letterSpacing: "0em",
                 lineHeight: 1.25,
                 marginBottom: "1rem",
                 textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.8)",
@@ -435,7 +436,7 @@ export default function Home() {
             <p
               className="text-center leading-relaxed"
               style={{
-                fontFamily: "'Inter', system-ui, sans-serif",
+                fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(1.05rem, 1.4vw, 1.45rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
