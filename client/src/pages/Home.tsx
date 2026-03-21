@@ -408,9 +408,9 @@ export default function Home() {
           <div
             style={{
               width: "100%",
-              background: "rgba(4, 14, 28, 0.28)",
-              backdropFilter: "blur(18px) saturate(1.2)",
-              WebkitBackdropFilter: "blur(18px) saturate(1.2)",
+              background: "rgba(4, 14, 28, 0.12)",
+              backdropFilter: "blur(14px) saturate(1.1)",
+              WebkitBackdropFilter: "blur(14px) saturate(1.1)",
               borderRadius: "18px 18px 0 0",
               border: "none",
               boxShadow: "none",
@@ -436,12 +436,12 @@ export default function Home() {
               className="text-center leading-relaxed"
               style={{
                 fontFamily: "'Georgia', 'Times New Roman', serif",
-                fontSize: "clamp(0.95rem, 1.1vw, 1.1rem)",
+                fontSize: "clamp(1.05rem, 1.4vw, 1.35rem)",
                 fontWeight: 400,
-                color: "rgba(255,255,255,0.88)",
+                color: "rgba(255,255,255,0.92)",
                 marginBottom: "1.6rem",
-                textShadow: "0 1px 10px rgba(0,0,0,0.85)",
-                lineHeight: 1.65,
+                textShadow: "0 1px 12px rgba(0,0,0,0.9)",
+                lineHeight: 1.6,
               }}
             >
               Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.
