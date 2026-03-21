@@ -44,7 +44,7 @@ export default function Contact() {
   const labelClass = "block text-[11px] font-bold uppercase tracking-[0.12em] mb-2";
 
   return (
-    <div className="min-h-screen" style={{ background: "#f0f2f5" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #041828 0%, #071e30 40%, #0a2540 100%)" }}>
       <SEO
         title="Contact Us | Coast to Coast Marine Transportation Thailand"
         description="Request a free quote for vessel relocation between Thailand's Gulf and Andaman coasts."
@@ -74,14 +74,14 @@ export default function Contact() {
       {/* ── MAIN CONTENT ── */}
       <section className="pb-24 pt-10">
         <div className="container max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch" style={{ position: "relative" }}>
 
             {/* ── LEFT COLUMN ── */}
             <motion.div className="lg:col-span-2 flex flex-col gap-6"
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
 
               {/* ── QR CODES — HERO ELEMENT ── */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)", border: "1px solid rgba(0,200,200,0.15)" }}>
                 <div className="px-7 py-5" style={{ background: "linear-gradient(135deg, #041828 0%, #083248 100%)" }}>
                   <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-1" style={{ color: "#00c8c8" }}>Instant Message</p>
                   <h2 className="font-display text-xl font-bold text-white">Scan to Contact Us</h2>
@@ -93,9 +93,9 @@ export default function Contact() {
                     href="https://wa.me/66862697138?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20vessel%20transport"
                     target="_blank" rel="noopener noreferrer"
                     className="flex flex-col items-center gap-4 p-5 rounded-2xl transition-all duration-200 group"
-                    style={{ border: "2px solid #e5e7eb", background: "#fafafa" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#25d366"; (e.currentTarget as HTMLElement).style.background = "#f0fff4"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e7eb"; (e.currentTarget as HTMLElement).style.background = "#fafafa"; }}
+                    style={{ border: "1px solid rgba(37,211,102,0.25)", background: "rgba(255,255,255,0.06)" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#25d366"; (e.currentTarget as HTMLElement).style.background = "rgba(37,211,102,0.1)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(37,211,102,0.25)"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
                   >
                     <div className="w-full" style={{ maxWidth: "180px", margin: "0 auto" }}>
                       <img src="/qr-whatsapp.png" alt="WhatsApp QR Code"
@@ -105,16 +105,16 @@ export default function Contact() {
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-1.5 mb-0.5">
                         <div className="w-3 h-3 rounded-full" style={{ background: "#25d366" }} />
-                        <p className="text-sm font-bold" style={{ color: "#1a2535" }}>WhatsApp</p>
+                        <p className="text-sm font-bold" style={{ color: "rgba(255,255,255,0.9)" }}>WhatsApp</p>
                       </div>
-                      <p className="text-xs" style={{ color: "#9ca3af" }}>Tap to open chat</p>
+                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>Tap to open chat</p>
                     </div>
                   </a>
 
                   {/* LINE QR */}
                   <div
                     className="flex flex-col items-center gap-4 p-5 rounded-2xl"
-                    style={{ border: "2px solid #e5e7eb", background: "#fafafa" }}
+                    style={{ border: "1px solid rgba(6,199,85,0.25)", background: "rgba(255,255,255,0.06)" }}
                   >
                     <div className="w-full" style={{ maxWidth: "180px", margin: "0 auto" }}>
                       <img src="/qr-line.png" alt="LINE QR Code"
@@ -124,21 +124,21 @@ export default function Contact() {
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-1.5 mb-0.5">
                         <div className="w-3 h-3 rounded-full" style={{ background: "#06c755" }} />
-                        <p className="text-sm font-bold" style={{ color: "#1a2535" }}>LINE</p>
+                        <p className="text-sm font-bold" style={{ color: "rgba(255,255,255,0.9)" }}>LINE</p>
                       </div>
-                      <p className="text-xs" style={{ color: "#9ca3af" }}>ID: 0862697138</p>
+                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>ID: 0862697138</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* ── CONTACT DETAILS ── */}
-              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)", border: "1px solid rgba(0,200,200,0.15)" }}>
                 <div className="px-7 py-5" style={{ background: "linear-gradient(135deg, #041828 0%, #083248 100%)" }}>
                   <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-1" style={{ color: "#00c8c8" }}>Reach Us Directly</p>
                   <h2 className="font-display text-xl font-bold text-white">Contact Information</h2>
                 </div>
-                <div className="divide-y" style={{ borderColor: "rgba(0,0,0,0.05)" }}>
+                <div className="divide-y" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
                   {[
                     { icon: Phone, label: "Phone", value: "+66 86 269 7138", href: "tel:+66862697138", accent: "#0a8a8a" },
                     { icon: MessageCircle, label: "WhatsApp", value: "+66 86 269 7138", href: "https://wa.me/66862697138?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20vessel%20transport", accent: "#25d366" },
@@ -150,13 +150,13 @@ export default function Contact() {
                   ].map((item, i) => {
                     const Icon = item.icon;
                     const row = (
-                      <div className="flex items-center gap-4 px-7 py-4 transition-colors hover:bg-gray-50">
+                        <div className="flex items-center gap-4 px-7 py-4 transition-colors hover:bg-white/5">
                         <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${item.accent}18` }}>
                           <Icon size={16} style={{ color: item.accent }} />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "#9ca3af" }}>{item.label}</p>
-                          <p className="text-sm font-medium truncate" style={{ color: "#1a2535" }}>{item.value}</p>
+                          <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "rgba(0,200,200,0.7)" }}>{item.label}</p>
+                          <p className="text-sm font-medium truncate" style={{ color: "rgba(255,255,255,0.88)" }}>{item.value}</p>
                         </div>
                       </div>
                     );
@@ -176,7 +176,7 @@ export default function Contact() {
             {/* ── RIGHT: QUOTE FORM ── */}
             <motion.div className="lg:col-span-3 flex flex-col"
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "#fff", boxShadow: "0 4px 28px rgba(4,24,40,0.10)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)", border: "1px solid rgba(0,200,200,0.15)" }}>
 
                 {/* Form header */}
                 <div className="px-10 py-8" style={{ background: "linear-gradient(135deg, #041828 0%, #083248 100%)", borderBottom: "3px solid #0a8a8a" }}>
@@ -185,7 +185,7 @@ export default function Contact() {
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>Fill in your vessel details and we'll respond within 24 hours.</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="px-10 py-10 space-y-7">
+                <form onSubmit={handleSubmit} className="px-10 py-10 space-y-7" style={{ color: "rgba(255,255,255,0.9)" }}>
 
                   {/* Section: Your Details */}
                   <div>
@@ -194,25 +194,25 @@ export default function Contact() {
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className={labelClass} style={{ color: "#374151" }}>
-                          Full Name <span style={{ color: "#0a8a8a" }}>*</span>
+                        <label className={labelClass} style={{ color: "rgba(255,255,255,0.7)" }}>
+                          Full Name <span style={{ color: "#00c8c8" }}>*</span>
                         </label>
                         <Input type="text" name="name" value={formData.name} onChange={handleChange}
-                          placeholder="Your full name" required className={inputClass} />
+                          placeholder="Your full name" required className={inputClass} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "white" } as React.CSSProperties} />
                       </div>
                       <div>
-                        <label className={labelClass} style={{ color: "#374151" }}>
-                          Email Address <span style={{ color: "#0a8a8a" }}>*</span>
+                        <label className={labelClass} style={{ color: "rgba(255,255,255,0.7)" }}>
+                          Email Address <span style={{ color: "#00c8c8" }}>*</span>
                         </label>
                         <Input type="email" name="email" value={formData.email} onChange={handleChange}
-                          placeholder="your@email.com" required className={inputClass} />
+                          placeholder="your@email.com" required className={inputClass} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "white" } as React.CSSProperties} />
                       </div>
                       <div className="sm:col-span-2">
-                        <label className={labelClass} style={{ color: "#374151" }}>
-                          Phone / WhatsApp <span style={{ color: "#0a8a8a" }}>*</span>
+                        <label className={labelClass} style={{ color: "rgba(255,255,255,0.7)" }}>
+                          Phone / WhatsApp <span style={{ color: "#00c8c8" }}>*</span>
                         </label>
                         <Input type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                          placeholder="+66 (0) XXX-XXXX" required className={inputClass} />
+                          placeholder="+66 (0) XXX-XXXX" required className={inputClass} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "white" } as React.CSSProperties} />
                       </div>
                     </div>
                   </div>
@@ -224,10 +224,10 @@ export default function Contact() {
                     </p>
                     <div className="space-y-5">
                       <div>
-                        <label className={labelClass} style={{ color: "#374151" }}>Vessel Type</label>
+                        <label className={labelClass} style={{ color: "rgba(255,255,255,0.7)" }}>Vessel Type</label>
                         <select name="vesselType" value={formData.vesselType} onChange={handleChange}
-                          className="w-full h-12 rounded-xl px-4 text-sm border border-gray-200 bg-gray-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-colors"
-                          style={{ color: formData.vesselType ? "#111827" : "#9ca3af" }}>
+                          className="w-full h-12 rounded-xl px-4 text-sm focus:outline-none focus:border-teal-400 transition-colors"
+                          style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: formData.vesselType ? "white" : "rgba(255,255,255,0.4)" }}>
                           <option value="" disabled>Select vessel type…</option>
                           <option value="Powerboat">Powerboat</option>
                           <option value="Keel Yacht">Keel Yacht</option>
@@ -236,7 +236,7 @@ export default function Contact() {
                         </select>
                       </div>
                       <div>
-                        <label className={labelClass} style={{ color: "#374151" }}>Vessel Dimensions</label>
+                        <label className={labelClass} style={{ color: "rgba(255,255,255,0.7)" }}>Vessel Dimensions</label>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                           {[
                             { name: "vesselLength", placeholder: "Length (m)" },
@@ -247,7 +247,7 @@ export default function Contact() {
                             <Input key={field.name} type="text" name={field.name}
                               value={formData[field.name as keyof typeof formData]}
                               onChange={handleChange} placeholder={field.placeholder}
-                              className={inputClass} />
+                              className={inputClass} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "white" } as React.CSSProperties} />
                           ))}
                         </div>
                         <p className="text-xs mt-2.5 flex items-center gap-1.5" style={{ color: "#9ca3af" }}>
@@ -263,10 +263,10 @@ export default function Contact() {
                     <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-5 pb-2" style={{ color: "#0a8a8a", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
                       Additional Information
                     </p>
-                    <Textarea name="message" value={formData.message} onChange={handleChange}
+                      <Textarea name="message" value={formData.message} onChange={handleChange}
                       placeholder="Tell us about your transport needs, preferred timeline, departure and destination ports, and any other details…"
-                      className="rounded-xl text-sm border-gray-200 bg-gray-50 focus:bg-white focus:border-teal-500 resize-none transition-colors placeholder:text-gray-400"
-                      style={{ minHeight: "140px" }} />
+                      className="rounded-xl text-sm resize-none transition-colors"
+                      style={{ minHeight: "140px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "white" }} />
                   </div>
 
                   {/* Submit */}

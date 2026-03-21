@@ -400,10 +400,34 @@ export default function Home() {
             paddingLeft: "clamp(2rem, 6vw, 7rem)",
             maxWidth: "clamp(260px, 32vw, 460px)",
           }}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" as const }}
         >
+          {/* Glassmorphic backdrop */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "linear-gradient(135deg, rgba(7,21,32,0.55) 0%, rgba(10,30,48,0.45) 100%)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              borderRadius: "0 20px 0 0",
+              border: "1px solid rgba(0,200,200,0.12)",
+              borderLeft: "none",
+              borderBottom: "none",
+              boxShadow: "inset 0 0 40px rgba(0,200,200,0.04), 0 -1px 0 rgba(0,200,200,0.15)",
+              margin: "-1.5rem -1.5rem -0px -2rem",
+            }}
+          />
+          {/* Teal top accent line */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: "-1.5rem",
+              left: "-2rem",
+              right: "-1.5rem",
+              height: "1px",
+              background: "linear-gradient(90deg, rgba(0,200,200,0.6), rgba(0,200,200,0.1))",
+            }}
+          />
+          <div className="relative z-10 w-full" style={{ padding: "1.5rem 1.5rem 0 0" }}>
           <p
             className="mb-5 text-center w-full"
             style={{
@@ -463,6 +487,7 @@ export default function Home() {
               <span className="uppercase tracking-widest">Follow Us on Facebook</span>
             </a>
           </div>
+          </div>{/* end glassmorphic inner wrapper */}
         </motion.div>
         {/* Animated scroll chevron */}
         <motion.div
@@ -542,44 +567,94 @@ export default function Home() {
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Serving Thailand's Coasts</h2>
               <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
             </motion.div>
-            {/* ── ROW 1: Full-width map ── */}
+            {/* ── TWO-COLUMN: Map + Route Details ── */}
             <motion.div variants={fadeUp} className="mb-6">
-              <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", padding: "20px" }}>
-                <ThailandRouteMap activeRoute={activeRoute} />
-              </div>
-            </motion.div>
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
 
-            {/* ── ROW 2: Route selector tabs ── */}
-            <motion.div variants={fadeUp} className="mb-8">
-              <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.12)", backdropFilter: "blur(8px)" }}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {[
-                    { label: "Gulf → Andaman", indices: [0, 2, 4, 7] },
-                    { label: "Andaman → Gulf", indices: [1, 3, 5, 6] },
-                  ].map((group) => (
-                    <div key={group.label}>
-                      <div className="flex items-center gap-3 mb-3">
-                        <p className="text-[10px] font-mono-accent tracking-[0.25em] uppercase font-bold" style={{ color: "rgba(0,200,200,0.8)" }}>{group.label}</p>
-                        <div className="flex-1 h-px" style={{ background: "rgba(0,200,200,0.2)" }} />
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {group.indices.map((i) => (
-                          <button
-                            key={i}
-                            onClick={() => setActiveRoute(i)}
-                            className="px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200"
-                            style={activeRoute === i
-                              ? { background: "linear-gradient(135deg, #0a8a8a, #00c8c8)", color: "white", border: "1px solid rgba(0,200,200,0.5)", boxShadow: "0 0 16px rgba(0,200,200,0.35)", transform: "scale(1.05)" }
-                              : { background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }
-                            }
-                          >
-                            {routes[i].from} → {routes[i].to}
-                          </button>
-                        ))}
+                {/* Map column */}
+                <div className="lg:col-span-2 rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", padding: "20px" }}>
+                  <ThailandRouteMap activeRoute={activeRoute} />
+                </div>
+
+                {/* Route details column */}
+                <div className="lg:col-span-3 flex flex-col gap-5">
+
+                  {/* Route selector tabs */}
+                  <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.12)", backdropFilter: "blur(8px)" }}>
+                    <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-4 font-bold" style={{ color: "rgba(0,200,200,0.8)" }}>Select a Route</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      {[
+                        { label: "Gulf → Andaman", indices: [0, 2, 4, 7] },
+                        { label: "Andaman → Gulf", indices: [1, 3, 5, 6] },
+                      ].map((group) => (
+                        <div key={group.label}>
+                          <div className="flex items-center gap-3 mb-3">
+                            <p className="text-[10px] font-mono-accent tracking-[0.25em] uppercase font-bold" style={{ color: "rgba(0,200,200,0.6)" }}>{group.label}</p>
+                            <div className="flex-1 h-px" style={{ background: "rgba(0,200,200,0.2)" }} />
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {group.indices.map((i) => (
+                              <button
+                                key={i}
+                                onClick={() => setActiveRoute(i)}
+                                className="px-4 py-2.5 rounded-full text-xs font-semibold transition-all duration-200"
+                                style={activeRoute === i
+                                  ? { background: "linear-gradient(135deg, #0a8a8a, #00c8c8)", color: "white", border: "1px solid rgba(0,200,200,0.5)", boxShadow: "0 0 16px rgba(0,200,200,0.35)", transform: "scale(1.05)" }
+                                  : { background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)", border: "1px solid rgba(255,255,255,0.15)" }
+                                }
+                              >
+                                {routes[i].from} → {routes[i].to}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Active route detail card */}
+                  <div className="rounded-2xl flex-1" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", overflow: "hidden" }}>
+                    {/* Card header */}
+                    <div className="px-8 py-6" style={{ background: "linear-gradient(135deg, rgba(4,24,40,0.9) 0%, rgba(8,40,60,0.9) 100%)", borderBottom: "1px solid rgba(0,200,200,0.12)" }}>
+                      <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: "rgba(0,200,200,0.7)" }}>Active Route</p>
+                      <h3 className="font-display text-2xl md:text-3xl font-bold text-white">
+                        {routes[activeRoute].from} → {routes[activeRoute].to}
+                      </h3>
+                    </div>
+                    {/* Stats grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y" style={{ borderColor: "rgba(0,200,200,0.1)" }}>
+                      {[
+                        { label: "Total Time",     value: routes[activeRoute].time },
+                        { label: "Engine Hours",   value: routes[activeRoute].engineHours },
+                        { label: "Sea Miles",      value: routes[activeRoute].seaMiles + " mi" },
+                        { label: "Overland",       value: routes[activeRoute].overland },
+                      ].map((stat, i) => (
+                        <div key={i} className="px-6 py-5 flex flex-col gap-1">
+                          <p className="text-[10px] font-mono-accent tracking-[0.2em] uppercase" style={{ color: "rgba(0,200,200,0.6)" }}>{stat.label}</p>
+                          <p className="font-display text-xl font-bold text-white">{stat.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Description */}
+                    <div className="px-8 py-6">
+                      <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                        {routes[activeRoute].description}
+                      </p>
+                      <div className="mt-5 flex items-center gap-4">
+                        <a href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
+                          style={{ background: "linear-gradient(135deg, #0a8a8a, #00c8c8)", color: "white", boxShadow: "0 0 20px rgba(0,200,200,0.3)" }}>
+                          <Anchor size={14} />
+                          Request a Quote
+                        </a>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full" style={{ background: "#f59e0b" }} />
+                          <span className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>80 km overland land bridge</span>
+                        </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+
+                </div>{/* end route details column */}
               </div>
             </motion.div>
 
@@ -614,22 +689,22 @@ export default function Home() {
                 <div className="absolute top-5 right-5 text-xs font-bold px-3 py-1 rounded-full" style={{ background: "rgba(180,60,60,0.25)", border: "1px solid rgba(200,80,80,0.4)", color: "#f87171" }}>
                   Traditional Route
                 </div>
-                <AlertTriangle size={32} className="mb-5" style={{ color: "#f87171" }} />
-                <h3 className="font-display text-xl font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h3>
-                <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea &amp; Malacca Straits</p>
-                <div className="space-y-3">
+                <AlertTriangle size={36} className="mb-5" style={{ color: "#f87171" }} />
+                <h3 className="font-display text-2xl md:text-3xl font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h3>
+                <p className="text-base md:text-lg mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea &amp; Malacca Straits</p>
+                <div className="space-y-4">
                   {[
                     { label: "Total Distance", value: "1,700 miles" },
                     { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
                     { label: "Engine Hours", value: "500+ hours" },
                   ].map((item, i) => (
-                    <div key={i} className="flex justify-between items-center pb-3" style={{ borderBottom: "1px solid rgba(180,60,60,0.2)" }}>
-                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>{item.label}</span>
-                      <span className="font-bold text-sm" style={{ color: "#fca5a5" }}>{item.value}</span>
+                    <div key={i} className="flex justify-between items-center pb-4" style={{ borderBottom: "1px solid rgba(180,60,60,0.2)" }}>
+                      <span className="text-base md:text-lg" style={{ color: "rgba(255,255,255,0.65)" }}>{item.label}</span>
+                      <span className="font-bold text-base md:text-lg" style={{ color: "#fca5a5" }}>{item.value}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-xs mt-5 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+                <p className="text-base mt-6 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                   Via Singapore is hard on the boat and crew — very few ports for diesel &amp; repairs, monsoon storms with lightning, and the busiest shipping convergence lanes in the world. Our land bridge solution changes everything.
                 </p>
               </motion.div>
@@ -648,22 +723,22 @@ export default function Home() {
                   style={{ background: "linear-gradient(135deg, #a07828, #d4a840)", color: "#fff", boxShadow: "0 0 16px rgba(180,145,60,0.4)" }}>
                   ✶ Recommended
                 </div>
-                <TrendingDown size={32} className="mb-5" style={{ color: "#00c8c8" }} />
-                <h3 className="font-display text-xl font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h3>
-                <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
-                <div className="space-y-3">
+                <TrendingDown size={36} className="mb-5" style={{ color: "#00c8c8" }} />
+                <h3 className="font-display text-2xl md:text-3xl font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h3>
+                <p className="text-base md:text-lg mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
+                <div className="space-y-4">
                   {[
                     { label: "Sea Miles (Pattaya–Phuket)", value: "~350 miles" },
                     { label: "Total Time", value: "Under 1 week" },
                     { label: "Engine Hours", value: "~50 hours" },
                   ].map((item, i) => (
-                    <div key={i} className="flex justify-between items-center pb-3" style={{ borderBottom: "1px solid rgba(180,145,60,0.2)" }}>
-                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.label}</span>
-                      <span className="font-bold text-sm" style={{ color: "#00c8c8" }}>{item.value}</span>
+                    <div key={i} className="flex justify-between items-center pb-4" style={{ borderBottom: "1px solid rgba(180,145,60,0.2)" }}>
+                      <span className="text-base md:text-lg" style={{ color: "rgba(255,255,255,0.6)" }}>{item.label}</span>
+                      <span className="font-bold text-base md:text-lg" style={{ color: "#00c8c8" }}>{item.value}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-xs mt-5 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                <p className="text-base mt-6 leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
                   Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Sea miles handled by our licensed crew or your own. Simple. Safe. Professional.
                 </p>
               </motion.div>
@@ -685,9 +760,9 @@ export default function Home() {
                   const Icon = s.icon;
                   return (
                     <div key={i} className="flex flex-col items-center gap-2">
-                      <Icon size={26} style={{ color: "#0a7a7a" }} />
-                      <span className="font-display text-3xl font-bold" style={{ color: "#061e36" }}>{s.value}</span>
-                      <span className="text-sm font-medium" style={{ color: "#4a6070" }}>{s.label}</span>
+                      <Icon size={30} style={{ color: "#0a7a7a" }} />
+                      <span className="font-display text-4xl font-bold" style={{ color: "#061e36" }}>{s.value}</span>
+                      <span className="text-base font-medium" style={{ color: "#4a6070" }}>{s.label}</span>
                     </div>
                   );
                 })}
