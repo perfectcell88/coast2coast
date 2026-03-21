@@ -391,103 +391,117 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* ── BOTTOM-LEFT BLOCK — subtitle + description + buttons ── */}
+        {/* ── BOTTOM CENTRE BLOCK — glassmorphic floating card ── */}
         <motion.div
-          className="absolute left-0 z-10 flex flex-col items-start text-left text-white"
+          className="absolute bottom-0 left-0 right-0 z-10 flex justify-center"
           style={{
-            bottom: 0,
-            paddingBottom: "clamp(1.5rem, 3vh, 3rem)",
-            paddingLeft: "clamp(2rem, 6vw, 7rem)",
-            maxWidth: "clamp(260px, 32vw, 460px)",
+            paddingBottom: "clamp(2rem, 4vh, 4rem)",
+            paddingLeft: "clamp(1rem, 4vw, 3rem)",
+            paddingRight: "clamp(1rem, 4vw, 3rem)",
           }}
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" as const }}
         >
-          {/* Glassmorphic backdrop */}
+          {/* The glass card */}
           <div
-            className="absolute inset-0 pointer-events-none"
             style={{
-              background: "linear-gradient(135deg, rgba(7,21,32,0.55) 0%, rgba(10,30,48,0.45) 100%)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              borderRadius: "0 20px 0 0",
-              border: "1px solid rgba(0,200,200,0.12)",
-              borderLeft: "none",
-              borderBottom: "none",
-              boxShadow: "inset 0 0 40px rgba(0,200,200,0.04), 0 -1px 0 rgba(0,200,200,0.15)",
-              margin: "-1.5rem -1.5rem -0px -2rem",
-            }}
-          />
-          {/* Teal top accent line */}
-          <div
-            className="absolute pointer-events-none"
-            style={{
-              top: "-1.5rem",
-              left: "-2rem",
-              right: "-1.5rem",
-              height: "1px",
-              background: "linear-gradient(90deg, rgba(0,200,200,0.6), rgba(0,200,200,0.1))",
-            }}
-          />
-          <div className="relative z-10 w-full" style={{ padding: "1.5rem 1.5rem 0 0" }}>
-          <p
-            className="mb-5 text-center w-full"
-            style={{
-              fontSize: "clamp(1.1rem, 1.6vw, 1.5rem)",
-              color: "rgba(255,255,255,1)",
-              textShadow: "0 0 40px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1)",
-              fontWeight: 700,
-              letterSpacing: "0.02em",
-              lineHeight: 1.25,
+              maxWidth: "clamp(320px, 44vw, 560px)",
+              width: "100%",
+              background: "rgba(6, 20, 36, 0.38)",
+              backdropFilter: "blur(20px) saturate(1.4)",
+              WebkitBackdropFilter: "blur(20px) saturate(1.4)",
+              borderRadius: "20px",
+              border: "1px solid rgba(0,200,200,0.28)",
+              boxShadow: "0 0 0 1px rgba(0,200,200,0.08), 0 8px 48px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.07), 0 0 60px rgba(0,200,200,0.06)",
+              padding: "clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.6rem, 3vw, 2.6rem)",
             }}
           >
-            Thailand's Premier Vessel<br />Relocation Specialist
-          </p>
-          <p
-            className="mb-8 leading-relaxed"
-            style={{
-              fontSize: "clamp(1.1rem, 1.6vw, 1.5rem)",
-              fontWeight: 400,
-              color: "rgba(255,255,255,0.92)",
-              textShadow: "0 0 30px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,1)",
-            }}
-          >
-            Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.
-            Complete marine oversized transportation company — paying attention to detail, coast to coast.
-          </p>
-          <div className="flex flex-col items-stretch gap-3" style={{ width: "100%" }}>
-            <button
-              onClick={() => setVideoOpen(true)}
-              className="flex items-center justify-center gap-3 w-full bg-white/12 hover:bg-white/20 border border-white/35 hover:border-teal-400/80 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
-              style={{ fontSize: "1rem", letterSpacing: "0.06em" }}
+            {/* Top teal accent rule */}
+            <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.7), transparent)", marginBottom: "1.25rem", borderRadius: "1px" }} />
+
+            <p
+              className="text-center w-full"
+              style={{
+                fontSize: "clamp(1.1rem, 1.5vw, 1.45rem)",
+                color: "rgba(255,255,255,1)",
+                fontWeight: 700,
+                letterSpacing: "0.02em",
+                lineHeight: 1.25,
+                marginBottom: "0.85rem",
+                textShadow: "0 1px 12px rgba(0,0,0,0.8)",
+              }}
             >
-              <div className="w-6 h-6 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
-                <Play size={11} className="ml-0.5" />
-              </div>
-              <span className="uppercase tracking-widest">Watch Our Process</span>
-            </button>
-            <Link href="/contact">
-              <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-8 py-4 shadow-xl shadow-secondary/40 transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
-                style={{ fontSize: "1rem", letterSpacing: "0.06em" }}
+              Thailand's Premier Vessel<br />Relocation Specialist
+            </p>
+            <p
+              className="text-center leading-relaxed"
+              style={{
+                fontSize: "clamp(0.9rem, 1.15vw, 1.1rem)",
+                fontWeight: 400,
+                color: "rgba(255,255,255,0.80)",
+                marginBottom: "1.5rem",
+                textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+              }}
+            >
+              Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.
+              Complete marine oversized transportation company — paying attention to detail, coast to coast.
+            </p>
+
+            {/* Bottom teal accent rule */}
+            <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.4), transparent)", marginBottom: "1.5rem", borderRadius: "1px" }} />
+
+            <div className="flex flex-col items-stretch gap-3">
+              <button
+                onClick={() => setVideoOpen(true)}
+                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5"
+                style={{
+                  fontSize: "0.9rem",
+                  letterSpacing: "0.07em",
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.22)",
+                  backdropFilter: "blur(8px)",
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,200,200,0.6)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)"; }}
               >
-                <Anchor size={16} className="flex-shrink-0 opacity-90" />
-                <span className="uppercase tracking-widest">Request a Quote</span>
+                <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0">
+                  <Play size={10} className="ml-0.5" />
+                </div>
+                <span className="uppercase tracking-widest">Watch Our Process</span>
+              </button>
+              <Link href="/contact">
+                <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-8 py-3.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
+                  style={{ fontSize: "0.9rem", letterSpacing: "0.07em" }}
+                >
+                  <Anchor size={15} className="flex-shrink-0 opacity-90" />
+                  <span className="uppercase tracking-widest">Request a Quote</span>
+                </a>
+              </Link>
+              <a
+                href="https://www.facebook.com/profile.php?id=61588477663667"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-8 py-3.5 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                style={{
+                  fontSize: "0.9rem",
+                  letterSpacing: "0.07em",
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.22)",
+                  backdropFilter: "blur(8px)",
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.5)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)"; }}
+              >
+                <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </div>
+                <span className="uppercase tracking-widest">Follow Us on Facebook</span>
               </a>
-            </Link>
-            <a
-              href="https://www.facebook.com/profile.php?id=61588477663667"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full bg-white/12 hover:bg-white/20 border border-white/35 hover:border-white/60 text-white font-semibold rounded-xl px-8 py-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-              style={{ fontSize: "1rem", letterSpacing: "0.06em" }}
-            >
-              <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </div>
-              <span className="uppercase tracking-widest">Follow Us on Facebook</span>
-            </a>
+            </div>
           </div>
-          </div>{/* end glassmorphic inner wrapper */}
         </motion.div>
         {/* Animated scroll chevron */}
         <motion.div
