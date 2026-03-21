@@ -408,9 +408,9 @@ export default function Home() {
           <div
             style={{
               width: "100%",
-              background: "rgba(4, 14, 28, 0.06)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
+              background: "rgba(4, 14, 28, 0.03)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
               borderRadius: "18px 18px 0 0",
               border: "none",
               boxShadow: "none",
@@ -420,14 +420,14 @@ export default function Home() {
             <p
               className="text-center w-full"
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: "clamp(1.35rem, 1.9vw, 1.85rem)",
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: "clamp(1.3rem, 1.8vw, 1.75rem)",
                 color: "rgba(255,255,255,1)",
-                fontWeight: 800,
-                letterSpacing: "0.01em",
+                fontWeight: 700,
+                letterSpacing: "-0.01em",
                 lineHeight: 1.25,
                 marginBottom: "1rem",
-                textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
+                textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.8)",
               }}
             >
               Thailand's Premier Vessel<br />Relocation Specialist
@@ -435,14 +435,14 @@ export default function Home() {
             <p
               className="text-center leading-relaxed"
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: "clamp(1.1rem, 1.55vw, 1.55rem)",
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: "clamp(1.05rem, 1.4vw, 1.45rem)",
                 fontWeight: 400,
-                fontStyle: "italic",
-                color: "rgba(255,255,255,0.95)",
+                fontStyle: "normal",
+                color: "rgba(255,255,255,0.92)",
                 marginBottom: "1.6rem",
                 textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
-                lineHeight: 1.6,
+                lineHeight: 1.65,
               }}
             >
               Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.
