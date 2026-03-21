@@ -23,22 +23,17 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <div
-                className="w-11 h-11 rounded-xl flex-shrink-0 overflow-hidden"
-                style={{ boxShadow: "0 0 20px rgba(0,200,200,0.3)" }}
-              >
-                <img src="/logo-mark.webp" alt="Coast to Coast Marine Transportation Thailand" className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <p className="font-display font-bold text-base leading-tight text-white">Coast to Coast</p>
-                <p
-                  className="text-[10px] leading-tight tracking-widest uppercase mt-0.5"
-                  style={{ color: "rgba(0,200,200,0.65)" }}
-                >
-                  Marine Transportation Thailand
-                </p>
-              </div>
+            <div className="mb-5">
+              <img
+                src="/logo-mark.png"
+                alt="Coast to Coast Marine Transportation Thailand"
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 0 12px rgba(0,200,200,0.4)) drop-shadow(0 2px 8px rgba(0,0,0,0.5))",
+                }}
+              />
             </div>
             <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
               Thailand's premier vessel relocation specialists — Gulf of Thailand to the Andaman Sea.

@@ -378,26 +378,34 @@ export default function Home() {
               Marine Transportation Thailand
             </p>
           </div>
-          <div className="flex items-center justify-center gap-3 w-full max-w-xl mx-auto">
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.75))" }} />
-            <div className="flex items-center gap-2.5">
-              <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-                <rect x="1.5" y="1.5" width="9" height="9" transform="rotate(45 6 6)" fill="none" stroke="rgba(0,200,200,0.95)" strokeWidth="1.3" style={{ filter: "drop-shadow(0 0 4px rgba(0,200,200,0.85))" }} />
-              </svg>
-              <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(0,200,200,1)", boxShadow: "0 0 6px rgba(0,200,200,1), 0 0 14px rgba(0,200,200,0.5)" }} />
-            </div>
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.75), transparent)" }} />
-          </div>
+          {/* Logo badge — hero insignia */}
+          <motion.div
+            className="flex flex-col items-center mt-4"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" as const }}
+          >
+            <img
+              src="/logo-mark.png"
+              alt="Coast to Coast Marine Transportation Thailand"
+              style={{
+                width: "clamp(90px, 10vw, 130px)",
+                height: "clamp(90px, 10vw, 130px)",
+                objectFit: "contain",
+                filter: "drop-shadow(0 0 18px rgba(0,200,200,0.35)) drop-shadow(0 4px 16px rgba(0,0,0,0.7))",
+              }}
+            />
+          </motion.div>
         </motion.div>
 
-        {/* ── BOTTOM CENTRE BLOCK — glassmorphic floating card ── */}
+        {/* ── BOTTOM LEFT BLOCK — glassmorphic card (left-anchored) ── */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 z-10 flex justify-center"
+          className="absolute bottom-0 left-0 z-10"
           style={{
-            paddingBottom: "clamp(2rem, 4vh, 4rem)",
-            paddingLeft: "clamp(1rem, 4vw, 3rem)",
-            paddingRight: "clamp(1rem, 4vw, 3rem)",
+            paddingBottom: "clamp(1.5rem, 3vh, 3rem)",
+            paddingLeft: "clamp(2rem, 6vw, 7rem)",
+            maxWidth: "clamp(280px, 34vw, 480px)",
+            width: "100%",
           }}
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -406,15 +414,15 @@ export default function Home() {
           {/* The glass card */}
           <div
             style={{
-              maxWidth: "clamp(320px, 44vw, 560px)",
               width: "100%",
-              background: "rgba(6, 20, 36, 0.38)",
-              backdropFilter: "blur(20px) saturate(1.4)",
-              WebkitBackdropFilter: "blur(20px) saturate(1.4)",
-              borderRadius: "20px",
-              border: "1px solid rgba(0,200,200,0.28)",
-              boxShadow: "0 0 0 1px rgba(0,200,200,0.08), 0 8px 48px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.07), 0 0 60px rgba(0,200,200,0.06)",
-              padding: "clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.6rem, 3vw, 2.6rem)",
+              background: "rgba(6, 20, 36, 0.42)",
+              backdropFilter: "blur(22px) saturate(1.5)",
+              WebkitBackdropFilter: "blur(22px) saturate(1.5)",
+              borderRadius: "16px 16px 0 0",
+              border: "1px solid rgba(0,200,200,0.22)",
+              borderBottom: "none",
+              boxShadow: "0 -4px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(0,200,200,0.12), 0 0 60px rgba(0,200,200,0.04)",
+              padding: "clamp(1.4rem, 2.5vw, 2rem) clamp(1.4rem, 2.5vw, 2rem) 0",
             }}
           >
             {/* Top teal accent rule */}
@@ -501,6 +509,7 @@ export default function Home() {
                 <span className="uppercase tracking-widest">Follow Us on Facebook</span>
               </a>
             </div>
+            <div style={{ height: "clamp(1.4rem, 2.5vw, 2rem)" }} />
           </div>
         </motion.div>
         {/* Animated scroll chevron */}
