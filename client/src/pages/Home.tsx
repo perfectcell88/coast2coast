@@ -404,33 +404,30 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" as const }}
         >
-          {/* The glass card */}
+          {/* The frosted blur card — no borders */}
           <div
             style={{
               width: "100%",
-              background: "rgba(6, 20, 36, 0.42)",
-              backdropFilter: "blur(22px) saturate(1.5)",
-              WebkitBackdropFilter: "blur(22px) saturate(1.5)",
-              borderRadius: "16px 16px 0 0",
-              border: "1px solid rgba(0,200,200,0.22)",
-              borderBottom: "none",
-              boxShadow: "0 -4px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(0,200,200,0.12), 0 0 60px rgba(0,200,200,0.04)",
-              padding: "clamp(1.4rem, 2.5vw, 2rem) clamp(1.4rem, 2.5vw, 2rem) 0",
+              background: "rgba(4, 14, 28, 0.28)",
+              backdropFilter: "blur(18px) saturate(1.2)",
+              WebkitBackdropFilter: "blur(18px) saturate(1.2)",
+              borderRadius: "18px 18px 0 0",
+              border: "none",
+              boxShadow: "none",
+              padding: "clamp(1.6rem, 2.8vw, 2.2rem) clamp(1.6rem, 2.8vw, 2.2rem) 0",
             }}
           >
-            {/* Top teal accent rule */}
-            <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.7), transparent)", marginBottom: "1.25rem", borderRadius: "1px" }} />
-
             <p
               className="text-center w-full"
               style={{
-                fontSize: "clamp(1.1rem, 1.5vw, 1.45rem)",
+                fontFamily: "'Georgia', 'Times New Roman', serif",
+                fontSize: "clamp(1.15rem, 1.55vw, 1.5rem)",
                 color: "rgba(255,255,255,1)",
                 fontWeight: 700,
-                letterSpacing: "0.02em",
-                lineHeight: 1.25,
-                marginBottom: "0.85rem",
-                textShadow: "0 1px 12px rgba(0,0,0,0.8)",
+                letterSpacing: "0.01em",
+                lineHeight: 1.3,
+                marginBottom: "0.9rem",
+                textShadow: "0 2px 16px rgba(0,0,0,0.9)",
               }}
             >
               Thailand's Premier Vessel<br />Relocation Specialist
@@ -438,33 +435,33 @@ export default function Home() {
             <p
               className="text-center leading-relaxed"
               style={{
-                fontSize: "clamp(0.9rem, 1.15vw, 1.1rem)",
+                fontFamily: "'Georgia', 'Times New Roman', serif",
+                fontSize: "clamp(0.95rem, 1.1vw, 1.1rem)",
                 fontWeight: 400,
-                color: "rgba(255,255,255,0.80)",
-                marginBottom: "1.5rem",
-                textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+                color: "rgba(255,255,255,0.88)",
+                marginBottom: "1.6rem",
+                textShadow: "0 1px 10px rgba(0,0,0,0.85)",
+                lineHeight: 1.65,
               }}
             >
               Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.
               Complete marine oversized transportation company — paying attention to detail, coast to coast.
             </p>
 
-            {/* Bottom teal accent rule */}
-            <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.4), transparent)", marginBottom: "1.5rem", borderRadius: "1px" }} />
-
             <div className="flex flex-col items-stretch gap-3">
               <button
                 onClick={() => setVideoOpen(true)}
                 className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5"
                 style={{
-                  fontSize: "0.9rem",
+                  fontSize: "0.92rem",
                   letterSpacing: "0.07em",
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.22)",
-                  backdropFilter: "blur(8px)",
+                  background: "rgba(255,255,255,0.10)",
+                  border: "none",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
                 }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,200,200,0.6)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)"; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.18)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.10)"; }}
               >
                 <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0">
                   <Play size={10} className="ml-0.5" />
@@ -473,7 +470,7 @@ export default function Home() {
               </button>
               <Link href="/contact">
                 <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-8 py-3.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
-                  style={{ fontSize: "0.9rem", letterSpacing: "0.07em" }}
+                  style={{ fontSize: "0.92rem", letterSpacing: "0.07em", border: "none" }}
                 >
                   <Anchor size={15} className="flex-shrink-0 opacity-90" />
                   <span className="uppercase tracking-widest">Request a Quote</span>
@@ -485,14 +482,15 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-8 py-3.5 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                 style={{
-                  fontSize: "0.9rem",
+                  fontSize: "0.92rem",
                   letterSpacing: "0.07em",
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.22)",
-                  backdropFilter: "blur(8px)",
+                  background: "rgba(255,255,255,0.10)",
+                  border: "none",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
                 }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.5)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)"; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.18)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.10)"; }}
               >
                 <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
