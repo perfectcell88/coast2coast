@@ -198,8 +198,8 @@ export default function Services() {
                     <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                       <Icon className="text-secondary" size={26} />
                     </div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-3">{service.title}</h3>
-                    <p className="text-foreground/65 text-sm leading-relaxed">{service.description}</p>
+                    <h3 className="font-display text-xl font-bold text-primary mb-3">{service.title}</h3>
+                    <p className="text-foreground/65 text-base leading-relaxed">{service.description}</p>
                   </motion.div>
                 );
               })}
@@ -231,8 +231,8 @@ export default function Services() {
                     <div className="w-12 h-12 bg-primary/8 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
                       <Icon className="text-primary" size={22} />
                     </div>
-                    <h3 className="font-display text-base font-bold text-primary mb-2">{service.title}</h3>
-                    <p className="text-foreground/60 text-sm leading-relaxed">{service.description}</p>
+                    <h3 className="font-display text-lg font-bold text-primary mb-2">{service.title}</h3>
+                    <p className="text-foreground/60 text-base leading-relaxed">{service.description}</p>
                   </motion.div>
                 );
               })}

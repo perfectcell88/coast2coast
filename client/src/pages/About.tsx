@@ -159,14 +159,14 @@ export default function About() {
 
               {/* Body copy */}
               <p
-                className="text-xl leading-relaxed mb-5 mx-auto"
+                className="text-xl md:text-2xl leading-relaxed mb-6 mx-auto"
                 style={{ color: "rgba(255,255,255,0.75)", maxWidth: "720px" }}
               >
                 Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. A deeply experienced team with a long track record in the marine industry in Thailand.
               </p>
               <p
-                className="text-base leading-relaxed mx-auto"
-                style={{ color: "rgba(255,255,255,0.48)", maxWidth: "620px" }}
+                className="text-lg leading-relaxed mx-auto"
+                style={{ color: "rgba(255,255,255,0.5)", maxWidth: "640px" }}
               >
                 That depth of institutional knowledge underpins every vessel relocation we undertake — from crane selection and transit cradle fabrication to port clearance coordination and final handover.
               </p>
