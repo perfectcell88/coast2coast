@@ -59,18 +59,6 @@ export default function Contact() {
         <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
         <div className="relative z-10 container pb-16 pt-44">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="mb-6">
-              <img
-                src="/logo-mark.png"
-                alt="Coast to Coast Marine Transportation Thailand"
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  objectFit: "contain",
-                  filter: "drop-shadow(0 0 14px rgba(0,200,200,0.4)) drop-shadow(0 4px 12px rgba(0,0,0,0.6))",
-                }}
-              />
-            </div>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8" style={{ background: "#00c8c8" }} />
               <p className="font-mono-accent text-xs tracking-[0.35em] uppercase" style={{ color: "#00c8c8" }}>Get in Touch</p>

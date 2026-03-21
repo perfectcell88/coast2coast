@@ -60,20 +60,17 @@ export default function Navigation() {
         <Link href="/">
           <a className="flex items-center gap-3 group flex-shrink-0 z-10">
             <div
-              className="flex-shrink-0 transition-all duration-300 group-hover:scale-105"
+              className="w-10 h-10 rounded-xl flex-shrink-0 overflow-hidden transition-all duration-300 group-hover:scale-105"
               style={{
-                width: "44px",
-                height: "44px",
-                filter: scrolled
-                  ? "drop-shadow(0 0 8px rgba(0,200,200,0.55)) drop-shadow(0 2px 6px rgba(0,0,0,0.5))"
-                  : "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
-                transition: "filter 0.4s ease",
+                boxShadow: scrolled
+                  ? "0 0 18px rgba(0,200,200,0.5), 0 2px 8px rgba(0,0,0,0.35)"
+                  : "0 2px 10px rgba(0,0,0,0.3)",
               }}
             >
               <img
-                src="/logo-mark.png"
+                src="/logo-mark.webp"
                 alt="Coast to Coast Marine Transportation Thailand"
-                style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                className="w-full h-full object-cover"
               />
             </div>
             <span className="hidden sm:block leading-none">

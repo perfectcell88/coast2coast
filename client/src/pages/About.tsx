@@ -78,18 +78,6 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex justify-center mb-6">
-              <img
-                src="/logo-mark.png"
-                alt="Coast to Coast Marine Transportation Thailand"
-                style={{
-                  width: "90px",
-                  height: "90px",
-                  objectFit: "contain",
-                  filter: "drop-shadow(0 0 14px rgba(0,200,200,0.4)) drop-shadow(0 4px 12px rgba(0,0,0,0.6))",
-                }}
-              />
-            </div>
             <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#2dd4bf" }}>About Us</p>
             <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
               Coast to Coast Marine<br />Transportation Thailand
