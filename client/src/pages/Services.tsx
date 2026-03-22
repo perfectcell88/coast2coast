@@ -169,7 +169,7 @@ export default function Services() {
             <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#2dd4bf" }}>What We Offer</p>
             <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>Our Services</h1>
             <p className="text-xl max-w-3xl leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
-              Comprehensive vessel relocation and marine logistics solutions — from crane to cradle to coast.
+              Comprehensive vessel relocation and marine logistics solutions — from coast to coast.
             </p>
           </motion.div>
         </div>
@@ -284,7 +284,7 @@ export default function Services() {
         <div className="container text-center">
           <FadeSection>
             <motion.div variants={fadeUp}>
-              <h2 className="font-display text-4xl font-bold mb-6">Ready to Do It the Easy Way Round?</h2>
+              <h2 className="font-display text-4xl font-bold mb-6">Do it the Easy Way</h2>
               <p className="text-xl opacity-75 mb-10 max-w-2xl mx-auto">
                 Skip the 1,700-mile slog. Get your vessel coast to coast in under a week — contact us to get started.
               </p>

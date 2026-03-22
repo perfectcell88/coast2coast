@@ -162,13 +162,7 @@ export default function About() {
                 className="text-xl md:text-2xl leading-relaxed mb-6 mx-auto"
                 style={{ color: "rgba(255,255,255,0.75)", maxWidth: "720px" }}
               >
-                Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. A deeply experienced team with a long track record in the marine industry in Thailand.
-              </p>
-              <p
-                className="text-lg leading-relaxed mx-auto"
-                style={{ color: "rgba(255,255,255,0.5)", maxWidth: "640px" }}
-              >
-                That depth of institutional knowledge underpins every vessel relocation we undertake — from crane selection and transit cradle fabrication to port clearance coordination and final handover.
+                Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. A diverse and dedicated team with a long track record in the marine industry in Thailand.
               </p>
 
               {/* Badges */}
@@ -222,7 +216,7 @@ export default function About() {
                   Our loadmaster is on site throughout the entire process, ensuring correct lifting points, weights & balances, securing & strong points, monitoring the overland journey from the rear pilot car — the entire team are in VHF radio contact for the duration of the trip.
                 </p>
                 <p className="text-lg text-foreground/70 mb-5 leading-relaxed">
-                  For the sea legs — whether that's the Gulf approach to Chumphon or the Andaman delivery from Ranong to Phuket — we can set you up with professional ticketed captains & crew. If you have the time and prefer to do these sea miles yourself, we will amend the quote for your contribution.
+                  For the ocean miles — whether that's the Gulf approach to Chumphon or the Andaman delivery from Ranong to Phuket — we can set you up with professional ticketed captains & crew. If you have the time and prefer to do these sea miles yourself, we will amend the quote for your contribution.
                 </p>
                 <p className="text-lg text-foreground/70 leading-relaxed">
                   From initial consultation to final handover, you have one point of contact. We handle the logistics, the paperwork, the crane bookings, and the coordination — so you can focus on what matters.
@@ -238,7 +232,7 @@ export default function About() {
         <div className="container text-center">
           <FadeSection>
             <motion.div variants={fadeUp}>
-              <h2 className="font-display text-4xl font-bold mb-6">Ready to Work With Us?</h2>
+              <h2 className="font-display text-4xl font-bold mb-6">For Full Details Contact Us</h2>
               <p className="text-xl opacity-75 mb-10 max-w-2xl mx-auto">
                 Contact our team to discuss your vessel transport needs and receive a professional quote.
               </p>

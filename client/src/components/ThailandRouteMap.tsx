@@ -46,48 +46,54 @@ const PHUKET_ISLAND =
 
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
+// Route paths curve OUT into the ocean, away from the coastline:
+// Gulf routes bow right (east, into the Gulf of Thailand)
+// Andaman routes bow left (west, into the Andaman Sea)
 const ROUTES_DATA = [
   {
     label: "Pattaya → Phuket",
-    gulfSea: "M 216.5,84.1 C 220,120 210,160 190,185 C 170,210 140,215 107.5,213.7",
+    // Gulf leg: curves east out into the Gulf, then comes back to Chumphon
+    gulfSea: "M 216.5,84.1 C 290,100 310,160 290,200 C 270,230 200,230 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 C 68,270 63,300 60,320 C 57,340 56,348 57.1,353.0",
+    // Andaman leg: curves west out into the Andaman Sea
+    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
     originPin: "pattaya",
     destPin: "phuket",
     direction: "forward" as const,
   },
   {
     label: "Phuket → Pattaya",
-    gulfSea: "M 107.5,213.7 C 140,215 170,210 190,185 C 210,160 220,120 216.5,84.1",
+    gulfSea: "M 107.5,213.7 C 200,230 270,230 290,200 C 310,160 290,100 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 56,348 57,340 60,320 C 63,300 68,270 71.0,242.5",
+    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
     originPin: "phuket",
     destPin: "pattaya",
     direction: "reverse" as const,
   },
   {
     label: "Bangkok → Phuket",
-    gulfSea: "M 212.0,38.0 C 215,55 218,70 216.5,84.1 C 220,120 210,160 190,185 C 170,210 140,215 107.5,213.7",
+    gulfSea: "M 212.0,38.0 C 300,60 320,130 300,190 C 280,230 200,235 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 C 68,270 63,300 60,320 C 57,340 56,348 57.1,353.0",
+    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
     originPin: "bangkok",
     destPin: "phuket",
     direction: "forward" as const,
   },
   {
     label: "Phuket → Bangkok",
-    gulfSea: "M 107.5,213.7 C 140,215 170,210 190,185 C 210,160 220,120 216.5,84.1 C 218,70 215,55 212.0,38.0",
+    gulfSea: "M 107.5,213.7 C 200,235 280,230 300,190 C 320,130 300,60 212.0,38.0",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 56,348 57,340 60,320 C 63,300 68,270 71.0,242.5",
+    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
     originPin: "phuket",
     destPin: "bangkok",
     direction: "reverse" as const,
   },
   {
     label: "Chumphon → Phuket",
+    // No Gulf leg needed — starts at Chumphon
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 C 68,270 63,300 60,320 C 57,340 56,348 57.1,353.0",
+    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
     originPin: "chumphon",
     destPin: "phuket",
     direction: "forward" as const,
@@ -96,15 +102,16 @@ const ROUTES_DATA = [
     label: "Phuket → Chumphon",
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 56,348 57,340 60,320 C 63,300 68,270 71.0,242.5",
+    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
     originPin: "phuket",
     destPin: "chumphon",
     direction: "reverse" as const,
   },
   {
     label: "Ranong → Pattaya",
-    gulfSea: "M 107.5,213.7 C 140,215 170,210 190,185 C 210,160 220,120 216.5,84.1",
+    gulfSea: "M 107.5,213.7 C 200,230 270,230 290,200 C 310,160 290,100 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
+    // No Andaman leg — starts at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
     originPin: "ranong",
     destPin: "pattaya",
@@ -112,8 +119,9 @@ const ROUTES_DATA = [
   },
   {
     label: "Pattaya → Ranong",
-    gulfSea: "M 216.5,84.1 C 220,120 210,160 190,185 C 170,210 140,215 107.5,213.7",
+    gulfSea: "M 216.5,84.1 C 290,100 310,160 290,200 C 270,230 200,230 107.5,213.7",
     landBridge: LAND_BRIDGE,
+    // No Andaman leg — ends at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
     originPin: "pattaya",
     destPin: "ranong",
@@ -151,7 +159,17 @@ const popIn = (delay = 0) => ({
 });
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function ThailandRouteMap({ activeRoute }: { activeRoute: number }) {
+export default function ThailandRouteMap({
+  activeRoute,
+  onPrev,
+  onNext,
+  totalRoutes,
+}: {
+  activeRoute: number;
+  onPrev?: () => void;
+  onNext?: () => void;
+  totalRoutes?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   const [animKey, setAnimKey] = useState(0);
@@ -180,6 +198,72 @@ export default function ThailandRouteMap({ activeRoute }: { activeRoute: number 
 
   return (
     <div ref={ref} className="relative w-full select-none" style={{ maxWidth: 520, margin: "0 auto" }}>
+      {/* ── In-map navigation arrows ── */}
+      {onPrev && (
+        <button
+          onClick={onPrev}
+          aria-label="Previous route"
+          className="absolute z-20 flex items-center justify-center transition-all duration-200 hover:scale-110"
+          style={{
+            left: "10px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "36px",
+            height: "36px",
+            borderRadius: "50%",
+            background: "rgba(0,200,200,0.15)",
+            border: "1px solid rgba(0,200,200,0.35)",
+            backdropFilter: "blur(6px)",
+            color: "#00c8c8",
+            boxShadow: "0 0 12px rgba(0,200,200,0.2)",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M9 2L4 7L9 12" stroke="#00c8c8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
+      {onNext && (
+        <button
+          onClick={onNext}
+          aria-label="Next route"
+          className="absolute z-20 flex items-center justify-center transition-all duration-200 hover:scale-110"
+          style={{
+            right: "10px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "36px",
+            height: "36px",
+            borderRadius: "50%",
+            background: "rgba(0,200,200,0.15)",
+            border: "1px solid rgba(0,200,200,0.35)",
+            backdropFilter: "blur(6px)",
+            color: "#00c8c8",
+            boxShadow: "0 0 12px rgba(0,200,200,0.2)",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M5 2L10 7L5 12" stroke="#00c8c8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
+      {/* Route indicator dots */}
+      {totalRoutes && (
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+          {Array.from({ length: totalRoutes }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                width: i === activeRoute ? "18px" : "6px",
+                height: "6px",
+                borderRadius: "3px",
+                background: i === activeRoute ? "#00c8c8" : "rgba(0,200,200,0.3)",
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
+      )}
       <AnimatePresence mode="wait">
         <motion.div
           key={animKey}
