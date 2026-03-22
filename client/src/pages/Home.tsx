@@ -623,17 +623,7 @@ export default function Home() {
                     <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
                       {routes[activeRoute].description}
                     </p>
-                    <div className="mt-5 flex items-center gap-4">
-                      <a href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
-                        style={{ background: "linear-gradient(135deg, #0a8a8a, #00c8c8)", color: "white", boxShadow: "0 0 20px rgba(0,200,200,0.3)" }}>
-                        <Anchor size={14} />
-                        Request a Quote
-                      </a>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full" style={{ background: "#f59e0b" }} />
-                        <span className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>80 km overland land bridge</span>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
 
