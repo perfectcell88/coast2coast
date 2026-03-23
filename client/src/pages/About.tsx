@@ -57,8 +57,11 @@ export default function About() {
 
       {/* ── HERO ── */}
       <section
-        className="relative text-white py-32 md:py-44 overflow-hidden"
+        className="relative text-white overflow-hidden"
         style={{
+          height: "420px",
+          display: "flex",
+          alignItems: "flex-end",
           backgroundImage: "url('/gallery/4.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 50%",
@@ -68,11 +71,11 @@ export default function About() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(6,22,44,0.88) 0%, rgba(6,22,44,0.72) 50%, rgba(14,116,144,0.45) 100%)",
+              "linear-gradient(180deg, rgba(44,62,80,0.1) 0%, rgba(44,62,80,0.35) 60%, rgba(44,62,80,0.85) 100%)",
           }}
         />
         <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
-        <div className="container relative z-10">
+        <div className="container relative z-10 pb-14">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -109,7 +112,7 @@ export default function About() {
       <section
         className="relative py-28 md:py-36 overflow-hidden"
         style={{
-          background: "linear-gradient(160deg, #041828 0%, #062840 55%, #083858 100%)",
+          background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 55%, #2a4a5e 100%)",
         }}
       >
         {/* Subtle teal glow top */}
@@ -165,23 +168,7 @@ export default function About() {
                 Phuket Marine Oracle Co., Ltd. was established in 2005 — it's the parent company of Coast to Coast. A diverse and dedicated team with a long track record in the marine industry in Thailand.
               </p>
 
-              {/* Badges */}
-              <div className="mt-10 flex flex-wrap justify-center gap-3">
-                {["Marine Industry Specialists", "Thailand-Based"].map((badge) => (
-                  <span
-                    key={badge}
-                    className="text-xs font-semibold px-5 py-2.5 rounded-full"
-                    style={{
-                      background: "rgba(0,200,200,0.08)",
-                      border: "1px solid rgba(0,200,200,0.22)",
-                      color: "rgba(0,200,200,0.8)",
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
+
             </motion.div>
           </FadeSection>
         </div>
@@ -239,7 +226,7 @@ export default function About() {
               <Link href="/contact">
                 <a>
                   <Button className="bg-secondary hover:bg-secondary/90 text-white px-10 py-6 text-lg font-semibold shadow-lg">
-                    Get in Touch
+                    Contact Us
                   </Button>
                 </a>
               </Link>

@@ -145,8 +145,11 @@ export default function Services() {
 
       {/* Hero */}
       <section
-        className="relative text-white py-32 md:py-44 overflow-hidden"
+        className="relative text-white overflow-hidden"
         style={{
+          height: "420px",
+          display: "flex",
+          alignItems: "flex-end",
           backgroundImage: "url('/gallery/5.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 40%",
@@ -156,11 +159,11 @@ export default function Services() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(6,22,44,0.88) 0%, rgba(6,22,44,0.72) 50%, rgba(14,116,144,0.45) 100%)",
+              "linear-gradient(180deg, rgba(44,62,80,0.1) 0%, rgba(44,62,80,0.35) 60%, rgba(44,62,80,0.85) 100%)",
           }}
         />
         <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, transparent, #0e7490, transparent)" }} />
-        <div className="container relative z-10">
+        <div className="container relative z-10 pb-14">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -216,7 +219,7 @@ export default function Services() {
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Related Services</p>
               <h2 className="font-display text-4xl font-bold text-primary mb-4">Additional Services</h2>
               <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
-                Beyond the transport itself, we offer a full suite of marine support services
+                We offer a full scope of marine support services
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

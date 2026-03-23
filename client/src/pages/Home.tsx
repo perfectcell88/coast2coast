@@ -277,7 +277,7 @@ export default function Home() {
           <div className="absolute inset-x-0 top-0" style={{ height: "80px", background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%)" }} />
         </div>
         {/* Content block below image */}
-        <div className="bg-[#0d1b2a] px-6 py-8 flex flex-col items-center text-center text-white">
+        <div className="bg-[#2c3e50] px-6 py-8 flex flex-col items-center text-center text-white">
           <h1 className="font-display font-bold uppercase mb-2" style={{ fontSize: "clamp(2rem, 10vw, 3rem)", letterSpacing: "0.18em", lineHeight: 1.05, textShadow: "0 2px 12px rgba(0,0,0,0.8)" }}>Coast to Coast</h1>
           <p className="font-mono-accent uppercase font-bold mb-4" style={{ fontSize: "clamp(0.6rem, 3.2vw, 0.85rem)", letterSpacing: "0.38em", color: "rgba(0,200,200,0.95)" }}>Marine Transportation Thailand</p>
           <div className="flex items-center gap-3 w-full max-w-xs mx-auto mb-6">
@@ -303,7 +303,7 @@ export default function Home() {
                 style={{ fontSize: "0.95rem", letterSpacing: "0.06em" }}
               >
                 <Anchor size={16} className="flex-shrink-0 opacity-90" />
-                <span className="uppercase tracking-widest">Request a Quote</span>
+                <span className="uppercase tracking-widest">Contact Us</span>
               </a>
             </Link>
             <a
@@ -473,7 +473,7 @@ export default function Home() {
                   style={{ fontSize: "0.92rem", letterSpacing: "0.07em", border: "none" }}
                 >
                   <Anchor size={15} className="flex-shrink-0 opacity-90" />
-                  <span className="uppercase tracking-widest">Request a Quote</span>
+                  <span className="uppercase tracking-widest">Contact Us</span>
                 </a>
               </Link>
               <a
@@ -561,7 +561,7 @@ export default function Home() {
 
 
       {/* ── ROUTE / MAP ───────────────────────────────────────────── */}
-      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #041828 0%, #072840 40%, #053848 70%, #041828 100%)" }}>
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 40%, #2a4a5e 70%, #2c3e50 100%)" }}>
         {/* Nautical chart grid overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: `
@@ -578,7 +578,7 @@ export default function Home() {
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>The Route</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Serving Thailand's Coasts</h2>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Coast to Coast</h2>
               <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
             </motion.div>
             {/* ── MAP + ROUTE DETAIL (centred, arrows inside map) ── */}
@@ -595,36 +595,11 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Active route detail card */}
-                <div className="w-full rounded-2xl" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", overflow: "hidden" }}>
-                  {/* Card header */}
-                  <div className="px-8 py-6" style={{ background: "linear-gradient(135deg, rgba(4,24,40,0.9) 0%, rgba(8,40,60,0.9) 100%)", borderBottom: "1px solid rgba(0,200,200,0.12)" }}>
-                    <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: "rgba(0,200,200,0.7)" }}>Active Route</p>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white">
-                      {routes[activeRoute].from} → {routes[activeRoute].to}
-                    </h3>
-                  </div>
-                  {/* Stats grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y" style={{ borderColor: "rgba(0,200,200,0.1)" }}>
-                    {[
-                      { label: "Total Time",     value: routes[activeRoute].time },
-                      { label: "Engine Hours",   value: routes[activeRoute].engineHours },
-                      { label: "Sea Miles",      value: routes[activeRoute].seaMiles + " mi" },
-                      { label: "Overland",       value: routes[activeRoute].overland },
-                    ].map((stat, i) => (
-                      <div key={i} className="px-6 py-5 flex flex-col gap-1">
-                        <p className="text-[10px] font-mono-accent tracking-[0.2em] uppercase" style={{ color: "rgba(0,200,200,0.6)" }}>{stat.label}</p>
-                        <p className="font-display text-xl font-bold text-white">{stat.value}</p>
-                      </div>
-                    ))}
-                  </div>
-                  {/* Description */}
-                  <div className="px-8 py-6">
-                    <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
-                      {routes[activeRoute].description}
-                    </p>
-
-                  </div>
+                {/* Active route name label */}
+                <div className="text-center">
+                  <p className="font-display text-2xl md:text-3xl font-bold text-white">
+                    {routes[activeRoute].from} → {routes[activeRoute].to}
+                  </p>
                 </div>
 
               </div>
@@ -636,7 +611,7 @@ export default function Home() {
       </section>
 
        {/* ── COMPARISON ──────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 text-white overflow-hidden" style={{ background: "linear-gradient(180deg, #0d1f30 0%, #0f2535 50%, #0d1f30 100%)" }}>
+      <section className="py-20 md:py-28 text-white overflow-hidden" style={{ background: "linear-gradient(180deg, #2c3e50 0%, #2c3e50 50%, #2c3e50 100%)" }}>
         <div className="container">
           <FadeSection>
             <motion.div variants={fadeUp} className="text-center mb-14">
@@ -653,7 +628,7 @@ export default function Home() {
                 variants={fadeUp}
                 className="rounded-2xl p-8 relative flex flex-col"
                 style={{
-                  background: "linear-gradient(145deg, #1a1010 0%, #2a1515 50%, #1e1212 100%)",
+                  background: "linear-gradient(145deg, #2a1a1a 0%, #3a2020 50%, #2a1a1a 100%)",
                   border: "1px solid rgba(180,60,60,0.3)",
                   boxShadow: "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
@@ -676,8 +651,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <p className="text-base mt-6 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                  Via Singapore is hard on the boat and crew — very few ports for diesel &amp; repairs, monsoon storms with lightning, and the busiest shipping convergence lanes in the world. Our land bridge solution changes everything.
+                <p className="text-lg mt-6 leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day, providing all goes well. The east coast of Malaysia provides very little support for repairs and fuel. The notorious South China Sea has its own challenges. Singapore is chaotic with katabatic squalls that create zero visibility and one of the highest incidences of lightning strikes in the world.
                 </p>
               </motion.div>
 
@@ -710,8 +685,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <p className="text-base mt-6 leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-                  Craned out at Chumphon, secured on our custom transit cradle, trucked 80 km overland, then craned into the Andaman Sea at Ranong by our 100-ton crane. Sea miles handled by our licensed crew or your own. Simple. Safe. Professional.
+                <p className="text-lg mt-6 leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. It's relentless and no pleasure cruise. Our Chumphon–Ranong land bridge is the new option.
                 </p>
               </motion.div>
             </div>
@@ -978,7 +953,7 @@ export default function Home() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,40,60,0.93) 0%, rgba(10,80,80,0.85) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(44,68,88,0.93) 0%, rgba(10,80,80,0.85) 100%)" }} />
         <div className="container text-center relative z-10">
           <FadeSection>
             <motion.div variants={fadeUp}>
@@ -987,10 +962,7 @@ export default function Home() {
                 <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary">Get Started</p>
                 <div className="h-px w-8 bg-secondary/60" />
               </div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-                Ready to Transport Your Vessel?
-              </h2>
-              <p className="text-xl mb-10 opacity-75 max-w-2xl mx-auto">
+              <p className="text-3xl md:text-4xl mb-10 max-w-2xl mx-auto font-display" style={{ color: "rgba(255,255,255,0.92)", lineHeight: 1.5, fontWeight: 600 }}>
                 Contact our team today to discuss your requirements and get started.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1004,7 +976,7 @@ export default function Home() {
                         border: "1px solid rgba(0,200,200,0.35)",
                       }}
                     >
-                      Get Your Free Quote <ArrowRight size={18} />
+                      Coast to Coast <ArrowRight size={18} />
                     </button>
                   </a>
                 </Link>
