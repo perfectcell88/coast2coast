@@ -976,7 +976,7 @@ export default function Home() {
                         border: "1px solid rgba(0,200,200,0.35)",
                       }}
                     >
-                      Coast to Coast <ArrowRight size={18} />
+                      Contact our Team <ArrowRight size={18} />
                     </button>
                   </a>
                 </Link>
