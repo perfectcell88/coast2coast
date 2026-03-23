@@ -11,7 +11,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ZoomIn,
-  TrendingDown,
+  TrendingUp,
   Gauge,
   Ruler,
   Weight,
