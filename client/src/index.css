@@ -122,7 +122,7 @@
 
 @layer base {
   html {
-    font-size: 93.75%; /* Changed from 100% to 15px base scale */
+    font-size: 87.5%; /* Reduced to 14px base for that smaller, precise look */
   }
   * {
     @apply border-border outline-ring/50;
@@ -130,26 +130,26 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem; /* Reduced from 1.0625rem (17px) to standard size */
-    line-height: 1.6; /* Reduced from 1.75 for a tighter layout */
+    font-size: 1rem; 
+    line-height: 1.5; /* Tightened line spacing */
   }
 
   p {
-    font-size: 1rem; /* Reduced from 1.0625rem */
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
-  /* Specific edits to reduce Tailwind's text utility sizes to match second screenshot */
-  .text-xs  { font-size: 0.75rem !important; line-height: 1.25 !important; } 
-  .text-sm  { font-size: 0.875rem !important; line-height: 1.35 !important; } 
-  .text-base { font-size: 1rem !important; line-height: 1.6 !important; } 
-  .text-lg  { font-size: 1.125rem !important; line-height: 1.55 !important; } 
-  .text-xl  { font-size: 1.25rem !important; line-height: 1.5 !important; } 
+  /* Compact Tailwind utilities to keep elements from expanding */
+  .text-xs  { font-size: 0.75rem !important; line-height: 1.2 !important; } 
+  .text-sm  { font-size: 0.85rem !important; line-height: 1.25 !important; } 
+  .text-base { font-size: 1rem !important; line-height: 1.5 !important; } 
+  .text-lg  { font-size: 1.05rem !important; line-height: 1.5 !important; } 
+  .text-xl  { font-size: 1.2rem !important; line-height: 1.5 !important; } 
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    letter-spacing: -0.02em; /* Tightened from -0.5px for a sleeker look */
+    letter-spacing: -0.025em; /* Tighter tracking for headings */
   }
   
   .font-display {
@@ -213,7 +213,7 @@
     .container {
       padding-left: 2rem; /* 32px - desktop padding */
       padding-right: 2rem;
-      max-width: 1200px; /* Reduced from 1280px to pull text away from truck */
+      max-width: 1140px; /* Narrowed specifically to pull text away from the truck body */
     }
   }
   
@@ -242,7 +242,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, transparent 75%); /* Adjusted from 135deg for a cleaner left-shadow */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, transparent 80%); /* Adjusted for cleaner shadow */
     z-index: 1;
   }
 }
