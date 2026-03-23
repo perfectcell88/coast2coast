@@ -44,31 +44,31 @@ const PHUKET_ISLAND =
 //   Chumphon: x=107.5, y=213.7
 //   Ranong:   x=71.0,  y=242.5
 //   Phuket:   x=57.1,  y=353.0
-//   Singapore: x=50, y=380 (at the southern tip of the Malay Peninsula, southeast of Phuket)
+//   Singapore: x=88, y=380 (southern tip of the Malay Peninsula)
 
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
-// Singapore sea routes — DASHED LINES that wrap around the peninsula staying entirely in the sea
-// Singapore is at the southern tip, so routes sweep down and around the southern coast
-// Each route shows the traditional long sea route alternative
+// Singapore sea routes — SIMPLE DIRECT DASHED LINES that go AROUND the landmass in the sea
+// Each route goes from origin → around the peninsula → to Singapore → back → to destination
+// Routes stay entirely in blue water, never crossing land
 const SINGAPORE_ROUTES: Record<string, string> = {
-  // Pattaya → Phuket: sweep down the east coast, around the southern tip to Singapore, then back up to Phuket
-  "pattaya-phuket": "M 216.5,84.1 Q 200,120 180,160 Q 160,200 120,250 Q 80,300 50,360 Q 45,375 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 L 57.1,353.0",
+  // Pattaya → Phuket: Down east coast, around south tip to Singapore, back to Phuket
+  "pattaya-phuket": "M 216.5,84.1 L 200,150 L 160,220 L 120,280 L 88,380 L 57.1,353.0",
   
-  // Phuket → Pattaya: reverse route from Phuket down to Singapore, then back up to Pattaya
-  "phuket-pattaya": "M 57.1,353.0 L 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 Q 45,375 50,360 Q 80,300 120,250 Q 160,200 180,160 Q 200,120 216.5,84.1",
+  // Phuket → Pattaya: From Phuket, around south to Singapore, back up to Pattaya
+  "phuket-pattaya": "M 57.1,353.0 L 88,380 L 120,280 L 160,220 L 200,150 L 216.5,84.1",
   
-  // Chumphon → Phuket: from Chumphon down through Ranong area, sweep around to Singapore, back to Phuket
-  "chumphon-phuket": "M 107.5,213.7 Q 95,240 85,270 Q 75,300 65,330 Q 55,355 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 L 57.1,353.0",
+  // Chumphon → Phuket: Down to Ranong area, around south to Singapore, back to Phuket
+  "chumphon-phuket": "M 107.5,213.7 L 90,260 L 75,310 L 88,380 L 57.1,353.0",
   
-  // Phuket → Chumphon: reverse from Phuket to Singapore, then back up to Chumphon
-  "phuket-chumphon": "M 57.1,353.0 L 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 Q 55,355 65,330 Q 75,300 85,270 Q 95,240 107.5,213.7",
+  // Phuket → Chumphon: From Phuket, around south to Singapore, back up to Chumphon
+  "phuket-chumphon": "M 57.1,353.0 L 88,380 L 75,310 L 90,260 L 107.5,213.7",
   
-  // Ranong → Pattaya: from Ranong down to Singapore, then back up to Pattaya
-  "ranong-pattaya": "M 71.0,242.5 Q 65,270 60,300 Q 55,330 50,360 Q 45,375 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 Q 55,355 65,330 Q 75,300 85,270 Q 95,240 107.5,213.7 Q 120,200 160,180 Q 200,160 216.5,84.1",
+  // Ranong → Pattaya: From Ranong, around south to Singapore, back up to Pattaya
+  "ranong-pattaya": "M 71.0,242.5 L 80,300 L 88,380 L 140,280 L 180,180 L 216.5,84.1",
   
-  // Pattaya → Ranong: from Pattaya down to Singapore, then back up to Ranong
-  "pattaya-ranong": "M 216.5,84.1 Q 200,120 160,180 Q 120,200 107.5,213.7 Q 95,240 85,270 Q 75,300 65,330 Q 55,355 50,380 Q 45,375 50,360 Q 55,330 60,300 Q 65,270 71.0,242.5",
+  // Pattaya → Ranong: From Pattaya, around south to Singapore, back to Ranong
+  "pattaya-ranong": "M 216.5,84.1 L 180,180 L 140,280 L 88,380 L 80,300 L 71.0,242.5",
 };
 
 // Route paths now STRAIGHTENED (direct lines instead of curves):
@@ -141,7 +141,7 @@ const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "lef
   chumphon: { x: 107.5, y: 213.7, label: "Chumphon", side: "right" },
   ranong:   { x: 71.0,  y: 242.5, label: "Ranong",   side: "left"  },
   phuket:   { x: 57.1,  y: 353.0, label: "Phuket",   side: "left"  },
-  singapore: { x: 50, y: 380, label: "Singapore", side: "left" },
+  singapore: { x: 88, y: 380, label: "Singapore", side: "left" },
 };
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -363,7 +363,7 @@ export default function ThailandRouteMap({
                 className="singapore-route-animated"
                 initial="hidden"
                 animate="visible"
-                variants={drawPath(0.2, 2.8)}
+                variants={drawPath(0.2, 2.0)}
               />
             )}
 
