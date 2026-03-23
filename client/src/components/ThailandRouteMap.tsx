@@ -7,7 +7,7 @@
  *  - Pulsing city pins
  *  - Animated route drawing
  *  - Sea labels and decorative elements
- *  - Singapore dotted sea route showing traditional shipping route (permanent overlay on all routes)
+ *  - Singapore dashed sea route showing traditional shipping route (permanent overlay on all routes)
  *  - Navigation arrows to scan through routes
  *
  * SVG viewBox: -50 -50 500 600 (zoomed out to show more sea and context)
@@ -44,30 +44,39 @@ const PHUKET_ISLAND =
 //   Chumphon: x=107.5, y=213.7
 //   Ranong:   x=71.0,  y=242.5
 //   Phuket:   x=57.1,  y=353.0
-//   Singapore: x=40, y=420 (approximate position south of Phuket)
+//   Singapore: x=50, y=380 (at the southern tip of the Malay Peninsula, southeast of Phuket)
 
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
-// Singapore sea routes — CORRECTED to follow natural paths around the peninsula
-// Each route has its own Singapore alternative showing what the traditional long sea route would be
-// Routes now follow sweeping curves that wrap around the landmass without cutting through it
+// Singapore sea routes — DASHED LINES that wrap around the peninsula staying entirely in the sea
+// Singapore is at the southern tip, so routes sweep down and around the southern coast
+// Each route shows the traditional long sea route alternative
 const SINGAPORE_ROUTES: Record<string, string> = {
-  "pattaya-phuket": "M 216.5,84.1 Q 260,100 280,150 Q 300,200 300,280 Q 290,340 200,380 Q 100,420 40,420 L 57.1,353.0",
-  "phuket-pattaya": "M 57.1,353.0 L 40,420 Q 100,420 200,380 Q 290,340 300,280 Q 300,200 280,150 Q 260,100 216.5,84.1",
-  "chumphon-phuket": "M 107.5,213.7 Q 140,220 180,240 Q 240,270 280,320 Q 300,360 200,390 Q 100,420 40,420 L 57.1,353.0",
-  "phuket-chumphon": "M 57.1,353.0 L 40,420 Q 100,420 200,390 Q 300,360 280,320 Q 240,270 180,240 Q 140,220 107.5,213.7",
-  "ranong-pattaya": "M 71.0,242.5 Q 100,240 160,220 Q 220,180 280,150 Q 300,120 320,100 Q 300,120 280,150 Q 260,100 216.5,84.1",
-  "pattaya-ranong": "M 216.5,84.1 Q 260,100 280,150 Q 300,120 320,100 Q 300,120 280,150 Q 220,180 160,220 Q 100,240 71.0,242.5",
+  // Pattaya → Phuket: sweep down the east coast, around the southern tip to Singapore, then back up to Phuket
+  "pattaya-phuket": "M 216.5,84.1 Q 200,120 180,160 Q 160,200 120,250 Q 80,300 50,360 Q 45,375 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 L 57.1,353.0",
+  
+  // Phuket → Pattaya: reverse route from Phuket down to Singapore, then back up to Pattaya
+  "phuket-pattaya": "M 57.1,353.0 L 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 Q 45,375 50,360 Q 80,300 120,250 Q 160,200 180,160 Q 200,120 216.5,84.1",
+  
+  // Chumphon → Phuket: from Chumphon down through Ranong area, sweep around to Singapore, back to Phuket
+  "chumphon-phuket": "M 107.5,213.7 Q 95,240 85,270 Q 75,300 65,330 Q 55,355 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 L 57.1,353.0",
+  
+  // Phuket → Chumphon: reverse from Phuket to Singapore, then back up to Chumphon
+  "phuket-chumphon": "M 57.1,353.0 L 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 Q 55,355 65,330 Q 75,300 85,270 Q 95,240 107.5,213.7",
+  
+  // Ranong → Pattaya: from Ranong down to Singapore, then back up to Pattaya
+  "ranong-pattaya": "M 71.0,242.5 Q 65,270 60,300 Q 55,330 50,360 Q 45,375 50,380 Q 60,375 80,365 Q 100,355 120,340 Q 140,320 160,300 Q 180,280 200,260 Q 220,240 240,220 Q 260,200 280,180 Q 290,170 300,160 Q 310,150 320,140 Q 330,130 340,120 Q 350,110 360,100 Q 370,90 380,80 Q 390,70 400,60 Q 390,70 380,80 Q 370,90 360,100 Q 350,110 340,120 Q 330,130 320,140 Q 310,150 300,160 Q 290,170 280,180 Q 260,200 240,220 Q 220,240 200,260 Q 180,280 160,300 Q 140,320 120,340 Q 100,355 80,365 Q 60,375 50,380 Q 55,355 65,330 Q 75,300 85,270 Q 95,240 107.5,213.7 Q 120,200 160,180 Q 200,160 216.5,84.1",
+  
+  // Pattaya → Ranong: from Pattaya down to Singapore, then back up to Ranong
+  "pattaya-ranong": "M 216.5,84.1 Q 200,120 160,180 Q 120,200 107.5,213.7 Q 95,240 85,270 Q 75,300 65,330 Q 55,355 50,380 Q 45,375 50,360 Q 55,330 60,300 Q 65,270 71.0,242.5",
 };
 
 // Route paths now STRAIGHTENED (direct lines instead of curves):
 const ROUTES_DATA = [
   {
     label: "Pattaya → Phuket",
-    // Straightened Gulf leg: direct line from Pattaya to Chumphon
     gulfSea: "M 216.5,84.1 L 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    // Straightened Andaman leg: direct line from Ranong to Phuket
     andamanSea: "M 71.0,242.5 L 57.1,353.0",
     singaporeRoute: SINGAPORE_ROUTES["pattaya-phuket"],
     originPin: "pattaya",
@@ -86,7 +95,6 @@ const ROUTES_DATA = [
   },
   {
     label: "Chumphon → Phuket",
-    // No Gulf leg needed — starts at Chumphon
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: LAND_BRIDGE,
     andamanSea: "M 71.0,242.5 L 57.1,353.0",
@@ -109,7 +117,6 @@ const ROUTES_DATA = [
     label: "Ranong → Pattaya",
     gulfSea: "M 107.5,213.7 L 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    // No Andaman leg — starts at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
     singaporeRoute: SINGAPORE_ROUTES["ranong-pattaya"],
     originPin: "ranong",
@@ -120,7 +127,6 @@ const ROUTES_DATA = [
     label: "Pattaya → Ranong",
     gulfSea: "M 216.5,84.1 L 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    // No Andaman leg — ends at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
     singaporeRoute: SINGAPORE_ROUTES["pattaya-ranong"],
     originPin: "pattaya",
@@ -130,14 +136,12 @@ const ROUTES_DATA = [
 ];
 
 // ─── Pin definitions ──────────────────────────────────────────────────────
-// Exact geographic positions derived from real lat/lon coordinates
-// REMOVED Bangkok — no longer part of active routes
 const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "left" | "right" }> = {
   pattaya:  { x: 216.5, y: 84.1,  label: "Pattaya",  side: "right" },
   chumphon: { x: 107.5, y: 213.7, label: "Chumphon", side: "right" },
   ranong:   { x: 71.0,  y: 242.5, label: "Ranong",   side: "left"  },
   phuket:   { x: 57.1,  y: 353.0, label: "Phuket",   side: "left"  },
-  singapore: { x: 40, y: 420, label: "Singapore", side: "left" },
+  singapore: { x: 50, y: 380, label: "Singapore", side: "left" },
 };
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -346,7 +350,7 @@ export default function ThailandRouteMap({
               transition={{ duration: 0.8 }}
             />
 
-            {/* ── Singapore sea route (animated dotted, PERMANENT OVERLAY on all routes) ── */}
+            {/* ── Singapore sea route (DASHED, PERMANENT OVERLAY on all routes) ── */}
             {shouldAnimate && route.singaporeRoute && (
               <motion.path
                 d={route.singaporeRoute}
@@ -359,7 +363,7 @@ export default function ThailandRouteMap({
                 className="singapore-route-animated"
                 initial="hidden"
                 animate="visible"
-                variants={drawPath(0.2, 2.4)}
+                variants={drawPath(0.2, 2.8)}
               />
             )}
 
