@@ -2,11 +2,11 @@
  * ThailandRouteMap — Enhanced Premium Version
  *
  * SVG map of Thailand's southern peninsula with:
- *  - Land fill with subtle texture
- *  - Glowing animated route paths
- *  - Pulsing city pins
- *  - Animated route drawing
- *  - Sea labels and decorative elements
+ * - Land fill with subtle texture
+ * - Glowing animated route paths
+ * - Pulsing city pins
+ * - Animated route drawing
+ * - Sea labels and decorative elements
  *
  * SVG viewBox: 0 0 320 480
  */
@@ -36,107 +36,129 @@ const LAND_FILL =
 const PHUKET_ISLAND =
   "M 58.8,351.8 L 60.2,352.7 L 57.6,353.9 L 57.4,356.6 L 54.0,355.6 L 52.6,358.9 L 50.6,358.6 L 50.2,351.8 L 48.2,350.5 L 50.0,346.5 L 50.0,336.4 L 53.1,337.6 L 54.0,340.9 L 60.1,342.2 L 57.4,348.2 L 58.8,351.8 Z";
 
+// ─── Route Type Definition ───────────────────────────────────────────────────
+type RouteData = {
+  label: string;
+  gulfSea: string;
+  landBridge: string;
+  andamanSea: string;
+  originPin: string;
+  destPin: string;
+  direction: "forward" | "reverse";
+  viaPin?: string;
+  isDotted?: boolean;
+  hasOverland?: boolean;
+};
+
 // ─── Per-route animated path data ────────────────────────────────────────────
 // All coordinates use exact geographic positions (scaled to 320×480 viewBox):
-//   Pattaya:  x=216.5, y=84.1
-//   Chumphon: x=107.5, y=213.7
-//   Ranong:   x=71.0,  y=242.5
-//   Phuket:   x=57.1,  y=353.0
-//   Bangkok:  x=212.0, y=38.0
+//   Pattaya:   x=216.5, y=84.1
+//   Chumphon:  x=107.5, y=213.7
+//   Ranong:    x=71.0,  y=242.5
+//   Phuket:    x=57.1,  y=353.0
+//   Bangkok:   x=212.0, y=38.0
+//   Singapore: x=232.0, y=475.0
 
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
-// Route paths curve OUT into the ocean, away from the coastline:
-// Gulf routes bow right (east, into the Gulf of Thailand)
-// Andaman routes bow left (west, into the Andaman Sea)
-const ROUTES_DATA = [
+// Paths have been adjusted to be more direct with shallower, cleaner curves
+const ROUTES_DATA: RouteData[] = [
   {
     label: "Pattaya → Phuket",
-    // Gulf leg: curves east out into the Gulf, then comes back to Chumphon
-    gulfSea: "M 216.5,84.1 C 290,100 310,160 290,200 C 270,230 200,230 107.5,213.7",
+    gulfSea: "M 216.5,84.1 Q 170,150 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    // Andaman leg: curves west out into the Andaman Sea
-    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
+    andamanSea: "M 71.0,242.5 Q 40,300 57.1,353.0",
     originPin: "pattaya",
     destPin: "phuket",
-    direction: "forward" as const,
+    direction: "forward",
   },
   {
     label: "Phuket → Pattaya",
-    gulfSea: "M 107.5,213.7 C 200,230 270,230 290,200 C 310,160 290,100 216.5,84.1",
+    gulfSea: "M 107.5,213.7 Q 170,150 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
+    andamanSea: "M 57.1,353.0 Q 40,300 71.0,242.5",
     originPin: "phuket",
     destPin: "pattaya",
-    direction: "reverse" as const,
+    direction: "reverse",
   },
   {
     label: "Bangkok → Phuket",
-    gulfSea: "M 212.0,38.0 C 300,60 320,130 300,190 C 280,230 200,235 107.5,213.7",
+    gulfSea: "M 212.0,38.0 Q 160,120 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
+    andamanSea: "M 71.0,242.5 Q 40,300 57.1,353.0",
     originPin: "bangkok",
     destPin: "phuket",
-    direction: "forward" as const,
+    direction: "forward",
   },
   {
     label: "Phuket → Bangkok",
-    gulfSea: "M 107.5,213.7 C 200,235 280,230 300,190 C 320,130 300,60 212.0,38.0",
+    gulfSea: "M 107.5,213.7 Q 160,120 212.0,38.0",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
+    andamanSea: "M 57.1,353.0 Q 40,300 71.0,242.5",
     originPin: "phuket",
     destPin: "bangkok",
-    direction: "reverse" as const,
+    direction: "reverse",
   },
   {
     label: "Chumphon → Phuket",
-    // No Gulf leg needed — starts at Chumphon
-    gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
+    gulfSea: "M 107.5,213.7 L 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
+    andamanSea: "M 71.0,242.5 Q 40,300 57.1,353.0",
     originPin: "chumphon",
     destPin: "phuket",
-    direction: "forward" as const,
+    direction: "forward",
   },
   {
     label: "Phuket → Chumphon",
-    gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
+    gulfSea: "M 107.5,213.7 L 107.5,213.7",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
+    andamanSea: "M 57.1,353.0 Q 40,300 71.0,242.5",
     originPin: "phuket",
     destPin: "chumphon",
-    direction: "reverse" as const,
+    direction: "reverse",
   },
   {
     label: "Ranong → Pattaya",
-    gulfSea: "M 107.5,213.7 C 200,230 270,230 290,200 C 310,160 290,100 216.5,84.1",
+    gulfSea: "M 107.5,213.7 Q 170,150 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    // No Andaman leg — starts at Ranong
-    andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
+    andamanSea: "M 71.0,242.5 L 71.0,242.5",
     originPin: "ranong",
     destPin: "pattaya",
-    direction: "reverse" as const,
+    direction: "reverse",
   },
   {
     label: "Pattaya → Ranong",
-    gulfSea: "M 216.5,84.1 C 290,100 310,160 290,200 C 270,230 200,230 107.5,213.7",
+    gulfSea: "M 216.5,84.1 Q 170,150 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    // No Andaman leg — ends at Ranong
-    andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
+    andamanSea: "M 71.0,242.5 L 71.0,242.5",
     originPin: "pattaya",
     destPin: "ranong",
-    direction: "forward" as const,
+    direction: "forward",
   },
+  {
+    label: "Pattaya → Singapore → Phuket",
+    // Smooth direct curve avoiding land geometry down to Singapore
+    gulfSea: "M 216.5,84.1 Q 250,280 232.0,475.0",
+    landBridge: "M 232.0,475.0 L 232.0,475.0", // No overland needed
+    // Sweeping west around the southern tip, then northwest direct to Phuket
+    andamanSea: "M 232.0,475.0 Q 120,480 57.1,353.0",
+    originPin: "pattaya",
+    destPin: "phuket",
+    viaPin: "singapore",
+    direction: "forward",
+    isDotted: true,
+    hasOverland: false,
+  }
 ];
 
 // ─── Pin definitions ──────────────────────────────────────────────────────
-// Exact geographic positions derived from real lat/lon coordinates
 const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "left" | "right" }> = {
-  bangkok:  { x: 212.0, y: 38.0,  label: "Bangkok",  side: "right" },
-  pattaya:  { x: 216.5, y: 84.1,  label: "Pattaya",  side: "right" },
-  chumphon: { x: 107.5, y: 213.7, label: "Chumphon", side: "right" },
-  ranong:   { x: 71.0,  y: 242.5, label: "Ranong",   side: "left"  },
-  phuket:   { x: 57.1,  y: 353.0, label: "Phuket",   side: "left"  },
+  bangkok:   { x: 212.0, y: 38.0,  label: "Bangkok",   side: "right" },
+  pattaya:   { x: 216.5, y: 84.1,  label: "Pattaya",   side: "right" },
+  chumphon:  { x: 107.5, y: 213.7, label: "Chumphon",  side: "right" },
+  ranong:    { x: 71.0,  y: 242.5, label: "Ranong",    side: "left"  },
+  phuket:    { x: 57.1,  y: 353.0, label: "Phuket",    side: "left"  },
+  singapore: { x: 232.0, y: 475.0, label: "Singapore", side: "right" },
 };
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -191,9 +213,12 @@ export default function ThailandRouteMap({
 
   const route = ROUTES_DATA[activeRoute];
   const isForward = route.direction === "forward";
+  
+  // Ensure the dynamically added map points are visible based on the current active route
   const visiblePins = Array.from(
-    new Set(["chumphon", "ranong", route.originPin, route.destPin])
-  );
+    new Set(["chumphon", "ranong", route.originPin, route.destPin, route.viaPin].filter(Boolean))
+  ) as string[];
+  
   const shouldAnimate = inView;
 
   return (
@@ -427,7 +452,7 @@ export default function ThailandRouteMap({
                   stroke="#00c8c8"
                   strokeWidth="2.5"
                   strokeLinecap="round"
-                  strokeDasharray="8 5"
+                  strokeDasharray={route.isDotted ? "2 8" : "8 5"}
                   markerEnd={isForward ? undefined : "url(#arrow-teal)"}
                   markerStart={isForward ? "url(#arrow-teal)" : undefined}
                   initial="hidden"
@@ -439,7 +464,7 @@ export default function ThailandRouteMap({
             )}
 
             {/* ── Animated route: Land bridge ── */}
-            {shouldAnimate && (
+            {shouldAnimate && route.hasOverland !== false && (
               <>
                 <motion.path
                   d={route.landBridge}
@@ -510,7 +535,7 @@ export default function ThailandRouteMap({
                   stroke="#00c8c8"
                   strokeWidth="2.5"
                   strokeLinecap="round"
-                  strokeDasharray="8 5"
+                  strokeDasharray={route.isDotted ? "2 8" : "8 5"}
                   markerEnd={isForward ? "url(#arrow-teal)" : undefined}
                   markerStart={isForward ? undefined : "url(#arrow-teal)"}
                   initial="hidden"
@@ -522,7 +547,7 @@ export default function ThailandRouteMap({
             )}
 
             {/* ── Overland label ── */}
-            {shouldAnimate && (
+            {shouldAnimate && route.hasOverland !== false && (
               <motion.g
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -547,13 +572,17 @@ export default function ThailandRouteMap({
             {visiblePins.map((pinId, i) => {
               const pin = ALL_PINS[pinId];
               if (!pin) return null;
+              
               const isOrigin = pinId === route.originPin;
               const isDest   = pinId === route.destPin;
+              const isVia    = pinId === route.viaPin;
+              const isHighlighted = isOrigin || isDest || isVia;
               const isLandBridge = pinId === "chumphon" || pinId === "ranong";
-              const color = isLandBridge ? "#f59e0b" : (isOrigin || isDest) ? "#00c8c8" : "#94a3b8";
-              const outerR = isOrigin || isDest ? 9 : 7;
-              const innerR = isOrigin || isDest ? 5 : 4;
-              const labelSize = isOrigin || isDest ? 11 : 10;
+              
+              const color = isLandBridge ? "#f59e0b" : isHighlighted ? "#00c8c8" : "#94a3b8";
+              const outerR = isHighlighted ? 9 : 7;
+              const innerR = isHighlighted ? 5 : 4;
+              const labelSize = isHighlighted ? 11 : 10;
 
               return shouldAnimate ? (
                 <motion.g
@@ -586,7 +615,7 @@ export default function ThailandRouteMap({
                     x={pin.side === "right" ? pin.x + outerR + 6 : pin.x - outerR - 6}
                     y={pin.y + 4}
                     fontSize={labelSize}
-                    fontWeight={isOrigin || isDest ? "700" : "600"}
+                    fontWeight={isHighlighted ? "700" : "600"}
                     fill={color}
                     textAnchor={pin.side === "right" ? "start" : "end"}
                     fontFamily="system-ui, sans-serif"
@@ -595,8 +624,8 @@ export default function ThailandRouteMap({
                     {pin.label}
                   </text>
 
-                  {/* Origin/Destination badge */}
-                  {(isOrigin || isDest) && (
+                  {/* Origin/Destination/Via badge */}
+                  {isHighlighted && (
                     <text
                       x={pin.side === "right" ? pin.x + outerR + 6 : pin.x - outerR - 6}
                       y={pin.y + 17}
@@ -606,7 +635,7 @@ export default function ThailandRouteMap({
                       textAnchor={pin.side === "right" ? "start" : "end"}
                       fontFamily="system-ui, sans-serif"
                     >
-                      {isOrigin ? "▶ Origin" : "▶ Destination"}
+                      {isOrigin ? "▶ Origin" : isDest ? "▶ Destination" : "▶ Via"}
                     </text>
                   )}
                 </motion.g>
