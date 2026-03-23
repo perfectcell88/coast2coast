@@ -563,9 +563,9 @@ export default function Home() {
             </motion.div>
             {/* ── MAP + COMPARISON SECTION SIDE BY SIDE ── */}
             <motion.div variants={fadeUp} className="mb-6">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {/* Left side: Comparison cards */}
-                <div className="flex flex-col gap-6 lg:col-span-1">
+                <div className="flex flex-col gap-6 lg:col-span-1 h-full">
                   {/* Comparison header */}
                   <div>
                     <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
@@ -666,14 +666,16 @@ export default function Home() {
                 </div>
 
                 {/* Right side: Map */}
-                <div className="lg:col-span-2 flex flex-col">
-                  <ThailandRouteMap
-                    activeRoute={activeRoute}
-                    onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
-                    onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
-                    totalRoutes={routes.length}
-                    routeLabel={`${routes[activeRoute].from} → ${routes[activeRoute].to}`}
-                  />
+                <div className="lg:col-span-2 flex flex-col h-full">
+                  <div className="flex-1 flex flex-col">
+                    <ThailandRouteMap
+                      activeRoute={activeRoute}
+                      onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
+                      onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
+                      totalRoutes={routes.length}
+                      routeLabel={`${routes[activeRoute].from} → ${routes[activeRoute].to}`}
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -261,11 +261,11 @@ export default function ThailandRouteMap({
           className="w-full"
         >
           <svg
-            viewBox="-50 -50 500 650"
+            viewBox="-50 -50 500 680"
             className="w-full max-w-2xl mx-auto"
             style={{
               filter: "drop-shadow(0 0 20px rgba(0,200,200,0.15))",
-              aspectRatio: "400 / 520",
+              aspectRatio: "400 / 540",
             }}
           >
             <defs>
@@ -510,12 +510,16 @@ export default function ThailandRouteMap({
 
             {/* ── Route label at bottom of map ── */}
             {routeLabel && (
-              <g>
-                <rect x="-50" y="570" width="500" height="80" fill="rgba(0,0,0,0.25)" />
+              <motion.g
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <rect x="-50" y="590" width="500" height="90" fill="rgba(0,0,0,0.3)" />
                 <text
                   x="200"
-                  y="620"
-                  fontSize="20"
+                  y="645"
+                  fontSize="22"
                   fontWeight="bold"
                   fill="#00c8c8"
                   textAnchor="middle"
@@ -524,7 +528,7 @@ export default function ThailandRouteMap({
                 >
                   {routeLabel}
                 </text>
-              </g>
+              </motion.g>
             )}
 
           </svg>
