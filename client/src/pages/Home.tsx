@@ -186,26 +186,6 @@ export default function Home() {
       highlight: false,
     },
     {
-      from: "Bangkok",
-      to: "Phuket",
-      time: "Under 7 Days",
-      engineHours: "~40 hrs",
-      seaMiles: "~280",
-      overland: "80 km",
-      description: "Bangkok-based vessels transported to the Andaman Sea with final delivery to Phuket.",
-      highlight: false,
-    },
-    {
-      from: "Phuket",
-      to: "Bangkok",
-      time: "Under 7 Days",
-      engineHours: "~40 hrs",
-      seaMiles: "~280",
-      overland: "80 km",
-      description: "Return route — Andaman to the Gulf of Thailand via the same land bridge.",
-      highlight: false,
-    },
-    {
       from: "Chumphon",
       to: "Phuket",
       time: "Under 7 Days",
@@ -581,27 +561,79 @@ export default function Home() {
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Coast to Coast</h2>
               <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
             </motion.div>
-            {/* ── MAP + ROUTE DETAIL (centred, arrows inside map) ── */}
+            {/* ── MAP + ROUTE DETAIL WITH SIDE BOXES ── */}
             <motion.div variants={fadeUp} className="mb-6">
-              <div className="flex flex-col items-center gap-8 max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
+                {/* Left side: Two info boxes */}
+                <div className="flex flex-col gap-4 lg:col-span-1">
+                  {/* Box 1: Route Statistics */}
+                  <motion.div
+                    variants={fadeUp}
+                    className="rounded-xl p-5 flex flex-col h-full"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(0,200,200,0.08) 0%, rgba(0,200,200,0.04) 100%)",
+                      border: "1px solid rgba(0,200,200,0.2)",
+                      boxShadow: "0 4px 16px rgba(0,200,200,0.08), inset 0 1px 0 rgba(0,200,200,0.1)",
+                    }}
+                  >
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#00c8c8" }} />
+                      <h3 className="font-mono-accent text-xs tracking-widest uppercase font-bold" style={{ color: "#00c8c8" }}>Route Info</h3>
+                    </div>
+                    <div className="space-y-3 flex-1">
+                      <div>
+                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Sea Miles</p>
+                        <p className="font-display text-lg font-bold text-white">{routes[activeRoute].seaMiles}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Total Time</p>
+                        <p className="font-display text-lg font-bold text-white">{routes[activeRoute].time}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Engine Hours</p>
+                        <p className="font-display text-lg font-bold text-white">{routes[activeRoute].engineHours}</p>
+                      </div>
+                    </div>
+                  </motion.div>
 
-                {/* Map with in-map navigation arrows */}
-                <div className="w-full rounded-2xl overflow-visible" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", padding: "20px" }}>
-                  <ThailandRouteMap
-                    activeRoute={activeRoute}
-                    onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
-                    onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
-                    totalRoutes={routes.length}
-                  />
+                  {/* Box 2: Route Description */}
+                  <motion.div
+                    variants={fadeUp}
+                    className="rounded-xl p-5 flex flex-col h-full"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(245,158,11,0.04) 100%)",
+                      border: "1px solid rgba(245,158,11,0.2)",
+                      boxShadow: "0 4px 16px rgba(245,158,11,0.08), inset 0 1px 0 rgba(245,158,11,0.1)",
+                    }}
+                  >
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#f59e0b" }} />
+                      <h3 className="font-mono-accent text-xs tracking-widest uppercase font-bold" style={{ color: "#f59e0b" }}>Description</h3>
+                    </div>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      {routes[activeRoute].description}
+                    </p>
+                  </motion.div>
                 </div>
 
-                {/* Active route name label */}
-                <div className="text-center">
-                  <p className="font-display text-2xl md:text-3xl font-bold text-white">
-                    {routes[activeRoute].from} → {routes[activeRoute].to}
-                  </p>
-                </div>
+                {/* Center: Map */}
+                <div className="lg:col-span-2">
+                  <div className="w-full rounded-2xl overflow-visible" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", padding: "20px" }}>
+                    <ThailandRouteMap
+                      activeRoute={activeRoute}
+                      onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
+                      onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
+                      totalRoutes={routes.length}
+                    />
+                  </div>
 
+                  {/* Active route name label */}
+                  <div className="text-center mt-6">
+                    <p className="font-display text-2xl md:text-3xl font-bold text-white">
+                      {routes[activeRoute].from} → {routes[activeRoute].to}
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 

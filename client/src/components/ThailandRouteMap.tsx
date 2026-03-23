@@ -3,10 +3,11 @@
  *
  * SVG map of Thailand's southern peninsula with:
  *  - Land fill with subtle texture
- *  - Glowing animated route paths
+ *  - Glowing animated route paths (straightened)
  *  - Pulsing city pins
  *  - Animated route drawing
  *  - Sea labels and decorative elements
+ *  - Singapore dotted sea route showing traditional shipping route
  *
  * SVG viewBox: 0 0 320 480
  */
@@ -16,7 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // ─── Coastline paths (scaled to 320×480 viewBox) ─────────────────────────────
 
-/** Gulf of Thailand coastline — Bangkok down to Chumphon */
+/** Gulf of Thailand coastline — Chumphon down to Chumphon */
 const GULF_COAST =
   "M 215,48 C 220,72 224,98 226,125 C 228,152 226,175 222,198 C 218,220 210,242 200,260 C 193,272 186,280 178,286";
 
@@ -42,50 +43,40 @@ const PHUKET_ISLAND =
 //   Chumphon: x=107.5, y=213.7
 //   Ranong:   x=71.0,  y=242.5
 //   Phuket:   x=57.1,  y=353.0
-//   Bangkok:  x=212.0, y=38.0
 
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
-// Route paths curve OUT into the ocean, away from the coastline:
-// Gulf routes bow right (east, into the Gulf of Thailand)
-// Andaman routes bow left (west, into the Andaman Sea)
+// Singapore sea route — wraps around the southernmost point of the peninsula
+// This represents the traditional shipping route that boats would take
+const SINGAPORE_ROUTE_PATTAYA_PHUKET = "M 216.5,84.1 L 250,150 L 280,220 L 260,300 L 200,380 L 100,420 L 57.1,353.0";
+const SINGAPORE_ROUTE_PHUKET_PATTAYA = "M 57.1,353.0 L 100,420 L 200,380 L 260,300 L 280,220 L 250,150 L 216.5,84.1";
+const SINGAPORE_ROUTE_CHUMPHON_PHUKET = "M 107.5,213.7 L 150,280 L 200,380 L 100,420 L 57.1,353.0";
+const SINGAPORE_ROUTE_PHUKET_CHUMPHON = "M 57.1,353.0 L 100,420 L 200,380 L 150,280 L 107.5,213.7";
+const SINGAPORE_ROUTE_RANONG_PATTAYA = "M 71.0,242.5 L 120,300 L 200,380 L 280,220 L 250,150 L 216.5,84.1";
+const SINGAPORE_ROUTE_PATTAYA_RANONG = "M 216.5,84.1 L 250,150 L 280,220 L 200,380 L 120,300 L 71.0,242.5";
+
+// Route paths now STRAIGHTENED (direct lines instead of curves):
 const ROUTES_DATA = [
   {
     label: "Pattaya → Phuket",
-    // Gulf leg: curves east out into the Gulf, then comes back to Chumphon
-    gulfSea: "M 216.5,84.1 C 290,100 310,160 290,200 C 270,230 200,230 107.5,213.7",
+    // Straightened Gulf leg: direct line from Pattaya to Chumphon
+    gulfSea: "M 216.5,84.1 L 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    // Andaman leg: curves west out into the Andaman Sea
-    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
+    // Straightened Andaman leg: direct line from Ranong to Phuket
+    andamanSea: "M 71.0,242.5 L 57.1,353.0",
+    singaporeRoute: SINGAPORE_ROUTE_PATTAYA_PHUKET,
     originPin: "pattaya",
     destPin: "phuket",
     direction: "forward" as const,
   },
   {
     label: "Phuket → Pattaya",
-    gulfSea: "M 107.5,213.7 C 200,230 270,230 290,200 C 310,160 290,100 216.5,84.1",
+    gulfSea: "M 107.5,213.7 L 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
+    andamanSea: "M 57.1,353.0 L 71.0,242.5",
+    singaporeRoute: SINGAPORE_ROUTE_PHUKET_PATTAYA,
     originPin: "phuket",
     destPin: "pattaya",
-    direction: "reverse" as const,
-  },
-  {
-    label: "Bangkok → Phuket",
-    gulfSea: "M 212.0,38.0 C 300,60 320,130 300,190 C 280,230 200,235 107.5,213.7",
-    landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
-    originPin: "bangkok",
-    destPin: "phuket",
-    direction: "forward" as const,
-  },
-  {
-    label: "Phuket → Bangkok",
-    gulfSea: "M 107.5,213.7 C 200,235 280,230 300,190 C 320,130 300,60 212.0,38.0",
-    landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
-    originPin: "phuket",
-    destPin: "bangkok",
     direction: "reverse" as const,
   },
   {
@@ -93,7 +84,8 @@ const ROUTES_DATA = [
     // No Gulf leg needed — starts at Chumphon
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 C 10,260 -10,300 5,340 C 18,370 35,360 57.1,353.0",
+    andamanSea: "M 71.0,242.5 L 57.1,353.0",
+    singaporeRoute: SINGAPORE_ROUTE_CHUMPHON_PHUKET,
     originPin: "chumphon",
     destPin: "phuket",
     direction: "forward" as const,
@@ -102,27 +94,30 @@ const ROUTES_DATA = [
     label: "Phuket → Chumphon",
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 C 35,360 18,370 5,340 C -10,300 10,260 71.0,242.5",
+    andamanSea: "M 57.1,353.0 L 71.0,242.5",
+    singaporeRoute: SINGAPORE_ROUTE_PHUKET_CHUMPHON,
     originPin: "phuket",
     destPin: "chumphon",
     direction: "reverse" as const,
   },
   {
     label: "Ranong → Pattaya",
-    gulfSea: "M 107.5,213.7 C 200,230 270,230 290,200 C 310,160 290,100 216.5,84.1",
+    gulfSea: "M 107.5,213.7 L 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
     // No Andaman leg — starts at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
+    singaporeRoute: SINGAPORE_ROUTE_RANONG_PATTAYA,
     originPin: "ranong",
     destPin: "pattaya",
     direction: "reverse" as const,
   },
   {
     label: "Pattaya → Ranong",
-    gulfSea: "M 216.5,84.1 C 290,100 310,160 290,200 C 270,230 200,230 107.5,213.7",
+    gulfSea: "M 216.5,84.1 L 107.5,213.7",
     landBridge: LAND_BRIDGE,
     // No Andaman leg — ends at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
+    singaporeRoute: SINGAPORE_ROUTE_PATTAYA_RANONG,
     originPin: "pattaya",
     destPin: "ranong",
     direction: "forward" as const,
@@ -131,8 +126,8 @@ const ROUTES_DATA = [
 
 // ─── Pin definitions ──────────────────────────────────────────────────────
 // Exact geographic positions derived from real lat/lon coordinates
+// REMOVED Bangkok — no longer part of active routes
 const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "left" | "right" }> = {
-  bangkok:  { x: 212.0, y: 38.0,  label: "Bangkok",  side: "right" },
   pattaya:  { x: 216.5, y: 84.1,  label: "Pattaya",  side: "right" },
   chumphon: { x: 107.5, y: 213.7, label: "Chumphon", side: "right" },
   ranong:   { x: 71.0,  y: 242.5, label: "Ranong",   side: "left"  },
@@ -197,271 +192,137 @@ export default function ThailandRouteMap({
   const shouldAnimate = inView;
 
   return (
-    <div ref={ref} className="relative w-full select-none" style={{ maxWidth: 520, margin: "0 auto" }}>
-      {/* ── In-map navigation arrows ── */}
-      {onPrev && (
-        <button
-          onClick={onPrev}
-          aria-label="Previous route"
-          className="absolute z-20 flex items-center justify-center transition-all duration-200 hover:scale-110"
-          style={{
-            left: "10px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "36px",
-            height: "36px",
-            borderRadius: "50%",
-            background: "rgba(0,200,200,0.15)",
-            border: "1px solid rgba(0,200,200,0.35)",
-            backdropFilter: "blur(6px)",
-            color: "#00c8c8",
-            boxShadow: "0 0 12px rgba(0,200,200,0.2)",
-          }}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M9 2L4 7L9 12" stroke="#00c8c8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      )}
-      {onNext && (
-        <button
-          onClick={onNext}
-          aria-label="Next route"
-          className="absolute z-20 flex items-center justify-center transition-all duration-200 hover:scale-110"
-          style={{
-            right: "10px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "36px",
-            height: "36px",
-            borderRadius: "50%",
-            background: "rgba(0,200,200,0.15)",
-            border: "1px solid rgba(0,200,200,0.35)",
-            backdropFilter: "blur(6px)",
-            color: "#00c8c8",
-            boxShadow: "0 0 12px rgba(0,200,200,0.2)",
-          }}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M5 2L10 7L5 12" stroke="#00c8c8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      )}
-      {/* Route indicator dots */}
-      {totalRoutes && (
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
-          {Array.from({ length: totalRoutes }).map((_, i) => (
-            <div
-              key={i}
-              style={{
-                width: i === activeRoute ? "18px" : "6px",
-                height: "6px",
-                borderRadius: "3px",
-                background: i === activeRoute ? "#00c8c8" : "rgba(0,200,200,0.3)",
-                transition: "all 0.3s ease",
-              }}
-            />
-          ))}
-        </div>
-      )}
+    <div ref={ref} className="flex flex-col items-center gap-4 w-full">
       <AnimatePresence mode="wait">
         <motion.div
           key={animKey}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.4 }}
+          className="w-full"
         >
           <svg
             viewBox="0 0 320 480"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto"
-            style={{ overflow: "visible", borderRadius: "16px" }}
-            aria-label={`Map showing ${route.label} transport route`}
+            className="w-full max-w-md mx-auto"
+            style={{
+              filter: "drop-shadow(0 0 20px rgba(0,200,200,0.15))",
+              aspectRatio: "320 / 480",
+            }}
           >
-            {/* ── Defs ── */}
             <defs>
-              {/* Arrowhead markers */}
-              <marker id="arrow-teal" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-                <path d="M0,0 L7,3.5 L0,7 Z" fill="#00c8c8" opacity="0.95" />
-              </marker>
-              <marker id="arrow-amber" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-                <path d="M0,0 L7,3.5 L0,7 Z" fill="#f59e0b" opacity="0.95" />
-              </marker>
-
               {/* Glow filters */}
-              <filter id="glow-teal" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="3.5" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              <filter id="glow-teal">
+                <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
               </filter>
-              <filter id="glow-amber" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-              <filter id="glow-pin" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-              <filter id="land-shadow" x="-5%" y="-5%" width="110%" height="110%">
-                <feDropShadow dx="2" dy="3" stdDeviation="4" floodColor="#000" floodOpacity="0.35" />
+              <filter id="glow-pin">
+                <feGaussianBlur stdDeviation="1.2" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
               </filter>
 
-              {/* Ocean gradient */}
-              <linearGradient id="ocean-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#041828" />
-                <stop offset="50%" stopColor="#062038" />
-                <stop offset="100%" stopColor="#041828" />
-              </linearGradient>
-
-              {/* Land gradient */}
-              <linearGradient id="land-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#1a3a2a" />
-                <stop offset="50%" stopColor="#1e4030" />
-                <stop offset="100%" stopColor="#163224" />
-              </linearGradient>
-
-              {/* Gulf glow */}
-              <radialGradient id="gulf-glow" cx="85%" cy="45%" r="40%">
-                <stop offset="0%" stopColor="#0e4a6a" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-              </radialGradient>
-
-              {/* Andaman glow */}
-              <radialGradient id="andaman-glow" cx="22%" cy="55%" r="38%">
-                <stop offset="0%" stopColor="#0a3a5a" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-              </radialGradient>
+              {/* Arrow markers */}
+              <marker id="arrow-teal" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#00c8c8" />
+              </marker>
+              <marker id="arrow-gold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" />
+              </marker>
             </defs>
 
-            {/* ── Ocean background ── */}
-            <rect x="0" y="0" width="320" height="480" fill="url(#ocean-bg)" rx="12" />
+            {/* ── Sea background ── */}
+            <rect width="320" height="480" fill="#0f172a" />
 
-            {/* Ocean depth glows */}
-            <rect x="0" y="0" width="320" height="480" fill="url(#gulf-glow)" rx="12" />
-            <rect x="0" y="0" width="320" height="480" fill="url(#andaman-glow)" rx="12" />
-
-            {/* Nautical grid */}
-            {[48, 96, 144, 192, 240, 288, 336, 384, 432].map(y => (
-              <line key={`h${y}`} x1="0" y1={y} x2="320" y2={y} stroke="#0e7490" strokeWidth="0.4" opacity="0.12" />
-            ))}
-            {[64, 128, 192, 256].map(x => (
-              <line key={`v${x}`} x1={x} y1="0" x2={x} y2="480" stroke="#0e7490" strokeWidth="0.4" opacity="0.12" />
-            ))}
-
-            {/* ── Land mass fill ── */}
-            <path
+            {/* ── Land ── */}
+            <motion.path
               d={LAND_FILL}
-              fill="url(#land-grad)"
-              stroke="#2a5a3a"
-              strokeWidth="1.5"
-              opacity="0.9"
-              filter="url(#land-shadow)"
+              fill="#1e3a3a"
+              stroke="rgba(0,200,200,0.2)"
+              strokeWidth="0.5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
             />
-            {/* Land highlight edge */}
-            <path
-              d={LAND_FILL}
-              fill="none"
-              stroke="rgba(80,180,100,0.15)"
-              strokeWidth="1"
-            />
-            {/* Phuket island */}
-            <path
+
+            {/* ── Phuket Island ── */}
+            <motion.path
               d={PHUKET_ISLAND}
-              fill="url(#land-grad)"
-              stroke="#2a5a3a"
-              strokeWidth="1"
-              opacity="0.9"
+              fill="#1e3a3a"
+              stroke="rgba(0,200,200,0.2)"
+              strokeWidth="0.5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
             />
 
-            {/* ── Sea labels ── */}
-            <text
-              x="278" y="220" fontSize="8.5" fill="#38bdf8" opacity="0.4"
-              fontFamily="monospace" letterSpacing="2" transform="rotate(90, 278, 220)"
-              textAnchor="middle"
-            >
-              GULF OF THAILAND
-            </text>
-            <text
-              x="24" y="240" fontSize="8.5" fill="#38bdf8" opacity="0.4"
-              fontFamily="monospace" letterSpacing="2" transform="rotate(-90, 24, 240)"
-              textAnchor="middle"
-            >
-              ANDAMAN SEA
-            </text>
-
-            {/* ── Static coastlines (on top of land) ── */}
-            <path d={GULF_COAST}    fill="none" stroke="#3a6a4a" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
-            <path d={ANDAMAN_COAST} fill="none" stroke="#3a6a4a" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
-
-            {/* ── Animated route: Gulf sea leg ── */}
+            {/* ── Singapore sea route (dotted, wraps around peninsula) ── */}
             {shouldAnimate && (
+              <motion.path
+                d={route.singaporeRoute}
+                fill="none"
+                stroke="#7c3aed"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeDasharray="4 3"
+                opacity={0.4}
+                initial="hidden"
+                animate="visible"
+                variants={drawPath(0.2, 2.0)}
+              />
+            )}
+
+            {/* ── Gulf Sea route ── */}
+            {shouldAnimate && route.gulfSea && (
               <>
-                {/* Wide glow */}
-                <motion.path
-                  d={route.gulfSea}
-                  fill="none"
-                  stroke="#00c8c8"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  opacity={0.12}
-                  initial="hidden"
-                  animate="visible"
-                  variants={drawPath(0, 1.6)}
-                />
-                {/* Medium glow */}
-                <motion.path
-                  d={route.gulfSea}
-                  fill="none"
-                  stroke="#00c8c8"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  opacity={0.25}
-                  initial="hidden"
-                  animate="visible"
-                  variants={drawPath(0, 1.6)}
-                />
-                {/* Core line */}
                 <motion.path
                   d={route.gulfSea}
                   fill="none"
                   stroke="#00c8c8"
                   strokeWidth="2.5"
                   strokeLinecap="round"
-                  strokeDasharray="8 5"
-                  markerEnd={isForward ? undefined : "url(#arrow-teal)"}
-                  markerStart={isForward ? "url(#arrow-teal)" : undefined}
+                  markerEnd={isForward ? "url(#arrow-teal)" : undefined}
+                  markerStart={isForward ? undefined : "url(#arrow-teal)"}
                   initial="hidden"
                   animate="visible"
-                  variants={drawPath(0, 1.6)}
+                  variants={drawPath(0.6, 1.2)}
                   filter="url(#glow-teal)"
+                />
+                <motion.path
+                  d={route.gulfSea}
+                  fill="none"
+                  stroke="#00c8c8"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  opacity={0.25}
+                  initial="hidden"
+                  animate="visible"
+                  variants={drawPath(0.6, 1.2)}
                 />
               </>
             )}
 
-            {/* ── Animated route: Land bridge ── */}
-            {shouldAnimate && (
+            {/* ── Land Bridge route ── */}
+            {shouldAnimate && route.landBridge && (
               <>
                 <motion.path
                   d={route.landBridge}
                   fill="none"
                   stroke="#f59e0b"
-                  strokeWidth="10"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
-                  opacity={0.15}
+                  strokeDasharray="5 4"
+                  markerEnd={isForward ? "url(#arrow-gold)" : undefined}
+                  markerStart={isForward ? undefined : "url(#arrow-gold)"}
                   initial="hidden"
                   animate="visible"
-                  variants={drawPath(1.4, 0.8)}
-                />
-                <motion.path
-                  d={route.landBridge}
-                  fill="none"
-                  stroke="#f59e0b"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  opacity={0.3}
-                  initial="hidden"
-                  animate="visible"
-                  variants={drawPath(1.4, 0.8)}
+                  variants={drawPath(1.2, 1.0)}
+                  filter="url(#glow-teal)"
                 />
                 <motion.path
                   d={route.landBridge}
@@ -470,39 +331,29 @@ export default function ThailandRouteMap({
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeDasharray="5 4"
-                  markerEnd="url(#arrow-amber)"
+                  opacity={0.25}
                   initial="hidden"
                   animate="visible"
-                  variants={drawPath(1.4, 0.8)}
-                  filter="url(#glow-amber)"
+                  variants={drawPath(1.2, 1.0)}
                 />
               </>
             )}
 
-            {/* ── Animated route: Andaman sea leg ── */}
-            {shouldAnimate && (
+            {/* ── Andaman Sea route ── */}
+            {shouldAnimate && route.andamanSea && (
               <>
                 <motion.path
                   d={route.andamanSea}
                   fill="none"
                   stroke="#00c8c8"
-                  strokeWidth="10"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
-                  opacity={0.12}
+                  markerEnd={isForward ? "url(#arrow-teal)" : undefined}
+                  markerStart={isForward ? undefined : "url(#arrow-teal)"}
                   initial="hidden"
                   animate="visible"
-                  variants={drawPath(1.4, 1.6)}
-                />
-                <motion.path
-                  d={route.andamanSea}
-                  fill="none"
-                  stroke="#00c8c8"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  opacity={0.25}
-                  initial="hidden"
-                  animate="visible"
-                  variants={drawPath(1.4, 1.6)}
+                  variants={drawPath(1.4, 1.2)}
+                  filter="url(#glow-teal)"
                 />
                 <motion.path
                   d={route.andamanSea}
@@ -510,37 +361,12 @@ export default function ThailandRouteMap({
                   stroke="#00c8c8"
                   strokeWidth="2.5"
                   strokeLinecap="round"
-                  strokeDasharray="8 5"
-                  markerEnd={isForward ? "url(#arrow-teal)" : undefined}
-                  markerStart={isForward ? undefined : "url(#arrow-teal)"}
+                  opacity={0.25}
                   initial="hidden"
                   animate="visible"
-                  variants={drawPath(1.4, 1.6)}
-                  filter="url(#glow-teal)"
+                  variants={drawPath(1.4, 1.2)}
                 />
               </>
-            )}
-
-            {/* ── Overland label ── */}
-            {shouldAnimate && (
-              <motion.g
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.6, duration: 0.5 }}
-              >
-                {/* Label background pill */}
-                <rect x="65" y="218" width="88" height="18" rx="9" fill="rgba(245,158,11,0.18)" />
-                <text
-                  x="109" y="230"
-                  fontSize="8.5" fontWeight="700"
-                  fill="#f59e0b"
-                  textAnchor="middle"
-                  fontFamily="system-ui, sans-serif"
-                  letterSpacing="0.5"
-                >
-                  80 km overland
-                </text>
-              </motion.g>
             )}
 
             {/* ── City pins ── */}
@@ -630,10 +456,11 @@ export default function ThailandRouteMap({
       </AnimatePresence>
 
       {/* ── Legend ── */}
-      <div className="flex items-center justify-center gap-6 mt-2">
+      <div className="flex flex-col items-center justify-center gap-3 mt-4">
         {[
-          { color: "#00c8c8", dash: "8 5", label: "Sea route" },
+          { color: "#00c8c8", dash: "5 4", label: "Sea route" },
           { color: "#f59e0b", dash: "5 4", label: "80 km overland" },
+          { color: "#7c3aed", dash: "4 3", label: "Traditional sea route (Singapore)" },
         ].map((l) => (
           <div key={l.label} className="flex items-center gap-2">
             <svg width="26" height="8" viewBox="0 0 26 8">

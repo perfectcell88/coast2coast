@@ -99,16 +99,6 @@ export default function ServiceAreas() {
       description: "Our flagship route — the smart alternative to 1,700 miles around the Malay Peninsula. Gulf to Andaman or reverse, in under a week.",
     },
     {
-      a: "Bangkok",
-      b: "Phuket",
-      seaMiles: "~280",
-      overland: "80 km",
-      time: "Under 1 week",
-      engineHours: "~40 hrs",
-      highlight: false,
-      description: "Bangkok or Gulf-side vessels transported overland to the Andaman Sea, with final delivery to Phuket or any Andaman marina. Operates in both directions.",
-    },
-    {
       a: "Chumphon",
       b: "Phuket",
       seaMiles: "~50",

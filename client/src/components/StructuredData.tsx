@@ -61,10 +61,6 @@ const localBusiness = {
       "@type": "City",
       "name": "Pattaya",
     },
-    {
-      "@type": "City",
-      "name": "Bangkok",
-    },
   ],
   "priceRange": "$$",
   "openingHoursSpecification": {
@@ -129,7 +125,7 @@ const faqPage = {
       "name": "Do you transport vessels in both directions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We operate in both directions — Gulf of Thailand to Andaman Sea, and Andaman Sea to Gulf of Thailand. Routes include Pattaya to Phuket, Phuket to Pattaya, Bangkok to Phuket, and Phuket to Bangkok.",
+        "text": "Yes. We operate in both directions — Gulf of Thailand to Andaman Sea, and Andaman Sea to Gulf of Thailand. Routes include Pattaya to Phuket, Phuket to Pattaya, Chumphon to Phuket, and Ranong to Pattaya.",
       },
     },
     {
