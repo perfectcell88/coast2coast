@@ -44,18 +44,20 @@ const PHUKET_ISLAND =
 //   Chumphon: x=107.5, y=213.7
 //   Ranong:   x=71.0,  y=242.5
 //   Phuket:   x=57.1,  y=353.0
+//   Singapore: x=40, y=420 (approximate position south of Phuket)
 
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
-// Singapore sea routes — wraps around the southernmost point of the peninsula WITHOUT touching land
+// Singapore sea routes — CORRECTED to follow natural paths around the peninsula
 // Each route has its own Singapore alternative showing what the traditional long sea route would be
+// Routes now follow sweeping curves that wrap around the landmass without cutting through it
 const SINGAPORE_ROUTES: Record<string, string> = {
-  "pattaya-phuket": "M 216.5,84.1 C 280,60 340,80 360,160 C 370,220 360,300 320,380 C 280,420 140,440 57.1,353.0",
-  "phuket-pattaya": "M 57.1,353.0 C 140,440 280,420 320,380 C 360,300 370,220 360,160 C 340,80 280,60 216.5,84.1",
-  "chumphon-phuket": "M 107.5,213.7 C 180,180 300,160 360,240 C 370,300 340,360 260,400 C 140,440 57.1,353.0 57.1,353.0",
-  "phuket-chumphon": "M 57.1,353.0 C 140,440 260,400 340,360 C 360,300 370,240 360,240 C 300,160 180,180 107.5,213.7",
-  "ranong-pattaya": "M 71.0,242.5 C 120,220 280,140 360,160 C 380,180 360,240 340,300 C 300,360 216.5,84.1 216.5,84.1",
-  "pattaya-ranong": "M 216.5,84.1 C 300,360 340,300 360,240 C 380,180 360,160 280,140 C 120,220 71.0,242.5 71.0,242.5",
+  "pattaya-phuket": "M 216.5,84.1 Q 260,100 280,150 Q 300,200 300,280 Q 290,340 200,380 Q 100,420 40,420 L 57.1,353.0",
+  "phuket-pattaya": "M 57.1,353.0 L 40,420 Q 100,420 200,380 Q 290,340 300,280 Q 300,200 280,150 Q 260,100 216.5,84.1",
+  "chumphon-phuket": "M 107.5,213.7 Q 140,220 180,240 Q 240,270 280,320 Q 300,360 200,390 Q 100,420 40,420 L 57.1,353.0",
+  "phuket-chumphon": "M 57.1,353.0 L 40,420 Q 100,420 200,390 Q 300,360 280,320 Q 240,270 180,240 Q 140,220 107.5,213.7",
+  "ranong-pattaya": "M 71.0,242.5 Q 100,240 160,220 Q 220,180 280,150 Q 300,120 320,100 Q 300,120 280,150 Q 260,100 216.5,84.1",
+  "pattaya-ranong": "M 216.5,84.1 Q 260,100 280,150 Q 300,120 320,100 Q 300,120 280,150 Q 220,180 160,220 Q 100,240 71.0,242.5",
 };
 
 // Route paths now STRAIGHTENED (direct lines instead of curves):
@@ -135,6 +137,7 @@ const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "lef
   chumphon: { x: 107.5, y: 213.7, label: "Chumphon", side: "right" },
   ranong:   { x: 71.0,  y: 242.5, label: "Ranong",   side: "left"  },
   phuket:   { x: 57.1,  y: 353.0, label: "Phuket",   side: "left"  },
+  singapore: { x: 40, y: 420, label: "Singapore", side: "left" },
 };
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -190,7 +193,7 @@ export default function ThailandRouteMap({
   const route = ROUTES_DATA[activeRoute];
   const isForward = route.direction === "forward";
   const visiblePins = Array.from(
-    new Set(["chumphon", "ranong", route.originPin, route.destPin])
+    new Set(["chumphon", "ranong", "singapore", route.originPin, route.destPin])
   );
   const shouldAnimate = inView;
 
@@ -352,7 +355,7 @@ export default function ThailandRouteMap({
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeDasharray="8 6"
-                opacity={0.6}
+                opacity={0.65}
                 className="singapore-route-animated"
                 initial="hidden"
                 animate="visible"
@@ -459,10 +462,11 @@ export default function ThailandRouteMap({
               const isOrigin = pinId === route.originPin;
               const isDest   = pinId === route.destPin;
               const isLandBridge = pinId === "chumphon" || pinId === "ranong";
-              const color = isLandBridge ? "#f59e0b" : (isOrigin || isDest) ? "#00c8c8" : "#94a3b8";
-              const outerR = isOrigin || isDest ? 11 : 8;
-              const innerR = isOrigin || isDest ? 6 : 5;
-              const labelSize = isOrigin || isDest ? 12 : 11;
+              const isSingapore = pinId === "singapore";
+              const color = isSingapore ? "#fbbf24" : isLandBridge ? "#f59e0b" : (isOrigin || isDest) ? "#00c8c8" : "#94a3b8";
+              const outerR = isOrigin || isDest ? 11 : isSingapore ? 9 : 8;
+              const innerR = isOrigin || isDest ? 6 : isSingapore ? 5 : 5;
+              const labelSize = isOrigin || isDest ? 12 : isSingapore ? 10 : 11;
 
               return shouldAnimate ? (
                 <motion.g
