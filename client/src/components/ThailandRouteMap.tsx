@@ -1,112 +1,109 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ROUTES_DATA = [
-  // Direct Express Routes (Standard Gold)
-  { id: 'pth-hkt-express', label: 'Pattaya → Phuket (Express)', points: 'M 320 280 L 150 650', isDotted: false, color: '#D4AF37' },
-  { id: 'bkk-hkt-express', label: 'Bangkok → Phuket (Express)', points: 'M 280 250 L 150 650', isDotted: false, color: '#D4AF37' },
-  
-  // Traditional Route via Singapore (Dotted)
-  { 
-    id: 'pth-sg-pkt-trad', 
-    label: 'Pattaya → Singapore → Phuket (Traditional)', 
-    points: 'M 320 280 L 350 850 L 150 650', // Note the 'L' for direct segments
-    isDotted: true, 
-    color: '#D4AF37' 
-  },
-  
-  // Coastal/Secondary Routes
-  { id: 'ran-cmp', label: 'Ranong → Chumphon', points: 'M 140 520 L 195 500', isDotted: false, color: '#0ea5e9' }
-];
-
-const CITIES = [
-  { name: 'Bangkok', x: 280, y: 250 },
-  { name: 'Pattaya', x: 320, y: 280 },
-  { name: 'Phuket', x: 150, y: 650 },
-  { name: 'Chumphon', x: 195, y: 500 },
-  { name: 'Ranong', x: 140, y: 520 },
-  { name: 'Singapore', x: 350, y: 850 },
-];
-
-const MapComponent = () => {
-  const [hoveredRoute, setHoveredRoute] = useState(null);
-
-  const pathVariants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: { 
-      pathLength: 1, 
-      opacity: 1,
-      transition: { duration: 2.5, ease: "easeInOut" } 
-    }
+const ThailandRouteMap = ({ activeRouteIndex = 0 }) => {
+  // --- Constants & Styling ---
+  const colors = {
+    land: "#1a1c1e",
+    border: "#33373b",
+    seaRoute: "#00f2ff", // Premium Cyan
+    landRoute: "#ffcc00", // Alert Amber
+    bg: "#0b0c0d"
   };
 
-  return (
-    <div className="relative w-full h-[900px] bg-slate-950 flex items-center justify-center overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-      {/* Background Subtle Map Texture or Image could go here */}
-      <svg 
-        viewBox="0 0 500 1000" 
-        className="w-full h-full drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
-      >
-        {/* Render Routes */}
-        {ROUTES_DATA.map((route) => (
-          <motion.path
-            key={route.id}
-            d={route.points}
-            variants={pathVariants}
-            initial="hidden"
-            animate="visible"
-            fill="none"
-            stroke={route.color}
-            strokeWidth={hoveredRoute === route.id ? "3" : "2"}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeDasharray={route.isDotted ? "8, 8" : "0"}
-            onMouseEnter={() => setHoveredRoute(route.id)}
-            onMouseLeave={() => setHoveredRoute(null)}
-            className="cursor-pointer transition-all duration-300"
-            style={{
-              filter: `drop-shadow(0 0 ${hoveredRoute === route.id ? '8px' : '3px'} ${route.color}80)`
-            }}
-          />
-        ))}
+  // --- Route Data ---
+  // Route 0: Standard Gulf to Andaman via Land Bridge
+  // Route 1: International Singapore Route (The Dotted Deep Sea Line)
+  const routes = [
+    {
+      id: "gulf-andaman",
+      label: "Gulf to Andaman Transit",
+      path: "M 220,100 Q 180,150 140,220 L 100,280", // Simplified for example
+      isDotted: false,
+      hasSingapore: false,
+    },
+    {
+      id: "singapore-expedition",
+      label: "Singapore Deep Sea Route",
+      path: "M 220,100 C 280,200 300,350 250,450 S 100,350 80,300", 
+      isDotted: true,
+      hasSingapore: true,
+    }
+  ];
 
-        {/* Render City Pins */}
-        {CITIES.map((city) => (
-          <motion.g 
-            key={city.name}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 1, type: 'spring', stiffness: 260, damping: 20 }}
-          >
-            <circle cx={city.x} cy={city.y} r="4" fill="#fff" className="shadow-lg" />
-            <circle cx={city.x} cy={city.y} r="8" fill="transparent" stroke={city.name === 'Singapore' ? '#D4AF37' : '#fff'} strokeWidth="1" opacity="0.5" />
-            <text 
-              x={city.x + 12} 
-              y={city.y + 4} 
-              fill="white" 
-              fontSize="12" 
-              fontWeight="300" 
-              className="pointer-events-none uppercase tracking-widest select-none"
-              style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}
-            >
-              {city.name}
-            </text>
-          </motion.g>
-        ))}
+  const currentRoute = routes[activeRouteIndex] || routes[0];
+
+  return (
+    <div className="relative w-full aspect-[3/4] bg-[#0b0c0d] rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+      <svg 
+        viewBox="0 0 320 480" 
+        className="w-full h-full"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          {/* Premium Glow Filter */}
+          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+          
+          {/* Subtle Land Shadow */}
+          <filter id="shadow">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.5" />
+          </filter>
+        </defs>
+
+        {/* 1. Map Background (Simplified Peninsula) */}
+        <path 
+          d="M160,20 L200,50 L220,120 L180,220 L140,280 L130,400 L110,480 L80,450 L90,300 L110,200 L130,50 Z" 
+          fill={colors.land}
+          stroke={colors.border}
+          strokeWidth="1"
+          filter="url(#shadow)"
+        />
+
+        {/* 2. Dynamic Route Line */}
+        <AnimatePresence mode="wait">
+          <motion.path
+            key={currentRoute.id}
+            d={currentRoute.path}
+            fill="none"
+            stroke={currentRoute.isDotted ? colors.seaRoute : colors.landRoute}
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray={currentRoute.isDotted ? "8, 6" : "0"}
+            filter="url(#glow)"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+        </AnimatePresence>
+
+        {/* 3. Location Markers */}
+        <LocationMarker x={220} y={100} label="Pattaya" />
+        {currentRoute.hasSingapore && <LocationMarker x={250} y={450} label="Singapore" color={colors.seaRoute} />}
+        <LocationMarker x={80} y={300} label="Phuket" />
       </svg>
 
-      {/* Premium UI Overlay */}
-      <div className="absolute top-8 left-8 p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg">
-        <h2 className="text-white text-xl font-light tracking-tighter uppercase mb-2">
-          Route Logistics
-        </h2>
-        <div className="w-12 h-[2px] bg-[#D4AF37] mb-4" />
-        <p className="text-white/60 text-xs font-medium max-w-[200px] leading-relaxed">
-          Premium marine transit connecting strategic hubs across Thailand and beyond.
+      {/* 4. HUD Overlay */}
+      <div className="absolute bottom-6 left-6 right-6 p-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-lg">
+        <h3 className="text-white font-bold text-lg tracking-tight">{currentRoute.label}</h3>
+        <p className="text-gray-400 text-xs uppercase tracking-widest mt-1">
+          {currentRoute.isDotted ? "Deep Sea Transit" : "Inter-Coastal Land Bridge"}
         </p>
       </div>
     </div>
   );
 };
 
-export default MapComponent;
+const LocationMarker = ({ x, y, label, color = "#fff" }) => (
+  <motion.g initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.5 }}>
+    <circle cx={x} cy={y} r="5" fill={color} filter="url(#glow)" />
+    <text x={x + 10} y={y + 5} fill="white" fontSize="10" fontWeight="bold" className="pointer-events-none">
+      {label}
+    </text>
+  </motion.g>
+);
+
+export default ThailandRouteMap;
