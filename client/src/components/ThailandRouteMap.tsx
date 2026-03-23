@@ -148,11 +148,13 @@ export default function ThailandRouteMap({
   onPrev,
   onNext,
   totalRoutes,
+  routeLabel,
 }: {
   activeRoute: number;
   onPrev?: () => void;
   onNext?: () => void;
   totalRoutes?: number;
+  routeLabel?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -259,11 +261,11 @@ export default function ThailandRouteMap({
           className="w-full"
         >
           <svg
-            viewBox="-50 -50 500 600"
+            viewBox="-50 -50 500 650"
             className="w-full max-w-2xl mx-auto"
             style={{
               filter: "drop-shadow(0 0 20px rgba(0,200,200,0.15))",
-              aspectRatio: "400 / 500",
+              aspectRatio: "400 / 520",
             }}
           >
             <defs>
@@ -505,6 +507,25 @@ export default function ThailandRouteMap({
               <polygon points="0,-14 -3,-6 0,-9 3,-6" fill="#38bdf8" opacity="0.8" />
               <text x="0" y="-17" fontSize="6" fill="#38bdf8" textAnchor="middle" fontFamily="monospace">N</text>
             </g>
+
+            {/* ── Route label at bottom of map ── */}
+            {routeLabel && (
+              <g>
+                <rect x="-50" y="570" width="500" height="80" fill="rgba(0,0,0,0.25)" />
+                <text
+                  x="200"
+                  y="620"
+                  fontSize="20"
+                  fontWeight="bold"
+                  fill="#00c8c8"
+                  textAnchor="middle"
+                  fontFamily="system-ui, sans-serif"
+                  style={{ textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}
+                >
+                  {routeLabel}
+                </text>
+              </g>
+            )}
 
           </svg>
         </motion.div>

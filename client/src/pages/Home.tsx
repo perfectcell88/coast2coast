@@ -672,14 +672,8 @@ export default function Home() {
                     onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
                     onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
                     totalRoutes={routes.length}
+                    routeLabel={`${routes[activeRoute].from} → ${routes[activeRoute].to}`}
                   />
-
-                  {/* Active route name label */}
-                  <div className="text-center mt-4">
-                    <p className="font-display text-lg md:text-xl font-bold text-white">
-                      {routes[activeRoute].from} → {routes[activeRoute].to}
-                    </p>
-                  </div>
                 </div>
               </div>
             </motion.div>
