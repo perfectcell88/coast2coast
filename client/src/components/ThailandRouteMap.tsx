@@ -1,6 +1,6 @@
 /**
  * ThailandRouteMap — Enhanced Premium Version
- * * SVG map of Thailand's southern peninsula with:
+ * SVG map of Thailand's southern peninsula with:
  * - Land fill with subtle texture
  * - Glowing animated route paths
  * - Pulsing city pins
@@ -40,7 +40,7 @@ const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 const ROUTES_DATA: RouteData[] = [
   {
     label: "Pattaya → Phuket",
-    gulfSea: "M 216.5,84.1 L 107.5,213.7", // Direct direct line
+    gulfSea: "M 216.5,84.1 L 107.5,213.7", 
     landBridge: LAND_BRIDGE,
     andamanSea: "M 71.0,242.5 L 57.1,353.0",
     originPin: "pattaya",
@@ -49,17 +49,16 @@ const ROUTES_DATA: RouteData[] = [
   },
   {
     label: "Comparison: via Singapore",
-    gulfSea: "M 216.5,84.1 L 232.0,475.0",
+    gulfSea: "M 216.5,84.1 C 300,150 280,420 232.0,475.0", // Curved maritime route
     landBridge: "",
-    andamanSea: "M 232.0,475.0 L 57.1,353.0",
+    andamanSea: "M 232.0,475.0 C 180,450 100,430 57.1,353.0", // Curved back to Phuket
     originPin: "pattaya",
     destPin: "phuket",
     viaPin: "singapore",
     direction: "forward",
-    isDotted: true, // This enables the dotted line styling
+    isDotted: true, 
     hasOverland: false,
   },
-  // ... other routes
 ];
 
 const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "left" | "right" }> = {
@@ -134,7 +133,6 @@ export default function ThailandRouteMap({
 
   return (
     <div ref={ref} className="relative w-full select-none" style={{ maxWidth: 520, margin: "0 auto" }}>
-      {/* Navigation and Indicator dots UI here (omitted for brevity but same as yours) */}
       
       <AnimatePresence mode="wait">
         <motion.div
@@ -176,8 +174,8 @@ export default function ThailandRouteMap({
                 fill="none"
                 stroke="#00c8c8"
                 strokeWidth="2.5"
-                strokeDasharray={route.isDotted ? "4 6" : "none"} // Fixed Dotted Line
-                markerEnd={isForward ? "url(#arrow-teal)" : undefined}
+                strokeDasharray={route.isDotted ? "4 6" : "none"}
+                markerEnd={isForward && !route.viaPin ? "url(#arrow-teal)" : undefined}
                 initial="hidden"
                 animate="visible"
                 variants={drawPath(0, 1.6)}
@@ -206,11 +204,11 @@ export default function ThailandRouteMap({
                 fill="none"
                 stroke="#00c8c8"
                 strokeWidth="2.5"
-                strokeDasharray={route.isDotted ? "4 6" : "none"} // Fixed Dotted Line
+                strokeDasharray={route.isDotted ? "4 6" : "none"}
                 markerEnd={isForward ? "url(#arrow-teal)" : undefined}
                 initial="hidden"
                 animate="visible"
-                variants={drawPath(1.4, 1.6)}
+                variants={drawPath(route.viaPin ? 1.6 : 1.4, 1.6)}
                 filter="url(#glow-teal)"
               />
             )}
@@ -219,11 +217,18 @@ export default function ThailandRouteMap({
             {visiblePins.map((pinId, i) => {
               const pin = ALL_PINS[pinId];
               if (!pin) return null;
-              const isHigh = pinId === route.originPin || pinId === route.destPin;
+              const isHigh = pinId === route.originPin || pinId === route.destPin || pinId === route.viaPin;
               return (
                 <motion.g key={pinId} variants={popIn(0.3 + i * 0.1)}>
                   <circle cx={pin.x} cy={pin.y} r={isHigh ? 6 : 4} fill={isHigh ? "#00c8c8" : "#94a3b8"} />
-                  <text x={pin.x + 8} y={pin.y + 4} fill="white" fontSize="10" fontWeight="bold">
+                  <text 
+                    x={pin.side === "right" ? pin.x + 10 : pin.x - 10} 
+                    y={pin.y + 4} 
+                    fill="white" 
+                    fontSize="10" 
+                    fontWeight="bold"
+                    textAnchor={pin.side === "right" ? "start" : "end"}
+                  >
                     {pin.label}
                   </text>
                 </motion.g>
