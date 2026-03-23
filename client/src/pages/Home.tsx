@@ -666,19 +666,17 @@ export default function Home() {
                 </div>
 
                 {/* Right side: Map */}
-                <div className="lg:col-span-2">
-                  <div className="w-full rounded-2xl overflow-visible" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", padding: "20px" }}>
-                    <ThailandRouteMap
-                      activeRoute={activeRoute}
-                      onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
-                      onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
-                      totalRoutes={routes.length}
-                    />
-                  </div>
+                <div className="lg:col-span-2 flex flex-col">
+                  <ThailandRouteMap
+                    activeRoute={activeRoute}
+                    onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
+                    onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
+                    totalRoutes={routes.length}
+                  />
 
                   {/* Active route name label */}
-                  <div className="text-center mt-6">
-                    <p className="font-display text-2xl md:text-3xl font-bold text-white">
+                  <div className="text-center mt-4">
+                    <p className="font-display text-lg md:text-xl font-bold text-white">
                       {routes[activeRoute].from} → {routes[activeRoute].to}
                     </p>
                   </div>
