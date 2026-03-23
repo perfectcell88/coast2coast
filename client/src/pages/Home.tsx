@@ -670,7 +670,7 @@ export default function Home() {
                   style={{ background: "linear-gradient(135deg, #a07828, #d4a840)", color: "#fff", boxShadow: "0 0 16px rgba(180,145,60,0.4)" }}>
                   ✶ Recommended
                 </div>
-                <TrendingDown size={36} className="mb-5" style={{ color: "#00c8c8" }} />
+                <TrendingUp size={36} className="mb-5" style={{ color: "#00c8c8" }} />
                 <h3 className="font-display text-2xl md:text-3xl font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h3>
                 <p className="text-base md:text-lg mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
                 <div className="space-y-4">
