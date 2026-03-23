@@ -563,7 +563,7 @@ export default function Home() {
             </motion.div>
             {/* ── MAP + COMPARISON SECTION SIDE BY SIDE ── */}
             <motion.div variants={fadeUp} className="mb-6">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
                 {/* Left side: Comparison cards */}
                 <div className="flex flex-col gap-6 lg:col-span-1">
                   {/* Comparison header */}
