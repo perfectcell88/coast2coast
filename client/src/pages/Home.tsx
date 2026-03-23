@@ -963,7 +963,7 @@ export default function Home() {
                 <div className="h-px w-8 bg-secondary/60" />
               </div>
               <p className="text-3xl md:text-4xl mb-10 max-w-2xl mx-auto font-display" style={{ color: "rgba(255,255,255,0.92)", lineHeight: 1.5, fontWeight: 600 }}>
-                Contact our team today to discuss your requirements and get started.
+                Contact our team
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
@@ -976,7 +976,7 @@ export default function Home() {
                         border: "1px solid rgba(0,200,200,0.35)",
                       }}
                     >
-                      Contact our Team <ArrowRight size={18} />
+                      Contact Us <ArrowRight size={18} />
                     </button>
                   </a>
                 </Link>
