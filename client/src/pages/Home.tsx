@@ -589,12 +589,12 @@ export default function Home() {
                     </div>
                     <AlertTriangle size={24} className="mb-3" style={{ color: "#00c8c8" }} />
                     <h4 className="font-display text-sm font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
-                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via South China Sea</p>
-                    <div className="space-y-2 text-xs">
+                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
+                    <div className="space-y-2 text-xs mb-4">
                       {[
-                        { label: "Distance", value: "1,700 miles" },
-                        { label: "Time", value: "12+ days" },
-                        { label: "Engine Hrs", value: "500+ hrs" },
+                        { label: "Total Distance", value: "1,700 miles" },
+                        { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
+                        { label: "Engine Hours", value: "500+ hours" },
                       ].map((item, i) => (
                         <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(0,200,200,0.2)" }}>
                           <span style={{ color: "rgba(255,255,255,0.65)" }}>{item.label}</span>
@@ -602,6 +602,9 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
+                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day, providing all goes well. The east coast of Malaysia provides very little support for repairs and fuel. The notorious South China Sea has its own challenges. Singapore is chaotic with katabatic squalls that create zero visibility and one of the highest incidences of lightning strikes in the world.
+                    </p>
                   </motion.div>
 
                   {/* Coast to Coast Card */}
@@ -620,12 +623,12 @@ export default function Home() {
                     </div>
                     <TrendingUp size={24} className="mb-3" style={{ color: "#00c8c8" }} />
                     <h4 className="font-display text-sm font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
-                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland bridge</p>
-                    <div className="space-y-2 text-xs">
+                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
+                    <div className="space-y-2 text-xs mb-4">
                       {[
-                        { label: "Sea Miles", value: "~350 miles" },
+                        { label: "Sea Miles (Pattaya–Phuket)", value: "~350 miles" },
                         { label: "Total Time", value: "Under 1 week" },
-                        { label: "Engine Hrs", value: "~50 hrs" },
+                        { label: "Engine Hours", value: "~50 hours" },
                       ].map((item, i) => (
                         <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(180,145,60,0.2)" }}>
                           <span style={{ color: "rgba(255,255,255,0.6)" }}>{item.label}</span>
@@ -633,6 +636,9 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
+                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+                      Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. It's relentless and no pleasure cruise. Our Chumphon–Ranong land bridge is the new option.
+                    </p>
                   </motion.div>
 
                   {/* Savings summary */}

@@ -10,65 +10,66 @@
  *  - Singapore dotted sea route showing traditional shipping route (permanent overlay on all routes)
  *  - Navigation arrows to scan through routes
  *
- * SVG viewBox: 0 0 320 480
+ * SVG viewBox: 0 0 400 520 (expanded to accommodate Singapore route)
  */
 
 import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// ─── Coastline paths (scaled to 320×480 viewBox) ─────────────────────────────
+// ─── Coastline paths (scaled to 400×520 viewBox) ─────────────────────────────
 
 /** Gulf of Thailand coastline — Chumphon down to Chumphon */
 const GULF_COAST =
-  "M 215,48 C 220,72 224,98 226,125 C 228,152 226,175 222,198 C 218,220 210,242 200,260 C 193,272 186,280 178,286";
+  "M 269,60 C 275,90 280,122 282,156 C 284,190 282,219 278,248 C 274,275 263,302 250,325 C 241,340 232,350 222,358";
 
 /** Andaman Sea coastline — Myanmar border down to Phuket */
 const ANDAMAN_COAST =
-  "M 72,100 C 74,124 77,148 82,172 C 86,192 90,208 94,224 C 97,238 99,248 100,258 C 102,274 106,294 112,314 C 118,334 126,354 134,372 C 138,384 140,396 140,408";
+  "M 90,125 C 92,156 95,185 102,215 C 107,240 112,260 117,280 C 120,297 122,310 125,322 C 127,342 132,368 140,392 C 147,417 157,442 167,465 C 172,480 175,495 175,510";
 
 /**
  * Thailand land mass — accurate outline derived from Natural Earth GeoJSON
  * Projection: linear lon/lat, bounds lon 97.5–102.5, lat 5.5–14.5
- * Scaled to 320×480 viewBox (factor 0.8 from 400×600)
+ * Scaled to 400×520 viewBox (factor 1.0 from original)
  */
 const LAND_FILL =
-  "M 318.3,125.4 L 306.6,123.0 L 304.9,117.9 L 308.2,117.8 L 311.0,114.8 L 309.6,113.3 L 310.1,115.0 L 306.6,116.4 L 307.4,110.6 L 305.3,112.4 L 305.3,109.8 L 300.9,110.2 L 305.5,115.9 L 302.6,116.1 L 292.6,107.3 L 295.2,104.6 L 288.6,103.2 L 292.2,105.4 L 291.7,108.3 L 288.6,104.9 L 285.5,104.6 L 284.8,101.0 L 284.6,105.1 L 274.1,95.9 L 269.1,95.6 L 265.1,98.6 L 253.8,99.6 L 250.8,101.6 L 229.6,97.0 L 223.3,98.7 L 222.4,101.4 L 219.3,100.3 L 218.7,98.0 L 214.9,98.6 L 215.4,95.9 L 213.6,95.6 L 218.9,90.1 L 215.4,84.3 L 219.8,79.8 L 216.2,74.7 L 220.5,69.3 L 218.4,64.3 L 222.8,60.9 L 223.8,53.5 L 216.9,55.0 L 203.5,52.9 L 197.9,50.4 L 198.2,47.4 L 195.6,52.7 L 181.6,54.3 L 177.6,52.5 L 163.4,58.0 L 157.5,64.4 L 164.7,71.8 L 166.6,77.0 L 157.4,97.7 L 160.8,113.7 L 158.9,118.9 L 161.3,123.0 L 149.2,137.4 L 148.3,147.1 L 144.1,148.8 L 137.0,158.7 L 132.4,168.9 L 133.5,176.2 L 129.8,176.7 L 127.8,179.6 L 128.7,193.8 L 124.4,193.6 L 119.9,203.7 L 116.1,205.4 L 114.5,210.0 L 111.4,212.2 L 113.2,212.9 L 111.4,215.6 L 114.5,218.0 L 114.2,220.6 L 105.7,221.0 L 106.8,224.6 L 112.3,227.5 L 108.9,228.8 L 105.7,234.5 L 107.4,238.6 L 105.4,252.4 L 110.3,264.4 L 116.7,272.5 L 111.0,275.4 L 111.0,278.5 L 112.3,281.0 L 120.2,283.0 L 126.4,282.6 L 130.3,278.3 L 140.2,276.5 L 150.6,277.6 L 154.9,288.7 L 157.9,314.4 L 169.2,325.9 L 171.9,325.5 L 170.6,319.9 L 168.4,319.2 L 174.1,322.7 L 177.4,329.8 L 188.2,374.6 L 196.7,389.6 L 187.2,385.8 L 185.0,369.8 L 180.8,369.4 L 177.4,371.7 L 181.0,365.0 L 179.7,359.6 L 177.3,357.6 L 173.4,358.3 L 169.1,362.6 L 171.8,372.6 L 177.8,380.7 L 183.7,382.2 L 184.6,385.8 L 187.3,386.9 L 185.1,388.2 L 187.9,391.4 L 195.6,392.3 L 197.4,388.0 L 209.0,400.9 L 214.4,402.0 L 223.8,407.7 L 236.2,407.4 L 239.6,405.2 L 246.5,406.6 L 240.8,403.0 L 242.6,402.4 L 259.7,408.4 L 273.4,426.6 L 292.6,439.6 L 291.8,448.2 L 283.8,454.3 L 282.4,460.8 L 275.2,467.2 L 270.5,464.7 L 266.6,465.8 L 264.6,461.0 L 259.7,458.1 L 239.9,464.7 L 237.6,470.3 L 231.8,473.0 L 221.8,464.4 L 225.0,458.7 L 229.0,456.6 L 230.0,448.7 L 227.4,446.2 L 229.7,443.3 L 229.2,440.2 L 222.3,438.8 L 213.3,440.7 L 211.5,431.2 L 207.0,429.0 L 206.7,427.0 L 200.4,429.6 L 184.8,425.5 L 181.0,423.6 L 176.9,416.0 L 170.6,416.2 L 170.7,423.1 L 168.2,429.8 L 165.8,427.4 L 166.6,424.9 L 164.1,426.3 L 159.4,421.4 L 157.7,421.7 L 157.5,418.1 L 151.5,412.6 L 139.9,406.6 L 141.7,403.1 L 139.4,398.6 L 143.8,393.3 L 139.4,393.4 L 139.0,390.9 L 135.3,392.7 L 131.7,389.4 L 130.9,385.8 L 134.6,379.9 L 131.2,383.9 L 128.6,379.4 L 126.2,385.0 L 120.2,382.9 L 117.5,379.5 L 117.1,373.1 L 114.9,373.0 L 114.7,366.9 L 112.0,366.5 L 112.4,365.0 L 104.3,359.1 L 101.8,363.1 L 98.2,361.4 L 97.0,356.6 L 100.0,354.2 L 100.5,350.6 L 97.8,351.8 L 90.7,343.9 L 86.0,346.5 L 83.2,343.8 L 81.3,345.4 L 79.6,335.2 L 78.6,333.1 L 77.2,334.6 L 77.0,330.7 L 71.9,331.7 L 73.9,326.4 L 70.6,325.5 L 65.7,328.7 L 59.4,329.8 L 61.6,335.1 L 59.2,338.7 L 57.0,339.4 L 50.0,334.6 L 44.8,318.2 L 45.4,315.7 L 48.2,318.2 L 46.1,316.3 L 47.4,311.9 L 46.1,307.9 L 50.7,297.4 L 57.0,291.4 L 53.3,291.9 L 53.1,290.6 L 56.5,289.5 L 52.6,282.2 L 55.8,281.3 L 54.6,279.9 L 61.3,264.1 L 63.1,265.2 L 66.0,263.1 L 61.7,261.1 L 64.9,258.4 L 63.6,255.3 L 66.8,255.7 L 68.2,253.8 L 64.5,253.8 L 64.5,252.0 L 69.3,248.4 L 67.1,250.2 L 64.8,248.7 L 72.4,242.6 L 70.6,240.3 L 78.1,227.8 L 82.6,213.3 L 80.4,204.5 L 85.1,199.3 L 94.9,195.6 L 96.1,189.0 L 99.5,189.6 L 109.6,180.9 L 123.4,160.2 L 124.8,153.9 L 130.7,152.5 L 136.3,143.1 L 131.9,140.1 L 132.7,134.6 L 129.2,131.9 L 130.6,125.8 L 125.0,126.4 L 126.3,123.4 L 120.8,108.5 L 121.8,102.6 L 110.4,95.0 L 105.8,84.6 L 106.6,81.3 L 102.0,77.9 L 102.6,70.9 L 108.2,67.8 L 105.8,41.8 L 102.5,38.5 L 101.8,33.6 L 96.5,29.4 L 91.8,22.1 L 67.0,6.6 L 317.0,50.0 L 308.1,51.1 L 309.0,65.4 L 312.5,72.7 L 319.4,80.2 L 317.8,83.8 L 319.8,98.5 Z";
+  "M 398,156 L 383,153 L 381,147 L 385,147 L 388,143 L 387,141 L 388,143 L 383,144 L 384,137 L 382,139 L 382,137 L 376,137 L 382,144 L 378,145 L 366,134 L 369,131 L 361,129 L 365,131 L 364,135 L 361,131 L 357,131 L 356,126 L 356,131 L 343,120 L 337,119 L 332,122 L 317,123 L 314,126 L 287,121 L 279,123 L 278,126 L 274,125 L 273,122 L 269,123 L 269,120 L 267,119 L 273,113 L 269,106 L 274,100 L 270,94 L 275,88 L 273,82 L 278,77 L 279,67 L 271,69 L 254,66 L 247,63 L 248,59 L 244,65 L 227,67 L 222,65 L 204,72 L 197,80 L 206,89 L 208,96 L 197,122 L 201,142 L 198,148 L 201,153 L 186,171 L 185,183 L 180,185 L 171,198 L 165,211 L 167,220 L 162,221 L 160,224 L 161,242 L 155,241 L 150,253 L 145,255 L 143,261 L 139,263 L 141,264 L 139,267 L 143,270 L 143,273 L 132,274 L 133,278 L 140,284 L 136,286 L 132,293 L 134,298 L 132,315 L 138,330 L 146,341 L 139,344 L 139,348 L 140,351 L 150,354 L 158,353 L 163,348 L 175,346 L 188,348 L 193,361 L 197,392 L 211,407 L 215,406 L 213,399 L 210,398 L 217,403 L 221,412 L 235,468 L 246,487 L 234,482 L 231,462 L 226,461 L 222,464 L 226,456 L 224,450 L 221,448 L 216,449 L 211,454 L 214,466 L 222,476 L 229,478 L 230,482 L 233,484 L 230,486 L 234,490 L 244,491 L 246,486 L 261,501 L 268,502 L 279,509 L 295,508 L 299,506 L 307,507 L 301,503 L 303,502 L 324,510 L 341,533 L 366,548 L 365,558 L 354,565 L 352,572 L 344,580 L 338,577 L 333,578 L 330,572 L 324,569 L 300,576 L 297,583 L 290,586 L 277,576 L 281,569 L 286,567 L 287,558 L 284,555 L 287,552 L 286,548 L 278,547 L 266,549 L 264,539 L 259,536 L 258,533 L 250,536 L 231,531 L 226,529 L 221,520 L 213,520 L 213,528 L 210,536 L 207,533 L 208,530 L 205,532 L 199,526 L 197,527 L 197,522 L 189,515 L 175,508 L 177,504 L 174,499 L 179,493 L 174,493 L 173,490 L 169,492 L 164,488 L 163,484 L 168,477 L 164,481 L 161,476 L 158,482 L 150,480 L 147,476 L 146,468 L 144,468 L 143,461 L 140,460 L 140,458 L 130,451 L 127,456 L 123,454 L 121,448 L 125,445 L 125,441 L 122,442 L 113,432 L 108,435 L 104,432 L 102,434 L 99,422 L 98,420 L 96,421 L 96,417 L 90,418 L 92,412 L 88,411 L 82,415 L 74,416 L 77,422 L 74,426 L 71,427 L 63,421 L 56,403 L 57,400 L 60,403 L 58,401 L 59,396 L 58,391 L 63,380 L 71,364 L 67,365 L 66,363 L 70,362 L 65,354 L 69,353 L 68,351 L 76,335 L 103,266 L 100,255 L 106,249 L 119,244 L 120,236 L 124,237 L 137,226 L 154,200 L 156,192 L 163,190 L 170,179 L 165,175 L 166,169 L 162,166 L 163,159 L 156,159 L 158,156 L 151,135 L 152,128 L 138,119 L 132,106 L 133,102 L 128,98 L 128,90 L 135,86 L 132,52 L 128,48 L 127,42 L 120,37 L 114,27 L 84,8 L 396,62 L 385,64 L 386,81 L 390,91 L 399,100 L 397,105 L 399,123 Z";
 
 /** Phuket island — accurate GeoJSON outline */
 const PHUKET_ISLAND =
-  "M 58.8,351.8 L 60.2,352.7 L 57.6,353.9 L 57.4,356.6 L 54.0,355.6 L 52.6,358.9 L 50.6,358.6 L 50.2,351.8 L 48.2,350.5 L 50.0,346.5 L 50.0,336.4 L 53.1,337.6 L 54.0,340.9 L 60.1,342.2 L 57.4,348.2 L 58.8,351.8 Z";
+  "M 73,439 L 75,440 L 72,442 L 72,445 L 68,444 L 66,448 L 63,447 L 63,439 L 60,437 L 62,433 L 62,420 L 66,421 L 67,425 L 75,427 L 72,435 L 73,439 Z";
 
 // ─── Per-route animated path data ────────────────────────────────────────────
-// All coordinates use exact geographic positions (scaled to 320×480 viewBox):
-//   Pattaya:  x=216.5, y=84.1
-//   Chumphon: x=107.5, y=213.7
-//   Ranong:   x=71.0,  y=242.5
-//   Phuket:   x=57.1,  y=353.0
+// All coordinates use exact geographic positions (scaled to 400×520 viewBox):
+//   Pattaya:  x=270, y=105
+//   Chumphon: x=134, y=267
+//   Ranong:   x=89,  y=303
+//   Phuket:   x=71,  y=441
 
-const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
+const LAND_BRIDGE = "M 134,267 L 89,303";
 
-// Singapore sea route — wraps around the southernmost point of the peninsula
-// This is a PERMANENT overlay shown on all routes to illustrate the traditional long sea route
-const SINGAPORE_ROUTE = "M 216.5,84.1 L 240,140 L 260,200 L 280,280 L 260,360 L 180,420 L 80,430 L 57.1,353.0";
+// Singapore sea route — wraps around the southernmost point of the peninsula WITHOUT touching land
+// Extended path that goes far south around the peninsula (like the yellow line in the screenshot)
+// Curves well away from the peninsula to avoid any land contact
+const SINGAPORE_ROUTE = "M 270,105 C 320,130 360,180 370,260 C 375,320 360,380 320,420 C 280,450 180,470 100,460 C 80,458 71,441 71,441";
 
 // Route paths now STRAIGHTENED (direct lines instead of curves):
 const ROUTES_DATA = [
   {
     label: "Pattaya → Phuket",
     // Straightened Gulf leg: direct line from Pattaya to Chumphon
-    gulfSea: "M 216.5,84.1 L 107.5,213.7",
+    gulfSea: "M 270,105 L 134,267",
     landBridge: LAND_BRIDGE,
     // Straightened Andaman leg: direct line from Ranong to Phuket
-    andamanSea: "M 71.0,242.5 L 57.1,353.0",
+    andamanSea: "M 89,303 L 71,441",
     originPin: "pattaya",
     destPin: "phuket",
     direction: "forward" as const,
   },
   {
     label: "Phuket → Pattaya",
-    gulfSea: "M 107.5,213.7 L 216.5,84.1",
-    landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 L 71.0,242.5",
+    gulfSea: "M 134,267 L 270,105",
+    landBridge: "M 89,303 L 134,267",
+    andamanSea: "M 71,441 L 89,303",
     originPin: "phuket",
     destPin: "pattaya",
     direction: "reverse" as const,
@@ -76,38 +77,38 @@ const ROUTES_DATA = [
   {
     label: "Chumphon → Phuket",
     // No Gulf leg needed — starts at Chumphon
-    gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
+    gulfSea: "M 134,267 C 134,267 134,267 134,267",
     landBridge: LAND_BRIDGE,
-    andamanSea: "M 71.0,242.5 L 57.1,353.0",
+    andamanSea: "M 89,303 L 71,441",
     originPin: "chumphon",
     destPin: "phuket",
     direction: "forward" as const,
   },
   {
     label: "Phuket → Chumphon",
-    gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
-    landBridge: "M 71.0,242.5 L 107.5,213.7",
-    andamanSea: "M 57.1,353.0 L 71.0,242.5",
+    gulfSea: "M 134,267 C 134,267 134,267 134,267",
+    landBridge: "M 89,303 L 134,267",
+    andamanSea: "M 71,441 L 89,303",
     originPin: "phuket",
     destPin: "chumphon",
     direction: "reverse" as const,
   },
   {
     label: "Ranong → Pattaya",
-    gulfSea: "M 107.5,213.7 L 216.5,84.1",
-    landBridge: "M 71.0,242.5 L 107.5,213.7",
+    gulfSea: "M 134,267 L 270,105",
+    landBridge: "M 89,303 L 134,267",
     // No Andaman leg — starts at Ranong
-    andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
+    andamanSea: "M 89,303 C 89,303 89,303 89,303",
     originPin: "ranong",
     destPin: "pattaya",
     direction: "reverse" as const,
   },
   {
     label: "Pattaya → Ranong",
-    gulfSea: "M 216.5,84.1 L 107.5,213.7",
+    gulfSea: "M 270,105 L 134,267",
     landBridge: LAND_BRIDGE,
     // No Andaman leg — ends at Ranong
-    andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
+    andamanSea: "M 89,303 C 89,303 89,303 89,303",
     originPin: "pattaya",
     destPin: "ranong",
     direction: "forward" as const,
@@ -118,10 +119,10 @@ const ROUTES_DATA = [
 // Exact geographic positions derived from real lat/lon coordinates
 // REMOVED Bangkok — no longer part of active routes
 const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "left" | "right" }> = {
-  pattaya:  { x: 216.5, y: 84.1,  label: "Pattaya",  side: "right" },
-  chumphon: { x: 107.5, y: 213.7, label: "Chumphon", side: "right" },
-  ranong:   { x: 71.0,  y: 242.5, label: "Ranong",   side: "left"  },
-  phuket:   { x: 57.1,  y: 353.0, label: "Phuket",   side: "left"  },
+  pattaya:  { x: 270, y: 105,  label: "Pattaya",  side: "right" },
+  chumphon: { x: 134, y: 267, label: "Chumphon", side: "right" },
+  ranong:   { x: 89,  y: 303, label: "Ranong",   side: "left"  },
+  phuket:   { x: 71,  y: 441, label: "Phuket",   side: "left"  },
 };
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -260,11 +261,11 @@ export default function ThailandRouteMap({
           className="w-full"
         >
           <svg
-            viewBox="0 0 320 480"
+            viewBox="0 0 400 520"
             className="w-full max-w-md mx-auto"
             style={{
               filter: "drop-shadow(0 0 20px rgba(0,200,200,0.15))",
-              aspectRatio: "320 / 480",
+              aspectRatio: "400 / 520",
             }}
           >
             <defs>
@@ -294,7 +295,7 @@ export default function ThailandRouteMap({
             </defs>
 
             {/* ── Sea background ── */}
-            <rect width="320" height="480" fill="#0f172a" />
+            <rect width="400" height="520" fill="#0f172a" />
 
             {/* ── Land ── */}
             <motion.path
@@ -324,13 +325,13 @@ export default function ThailandRouteMap({
                 d={SINGAPORE_ROUTE}
                 fill="none"
                 stroke="#fbbf24"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
-                strokeDasharray="5 4"
-                opacity={0.5}
+                strokeDasharray="6 5"
+                opacity={0.6}
                 initial="hidden"
                 animate="visible"
-                variants={drawPath(0.2, 2.2)}
+                variants={drawPath(0.2, 2.4)}
               />
             )}
 
@@ -341,7 +342,7 @@ export default function ThailandRouteMap({
                   d={route.gulfSea}
                   fill="none"
                   stroke="#00c8c8"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   strokeLinecap="round"
                   markerEnd={isForward ? "url(#arrow-teal)" : undefined}
                   markerStart={isForward ? undefined : "url(#arrow-teal)"}
@@ -354,7 +355,7 @@ export default function ThailandRouteMap({
                   d={route.gulfSea}
                   fill="none"
                   stroke="#00c8c8"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   strokeLinecap="round"
                   opacity={0.25}
                   initial="hidden"
@@ -371,9 +372,9 @@ export default function ThailandRouteMap({
                   d={route.landBridge}
                   fill="none"
                   stroke="#f59e0b"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   strokeLinecap="round"
-                  strokeDasharray="5 4"
+                  strokeDasharray="6 5"
                   markerEnd={isForward ? "url(#arrow-gold)" : undefined}
                   markerStart={isForward ? undefined : "url(#arrow-gold)"}
                   initial="hidden"
@@ -385,9 +386,9 @@ export default function ThailandRouteMap({
                   d={route.landBridge}
                   fill="none"
                   stroke="#f59e0b"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   strokeLinecap="round"
-                  strokeDasharray="5 4"
+                  strokeDasharray="6 5"
                   opacity={0.25}
                   initial="hidden"
                   animate="visible"
@@ -403,7 +404,7 @@ export default function ThailandRouteMap({
                   d={route.andamanSea}
                   fill="none"
                   stroke="#00c8c8"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   strokeLinecap="round"
                   markerEnd={isForward ? "url(#arrow-teal)" : undefined}
                   markerStart={isForward ? undefined : "url(#arrow-teal)"}
@@ -416,7 +417,7 @@ export default function ThailandRouteMap({
                   d={route.andamanSea}
                   fill="none"
                   stroke="#00c8c8"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   strokeLinecap="round"
                   opacity={0.25}
                   initial="hidden"
@@ -434,9 +435,9 @@ export default function ThailandRouteMap({
               const isDest   = pinId === route.destPin;
               const isLandBridge = pinId === "chumphon" || pinId === "ranong";
               const color = isLandBridge ? "#f59e0b" : (isOrigin || isDest) ? "#00c8c8" : "#94a3b8";
-              const outerR = isOrigin || isDest ? 9 : 7;
-              const innerR = isOrigin || isDest ? 5 : 4;
-              const labelSize = isOrigin || isDest ? 11 : 10;
+              const outerR = isOrigin || isDest ? 11 : 8;
+              const innerR = isOrigin || isDest ? 6 : 5;
+              const labelSize = isOrigin || isDest ? 12 : 11;
 
               return shouldAnimate ? (
                 <motion.g
@@ -483,7 +484,7 @@ export default function ThailandRouteMap({
                     <text
                       x={pin.side === "right" ? pin.x + outerR + 6 : pin.x - outerR - 6}
                       y={pin.y + 17}
-                      fontSize="7.5"
+                      fontSize="8"
                       fill={color}
                       opacity="0.65"
                       textAnchor={pin.side === "right" ? "start" : "end"}
@@ -499,7 +500,7 @@ export default function ThailandRouteMap({
             })}
 
             {/* ── Compass rose (decorative) ── */}
-            <g opacity="0.18" transform="translate(36, 36)">
+            <g opacity="0.18" transform="translate(45, 45)">
               <circle cx="0" cy="0" r="14" fill="none" stroke="#38bdf8" strokeWidth="0.8" />
               <circle cx="0" cy="0" r="10" fill="none" stroke="#38bdf8" strokeWidth="0.5" />
               <line x1="0" y1="-14" x2="0" y2="14" stroke="#38bdf8" strokeWidth="0.8" />
@@ -516,8 +517,8 @@ export default function ThailandRouteMap({
       <div className="flex flex-col items-center justify-center gap-3 mt-4">
         {[
           { color: "#00c8c8", dash: "8 5", label: "Sea route" },
-          { color: "#f59e0b", dash: "5 4", label: "80 km overland" },
-          { color: "#fbbf24", dash: "5 4", label: "Traditional sea route (via Singapore)" },
+          { color: "#f59e0b", dash: "6 5", label: "80 km overland" },
+          { color: "#fbbf24", dash: "6 5", label: "Traditional sea route (via Singapore)" },
         ].map((l) => (
           <div key={l.label} className="flex items-center gap-2">
             <svg width="26" height="8" viewBox="0 0 26 8">
