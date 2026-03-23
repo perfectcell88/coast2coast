@@ -48,28 +48,7 @@ const PHUKET_ISLAND =
 
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
-// Singapore sea routes — SIMPLE DIRECT DASHED LINES that go AROUND the landmass in the sea
-// Each route goes from origin → around the peninsula → to Singapore → back → to destination
-// Routes stay entirely in blue water, never crossing land
-const SINGAPORE_ROUTES: Record<string, string> = {
-  // Pattaya → Phuket: Down east coast, around south tip to Singapore, back to Phuket
-  "pattaya-phuket": "M 216.5,84.1 L 200,150 L 160,220 L 120,280 L 88,380 L 57.1,353.0",
-  
-  // Phuket → Pattaya: From Phuket, around south to Singapore, back up to Pattaya
-  "phuket-pattaya": "M 57.1,353.0 L 88,380 L 120,280 L 160,220 L 200,150 L 216.5,84.1",
-  
-  // Chumphon → Phuket: Down to Ranong area, around south to Singapore, back to Phuket
-  "chumphon-phuket": "M 107.5,213.7 L 90,260 L 75,310 L 88,380 L 57.1,353.0",
-  
-  // Phuket → Chumphon: From Phuket, around south to Singapore, back up to Chumphon
-  "phuket-chumphon": "M 57.1,353.0 L 88,380 L 75,310 L 90,260 L 107.5,213.7",
-  
-  // Ranong → Pattaya: From Ranong, around south to Singapore, back up to Pattaya
-  "ranong-pattaya": "M 71.0,242.5 L 80,300 L 88,380 L 140,280 L 180,180 L 216.5,84.1",
-  
-  // Pattaya → Ranong: From Pattaya, around south to Singapore, back to Ranong
-  "pattaya-ranong": "M 216.5,84.1 L 180,180 L 140,280 L 88,380 L 80,300 L 71.0,242.5",
-};
+
 
 // Route paths now STRAIGHTENED (direct lines instead of curves):
 const ROUTES_DATA = [
@@ -78,7 +57,7 @@ const ROUTES_DATA = [
     gulfSea: "M 216.5,84.1 L 107.5,213.7",
     landBridge: LAND_BRIDGE,
     andamanSea: "M 71.0,242.5 L 57.1,353.0",
-    singaporeRoute: SINGAPORE_ROUTES["pattaya-phuket"],
+
     originPin: "pattaya",
     destPin: "phuket",
     direction: "forward" as const,
@@ -88,7 +67,7 @@ const ROUTES_DATA = [
     gulfSea: "M 107.5,213.7 L 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
     andamanSea: "M 57.1,353.0 L 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTES["phuket-pattaya"],
+
     originPin: "phuket",
     destPin: "pattaya",
     direction: "reverse" as const,
@@ -98,7 +77,7 @@ const ROUTES_DATA = [
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: LAND_BRIDGE,
     andamanSea: "M 71.0,242.5 L 57.1,353.0",
-    singaporeRoute: SINGAPORE_ROUTES["chumphon-phuket"],
+
     originPin: "chumphon",
     destPin: "phuket",
     direction: "forward" as const,
@@ -108,7 +87,7 @@ const ROUTES_DATA = [
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
     andamanSea: "M 57.1,353.0 L 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTES["phuket-chumphon"],
+
     originPin: "phuket",
     destPin: "chumphon",
     direction: "reverse" as const,
@@ -118,7 +97,7 @@ const ROUTES_DATA = [
     gulfSea: "M 107.5,213.7 L 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTES["ranong-pattaya"],
+
     originPin: "ranong",
     destPin: "pattaya",
     direction: "reverse" as const,
@@ -128,7 +107,7 @@ const ROUTES_DATA = [
     gulfSea: "M 216.5,84.1 L 107.5,213.7",
     landBridge: LAND_BRIDGE,
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTES["pattaya-ranong"],
+
     originPin: "pattaya",
     destPin: "ranong",
     direction: "forward" as const,
@@ -141,7 +120,7 @@ const ALL_PINS: Record<string, { x: number; y: number; label: string; side: "lef
   chumphon: { x: 107.5, y: 213.7, label: "Chumphon", side: "right" },
   ranong:   { x: 71.0,  y: 242.5, label: "Ranong",   side: "left"  },
   phuket:   { x: 57.1,  y: 353.0, label: "Phuket",   side: "left"  },
-  singapore: { x: 88, y: 380, label: "Singapore", side: "left" },
+
 };
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -197,7 +176,7 @@ export default function ThailandRouteMap({
   const route = ROUTES_DATA[activeRoute];
   const isForward = route.direction === "forward";
   const visiblePins = Array.from(
-    new Set(["chumphon", "ranong", "singapore", route.originPin, route.destPin])
+    new Set(["chumphon", "ranong", route.originPin, route.destPin])
   );
   const shouldAnimate = inView;
 
@@ -350,22 +329,7 @@ export default function ThailandRouteMap({
               transition={{ duration: 0.8 }}
             />
 
-            {/* ── Singapore sea route (DASHED, PERMANENT OVERLAY on all routes) ── */}
-            {shouldAnimate && route.singaporeRoute && (
-              <motion.path
-                d={route.singaporeRoute}
-                fill="none"
-                stroke="#fbbf24"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeDasharray="8 6"
-                opacity={0.65}
-                className="singapore-route-animated"
-                initial="hidden"
-                animate="visible"
-                variants={drawPath(0.2, 2.0)}
-              />
-            )}
+
 
             {/* ── Gulf Sea route ── */}
             {shouldAnimate && route.gulfSea && (
@@ -551,9 +515,7 @@ export default function ThailandRouteMap({
         {[
           { color: "#00c8c8", dash: "8 5", label: "Sea route" },
           { color: "#f59e0b", dash: "6 5", label: "80 km overland" },
-          { color: "#fbbf24", dash: "8 6", label: "Traditional sea route (via Singapore)" },
-        ].map((l) => (
-          <div key={l.label} className="flex items-center gap-2">
+        ].map((l) => (          <div key={l.label} className="flex items-center gap-2">
             <svg width="26" height="8" viewBox="0 0 26 8">
               <line x1="0" y1="4" x2="26" y2="4"
                 stroke={l.color} strokeWidth="2.5"
