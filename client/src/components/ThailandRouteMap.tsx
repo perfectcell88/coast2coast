@@ -7,7 +7,8 @@
  *  - Pulsing city pins
  *  - Animated route drawing
  *  - Sea labels and decorative elements
- *  - Singapore dotted sea route showing traditional shipping route
+ *  - Singapore dotted sea route showing traditional shipping route (permanent overlay on all routes)
+ *  - Navigation arrows to scan through routes
  *
  * SVG viewBox: 0 0 320 480
  */
@@ -47,13 +48,8 @@ const PHUKET_ISLAND =
 const LAND_BRIDGE = "M 107.5,213.7 L 71.0,242.5";
 
 // Singapore sea route — wraps around the southernmost point of the peninsula
-// This represents the traditional shipping route that boats would take
-const SINGAPORE_ROUTE_PATTAYA_PHUKET = "M 216.5,84.1 L 250,150 L 280,220 L 260,300 L 200,380 L 100,420 L 57.1,353.0";
-const SINGAPORE_ROUTE_PHUKET_PATTAYA = "M 57.1,353.0 L 100,420 L 200,380 L 260,300 L 280,220 L 250,150 L 216.5,84.1";
-const SINGAPORE_ROUTE_CHUMPHON_PHUKET = "M 107.5,213.7 L 150,280 L 200,380 L 100,420 L 57.1,353.0";
-const SINGAPORE_ROUTE_PHUKET_CHUMPHON = "M 57.1,353.0 L 100,420 L 200,380 L 150,280 L 107.5,213.7";
-const SINGAPORE_ROUTE_RANONG_PATTAYA = "M 71.0,242.5 L 120,300 L 200,380 L 280,220 L 250,150 L 216.5,84.1";
-const SINGAPORE_ROUTE_PATTAYA_RANONG = "M 216.5,84.1 L 250,150 L 280,220 L 200,380 L 120,300 L 71.0,242.5";
+// This is a PERMANENT overlay shown on all routes to illustrate the traditional long sea route
+const SINGAPORE_ROUTE = "M 216.5,84.1 L 240,140 L 260,200 L 280,280 L 260,360 L 180,420 L 80,430 L 57.1,353.0";
 
 // Route paths now STRAIGHTENED (direct lines instead of curves):
 const ROUTES_DATA = [
@@ -64,7 +60,6 @@ const ROUTES_DATA = [
     landBridge: LAND_BRIDGE,
     // Straightened Andaman leg: direct line from Ranong to Phuket
     andamanSea: "M 71.0,242.5 L 57.1,353.0",
-    singaporeRoute: SINGAPORE_ROUTE_PATTAYA_PHUKET,
     originPin: "pattaya",
     destPin: "phuket",
     direction: "forward" as const,
@@ -74,7 +69,6 @@ const ROUTES_DATA = [
     gulfSea: "M 107.5,213.7 L 216.5,84.1",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
     andamanSea: "M 57.1,353.0 L 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTE_PHUKET_PATTAYA,
     originPin: "phuket",
     destPin: "pattaya",
     direction: "reverse" as const,
@@ -85,7 +79,6 @@ const ROUTES_DATA = [
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: LAND_BRIDGE,
     andamanSea: "M 71.0,242.5 L 57.1,353.0",
-    singaporeRoute: SINGAPORE_ROUTE_CHUMPHON_PHUKET,
     originPin: "chumphon",
     destPin: "phuket",
     direction: "forward" as const,
@@ -95,7 +88,6 @@ const ROUTES_DATA = [
     gulfSea: "M 107.5,213.7 C 107.5,213.7 107.5,213.7 107.5,213.7",
     landBridge: "M 71.0,242.5 L 107.5,213.7",
     andamanSea: "M 57.1,353.0 L 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTE_PHUKET_CHUMPHON,
     originPin: "phuket",
     destPin: "chumphon",
     direction: "reverse" as const,
@@ -106,7 +98,6 @@ const ROUTES_DATA = [
     landBridge: "M 71.0,242.5 L 107.5,213.7",
     // No Andaman leg — starts at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTE_RANONG_PATTAYA,
     originPin: "ranong",
     destPin: "pattaya",
     direction: "reverse" as const,
@@ -117,7 +108,6 @@ const ROUTES_DATA = [
     landBridge: LAND_BRIDGE,
     // No Andaman leg — ends at Ranong
     andamanSea: "M 71.0,242.5 C 71.0,242.5 71.0,242.5 71.0,242.5",
-    singaporeRoute: SINGAPORE_ROUTE_PATTAYA_RANONG,
     originPin: "pattaya",
     destPin: "ranong",
     direction: "forward" as const,
@@ -192,7 +182,74 @@ export default function ThailandRouteMap({
   const shouldAnimate = inView;
 
   return (
-    <div ref={ref} className="flex flex-col items-center gap-4 w-full">
+    <div ref={ref} className="flex flex-col items-center gap-4 w-full relative">
+      {/* ── In-map navigation arrows ── */}
+      {onPrev && (
+        <button
+          onClick={onPrev}
+          aria-label="Previous route"
+          className="absolute z-20 flex items-center justify-center transition-all duration-200 hover:scale-110"
+          style={{
+            left: "10px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "36px",
+            height: "36px",
+            borderRadius: "50%",
+            background: "rgba(0,200,200,0.15)",
+            border: "1px solid rgba(0,200,200,0.35)",
+            backdropFilter: "blur(6px)",
+            color: "#00c8c8",
+            boxShadow: "0 0 12px rgba(0,200,200,0.2)",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M9 2L4 7L9 12" stroke="#00c8c8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
+      {onNext && (
+        <button
+          onClick={onNext}
+          aria-label="Next route"
+          className="absolute z-20 flex items-center justify-center transition-all duration-200 hover:scale-110"
+          style={{
+            right: "10px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "36px",
+            height: "36px",
+            borderRadius: "50%",
+            background: "rgba(0,200,200,0.15)",
+            border: "1px solid rgba(0,200,200,0.35)",
+            backdropFilter: "blur(6px)",
+            color: "#00c8c8",
+            boxShadow: "0 0 12px rgba(0,200,200,0.2)",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M5 2L10 7L5 12" stroke="#00c8c8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
+      {/* Route indicator dots */}
+      {totalRoutes && (
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+          {Array.from({ length: totalRoutes }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                width: i === activeRoute ? "18px" : "6px",
+                height: "6px",
+                borderRadius: "3px",
+                background: i === activeRoute ? "#00c8c8" : "rgba(0,200,200,0.3)",
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
+      )}
+
       <AnimatePresence mode="wait">
         <motion.div
           key={animKey}
@@ -261,19 +318,19 @@ export default function ThailandRouteMap({
               transition={{ duration: 0.8 }}
             />
 
-            {/* ── Singapore sea route (dotted, wraps around peninsula) ── */}
+            {/* ── Singapore sea route (dotted, PERMANENT OVERLAY on all routes) ── */}
             {shouldAnimate && (
               <motion.path
-                d={route.singaporeRoute}
+                d={SINGAPORE_ROUTE}
                 fill="none"
-                stroke="#7c3aed"
-                strokeWidth="1.5"
+                stroke="#fbbf24"
+                strokeWidth="2"
                 strokeLinecap="round"
-                strokeDasharray="4 3"
-                opacity={0.4}
+                strokeDasharray="5 4"
+                opacity={0.5}
                 initial="hidden"
                 animate="visible"
-                variants={drawPath(0.2, 2.0)}
+                variants={drawPath(0.2, 2.2)}
               />
             )}
 
@@ -458,9 +515,9 @@ export default function ThailandRouteMap({
       {/* ── Legend ── */}
       <div className="flex flex-col items-center justify-center gap-3 mt-4">
         {[
-          { color: "#00c8c8", dash: "5 4", label: "Sea route" },
+          { color: "#00c8c8", dash: "8 5", label: "Sea route" },
           { color: "#f59e0b", dash: "5 4", label: "80 km overland" },
-          { color: "#7c3aed", dash: "4 3", label: "Traditional sea route (Singapore)" },
+          { color: "#fbbf24", dash: "5 4", label: "Traditional sea route (via Singapore)" },
         ].map((l) => (
           <div key={l.label} className="flex items-center gap-2">
             <svg width="26" height="8" viewBox="0 0 26 8">

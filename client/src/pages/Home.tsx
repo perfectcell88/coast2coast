@@ -561,62 +561,105 @@ export default function Home() {
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Coast to Coast</h2>
               <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
             </motion.div>
-            {/* ── MAP + ROUTE DETAIL WITH SIDE BOXES ── */}
+            {/* ── MAP + COMPARISON SECTION SIDE BY SIDE ── */}
             <motion.div variants={fadeUp} className="mb-6">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
-                {/* Left side: Two info boxes */}
-                <div className="flex flex-col gap-4 lg:col-span-1">
-                  {/* Box 1: Route Statistics */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
+                {/* Left side: Comparison cards */}
+                <div className="flex flex-col gap-6 lg:col-span-1">
+                  {/* Comparison header */}
+                  <div>
+                    <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
+                    <h3 className="font-display text-xl font-bold text-white mb-2">The Shortcut Comparison</h3>
+                    <p className="text-sm opacity-70" style={{ color: "rgba(255,255,255,0.6)" }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
+                  </div>
+
+                  {/* Traditional Route Card */}
                   <motion.div
                     variants={fadeUp}
-                    className="rounded-xl p-5 flex flex-col h-full"
+                    className="rounded-2xl p-6 relative flex flex-col"
                     style={{
-                      background: "linear-gradient(135deg, rgba(0,200,200,0.08) 0%, rgba(0,200,200,0.04) 100%)",
-                      border: "1px solid rgba(0,200,200,0.2)",
-                      boxShadow: "0 4px 16px rgba(0,200,200,0.08), inset 0 1px 0 rgba(0,200,200,0.1)",
+                      background: "linear-gradient(145deg, #041e2e 0%, #062838 50%, #041e2e 100%)",
+                      border: "2px solid rgba(180,145,60,0.55)",
+                      boxShadow: "0 0 40px rgba(0,200,200,0.12), 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(200,170,80,0.15)",
                     }}
                   >
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-2 h-2 rounded-full" style={{ background: "#00c8c8" }} />
-                      <h3 className="font-mono-accent text-xs tracking-widest uppercase font-bold" style={{ color: "#00c8c8" }}>Route Info</h3>
+                    <div className="text-xs font-bold px-2 py-1 rounded-full mb-3 inline-block" 
+                      style={{ background: "rgba(0,200,200,0.15)", border: "1px solid rgba(0,200,200,0.3)", color: "#00c8c8", width: "fit-content" }}>
+                      Traditional Route
                     </div>
-                    <div className="space-y-3 flex-1">
-                      <div>
-                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Sea Miles</p>
-                        <p className="font-display text-lg font-bold text-white">{routes[activeRoute].seaMiles}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Total Time</p>
-                        <p className="font-display text-lg font-bold text-white">{routes[activeRoute].time}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Engine Hours</p>
-                        <p className="font-display text-lg font-bold text-white">{routes[activeRoute].engineHours}</p>
-                      </div>
+                    <AlertTriangle size={24} className="mb-3" style={{ color: "#00c8c8" }} />
+                    <h4 className="font-display text-sm font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
+                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via South China Sea</p>
+                    <div className="space-y-2 text-xs">
+                      {[
+                        { label: "Distance", value: "1,700 miles" },
+                        { label: "Time", value: "12+ days" },
+                        { label: "Engine Hrs", value: "500+ hrs" },
+                      ].map((item, i) => (
+                        <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(0,200,200,0.2)" }}>
+                          <span style={{ color: "rgba(255,255,255,0.65)" }}>{item.label}</span>
+                          <span className="font-bold" style={{ color: "#00c8c8" }}>{item.value}</span>
+                        </div>
+                      ))}
                     </div>
                   </motion.div>
 
-                  {/* Box 2: Route Description */}
+                  {/* Coast to Coast Card */}
                   <motion.div
                     variants={fadeUp}
-                    className="rounded-xl p-5 flex flex-col h-full"
+                    className="rounded-2xl p-6 relative flex flex-col"
                     style={{
-                      background: "linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(245,158,11,0.04) 100%)",
-                      border: "1px solid rgba(245,158,11,0.2)",
-                      boxShadow: "0 4px 16px rgba(245,158,11,0.08), inset 0 1px 0 rgba(245,158,11,0.1)",
+                      background: "linear-gradient(145deg, #041e2e 0%, #062838 50%, #041e2e 100%)",
+                      border: "2px solid rgba(180,145,60,0.55)",
+                      boxShadow: "0 0 40px rgba(0,200,200,0.12), 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(200,170,80,0.15)",
                     }}
                   >
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-2 h-2 rounded-full" style={{ background: "#f59e0b" }} />
-                      <h3 className="font-mono-accent text-xs tracking-widest uppercase font-bold" style={{ color: "#f59e0b" }}>Description</h3>
+                    <div className="text-xs font-bold px-2 py-1 rounded-full mb-3 inline-block"
+                      style={{ background: "linear-gradient(135deg, #a07828, #d4a840)", color: "#fff", boxShadow: "0 0 16px rgba(180,145,60,0.4)", width: "fit-content" }}>
+                      ✦ Recommended
                     </div>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
-                      {routes[activeRoute].description}
-                    </p>
+                    <TrendingUp size={24} className="mb-3" style={{ color: "#00c8c8" }} />
+                    <h4 className="font-display text-sm font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
+                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland bridge</p>
+                    <div className="space-y-2 text-xs">
+                      {[
+                        { label: "Sea Miles", value: "~350 miles" },
+                        { label: "Total Time", value: "Under 1 week" },
+                        { label: "Engine Hrs", value: "~50 hrs" },
+                      ].map((item, i) => (
+                        <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(180,145,60,0.2)" }}>
+                          <span style={{ color: "rgba(255,255,255,0.6)" }}>{item.label}</span>
+                          <span className="font-bold" style={{ color: "#00c8c8" }}>{item.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Savings summary */}
+                  <motion.div variants={fadeUp} className="rounded-xl p-4 grid grid-cols-3 gap-2 text-center"
+                    style={{
+                      background: "linear-gradient(135deg, #f5f0e8 0%, #faf7f2 50%, #f0ede6 100%)",
+                      border: "1px solid rgba(180,145,60,0.25)",
+                      boxShadow: "0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.8)",
+                    }}>
+                    {[
+                      { icon: Gauge, value: "79%", label: "Less Sea Miles" },
+                      { icon: Clock, value: "90%", label: "Fewer Hrs" },
+                      { icon: Shield, value: "<1W", label: "vs 12+ Days" },
+                    ].map((s, i) => {
+                      const Icon = s.icon;
+                      return (
+                        <div key={i} className="flex flex-col items-center gap-1">
+                          <Icon size={16} style={{ color: "#0a7a7a" }} />
+                          <span className="font-display text-xs font-bold" style={{ color: "#061e36" }}>{s.value}</span>
+                          <span className="text-xs font-medium" style={{ color: "#4a6070" }}>{s.label}</span>
+                        </div>
+                      );
+                    })}
                   </motion.div>
                 </div>
 
-                {/* Center: Map */}
+                {/* Right side: Map */}
                 <div className="lg:col-span-2">
                   <div className="w-full rounded-2xl overflow-visible" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(0,200,200,0.15)", backdropFilter: "blur(8px)", padding: "20px" }}>
                     <ThailandRouteMap
