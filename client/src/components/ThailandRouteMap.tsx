@@ -137,11 +137,10 @@ const ROUTES_DATA: RouteData[] = [
   },
   {
     label: "Pattaya → Singapore → Phuket",
-    // Smooth direct curve avoiding land geometry down to Singapore
-    gulfSea: "M 216.5,84.1 Q 250,280 232.0,475.0",
+    // Clean sweeping curves around the peninsula avoiding landmass interference
+    gulfSea: "M 216.5,84.1 Q 280,250 232.0,475.0",
     landBridge: "M 232.0,475.0 L 232.0,475.0", // No overland needed
-    // Sweeping west around the southern tip, then northwest direct to Phuket
-    andamanSea: "M 232.0,475.0 Q 120,480 57.1,353.0",
+    andamanSea: "M 232.0,475.0 Q 110,480 57.1,353.0",
     originPin: "pattaya",
     destPin: "phuket",
     viaPin: "singapore",
