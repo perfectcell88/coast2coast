@@ -541,7 +541,7 @@ export default function Home() {
 
 
       {/* ── ROUTE / MAP ───────────────────────────────────────────── */}
-      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 40%, #2a4a5e 70%, #2c3e50 100%)" }}>
+      <section className="py-24 md:py-32 relative" style={{ background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 40%, #2a4a5e 70%, #2c3e50 100%)", overflow: "clip" }}>
         {/* Nautical chart grid overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: `
@@ -673,7 +673,7 @@ export default function Home() {
                       onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
                       onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
                       totalRoutes={routes.length}
-                      routeLabel={`${routes[activeRoute].from} → ${routes[activeRoute].to}`}
+
                     />
                   </div>
                 </div>
