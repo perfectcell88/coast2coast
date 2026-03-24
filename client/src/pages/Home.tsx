@@ -399,7 +399,7 @@ export default function Home() {
               className="text-center w-full"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(1.3rem, 1.8vw, 1.75rem)",
+                fontSize: "clamp(0.95rem, 1.3vw, 1.2rem)",
                 color: "rgba(255,255,255,1)",
                 fontWeight: 700,
                 fontStyle: "normal",
@@ -415,7 +415,7 @@ export default function Home() {
               className="text-center leading-relaxed"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(1.05rem, 1.4vw, 1.45rem)",
+                fontSize: "clamp(0.82rem, 1.1vw, 1.0rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
                 color: "rgba(255,255,255,0.92)",
