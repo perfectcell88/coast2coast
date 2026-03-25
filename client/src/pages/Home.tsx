@@ -399,33 +399,62 @@ export default function Home() {
               className="text-center w-full"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.95rem, 1.3vw, 1.2rem)",
+                fontSize: "clamp(1.0rem, 1.35vw, 1.25rem)",
                 color: "rgba(255,255,255,1)",
                 fontWeight: 700,
                 fontStyle: "normal",
                 letterSpacing: "0em",
-                lineHeight: 1.25,
-                marginBottom: "1rem",
+                lineHeight: 1.3,
+                marginBottom: "1.1rem",
                 textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.8)",
               }}
             >
-              Thailand's Premier Vessel<br />Relocation Specialist
+              Thailand's Complete Vessel Relocation Specialists
             </p>
             <p
               className="text-center leading-relaxed"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.82rem, 1.1vw, 1.0rem)",
+                fontSize: "clamp(0.82rem, 1.05vw, 0.97rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
                 color: "rgba(255,255,255,0.92)",
+                marginBottom: "0.75rem",
+                textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
+                lineHeight: 1.65,
+              }}
+            >
+              The premier overland marine transportation company, specialising in oversized vessels and delivering reliable, efficient relocation — paying attention to detail from coast to coast.
+            </p>
+            <p
+              className="text-center leading-relaxed"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(0.82rem, 1.05vw, 0.97rem)",
+                fontWeight: 600,
+                fontStyle: "normal",
+                color: "rgba(0,200,200,0.95)",
+                marginBottom: "0.75rem",
+                textShadow: "0 1px 14px rgba(0,0,0,0.95)",
+                lineHeight: 1.6,
+              }}
+            >
+              Our Services Cover: Pattaya → Chumphon → Ranong → Phuket.
+            </p>
+            <p
+              className="text-center leading-relaxed"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(0.82rem, 1.05vw, 0.97rem)",
+                fontWeight: 400,
+                fontStyle: "normal",
+                color: "rgba(255,255,255,0.88)",
                 marginBottom: "1.6rem",
                 textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
                 lineHeight: 1.65,
               }}
             >
-              Transporting vessels from the Gulf of Thailand overland to the Andaman Sea.
-              Complete marine oversized transportation company — paying attention to detail, coast to coast.
+              We ensure every vessel is transported safely, efficiently, and on schedule.
             </p>
 
             <div className="flex flex-col items-stretch gap-3">
@@ -556,18 +585,14 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,180,180,0.07), transparent)" }} />
         <div className="container relative z-10">
           <FadeSection>
-            <motion.div variants={fadeUp} className="text-center mb-14">
-              <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>The Route</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Coast to Coast</h2>
-              <p className="text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>The premier overland marine transport corridor connecting Thailand's Gulf and Andaman coasts — in both directions.</p>
-            </motion.div>
+
             {/* ── MAP + COMPARISON SECTION SIDE BY SIDE ── */}
             <motion.div variants={fadeUp} className="mb-6">
               {/* Section header above the grid */}
               <div className="text-center mb-8 max-w-7xl mx-auto">
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
-                <h3 className="font-display text-3xl font-bold text-white mb-2">The Shortcut Comparison</h3>
-                <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.7)" }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>The Smart Choice</p>
+                <h3 className="font-display font-bold text-white mb-3" style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}>Our Shortcut Comparison</h3>
+                <p className="max-w-2xl mx-auto" style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
                 {/* Left side: Comparison cards */}
