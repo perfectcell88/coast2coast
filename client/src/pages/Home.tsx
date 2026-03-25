@@ -563,15 +563,15 @@ export default function Home() {
             </motion.div>
             {/* ── MAP + COMPARISON SECTION SIDE BY SIDE ── */}
             <motion.div variants={fadeUp} className="mb-6">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {/* Section header above the grid */}
+              <div className="text-center mb-8 max-w-7xl mx-auto">
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
+                <h3 className="font-display text-3xl font-bold text-white mb-2">The Shortcut Comparison</h3>
+                <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.7)" }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
                 {/* Left side: Comparison cards */}
-                <div className="flex flex-col gap-6 lg:col-span-1 h-full">
-                  {/* Comparison header */}
-                  <div>
-                    <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
-                    <h3 className="font-display text-2xl font-bold text-white mb-2">The Shortcut Comparison</h3>
-                    <p className="text-base" style={{ color: "rgba(255,255,255,0.7)" }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
-                  </div>
+                <div className="flex flex-col gap-6 lg:col-span-1">
 
                   {/* Traditional Route Card */}
                   <motion.div
@@ -641,7 +641,25 @@ export default function Home() {
                     </p>
                   </motion.div>
 
-                  {/* Savings summary */}
+                </div>
+
+                {/* Right side: Photo Map + savings bar below */}
+                <div className="lg:col-span-2 flex flex-col gap-4">
+                  {/* Map image — full, uncropped, sized to match card height */}
+                  <div className="rounded-2xl overflow-hidden flex-1" style={{
+                    background: "#041e2e",
+                    boxShadow: "0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,200,200,0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}>
+                    <img
+                      src="/map-route.webp"
+                      alt="Route Comparison: Gulf to Andaman — Coast to Coast Marine Transportation Thailand"
+                      style={{ width: "100%", height: "auto", objectFit: "contain", display: "block" }}
+                    />
+                  </div>
+                  {/* Savings summary below map */}
                   <motion.div variants={fadeUp} className="rounded-xl p-4 grid grid-cols-3 gap-2 text-center"
                     style={{
                       background: "linear-gradient(135deg, #f5f0e8 0%, #faf7f2 50%, #f0ede6 100%)",
@@ -663,17 +681,6 @@ export default function Home() {
                       );
                     })}
                   </motion.div>
-                </div>
-
-                {/* Right side: Photo Map */}
-                <div className="lg:col-span-2 flex flex-col h-full">
-                  <div className="flex-1 rounded-2xl overflow-hidden" style={{ minHeight: "520px", boxShadow: "0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,200,200,0.15)" }}>
-                    <img
-                      src="/map-route.webp"
-                      alt="Route Comparison: Gulf to Andaman — Coast to Coast Marine Transportation Thailand"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
-                    />
-                  </div>
                 </div>
               </div>
             </motion.div>
