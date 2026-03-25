@@ -392,7 +392,7 @@ export default function Home() {
               borderRadius: "18px 18px 0 0",
               border: "none",
               boxShadow: "none",
-              padding: "clamp(1.6rem, 2.8vw, 2.2rem) clamp(1.6rem, 2.8vw, 2.2rem) 0",
+              padding: "clamp(2.2rem, 3.5vw, 3rem) clamp(1.6rem, 2.8vw, 2.2rem) 0",
             }}
           >
             <p
@@ -415,7 +415,7 @@ export default function Home() {
               className="text-center leading-relaxed"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.82rem, 1.05vw, 0.97rem)",
+                fontSize: "clamp(0.92rem, 1.18vw, 1.08rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
                 color: "rgba(255,255,255,0.92)",
@@ -430,7 +430,7 @@ export default function Home() {
               className="text-center leading-relaxed"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.82rem, 1.05vw, 0.97rem)",
+                fontSize: "clamp(0.92rem, 1.18vw, 1.08rem)",
                 fontWeight: 600,
                 fontStyle: "normal",
                 color: "rgba(0,200,200,0.95)",
@@ -445,7 +445,7 @@ export default function Home() {
               className="text-center leading-relaxed"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.82rem, 1.05vw, 0.97rem)",
+                fontSize: "clamp(0.92rem, 1.18vw, 1.08rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
                 color: "rgba(255,255,255,0.88)",
@@ -613,9 +613,9 @@ export default function Home() {
                       Traditional Route
                     </div>
                     <AlertTriangle size={24} className="mb-3" style={{ color: "#00c8c8" }} />
-                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
-                    <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
-                    <div className="space-y-2 text-sm mb-4">
+                    <h4 className="font-display text-lg font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
+                    <p className="text-base mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
+                    <div className="space-y-2 text-base mb-4">
                       {[
                         { label: "Total Distance", value: "1,700 miles" },
                         { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
@@ -627,7 +627,7 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                    <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
                       Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day, providing all goes well. The east coast of Malaysia provides very little support for repairs and fuel. The notorious South China Sea has its own challenges. Singapore is chaotic with katabatic squalls that create zero visibility and one of the highest incidences of lightning strikes in the world.
                     </p>
                   </motion.div>
@@ -647,9 +647,9 @@ export default function Home() {
                       ✦ Recommended
                     </div>
                     <TrendingUp size={24} className="mb-3" style={{ color: "#00c8c8" }} />
-                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
-                    <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
-                    <div className="space-y-2 text-sm mb-4">
+                    <h4 className="font-display text-lg font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
+                    <p className="text-base mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
+                    <div className="space-y-2 text-base mb-4">
                       {[
                         { label: "Sea Miles (Pattaya–Phuket)", value: "~350 miles" },
                         { label: "Total Time", value: "Under 1 week" },
@@ -661,7 +661,7 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+                    <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
                       Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. It's relentless and no pleasure cruise. Our Chumphon–Ranong land bridge is the new option.
                     </p>
                   </motion.div>

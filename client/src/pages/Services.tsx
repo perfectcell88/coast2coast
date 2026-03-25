@@ -185,7 +185,7 @@ export default function Services() {
             <motion.div variants={fadeUp} className="text-center mb-14">
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Core Services</p>
               <h2 className="font-display text-4xl font-bold text-primary mb-4">What We Offer</h2>
-              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
+              <p className="text-xl text-foreground/65 max-w-2xl mx-auto">
                 Complete marine transport with professional expertise at every stage
               </p>
             </motion.div>
@@ -201,8 +201,8 @@ export default function Services() {
                     <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                       <Icon className="text-secondary" size={26} />
                     </div>
-                    <h3 className="font-display text-xl font-bold text-primary mb-3">{service.title}</h3>
-                    <p className="text-foreground/65 text-base leading-relaxed">{service.description}</p>
+                    <h3 className="font-display text-2xl font-bold text-primary mb-3">{service.title}</h3>
+                    <p className="text-foreground/65 text-lg leading-relaxed">{service.description}</p>
                   </motion.div>
                 );
               })}
@@ -218,7 +218,7 @@ export default function Services() {
             <motion.div variants={fadeUp} className="text-center mb-14">
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">Related Services</p>
               <h2 className="font-display text-4xl font-bold text-primary mb-4">Additional Services</h2>
-              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
+              <p className="text-xl text-foreground/65 max-w-2xl mx-auto">
                 We offer a full scope of marine support services
               </p>
             </motion.div>
@@ -234,8 +234,8 @@ export default function Services() {
                     <div className="w-12 h-12 bg-primary/8 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
                       <Icon className="text-primary" size={22} />
                     </div>
-                    <h3 className="font-display text-lg font-bold text-primary mb-2">{service.title}</h3>
-                    <p className="text-foreground/60 text-base leading-relaxed">{service.description}</p>
+                    <h3 className="font-display text-xl font-bold text-primary mb-2">{service.title}</h3>
+                    <p className="text-foreground/60 text-lg leading-relaxed">{service.description}</p>
                   </motion.div>
                 );
               })}
@@ -251,7 +251,7 @@ export default function Services() {
             <motion.div variants={fadeUp} className="text-center mb-14">
               <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-3">How It Works</p>
               <h2 className="font-display text-4xl font-bold text-primary mb-4">The Transport Process</h2>
-              <p className="text-lg text-foreground/65 max-w-2xl mx-auto">
+              <p className="text-xl text-foreground/65 max-w-2xl mx-auto">
                 A streamlined, professionally managed approach from first contact to final delivery
               </p>
             </motion.div>
@@ -272,8 +272,8 @@ export default function Services() {
                   </div>
                   {/* Content */}
                   <div className="bg-white border border-border rounded-xl p-5 flex-1 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 className="font-display font-bold text-primary mb-1.5">{step.title}</h3>
-                    <p className="text-sm text-foreground/60 leading-relaxed">{step.description}</p>
+                    <h3 className="font-display text-lg font-bold text-primary mb-1.5">{step.title}</h3>
+                    <p className="text-base text-foreground/60 leading-relaxed">{step.description}</p>
                   </div>
                 </motion.div>
               ))}
