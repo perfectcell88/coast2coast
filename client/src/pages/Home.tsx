@@ -569,8 +569,8 @@ export default function Home() {
                   {/* Comparison header */}
                   <div>
                     <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-secondary mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
-                    <h3 className="font-display text-xl font-bold text-white mb-2">The Shortcut Comparison</h3>
-                    <p className="text-sm opacity-70" style={{ color: "rgba(255,255,255,0.6)" }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
+                    <h3 className="font-display text-2xl font-bold text-white mb-2">The Shortcut Comparison</h3>
+                    <p className="text-base" style={{ color: "rgba(255,255,255,0.7)" }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
                   </div>
 
                   {/* Traditional Route Card */}
@@ -588,9 +588,9 @@ export default function Home() {
                       Traditional Route
                     </div>
                     <AlertTriangle size={24} className="mb-3" style={{ color: "#00c8c8" }} />
-                    <h4 className="font-display text-sm font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
-                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
-                    <div className="space-y-2 text-xs mb-4">
+                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
+                    <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
+                    <div className="space-y-2 text-sm mb-4">
                       {[
                         { label: "Total Distance", value: "1,700 miles" },
                         { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
@@ -602,7 +602,7 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
                       Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day, providing all goes well. The east coast of Malaysia provides very little support for repairs and fuel. The notorious South China Sea has its own challenges. Singapore is chaotic with katabatic squalls that create zero visibility and one of the highest incidences of lightning strikes in the world.
                     </p>
                   </motion.div>
@@ -622,9 +622,9 @@ export default function Home() {
                       ✦ Recommended
                     </div>
                     <TrendingUp size={24} className="mb-3" style={{ color: "#00c8c8" }} />
-                    <h4 className="font-display text-sm font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
-                    <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
-                    <div className="space-y-2 text-xs mb-4">
+                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
+                    <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
+                    <div className="space-y-2 text-sm mb-4">
                       {[
                         { label: "Sea Miles (Pattaya–Phuket)", value: "~350 miles" },
                         { label: "Total Time", value: "Under 1 week" },
@@ -636,7 +636,7 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
                       Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. It's relentless and no pleasure cruise. Our Chumphon–Ranong land bridge is the new option.
                     </p>
                   </motion.div>
@@ -650,30 +650,28 @@ export default function Home() {
                     }}>
                     {[
                       { icon: Gauge, value: "79%", label: "Less Sea Miles" },
-                      { icon: Clock, value: "90%", label: "Fewer Hrs" },
-                      { icon: Shield, value: "<1W", label: "vs 12+ Days" },
+                      { icon: Clock, value: "90%", label: "Fewer Engine Hrs" },
+                      { icon: Shield, value: "<1 Week", label: "vs 12+ Days" },
                     ].map((s, i) => {
                       const Icon = s.icon;
                       return (
                         <div key={i} className="flex flex-col items-center gap-1">
-                          <Icon size={16} style={{ color: "#0a7a7a" }} />
-                          <span className="font-display text-xs font-bold" style={{ color: "#061e36" }}>{s.value}</span>
-                          <span className="text-xs font-medium" style={{ color: "#4a6070" }}>{s.label}</span>
+                          <Icon size={18} style={{ color: "#0a7a7a" }} />
+                          <span className="font-display text-sm font-bold" style={{ color: "#061e36" }}>{s.value}</span>
+                          <span className="text-sm font-medium" style={{ color: "#4a6070" }}>{s.label}</span>
                         </div>
                       );
                     })}
                   </motion.div>
                 </div>
 
-                {/* Right side: Map */}
+                {/* Right side: Photo Map */}
                 <div className="lg:col-span-2 flex flex-col h-full">
-                  <div className="flex-1 flex flex-col">
-                    <ThailandRouteMap
-                      activeRoute={activeRoute}
-                      onPrev={() => setActiveRoute((activeRoute - 1 + routes.length) % routes.length)}
-                      onNext={() => setActiveRoute((activeRoute + 1) % routes.length)}
-                      totalRoutes={routes.length}
-
+                  <div className="flex-1 rounded-2xl overflow-hidden" style={{ minHeight: "520px", boxShadow: "0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,200,200,0.15)" }}>
+                    <img
+                      src="/map-route.webp"
+                      alt="Route Comparison: Gulf to Andaman — Coast to Coast Marine Transportation Thailand"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                     />
                   </div>
                 </div>
