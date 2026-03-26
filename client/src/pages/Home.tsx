@@ -613,7 +613,7 @@ export default function Home() {
                       Traditional Route
                     </div>
                     <AlertTriangle size={20} className="mb-2" style={{ color: "#00c8c8" }} />
-                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Malay Peninsula → Phuket</h4>
+                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Singapore Peninsula → Phuket</h4>
                     <p className="text-sm mb-3" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
                     <div className="space-y-1.5 text-sm">
                       {[
