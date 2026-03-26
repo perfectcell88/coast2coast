@@ -570,7 +570,7 @@ export default function Home() {
 
 
       {/* ── ROUTE / MAP ───────────────────────────────────────────── */}
-      <section className="py-24 md:py-32 relative" style={{ background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 40%, #2a4a5e 70%, #2c3e50 100%)", overflow: "clip" }}>
+      <section className="py-14 md:py-20 relative" style={{ background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 40%, #2a4a5e 70%, #2c3e50 100%)", overflow: "clip" }}>
         {/* Nautical chart grid overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: `
@@ -589,19 +589,19 @@ export default function Home() {
             {/* ── MAP + COMPARISON SECTION SIDE BY SIDE ── */}
             <motion.div variants={fadeUp} className="mb-6">
               {/* Section header above the grid */}
-              <div className="text-center mb-8 max-w-7xl mx-auto">
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8c8" }}>The Smart Choice</p>
-                <h3 className="font-display font-bold text-white mb-3" style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}>Our Shortcut Comparison</h3>
-                <p className="max-w-2xl mx-auto" style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
+              <div className="text-center mb-6 max-w-7xl mx-auto">
+                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
+                <h3 className="font-display font-bold text-white mb-2" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)" }}>Our Shortcut Comparison</h3>
+                <p className="max-w-2xl mx-auto" style={{ fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>Traditional route around the Singapore Peninsula vs. our land-bridge solution.</p>
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-7xl mx-auto items-stretch">
                 {/* Left side: Comparison cards */}
                 <div className="flex flex-col gap-6 lg:col-span-1">
 
                   {/* Traditional Route Card */}
                   <motion.div
                     variants={fadeUp}
-                    className="rounded-2xl p-6 relative flex flex-col"
+                    className="rounded-2xl p-5 relative flex flex-col"
                     style={{
                       background: "linear-gradient(145deg, #041e2e 0%, #062838 50%, #041e2e 100%)",
                       border: "2px solid rgba(180,145,60,0.55)",
@@ -612,30 +612,27 @@ export default function Home() {
                       style={{ background: "rgba(0,200,200,0.15)", border: "1px solid rgba(0,200,200,0.3)", color: "#00c8c8", width: "fit-content" }}>
                       Traditional Route
                     </div>
-                    <AlertTriangle size={24} className="mb-3" style={{ color: "#00c8c8" }} />
-                    <h4 className="font-display text-lg font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
-                    <p className="text-base mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
-                    <div className="space-y-2 text-base mb-4">
+                    <AlertTriangle size={20} className="mb-2" style={{ color: "#00c8c8" }} />
+                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Singapore → Phuket</h4>
+                    <p className="text-sm mb-3" style={{ color: "rgba(255,255,255,0.6)" }}>Via the South China Sea & Malacca Straits</p>
+                    <div className="space-y-1.5 text-sm">
                       {[
                         { label: "Total Distance", value: "1,700 miles" },
                         { label: "Minimum Time", value: "12+ days (24 hrs/day)" },
                         { label: "Engine Hours", value: "500+ hours" },
                       ].map((item, i) => (
-                        <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(0,200,200,0.2)" }}>
+                        <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(0,200,200,0.2)", paddingBottom: "4px" }}>
                           <span style={{ color: "rgba(255,255,255,0.65)" }}>{item.label}</span>
                           <span className="font-bold" style={{ color: "#00c8c8" }}>{item.value}</span>
                         </div>
                       ))}
                     </div>
-                    <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
-                      Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day, providing all goes well. The east coast of Malaysia provides very little support for repairs and fuel. The notorious South China Sea has its own challenges. Singapore is chaotic with katabatic squalls that create zero visibility and one of the highest incidences of lightning strikes in the world.
-                    </p>
                   </motion.div>
 
                   {/* Coast to Coast Card */}
                   <motion.div
                     variants={fadeUp}
-                    className="rounded-2xl p-6 relative flex flex-col"
+                    className="rounded-2xl p-5 relative flex flex-col"
                     style={{
                       background: "linear-gradient(145deg, #041e2e 0%, #062838 50%, #041e2e 100%)",
                       border: "2px solid rgba(180,145,60,0.55)",
@@ -644,25 +641,36 @@ export default function Home() {
                   >
                     <div className="text-xs font-bold px-2 py-1 rounded-full mb-3 inline-block"
                       style={{ background: "linear-gradient(135deg, #a07828, #d4a840)", color: "#fff", boxShadow: "0 0 16px rgba(180,145,60,0.4)", width: "fit-content" }}>
-                      ✦ Recommended
+                      ❆ Recommended
                     </div>
-                    <TrendingUp size={24} className="mb-3" style={{ color: "#00c8c8" }} />
-                    <h4 className="font-display text-lg font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
-                    <p className="text-base mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
-                    <div className="space-y-2 text-base mb-4">
+                    <TrendingUp size={20} className="mb-2" style={{ color: "#00c8c8" }} />
+                    <h4 className="font-display text-base font-bold mb-1 text-white">Pattaya → Chumphon → Ranong → Phuket</h4>
+                    <p className="text-sm mb-3" style={{ color: "rgba(255,255,255,0.55)" }}>80 km overland land bridge — Coast to Coast</p>
+                    <div className="space-y-1.5 text-sm">
                       {[
                         { label: "Sea Miles (Pattaya–Phuket)", value: "~350 miles" },
                         { label: "Total Time", value: "Under 1 week" },
                         { label: "Engine Hours", value: "~50 hours" },
                       ].map((item, i) => (
-                        <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(180,145,60,0.2)" }}>
+                        <div key={i} className="flex justify-between" style={{ borderBottom: "1px solid rgba(180,145,60,0.2)", paddingBottom: "4px" }}>
                           <span style={{ color: "rgba(255,255,255,0.6)" }}>{item.label}</span>
                           <span className="font-bold" style={{ color: "#00c8c8" }}>{item.value}</span>
                         </div>
                       ))}
                     </div>
-                    <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
-                      Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. It's relentless and no pleasure cruise. Our Chumphon–Ranong land bridge is the new option.
+                  </motion.div>
+
+                  {/* Shared narrative text block — below both cards */}
+                  <motion.div variants={fadeUp} className="rounded-xl p-4" style={{
+                    background: "rgba(4,30,46,0.55)",
+                    border: "1px solid rgba(0,200,200,0.12)",
+                    backdropFilter: "blur(6px)",
+                  }}>
+                    <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)" }}>
+                      <span className="font-semibold" style={{ color: "rgba(0,200,200,0.9)" }}>Traditional:</span> Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day. The east coast of Malaysia offers very little support for repairs and fuel. Singapore is chaotic with katabatic squalls, zero visibility, and one of the highest incidences of lightning strikes in the world.
+                    </p>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
+                      <span className="font-semibold" style={{ color: "#d4a840" }}>Our Route:</span> Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. Our Chumphon–Ranong land bridge is the smarter option.
                     </p>
                   </motion.div>
 
