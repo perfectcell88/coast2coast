@@ -44,7 +44,7 @@ export default function Contact() {
   const labelClass = "block text-[11px] font-bold uppercase tracking-[0.12em] mb-2";
 
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #2c3e50 0%, #071e30 40%, #2c3e50 100%)" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #3d5166 0%, #2c4a62 40%, #3d5166 100%)" }}>
       <SEO
         title="Contact Us | Coast to Coast Marine Transportation Thailand"
         description="Request a free quote for vessel relocation between Thailand's Gulf and Andaman coasts."
@@ -81,10 +81,9 @@ export default function Contact() {
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
 
               {/* ── QR CODES — HERO ELEMENT ── */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)", border: "1px solid rgba(0,200,200,0.15)" }}>
-                <div className="px-7 py-5" style={{ background: "linear-gradient(135deg, #2c3e50 0%, #083248 100%)" }}>
-                  <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-1" style={{ color: "#00c8c8" }}>Instant Message</p>
-                  <h2 className="font-display text-xl font-bold text-white">Scan to Contact Us</h2>
+              <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12)", border: "1px solid rgba(0,200,200,0.2)" }}>
+                <div className="px-7 py-5" style={{ background: "linear-gradient(135deg, #3d5166 0%, #1a4a62 100%)" }}>
+                  <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-1" style={{ color: "#00c8c8" }}>Instant Message</p>           <h2 className="font-display text-xl font-bold text-white">Scan to Contact Us</h2>
                   <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.45)" }}>Open WhatsApp or LINE directly on your phone</p>
                 </div>
                 <div className="p-6 grid grid-cols-2 gap-4">
@@ -133,8 +132,8 @@ export default function Contact() {
               </div>
 
               {/* ── CONTACT DETAILS ── */}
-              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)", border: "1px solid rgba(0,200,200,0.15)" }}>
-                <div className="px-7 py-5" style={{ background: "linear-gradient(135deg, #2c3e50 0%, #083248 100%)" }}>
+              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12)", border: "1px solid rgba(0,200,200,0.2)" }}>
+                <div className="px-7 py-5" style={{ background: "linear-gradient(135deg, #3d5166 0%, #1a4a62 100%)" }}>
                   <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-1" style={{ color: "#00c8c8" }}>Reach Us Directly</p>
                   <h2 className="font-display text-xl font-bold text-white">Contact Information</h2>
                 </div>
@@ -176,10 +175,10 @@ export default function Contact() {
             {/* ── RIGHT: QUOTE FORM ── */}
             <motion.div className="lg:col-span-3 flex flex-col"
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)", border: "1px solid rgba(0,200,200,0.15)" }}>
+              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12)", border: "1px solid rgba(0,200,200,0.2)" }}>
 
                 {/* Form header */}
-                <div className="px-10 py-8" style={{ background: "linear-gradient(135deg, #2c3e50 0%, #083248 100%)", borderBottom: "3px solid #0a8a8a" }}>
+                <div className="px-10 py-8" style={{ background: "linear-gradient(135deg, #3d5166 0%, #1a4a62 100%)", borderBottom: "3px solid #0a8a8a" }}>
                   <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>Free Quote</p>
                   <h2 className="font-display text-3xl font-bold text-white mb-1">Request a Quote</h2>
                   <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>Fill in your vessel details and we'll respond within 24 hours.</p>
@@ -227,7 +226,7 @@ export default function Contact() {
                         <label className={labelClass} style={{ color: "rgba(255,255,255,0.7)" }}>Vessel Type</label>
                         <select name="vesselType" value={formData.vesselType} onChange={handleChange}
                           className="w-full h-12 rounded-xl px-4 text-sm focus:outline-none focus:border-teal-400 transition-colors dark-select"
-                          style={{ background: "#2c3e50", border: "1px solid rgba(0,200,200,0.3)", color: formData.vesselType ? "white" : "rgba(255,255,255,0.55)" }}>
+                          style={{ background: "#3d5166", border: "1px solid rgba(0,200,200,0.3)", color: formData.vesselType ? "white" : "rgba(255,255,255,0.55)" }}>
                           <option value="" disabled style={{ background: "#2c3e50", color: "rgba(255,255,255,0.55)" }}>Select vessel type…</option>
                           <option value="Powerboat" style={{ background: "#2c3e50", color: "white" }}>Powerboat</option>
                           <option value="Keel Yacht" style={{ background: "#2c3e50", color: "white" }}>Keel Yacht</option>

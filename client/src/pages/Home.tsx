@@ -333,7 +333,7 @@ export default function Home() {
             <h1
               className="relative font-display font-bold uppercase w-full text-center"
               style={{
-                fontSize: "clamp(2.8rem, 7.5vw, 7.5rem)",
+                fontSize: "clamp(2.2rem, 5.5vw, 5.5rem)",
                 letterSpacing: "0.22em",
                 color: "#ffffff",
                 textShadow: "0 0 100px rgba(0,200,200,0.18), 0 2px 24px rgba(0,0,0,0.95)",
