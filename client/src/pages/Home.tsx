@@ -666,10 +666,10 @@ export default function Home() {
                     border: "1px solid rgba(0,200,200,0.12)",
                     backdropFilter: "blur(6px)",
                   }}>
-                    <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)" }}>
+                    <p className="text-base leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)" }}>
                       <span className="font-semibold" style={{ color: "rgba(0,200,200,0.9)" }}>Traditional:</span> Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day. The east coast of Malaysia offers very little support for repairs and fuel. Singapore is chaotic with katabatic squalls, zero visibility, and one of the highest incidences of lightning strikes in the world.
                     </p>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
+                    <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
                       <span className="font-semibold" style={{ color: "#d4a840" }}>Our Route:</span> Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. Our Chumphon–Ranong land bridge is the smarter option.
                     </p>
                   </motion.div>
