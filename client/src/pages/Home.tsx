@@ -592,7 +592,7 @@ export default function Home() {
               <div className="text-center mb-6 max-w-7xl mx-auto">
                 <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
                 <h3 className="font-display font-bold text-white mb-2" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)" }}>Our Shortcut Comparison</h3>
-                <p className="max-w-2xl mx-auto" style={{ fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>Traditional route around the Malay Peninsula vs. our land-bridge solution.</p>
+                <p className="max-w-2xl mx-auto" style={{ fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>Traditional route Via the Singapore Peninsula vs. our land-bridge solution.</p>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-7xl mx-auto items-stretch">
                 {/* Left side: Comparison cards */}
