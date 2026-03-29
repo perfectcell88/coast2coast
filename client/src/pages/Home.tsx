@@ -395,17 +395,11 @@ export default function Home() {
               padding: "clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem) 0",
             }}
           >
-            {/* Decorative top rule */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.6))" }} />
-              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#00c8c8", boxShadow: "0 0 6px rgba(0,200,200,0.9)" }} />
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.6), transparent)" }} />
-            </div>
             <p
               className="text-center"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.95rem, 1.2vw, 1.08rem)",
+                fontSize: "clamp(1.05rem, 1.4vw, 1.22rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
                 color: "rgba(255,255,255,1)",
@@ -417,13 +411,6 @@ export default function Home() {
             >
               The Premier Overland Marine Transportation Company, specialising in oversized vessels and delivering reliable, efficient relocation — paying attention to detail from Coast to Coast.
             </p>
-            {/* Decorative bottom rule */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.4))" }} />
-              <div className="w-1 h-1 rounded-full" style={{ background: "rgba(0,200,200,0.7)" }} />
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.4), transparent)" }} />
-            </div>
-
             <div className="flex flex-col items-stretch gap-2">
               <button
                 onClick={() => setVideoOpen(true)}
