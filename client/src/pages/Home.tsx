@@ -323,7 +323,7 @@ export default function Home() {
         {/* ── TOP BLOCK — title + insignia ── */}
         <motion.div
           className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center text-center text-white px-4"
-          style={{ paddingTop: "clamp(8rem, 14.5vh, 12rem)" }}
+          style={{ paddingTop: "clamp(5.5rem, 11vh, 10rem)" }}
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" as const }}
@@ -373,9 +373,9 @@ export default function Home() {
         <motion.div
           className="absolute bottom-0 left-0 z-10"
           style={{
-            paddingBottom: "clamp(1.5rem, 3vh, 3rem)",
-            paddingLeft: "clamp(2rem, 6vw, 7rem)",
-            maxWidth: "clamp(280px, 34vw, 480px)",
+            paddingBottom: "clamp(1rem, 2.5vh, 2.5rem)",
+            paddingLeft: "clamp(1.5rem, 4vw, 5rem)",
+            maxWidth: "clamp(280px, 32vw, 460px)",
             width: "100%",
           }}
           initial={{ opacity: 0, y: 32 }}
@@ -392,75 +392,29 @@ export default function Home() {
               borderRadius: "18px 18px 0 0",
               border: "none",
               boxShadow: "none",
-              padding: "clamp(2.2rem, 3.5vw, 3rem) clamp(1.6rem, 2.8vw, 2.2rem) 0",
+              padding: "clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem) 0",
             }}
           >
-            <p
-              className="text-center w-full"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(1.0rem, 1.35vw, 1.25rem)",
-                color: "rgba(255,255,255,1)",
-                fontWeight: 700,
-                fontStyle: "normal",
-                letterSpacing: "0em",
-                lineHeight: 1.3,
-                marginBottom: "1.1rem",
-                textShadow: "0 2px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.8)",
-              }}
-            >
-              Thailand's Complete Vessel Relocation Specialists
-            </p>
             <p
               className="text-center leading-relaxed"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.92rem, 1.18vw, 1.08rem)",
+                fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
                 fontWeight: 400,
                 fontStyle: "normal",
                 color: "rgba(255,255,255,0.92)",
-                marginBottom: "0.75rem",
+                marginBottom: "1.6rem",
                 textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
-                lineHeight: 1.65,
+                lineHeight: 1.7,
               }}
             >
               The premier overland marine transportation company, specialising in oversized vessels and delivering reliable, efficient relocation — paying attention to detail from coast to coast.
             </p>
-            <p
-              className="text-center leading-relaxed"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.92rem, 1.18vw, 1.08rem)",
-                fontWeight: 600,
-                fontStyle: "normal",
-                color: "rgba(0,200,200,0.95)",
-                marginBottom: "0.75rem",
-                textShadow: "0 1px 14px rgba(0,0,0,0.95)",
-                lineHeight: 1.6,
-              }}
-            >
-              Our Services Cover: Pattaya → Chumphon → Ranong → Phuket.
-            </p>
-            <p
-              className="text-center leading-relaxed"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.92rem, 1.18vw, 1.08rem)",
-                fontWeight: 400,
-                fontStyle: "normal",
-                color: "rgba(255,255,255,0.88)",
-                marginBottom: "1.6rem",
-                textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
-                lineHeight: 1.65,
-              }}
-            >
-              We ensure every vessel is transported safely, efficiently, and on schedule.
-            </p>
 
-            <div className="flex flex-col items-stretch gap-3">
+            <div className="flex flex-col items-stretch gap-2">
               <button
                 onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-8 py-3.5 transition-all duration-300 hover:-translate-y-0.5"
+                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-6 py-2.5 transition-all duration-300 hover:-translate-y-0.5"
                 style={{
                   fontSize: "0.92rem",
                   letterSpacing: "0.07em",
@@ -478,7 +432,7 @@ export default function Home() {
                 <span className="uppercase tracking-widest">Watch Our Process</span>
               </button>
               <Link href="/contact">
-                <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-8 py-3.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
+                <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
                   style={{ fontSize: "0.92rem", letterSpacing: "0.07em", border: "none" }}
                 >
                   <Anchor size={15} className="flex-shrink-0 opacity-90" />
@@ -489,7 +443,7 @@ export default function Home() {
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-8 py-3.5 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-6 py-2.5 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                 style={{
                   fontSize: "0.92rem",
                   letterSpacing: "0.07em",
@@ -509,7 +463,7 @@ export default function Home() {
                 <span className="uppercase tracking-widest">Follow Us on Facebook</span>
               </a>
             </div>
-            <div style={{ height: "clamp(1.4rem, 2.5vw, 2rem)" }} />
+            <div style={{ height: "clamp(0.8rem, 1.5vw, 1.4rem)" }} />
           </div>
         </motion.div>
         {/* Animated scroll chevron */}
