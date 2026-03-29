@@ -407,17 +407,15 @@ export default function Home() {
                 fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(0.95rem, 1.2vw, 1.08rem)",
                 fontWeight: 400,
-                fontStyle: "italic",
-                color: "rgba(255,255,255,0.92)",
+                fontStyle: "normal",
+                color: "rgba(255,255,255,1)",
                 marginBottom: "1.4rem",
                 textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
                 lineHeight: 1.8,
                 letterSpacing: "0.01em",
               }}
             >
-              <span style={{ color: "rgba(255,255,255,1)", fontWeight: 600, fontStyle: "normal" }}>The Premier Overland Marine Transportation Company,</span>{" "}
-              specialising in oversized vessels and delivering reliable, efficient relocation — paying attention to detail from{" "}
-              <span style={{ color: "#00c8c8", fontWeight: 600, fontStyle: "normal" }}>Coast to Coast.</span>
+              The Premier Overland Marine Transportation Company, specialising in oversized vessels and delivering reliable, efficient relocation — paying attention to detail from Coast to Coast.
             </p>
             {/* Decorative bottom rule */}
             <div className="flex items-center gap-3 mb-4">
