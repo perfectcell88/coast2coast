@@ -395,21 +395,36 @@ export default function Home() {
               padding: "clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem) 0",
             }}
           >
+            {/* Decorative top rule */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.6))" }} />
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#00c8c8", boxShadow: "0 0 6px rgba(0,200,200,0.9)" }} />
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.6), transparent)" }} />
+            </div>
             <p
-              className="text-center leading-relaxed"
+              className="text-center"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
+                fontSize: "clamp(0.95rem, 1.2vw, 1.08rem)",
                 fontWeight: 400,
-                fontStyle: "normal",
+                fontStyle: "italic",
                 color: "rgba(255,255,255,0.92)",
-                marginBottom: "1.6rem",
+                marginBottom: "1.4rem",
                 textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
-                lineHeight: 1.7,
+                lineHeight: 1.8,
+                letterSpacing: "0.01em",
               }}
             >
-              The premier overland marine transportation company, specialising in oversized vessels and delivering reliable, efficient relocation — paying attention to detail from coast to coast.
+              <span style={{ color: "rgba(255,255,255,1)", fontWeight: 600, fontStyle: "normal" }}>The Premier Overland Marine Transportation Company,</span>{" "}
+              specialising in oversized vessels and delivering reliable, efficient relocation — paying attention to detail from{" "}
+              <span style={{ color: "#00c8c8", fontWeight: 600, fontStyle: "normal" }}>Coast to Coast.</span>
             </p>
+            {/* Decorative bottom rule */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.4))" }} />
+              <div className="w-1 h-1 rounded-full" style={{ background: "rgba(0,200,200,0.7)" }} />
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.4), transparent)" }} />
+            </div>
 
             <div className="flex flex-col items-stretch gap-2">
               <button
@@ -544,9 +559,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="mb-6">
               {/* Section header above the grid */}
               <div className="text-center mb-6 max-w-7xl mx-auto">
-                <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "#00c8c8" }}>The Smart Choice</p>
-                <h3 className="font-display font-bold text-white mb-2" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)" }}>Our Shortcut Comparison</h3>
-                <p className="max-w-2xl mx-auto" style={{ fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>Traditional route Via the Singapore Peninsula vs. our land-bridge solution.</p>
+                <h3 className="font-display font-bold text-white mb-2" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)" }}>The land bridge option verses Pattaya, Phuket via Singapore</h3>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-7xl mx-auto items-stretch">
                 {/* Left side: Comparison cards */}
@@ -621,10 +634,10 @@ export default function Home() {
                     backdropFilter: "blur(6px)",
                   }}>
                     <p className="text-base leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)" }}>
-                      <span className="font-semibold" style={{ color: "rgba(0,200,200,0.9)" }}>Traditional:</span> Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day. The east coast of Malaysia offers very little support for repairs and fuel. Singapore is chaotic with katabatic squalls, zero visibility, and one of the highest incidences of lightning strikes in the world.
+                      Pattaya to Singapore to Phuket is 1,700 miles — at 6 knots that's 12 days running 24 hours a day. The east coast of Malaysia offers very little support for repairs and fuel. Singapore is chaotic with katabatic squalls, zero visibility, and one of the highest incidences of lightning strikes in the world.
                     </p>
                     <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
-                      <span className="font-semibold" style={{ color: "#d4a840" }}>Our Route:</span> Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. Our Chumphon–Ranong land bridge is the smarter option.
+                      Malacca Straits — another 400 miles of chaos: unlit boats, endless fishing nets, intense Sumatran squalls, dangerous ship convergence zones. Our Chumphon–Ranong land bridge is an option well worth considering.
                     </p>
                   </motion.div>
 
@@ -641,9 +654,9 @@ export default function Home() {
                     justifyContent: "center",
                   }}>
                     <img
-                      src="/map-route.webp"
+                      src="/map-new.webp"
                       alt="Route Comparison: Gulf to Andaman — Coast to Coast Marine Transportation Thailand"
-                      style={{ width: "100%", height: "auto", objectFit: "contain", display: "block" }}
+                      style={{ width: "70%", height: "auto", objectFit: "contain", display: "block", margin: "0 auto" }}
                     />
                   </div>
                   {/* Savings summary below map */}
