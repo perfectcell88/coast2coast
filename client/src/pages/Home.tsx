@@ -276,7 +276,7 @@ export default function Home() {
               style={{ fontSize: "0.95rem", letterSpacing: "0.06em" }}
             >
               <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0"><Play size={11} className="ml-0.5" /></div>
-              <span className="uppercase tracking-widest">Watch Our Progress</span>
+              <span className="uppercase tracking-widest">Watch Our Process</span>
             </button>
             <Link href="/contact">
               <a className="flex items-center justify-center gap-3 w-full bg-secondary text-white font-semibold rounded-xl px-6 py-4 shadow-xl shadow-secondary/40"
@@ -396,8 +396,8 @@ export default function Home() {
             <p
               className="text-center"
               style={{
-                fontFamily: "'Newsreader', Georgia, serif",
-                fontSize: "clamp(1.05rem, 1.4vw, 1.22rem)",
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "clamp(1.35rem, 1.9vw, 1.65rem)",
                 fontWeight: 300,
                 fontStyle: "italic",
                 color: "rgba(255,255,255,1)",
@@ -418,7 +418,7 @@ export default function Home() {
                 <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0">
                   <Play size={10} className="ml-0.5" />
                 </div>
-                <span className="uppercase tracking-widest">Watch Our Progress</span>
+                <span className="uppercase tracking-widest">Watch Our Process</span>
               </button>
               <Link href="/contact">
                 <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"

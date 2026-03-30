@@ -40,9 +40,9 @@ export default function Contact() {
     }
   };
 
-  // Compacted input/label styles
-  const inputClass = "h-9 rounded-lg text-xs border-gray-200 bg-gray-50 focus:bg-white focus:border-teal-500 transition-colors placeholder:text-gray-400";
-  const labelClass = "block text-[10px] font-bold uppercase tracking-[0.12em] mb-1";
+  // Compacted input/label styles — one size up
+  const inputClass = "h-10 rounded-lg text-sm border-gray-200 bg-gray-50 focus:bg-white focus:border-teal-500 transition-colors placeholder:text-gray-400";
+  const labelClass = "block text-xs font-bold uppercase tracking-[0.12em] mb-1.5";
 
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #3d5166 0%, #2c4a62 40%, #3d5166 100%)" }}>
@@ -182,14 +182,14 @@ export default function Contact() {
                 <div className="px-7 py-4" style={{ background: "linear-gradient(135deg, #3d5166 0%, #1a4a62 100%)", borderBottom: "3px solid #0a8a8a" }}>
                   <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: "#00c8c8" }}>Free Quote</p>
                   <h2 className="font-display text-2xl font-bold text-white mb-0.5">Request a Quote</h2>
-                  <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>Fill in your vessel details and we'll respond within 24 hours.</p>
+                  <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>Fill in your vessel details and we'll respond within 24 hours.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="px-7 py-5 space-y-4" style={{ color: "rgba(255,255,255,0.9)" }}>
 
                   {/* Section: Your Details */}
                   <div>
-                    <p className="font-mono-accent text-[9px] tracking-[0.3em] uppercase mb-3 pb-1.5" style={{ color: "#0a8a8a", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+                    <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-3 pb-1.5" style={{ color: "#0a8a8a", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
                       Your Details
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -219,14 +219,14 @@ export default function Contact() {
 
                   {/* Section: Vessel Details */}
                   <div>
-                    <p className="font-mono-accent text-[9px] tracking-[0.3em] uppercase mb-3 pb-1.5" style={{ color: "#0a8a8a", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+                    <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-3 pb-1.5" style={{ color: "#0a8a8a", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
                       Vessel Details
                     </p>
                     <div className="space-y-3">
                       <div>
                         <label className={labelClass} style={{ color: "rgba(255,255,255,0.7)" }}>Vessel Type</label>
                         <select name="vesselType" value={formData.vesselType} onChange={handleChange}
-                          className="w-full h-9 rounded-lg px-3 text-xs focus:outline-none focus:border-teal-400 transition-colors dark-select"
+                          className="w-full h-10 rounded-lg px-3 text-sm focus:outline-none focus:border-teal-400 transition-colors dark-select"
                           style={{ background: "#3d5166", border: "1px solid rgba(0,200,200,0.3)", color: formData.vesselType ? "white" : "rgba(255,255,255,0.55)" }}>
                           <option value="" disabled style={{ background: "#2c3e50", color: "rgba(255,255,255,0.55)" }}>Select vessel type…</option>
                           <option value="Powerboat" style={{ background: "#2c3e50", color: "white" }}>Powerboat</option>
@@ -250,7 +250,7 @@ export default function Contact() {
                               className={inputClass} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "white" } as React.CSSProperties} />
                           ))}
                         </div>
-                        <p className="text-[10px] mt-1.5 flex items-center gap-1" style={{ color: "#9ca3af" }}>
+                        <p className="text-xs mt-1.5 flex items-center gap-1" style={{ color: "#9ca3af" }}>
                           <span style={{ color: "#0a8a8a", fontWeight: 600 }}>Max capacity:</span>
                           15 m L · 5.5 m W · 5.5 m H · 32 T
                         </p>
@@ -260,12 +260,12 @@ export default function Contact() {
 
                   {/* Section: Message */}
                   <div>
-                    <p className="font-mono-accent text-[9px] tracking-[0.3em] uppercase mb-3 pb-1.5" style={{ color: "#0a8a8a", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+                    <p className="font-mono-accent text-[10px] tracking-[0.3em] uppercase mb-3 pb-1.5" style={{ color: "#0a8a8a", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
                       Additional Information
                     </p>
                     <Textarea name="message" value={formData.message} onChange={handleChange}
                       placeholder="Tell us about your transport needs, preferred timeline, departure and destination ports, and any other details…"
-                      className="rounded-lg text-xs resize-none transition-colors"
+                      className="rounded-lg text-sm resize-none transition-colors"
                       style={{ minHeight: "80px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "white" }} />
                   </div>
 
