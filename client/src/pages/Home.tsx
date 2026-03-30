@@ -716,7 +716,7 @@ export default function Home() {
                     <img
                       src="/map-new.webp"
                       alt="Route Comparison: Gulf to Andaman — Coast to Coast Marine Transportation Thailand"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{ width: "70%", height: "auto", objectFit: "contain", display: "block", margin: "0 auto" }}
                     />
                   </div>
                   {/* Savings summary below map */}
