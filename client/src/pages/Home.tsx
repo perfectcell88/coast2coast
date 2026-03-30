@@ -272,11 +272,11 @@ export default function Home() {
           <div className="flex flex-col items-stretch gap-3 w-full max-w-sm">
             <button
               onClick={() => setVideoOpen(true)}
-              className="flex items-center justify-center gap-3 w-full bg-white/10 border border-white/30 text-white font-semibold rounded-xl px-6 py-4"
+              className="flex items-center justify-center gap-3 w-full bg-secondary text-white font-semibold rounded-xl px-6 py-4 shadow-xl shadow-secondary/40 transition-all duration-200"
               style={{ fontSize: "0.95rem", letterSpacing: "0.06em" }}
             >
-              <div className="w-6 h-6 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0"><Play size={11} className="ml-0.5" /></div>
-              <span className="uppercase tracking-widest">Watch Our Process</span>
+              <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0"><Play size={11} className="ml-0.5" /></div>
+              <span className="uppercase tracking-widest">Watch Our Progress</span>
             </button>
             <Link href="/contact">
               <a className="flex items-center justify-center gap-3 w-full bg-secondary text-white font-semibold rounded-xl px-6 py-4 shadow-xl shadow-secondary/40"
@@ -289,7 +289,7 @@ export default function Home() {
             <a
               href="https://www.facebook.com/profile.php?id=61588477663667"
               target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full bg-white/10 border border-white/30 text-white font-semibold rounded-xl px-6 py-4"
+              className="flex items-center justify-center gap-3 w-full bg-secondary text-white font-semibold rounded-xl px-6 py-4 shadow-xl shadow-secondary/40 transition-all duration-200"
               style={{ fontSize: "0.95rem", letterSpacing: "0.06em" }}
             >
               <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
@@ -382,14 +382,12 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" as const }}
         >
-          {/* The frosted blur card — no borders */}
+          {/* The frosted blur card — no borders, no background */}
           <div
             style={{
               width: "100%",
-              background: "rgba(4, 14, 28, 0.03)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              borderRadius: "18px 18px 0 0",
+              background: "transparent",
+              borderRadius: "0",
               border: "none",
               boxShadow: "none",
               padding: "clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem) 0",
@@ -398,10 +396,10 @@ export default function Home() {
             <p
               className="text-center"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Newsreader', Georgia, serif",
                 fontSize: "clamp(1.05rem, 1.4vw, 1.22rem)",
-                fontWeight: 400,
-                fontStyle: "normal",
+                fontWeight: 300,
+                fontStyle: "italic",
                 color: "rgba(255,255,255,1)",
                 marginBottom: "1.4rem",
                 textShadow: "0 1px 14px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)",
@@ -414,22 +412,13 @@ export default function Home() {
             <div className="flex flex-col items-stretch gap-2">
               <button
                 onClick={() => setVideoOpen(true)}
-                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-6 py-2.5 transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  fontSize: "0.92rem",
-                  letterSpacing: "0.07em",
-                  background: "rgba(255,255,255,0.10)",
-                  border: "none",
-                  backdropFilter: "blur(10px)",
-                  WebkitBackdropFilter: "blur(10px)",
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.18)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.10)"; }}
+                className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
+                style={{ fontSize: "0.92rem", letterSpacing: "0.07em", border: "none" }}
               >
                 <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center flex-shrink-0">
                   <Play size={10} className="ml-0.5" />
                 </div>
-                <span className="uppercase tracking-widest">Watch Our Process</span>
+                <span className="uppercase tracking-widest">Watch Our Progress</span>
               </button>
               <Link href="/contact">
                 <a className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
@@ -443,17 +432,8 @@ export default function Home() {
                 href="https://www.facebook.com/profile.php?id=61588477663667"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 w-full text-white font-semibold rounded-xl px-6 py-2.5 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-                style={{
-                  fontSize: "0.92rem",
-                  letterSpacing: "0.07em",
-                  background: "rgba(255,255,255,0.10)",
-                  border: "none",
-                  backdropFilter: "blur(10px)",
-                  WebkitBackdropFilter: "blur(10px)",
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.18)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.10)"; }}
+                className="flex items-center justify-center gap-3 w-full bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-xl px-6 py-2.5 shadow-lg transition-all duration-200 hover:shadow-secondary/60 hover:-translate-y-0.5 active:translate-y-0"
+                style={{ fontSize: "0.92rem", letterSpacing: "0.07em", border: "none" }}
               >
                 <div className="w-6 h-6 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
