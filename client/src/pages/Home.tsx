@@ -504,19 +504,114 @@ export default function Home() {
 
 
       {/* ── ROUTE / MAP ───────────────────────────────────────────── */}
-      <section className="py-14 md:py-20 relative" style={{ background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 40%, #2a4a5e 70%, #2c3e50 100%)", overflow: "clip" }}>
-        {/* Nautical chart grid overlay */}
+      <section className="py-14 md:py-20 relative" style={{ background: "linear-gradient(160deg, #0d1e2e 0%, #112233 40%, #0e2030 70%, #0d1e2e 100%)", overflow: "clip" }}>
+
+        {/* ── NAUTICAL CHART BACKGROUND ── */}
+        {/* Deep ocean base vignette */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 110% 90% at 50% 50%, #142840 0%, #0a1a28 55%, #060e18 100%)" }} />
+
+        {/* Primary coordinate grid — major lines every ~80px */}
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: `
-            linear-gradient(rgba(0,180,180,0.055) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,180,180,0.055) 1px, transparent 1px)
+            linear-gradient(rgba(0,200,200,0.07) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,200,200,0.07) 1px, transparent 1px)
           `,
-          backgroundSize: "48px 48px",
+          backgroundSize: "80px 80px",
         }} />
-        {/* Compass rose radial glow centred on map area */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 55% at 72% 52%, rgba(0,200,200,0.1) 0%, rgba(0,120,160,0.06) 40%, transparent 70%)" }} />
-        {/* Subtle wave shimmer at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,180,180,0.07), transparent)" }} />
+        {/* Secondary subdivision lines every 20px */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `
+            linear-gradient(rgba(0,180,180,0.028) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,180,180,0.028) 1px, transparent 1px)
+          `,
+          backgroundSize: "20px 20px",
+        }} />
+
+        {/* Nautical chart SVG overlay — coordinate labels, tick marks, compass rose, rhumb lines */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" style={{ opacity: 0.42 }}>
+
+          {/* Outer border frame */}
+          <rect x="2" y="2" width="1196" height="596" fill="none" stroke="rgba(0,200,200,0.14)" strokeWidth="1" />
+          {/* Inner inset frame */}
+          <rect x="18" y="18" width="1164" height="564" fill="none" stroke="rgba(0,200,200,0.07)" strokeWidth="1" />
+
+          {/* Latitude labels — left margin */}
+          {["20°N","17°N","14°N","11°N","8°N","5°N","2°N","0°"].map((label, i) => (
+            <text key={`lat-${i}`} x="8" y={60 + i * 70} fill="rgba(0,200,200,0.8)" fontSize="9" fontFamily="Courier Prime, monospace" dominantBaseline="middle">{label}</text>
+          ))}
+          {/* Longitude labels — top margin */}
+          {["96°E","98°E","100°E","102°E","104°E","106°E","108°E"].map((label, i) => (
+            <text key={`lon-${i}`} x={80 + i * 160} y="12" fill="rgba(0,200,200,0.8)" fontSize="9" fontFamily="Courier Prime, monospace" textAnchor="middle">{label}</text>
+          ))}
+          {/* Latitude labels — right margin */}
+          {["20°N","17°N","14°N","11°N","8°N","5°N","2°N","0°"].map((label, i) => (
+            <text key={`lat-r-${i}`} x="1192" y={60 + i * 70} fill="rgba(0,200,200,0.8)" fontSize="9" fontFamily="Courier Prime, monospace" dominantBaseline="middle" textAnchor="end">{label}</text>
+          ))}
+
+          {/* Tick marks — left edge */}
+          {Array.from({length: 24}).map((_, i) => (
+            <line key={`tl-${i}`} x1="18" y1={25 * i} x2={i % 4 === 0 ? 30 : 24} y2={25 * i} stroke="rgba(0,200,200,0.4)" strokeWidth="1" />
+          ))}
+          {/* Tick marks — right edge */}
+          {Array.from({length: 24}).map((_, i) => (
+            <line key={`tr-${i}`} x1="1182" y1={25 * i} x2={i % 4 === 0 ? 1170 : 1176} y2={25 * i} stroke="rgba(0,200,200,0.4)" strokeWidth="1" />
+          ))}
+          {/* Tick marks — top edge */}
+          {Array.from({length: 48}).map((_, i) => (
+            <line key={`tt-${i}`} x1={25 * i} y1="18" x2={25 * i} y2={i % 4 === 0 ? 30 : 24} stroke="rgba(0,200,200,0.4)" strokeWidth="1" />
+          ))}
+          {/* Tick marks — bottom edge */}
+          {Array.from({length: 48}).map((_, i) => (
+            <line key={`tb-${i}`} x1={25 * i} y1="582" x2={25 * i} y2={i % 4 === 0 ? 570 : 576} stroke="rgba(0,200,200,0.4)" strokeWidth="1" />
+          ))}
+
+          {/* ── COMPASS ROSE — bottom-left corner ── */}
+          <g transform="translate(90, 510)">
+            {/* Degree ring marks every 10° */}
+            {Array.from({length: 36}).map((_, i) => {
+              const a = (i * 10 - 90) * Math.PI / 180;
+              const r1 = i % 9 === 0 ? 44 : i % 3 === 0 ? 42 : 40;
+              return <line key={`rm-${i}`} x1={Math.cos(a)*r1} y1={Math.sin(a)*r1} x2={Math.cos(a)*46} y2={Math.sin(a)*46} stroke="rgba(0,200,200,0.35)" strokeWidth="1" />;
+            })}
+            {/* Rings */}
+            <circle cx="0" cy="0" r="46" fill="none" stroke="rgba(0,200,200,0.22)" strokeWidth="1" />
+            <circle cx="0" cy="0" r="34" fill="none" stroke="rgba(0,200,200,0.14)" strokeWidth="0.8" />
+            <circle cx="0" cy="0" r="8" fill="rgba(0,200,200,0.12)" stroke="rgba(0,200,200,0.45)" strokeWidth="1.2" />
+            <circle cx="0" cy="0" r="3" fill="rgba(0,200,200,0.6)" />
+            {/* N point — teal, prominent */}
+            <polygon points="0,-46 -6,-22 0,-28 6,-22" fill="rgba(0,210,210,0.7)" />
+            {/* S point */}
+            <polygon points="0,46 -5,22 0,28 5,22" fill="rgba(0,200,200,0.3)" />
+            {/* E point */}
+            <polygon points="46,0 22,-5 28,0 22,5" fill="rgba(0,200,200,0.3)" />
+            {/* W point */}
+            <polygon points="-46,0 -22,-5 -28,0 -22,5" fill="rgba(0,200,200,0.3)" />
+            {/* NE NW SE SW secondary points */}
+            {[45,135,225,315].map(deg => {
+              const a = (deg - 90) * Math.PI / 180;
+              const mx = Math.cos(a); const my = Math.sin(a);
+              const lx = -my * 3; const ly = mx * 3;
+              return <polygon key={deg} points={`${mx*36},${my*36} ${mx*16+lx},${my*16+ly} ${mx*20},${my*20} ${mx*16-lx},${my*16-ly}`} fill="rgba(0,200,200,0.22)" />;
+            })}
+            {/* Cardinal labels */}
+            <text x="0" y="-52" fill="rgba(0,210,210,0.9)" fontSize="11" fontFamily="Courier Prime, monospace" textAnchor="middle" fontWeight="bold">N</text>
+            <text x="0" y="62" fill="rgba(0,200,200,0.55)" fontSize="9" fontFamily="Courier Prime, monospace" textAnchor="middle">S</text>
+            <text x="56" y="4" fill="rgba(0,200,200,0.55)" fontSize="9" fontFamily="Courier Prime, monospace" textAnchor="middle">E</text>
+            <text x="-56" y="4" fill="rgba(0,200,200,0.55)" fontSize="9" fontFamily="Courier Prime, monospace" textAnchor="middle">W</text>
+          </g>
+
+          {/* Faint rhumb lines radiating from compass */}
+          {[0,30,60,90,120,150,180,210,240,270,300,330].map(deg => {
+            const a = (deg - 90) * Math.PI / 180;
+            return <line key={`rhumb-${deg}`} x1={90 + Math.cos(a)*50} y1={510 + Math.sin(a)*50} x2={90 + Math.cos(a)*900} y2={510 + Math.sin(a)*900} stroke="rgba(0,200,200,0.025)" strokeWidth="1" />;
+          })}
+        </svg>
+
+        {/* Soft radial glow behind the map image area */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 72% 50%, rgba(0,160,200,0.08) 0%, transparent 65%)" }} />
+        {/* Top + bottom edge fade so grid blends into page */}
+        <div className="absolute inset-x-0 top-0 h-16 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(6,14,24,0.7), transparent)" }} />
+        <div className="absolute inset-x-0 bottom-0 h-16 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(6,14,24,0.7), transparent)" }} />
         <div className="container relative z-10">
           <FadeSection>
 
@@ -621,7 +716,7 @@ export default function Home() {
                     <img
                       src="/map-new.webp"
                       alt="Route Comparison: Gulf to Andaman — Coast to Coast Marine Transportation Thailand"
-                      style={{ width: "70%", height: "auto", objectFit: "contain", display: "block", margin: "0 auto" }}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                     />
                   </div>
                   {/* Savings summary below map */}
