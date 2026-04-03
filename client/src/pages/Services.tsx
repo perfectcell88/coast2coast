@@ -151,8 +151,10 @@ export default function Services() {
           display: "flex",
           alignItems: "flex-end",
           backgroundImage: "url('/gallery/5.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 40%",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundColor: "#0d1e2e",
         }}
       >
         <div

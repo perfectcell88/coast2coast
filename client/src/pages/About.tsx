@@ -82,35 +82,16 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <p className="font-mono-accent text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#2dd4bf" }}>About Us</p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
+            <h1 className="font-display text-5xl md:text-6xl font-bold" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}>
               Coast to Coast Marine<br />Transportation Thailand
             </h1>
-            <p className="text-xl max-w-3xl leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
-              Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co., Ltd.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              {["Powerboats", "Keel Yachts", "Catamarans", "Both Directions"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-1.5 rounded-full text-sm font-medium"
-                  style={{
-                    background: "rgba(14,116,144,0.35)",
-                    border: "1px solid rgba(45,212,191,0.4)",
-                    color: "#a5f3fc",
-                    backdropFilter: "blur(8px)",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
 
       {/* ── PHUKET MARINE ORACLE — full-width cinematic section ── */}
       <section
-        className="relative py-28 md:py-36 overflow-hidden"
+        className="relative py-16 md:py-24 overflow-hidden"
         style={{
           background: "linear-gradient(160deg, #2c3e50 0%, #2c3e50 55%, #2a4a5e 100%)",
         }}
@@ -125,6 +106,26 @@ export default function About() {
         <div className="container relative z-10">
           <FadeSection>
             <motion.div variants={fadeUp} className="max-w-5xl mx-auto text-center">
+
+              {/* Subtitle + tags moved here from hero for readability */}
+              <p className="text-xl md:text-2xl leading-relaxed mb-8 mx-auto" style={{ color: "rgba(255,255,255,0.82)", maxWidth: "760px" }}>
+                Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co., Ltd.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 mb-14">
+                {["Powerboats", "Keel Yachts", "Catamarans", "Both Directions"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-4 py-1.5 rounded-full text-sm font-medium"
+                    style={{
+                      background: "rgba(14,116,144,0.35)",
+                      border: "1px solid rgba(45,212,191,0.4)",
+                      color: "#a5f3fc",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
               {/* Logo mark */}
               <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 overflow-hidden"
