@@ -62,11 +62,21 @@ export default function About() {
           height: "420px",
           display: "flex",
           alignItems: "flex-end",
-          backgroundImage: "url('/gallery/4.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 50%",
         }}
       >
+        {/* Full image squashed to fill banner — no cropping */}
+        <img
+          src="/gallery/4.webp"
+          alt="Coast to Coast Marine Transportation Thailand"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "fill",
+            display: "block",
+          }}
+        />
         <div
           className="absolute inset-0"
           style={{
