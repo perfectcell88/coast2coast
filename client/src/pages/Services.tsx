@@ -150,13 +150,21 @@ export default function Services() {
           height: "420px",
           display: "flex",
           alignItems: "flex-end",
-          backgroundImage: "url('/gallery/5.webp')",
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          backgroundColor: "#0d1e2e",
         }}
       >
+        {/* Full image squashed to fill banner — no cropping */}
+        <img
+          src="/gallery/2.webp"
+          alt="Coast to Coast Marine Transportation Services"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "fill",
+            display: "block",
+          }}
+        />
         <div
           className="absolute inset-0"
           style={{

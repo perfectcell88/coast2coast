@@ -108,7 +108,7 @@ export default function About() {
             <motion.div variants={fadeUp} className="max-w-5xl mx-auto text-center">
 
               {/* Subtitle + tags moved here from hero for readability */}
-              <p className="text-xl md:text-2xl leading-relaxed mb-8 mx-auto" style={{ color: "rgba(255,255,255,0.82)", maxWidth: "760px" }}>
+              <p className="text-2xl md:text-3xl leading-relaxed mb-8 mx-auto font-medium" style={{ color: "#ffffff", maxWidth: "820px" }}>
                 Thailand's specialist in safe, professional oversized vessel relocation between the Gulf of Thailand and the Andaman Sea — a subsidiary of Phuket Marine Oracle Co., Ltd.
               </p>
               <div className="flex flex-wrap justify-center gap-4 mb-14">
