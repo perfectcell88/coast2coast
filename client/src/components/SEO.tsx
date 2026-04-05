@@ -15,7 +15,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_NAME = "Coast to Coast Marine Transportation Thailand";
-const BASE_URL  = "https://coasttocoast-thailand.com";
+const BASE_URL  = "https://www.coasttocoastmarinetransportationthailand.com";
 // A hosted OG image — use the logo mark as a reliable fallback
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
